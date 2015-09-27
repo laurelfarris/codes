@@ -1,0 +1,75 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+
+\title{ASTR 656}
+\author{Laurel Farris}
+\date{\today}
+
+% Increase margins (manually)
+  % Sides (odd- and even-numbered pages)
+    \addtolength{\oddsidemargin}{-0.875in}
+    \addtolength{\evensidemargin}{-0.875in}
+    \addtolength{\textwidth}{1.75in}
+  % Top/bottom
+    \addtolength{\topmargin}{-0.875in}
+    \addtolength{\textheight}{1.75in}
+
+\begin{document}    % Put \end{document} last line of doc.
+
+\maketitle
+
+\begin{abstract}
+This is the paper's abstract \ldots  % \ldots....?
+\end{abstract}
+
+\section{Introduction}
+Type intro here
+\paragraph{Outline}  %?????
+\section{Observations}
+  \subsection{The Data}
+  text text text
+\section{Previous work}\label{previous work}
+   % \label to refer to this section later!!!!
+\section{Results}\label{results}
+\section{Conclusions}\label{conclusions}
+We worked hard, and achieved very little.
+
+
+
+
+% Insert figure
+
+\begin{figure}[h]   % h - 'here' as in put the figure where I tell you to.
+\centering
+\includegraphics[width=5.0in]{../q01/fig1.jpg}
+\caption{This plot shows epsilon and luminosity as a function of radius.}
+\label{fig1}
+\end{figure}
+
+Figure \ref{fig1}  shows that the luminosity only changes where epsilon has a value
+greater than zero. When epsilon falls back to zero, the luminosity is again
+constant at its maximum value.
+
+
+% write out a fraction
+$\frac{1}{4}$   % to print 1/4 as a nice fraction
+% Put dollar signs around any symbol, e.g. $L$ to put it in equation,
+%  or italic form within text (don't have to make equation).
+
+
+% Equations
+\begin{equation}
+  something...
+\end{equation}
+
+% Other useful things
+
+\newpage  % Jump to a new page after previous section
+
+% Bibliography
+
+\bibliographystyle{abbrv}
+\bibliography{main}
+
+\end{document}
+
