@@ -22,16 +22,4 @@ Also playing with color.
 * How about now??
   * weird...
 
-* <CR>
-huh
 
-
-* I'm typing...
-not working...
-
-
-* typing things
-not working...
-
-* <CR>
-fjeir
