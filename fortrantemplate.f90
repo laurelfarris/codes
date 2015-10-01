@@ -1,6 +1,9 @@
 ! Compiling:
-! f95 -o program_name.f90
-
+! cl> f95 -o executable_name program_name.f90
+! -o option lets you decide what the name of the executable is...
+!    in this case, 'executable_name'. Without this option, default is
+!    a.out
+! -c options just compiles; creates program_name.o
 
 
 PROGRAM program_name

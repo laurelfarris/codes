@@ -56,8 +56,9 @@ else:
 ==, !=, >, >=, <, <=, and, or, not
 
 # Looping
-for i in (list):
-    statements
+# for i in (list):
+#    statements
+for i in range(1,x):  # ~ for i=1,x
 
 #Looping with condition
 while (condition):
