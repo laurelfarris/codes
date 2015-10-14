@@ -11,6 +11,11 @@ def main():
 if __name__=="__main__":  # flexible way of running routines
     main()
 
+# Things to import (packages?)
+import math [as shortername]
+print math.sqrt(4)
+circumference = 2*math.pi*radius
+print math.exp(2) --> get e^2
 
 # line continuation:
 implicit continuation using expression in parentheses...?
@@ -58,7 +63,8 @@ else:
 # Looping
 # for i in (list):
 #    statements
-for i in range(1,x):  # ~ for i=1,x
+# PYTHON IS NOT INCLUSIVE! 
+for i in range(1,x):  # ~ for i=1,x-1
 
 #Looping with condition
 while (condition):
