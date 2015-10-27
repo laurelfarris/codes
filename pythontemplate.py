@@ -4,6 +4,11 @@
 #   or cl> ./program_name.py IF you have the top line in your program
 #     (must be the first line, literally)
 
+# Resources
+astropy.org
+stackoverflow
+rgex
+
 # To allow import:
 def main():
     # program statements
@@ -11,11 +16,13 @@ def main():
 if __name__=="__main__":  # flexible way of running routines
     main()
 
+
 # Things to import (packages?)
 import math [as shortername]
 print math.sqrt(4)
 circumference = 2*math.pi*radius
 print math.exp(2) --> get e^2
+
 
 # line continuation:
 implicit continuation using expression in parentheses...?
@@ -23,9 +30,18 @@ implicit continuation using expression in parentheses...?
 # variables: not declared
 
 # arrays
-numpy.zeros(n,m)
-numpy.array([[a,b,c,d][e,f,g]])
-numpy.arrange(n)
+import numpy as np
+np.zeros(n,m)
+np.array([[a,b,c,d][e,f,g]])
+np.arange(n)
+array.append(newValue)
+A = [1,2,3] # --> [1,2,3]
+print A*2 # --> [1,2,3,1,2,3]... not [2,4,6] as expected
+B = np.array([1,2,3]) # --> [1 2 3]
+B*2  # --> [2 4 6]
+np.ndarray(...) # two-dimensional array
+np.append...?
+
 
 # dynamic memory allocation
 
@@ -33,6 +49,10 @@ numpy.arrange(n)
 (dictionaries, see also lists)
 var={'name':'test', ra:1.}
 print var['name'], var['test']
+# dictionaries are indexed by keys, rather than numbers.
+# Keys can be any immutable type. Can't use lists, since they can be modified.
+# 
+
 
 # structure arrays
 sarray = np.zeros(nelem,
@@ -95,7 +115,11 @@ data = numpy.loadtxt(file,
 
  data = astropy.io.ascii(file)
 
-
+# plotting...?
+.csv file --> ?
+pyplot.show()
+pyplot.savefig('tmp.pdf')
+  --> rewritten each time!
 
 
 
