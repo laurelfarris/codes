@@ -94,9 +94,30 @@ while (condition):
 print 'characters', string, variable
 
 # Formatted output
+
+## General syntax:
+template.format(var_1,var_2,...var_n)
+# template:
+#'{[field][!conversion]:[spec]}'
+#	field = index of variables listed in .format()
+#	conversion = int, float, string, etc.
+#	spec = specifier
+#		[[fill]align][sign][#][0][minwidth][.prec][type]
+#			align: 
+#				<(left,default)
+#				>(right) 
+#				=(padding after sign, before digits)
+#				^(center)
+#			0: zero padding (same as '=' and fill char of 0)
+#			type: e,f,g(general)
+
+# Including text:
+print 'Variable 2 is {1} and variable 1 is {0}'.format(var_1,var_2)
+
 '{:8d}asdfad{:8.2f}'.format(i,f)
 formats: {:nd},{:n.nf},{:ns} 
-#    n-number, d-integer, f-float, s-string
+#    n-number (width.precision), d-integer, f-float, s-string
+#-------------- How to use a variable for width?? ------------------#
 
 # simple reading from terminal and file
 terminal:
