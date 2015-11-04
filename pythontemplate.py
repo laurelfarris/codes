@@ -42,6 +42,7 @@ B*2  # --> [2 4 6]
 np.ndarray(...) # two-dimensional array
 np.append...?
 
+num_elements = len(Array)
 
 # dynamic memory allocation
 
