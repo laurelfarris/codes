@@ -1,37 +1,4 @@
-# codes
-coding templates
-
-Also playing with color.
-    * and how to take good notes with vi.
-    * Anythoughts
-        * this is how I do bullets.
-        * apparently they don't always change colors
-            - what about hyphens?
-            - They don't change color either
-        * back to the asterisck (sp???)
-    * maybe use a different symbol?
-
-    # what does the pound sign do?
-    # it was pink at the top...
-
-# It's pink at the beginning of the line...
-# Hmmm...
-
- # Not anymore.
-
-* How about now??
-  * weird...
-
-* <CR>
-huh
-
-
-* I'm typing...
-not working...
-
-
-* typing things
-not working...
-
-* <CR>
-fjeir
+11/07/15
+Each of these templates contains the basic syntax of coding in
+Fortran, IDL, C, and Python, as well as that of LaTeX and HTML. It is
+definitely a work in progress... 
