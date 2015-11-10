@@ -75,6 +75,8 @@ var={'name':'test', ra:1.}
 print var['name'], var['test']
 # dictionaries are indexed by keys, rather than numbers.
 # Keys can be any immutable type. Can't use lists, since they can be modified.
+profile = {'density':rho_r, 'mass':mass, ...}
+density = np.array(profile['density'])
 
 # structure arrays
 sarray = np.zeros(nelem,
@@ -104,8 +106,8 @@ else:
 ==, !=, >, >=, <, <=, and, or, not
 
 # Looping
-# for i in (list):
-#    statements
+ for i in (list):
+    statements
 # PYTHON IS NOT INCLUSIVE! 
 for i in range(1,x):  # ~ for i=1,x-1
 
