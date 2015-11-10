@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+#export PYTHONPATH="${PYTHONPATH}:/new/path
+
 # not compiled, execute with cl> python program_name.py
 #   or cl> ./program_name.py IF you have the top line in your program
 #     (must be the first line, literally)
@@ -23,6 +25,8 @@ print math.sqrt(4)
 circumference = 2*math.pi*radius
 print math.exp(2) --> get e^2
 
+import pdb
+pdb.set_trace() #equivalent of 'STOP' in IDL
 
 # line continuation:
 implicit continuation using expression in parentheses...?
@@ -34,13 +38,17 @@ import numpy as np
 np.zeros(n,m)
 np.array([[a,b,c,d][e,f,g]])
 np.arange(n)
+np.ndarray(...) # two-dimensional array
+np.append...?
+np.linspace
+np.logspace
+
+# lists
 array.append(newValue)
 A = [1,2,3] # --> [1,2,3]
 print A*2 # --> [1,2,3,1,2,3]... not [2,4,6] as expected
 B = np.array([1,2,3]) # --> [1 2 3]
 B*2  # --> [2 4 6]
-np.ndarray(...) # two-dimensional array
-np.append...?
 
 num_elements = len(Array)
 
@@ -52,8 +60,6 @@ var={'name':'test', ra:1.}
 print var['name'], var['test']
 # dictionaries are indexed by keys, rather than numbers.
 # Keys can be any immutable type. Can't use lists, since they can be modified.
-# 
-
 
 # structure arrays
 sarray = np.zeros(nelem,
@@ -77,6 +83,7 @@ if (condition):
 else:
     statements
     (extent of conditional statements specified by indentation)
+    pass # need to have 'something' here.
 
 # Conditions (logical operators)
 ==, !=, >, >=, <, <=, and, or, not
