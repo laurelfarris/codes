@@ -49,6 +49,21 @@ A = [1,2,3] # --> [1,2,3]
 print A*2 # --> [1,2,3,1,2,3]... not [2,4,6] as expected
 B = np.array([1,2,3]) # --> [1 2 3]
 B*2  # --> [2 4 6]
+<<<<<<< HEAD
+=======
+np.ndarray(...) # two-dimensional array
+np.append...?
+x = np.linspace(0,9,100) #0-9 with 100 increments
+y1 = x**2
+# just like with the math package, can't simply do sqrt(x). Need
+# np.sqrt or math.sqrt if not dealing with arrays.
+y2 = np.sqrt(x)
+# Also this doesn't work:
+x = [1,2,3]
+y = x**2
+# because x is a list, not an array... even though it's just numbers.
+
+>>>>>>> e65b08cb7892365af863d0202be5fe03115aa38c
 
 num_elements = len(Array)
 

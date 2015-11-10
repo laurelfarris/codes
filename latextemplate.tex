@@ -40,19 +40,18 @@ We worked hard, and achieved very little.
 
 
 
-% Insert figure
+%% Figure
 
 \begin{figure}[h]   % placement specifiers[htbp!]: here,top,bottom,?,? 
 \centering
-\includegraphics[width=5.0in]{../q01/fig1.jpg}
-\caption{This plot shows epsilon and luminosity as a function of radius.}
-\label{fig1}
+\includegraphics[width=5.0in]{GreekSymbols.jpg}
+\caption{How to insert greek symbols in LaTeX}
+\label{greek}
 \end{figure}
 
-Figure \ref{fig1}  shows that the luminosity only changes where epsilon has a value
-greater than zero. When epsilon falls back to zero, the luminosity is again
-constant at its maximum value. Figure~\ref{fig1} is how I would write
-that if I didn't want a space between "Figure" and the number.
+Figure~\ref{greek} shows how to insert greek symbols into a latex
+document. Note: the '~' symbol prevents white space from being
+inserted between the text and the figure number.
 
 % Table
 \begin{table}[h]
@@ -70,11 +69,26 @@ $n$ & $\xi_1$ & $\rho_c/\rho$ & $N_{n}$ & $W_n$ & $\Theta_n$
 \label{table:nonlin}
 \end{table}
 
+%% Maths!!
 
-% write out a fraction
+% write out a fraction inside text
 $\frac{1}{4}$   % to print 1/4 as a nice fraction
 % Put dollar signs around any symbol, e.g. $L$ to put it in equation,
 %  or italic form within text (don't have to make equation).
+
+% Equations
+\begin{equation}
+  something...
+\end{equation}
+
+% Remove italics from certain parts of the text
+\textrm{text}
+
+% Adust size of brackets and parentheses (in increasing order)
+\big(
+\Big(
+\bigg(
+\Bigg(
 
 % aligns the '=' signs for lots of equations
 \begin{align*}
@@ -86,17 +100,24 @@ y_{n+1} &=
 y_n+\frac{1}{6}k_1+\frac{1}{3}k_2+\frac{1}{3}k_3+\frac{1}{6}k_4+O(h^5)\\
 \end{align*}
 
-% Equations
-\begin{equation}
-  something...
-\end{equation}
 
 % numbering: 1.1, 1.2 --> 1.2.1,1.2.2, etc
 \begin{enumerate}[label*=\arabic*.]
+\begin{enumerate}[I] % for roman numerals
+\begin{enumerate}[I.] % || followed by a period
+\begin{enumerate}[(a)] % you get the idea...
 
-% Other useful things
+% Spacing
 \\ new line
+\hspace % horizontal space
+\hspace{20 mm} % Horizontal blank space equal to 20 mm
+\vspace % vertical space
 \newpage  % Jump to a new page after previous section
+\noindent % exactly what it says... lovely
+
+% Color
+\textcolor{red}{I want the text in the brackets to be red.}
+
 
 % Bibliography
 
