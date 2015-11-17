@@ -36,10 +36,11 @@ implicit continuation using expression in parentheses...?
 # arrays
 import numpy as np
 np.zeros(n,m)
+np.array(n) # creates an array that consists of n, NOT LENGTH n
 np.array([[a,b,c,d][e,f,g]])
-np.arange(n)
+np.arange(n) # [0,1,2,...,n-1]
 np.ndarray(...) # two-dimensional array
-np.append...?
+np.append(array,what_to_append)
 np.linspace
 np.logspace
 
@@ -167,7 +168,7 @@ pyplot.show()
 pyplot.savefig('tmp.pdf')
   --> rewritten each time!
 
-
+plt.xlabel('labelname',fontsize=14,color='red')
 
 
 
