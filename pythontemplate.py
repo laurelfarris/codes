@@ -167,10 +167,16 @@ data = numpy.loadtxt(file,
 pyplot.show()
 pyplot.savefig('tmp.pdf')
   --> rewritten each time!
-
 plt.xlabel('labelname',fontsize=14,color='red')
 
+# axes objects
 
+fig = plt.figure()
+for i in range(0,some_number):
+    ax = fig.add_subplot(n,m,i+1)
+
+ax.tick_params(axis=['x'|'y'|'both'],labelsize='large')
+ax.ticklabel_format(style='sci',
 
 
 
