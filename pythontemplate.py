@@ -180,7 +180,3 @@ ax.tick_params(axis=['x'|'y'|'both'],labelsize='large')
 ax.ticklabel_format(style='sci',
 
 
-
-
-
-
