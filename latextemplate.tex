@@ -42,7 +42,7 @@ We worked hard, and achieved very little.
 
 %% Figure
 
-\begin{figure}[h]   % placement specifiers[htbp!]: here,top,bottom,?,? 
+\begin{figure}[h]   % placement specifiers[htbp!]: here,top,bottom,?,?
 \centering
 \includegraphics[width=5.0in]{GreekSymbols.jpg}
 \caption{How to insert greek symbols in LaTeX}
@@ -59,7 +59,7 @@ inserted between the text and the figure number.
 \centering
 \begin{tabular}{ c c c c c c c c c  }
  \hline\hline
-$n$ & $\xi_1$ & $\rho_c/\rho$ & $N_{n}$ & $W_n$ & $\Theta_n$ 
+$n$ & $\xi_1$ & $\rho_c/\rho$ & $N_{n}$ & $W_n$ & $\Theta_n$
 & $\rho_c[g\,cm^{-3}]$ & $P_c[dyne\,cm^{-2}]$ & $T_c[K]$ \\
 \hline
 4.5 & 31.841 & 6187.500 & 0.658 & 4917.415 & 3.329 & 8718.704 &
@@ -100,7 +100,6 @@ y_{n+1} &=
 y_n+\frac{1}{6}k_1+\frac{1}{3}k_2+\frac{1}{3}k_3+\frac{1}{6}k_4+O(h^5)\\
 \end{align*}
 
-
 % numbering: 1.1, 1.2 --> 1.2.1,1.2.2, etc
 \begin{enumerate}[label*=\arabic*.]
 \begin{enumerate}[I] % for roman numerals
@@ -116,11 +115,12 @@ y_n+\frac{1}{6}k_1+\frac{1}{3}k_2+\frac{1}{3}k_3+\frac{1}{6}k_4+O(h^5)\\
 \noindent % exactly what it says... lovely
 
 % Color
+\usepackage{xcolor} % 'Paper' color
+\pagecolor{yellow!30}
+\usepackage{color} % text color
 \textcolor{red}{I want the text in the brackets to be red.}
 
-
 % Bibliography
-
 \bibliographystyle{abbrv}
 \bibliography{main}
 

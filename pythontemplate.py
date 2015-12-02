@@ -40,6 +40,7 @@ np.array(n) # creates an array that consists of n, NOT LENGTH n
 np.array([[a,b,c,d][e,f,g]])
 np.arange(n) # [0,1,2,...,n-1]
 np.ndarray(...) # two-dimensional array
+np.argmax(x) # returns INDEX of max value of x array
 np.append(array,what_to_append)
 np.linspace
 np.logspace
@@ -109,7 +110,7 @@ else:
 # Looping
  for i in (list):
     statements
-# PYTHON IS NOT INCLUSIVE! 
+# PYTHON IS NOT INCLUSIVE!
 for i in range(1,x):  # ~ for i=1,x-1
 
 #Looping with condition
@@ -129,9 +130,9 @@ template.format(var_1,var_2,...var_n)
 #	conversion = int, float, string, etc.
 #	spec = specifier
 #		[[fill]align][sign][#][0][minwidth][.prec][type]
-#			align: 
+#			align:
 #				<(left,default)
-#				>(right) 
+#				>(right)
 #				=(padding after sign, before digits)
 #				^(center)
 #			0: zero padding (same as '=' and fill char of 0)
@@ -141,7 +142,7 @@ template.format(var_1,var_2,...var_n)
 print 'Variable 2 is {1} and variable 1 is {0}'.format(var_1,var_2)
 
 '{:8d}asdfad{:8.2f}'.format(i,f)
-formats: {:nd},{:n.nf},{:ns} 
+formats: {:nd},{:n.nf},{:ns}
 #    n-number (width.precision), d-integer, f-float, s-string
 #-------------- How to use a variable for width?? ------------------#
 
@@ -157,7 +158,7 @@ for line in f:
   print line
 
 # higher level file reading routines
-data = numpy.loadtxt(file, 
+data = numpy.loadtxt(file,
  dtype=[('name','a12'),('ra',f4),('dec','f4')])
 
  data = astropy.io.ascii(file)

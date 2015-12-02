@@ -4,26 +4,15 @@ sharelatex.com/learn/Beamer
 %% Set the document class as beamer
 \documentclass{beamer}
 \documentclass[17pt]{beamer} % change overall font size
+\usepackage{graphicx} % Always use this for images
 
-%% Set the font
-\usepackage{bookman}
+%% Fonts
+
 % common fonts: mathptmx, helvet, avat, bookman, chancery, charter, culer, mathtime,
 % mathptm, newcent, palatino, pifont and utopia.
 
-
-%\documentclass[bigger]{beamer} %for bg pic...'bigger' option?
-%\usepackage[utf8]{inputenc}
-%\usepackage[T1]{fontenc}
-\usepackage{graphicx} % Always use this for images
-%\usepackage{tikz}%??
-
-%\usetheme{Hannover}   % Do I really want to do this?
-
-%This goes before frame, not within
-%\usebackgroundtemplate%
-%{%
-%    \includegraphics[width=\paperwidth,height=paperheight]{pluto.png}%
-%}
+\usefonttheme{serif}
+\setbeamerfont{frametitle}{series=\bfseries} % Frame titles will be bold
 
 \DeclareGraphicsExtensions{.pdf,.png,.jpg} % Order of preference
 % Don't include extension when inserting pics! Compilers will
@@ -48,8 +37,8 @@ sharelatex.com/learn/Beamer
 
 
 \begin{frame}
-	\frametitle{Figure Template}
-    \includegraphics[]{pluto} 
+    \frametitle{Figure Template}
+    \includegraphics[]{pluto}
 
 %Other options!!!
 
@@ -83,14 +72,14 @@ sharelatex.com/learn/Beamer
 
 
 \begin{frame}
-	\frametitle{Timeline}
-	Here is a timeline from the date Pluto was discovered to the date
+    \frametitle{Timeline}
+    Here is a timeline from the date Pluto was discovered to the date
     New Horizons flew past.
 \end{frame}
 
 \begin{frame}
-	\frametitle{Science Goals}
-	This is what NH hoped to acheive, and how meeting these goals
+    \frametitle{Science Goals}
+    This is what NH hoped to acheive, and how meeting these goals
     would contribute to planetary science in general solar system
     formation and evolution, etc.
     \begin{enumerate}
@@ -108,7 +97,7 @@ sharelatex.com/learn/Beamer
 
 \begin{frame}
 	\frametitle{Multiple columns}
-	\begin{columns}[c] %c-centered vertical alignment (t-top centered) 
+	\begin{columns}[c] %c-centered vertical alignment (t-top centered)
         \column{.45\textwidth} %left column and width
         \textbf{Heading}
         \begin{enumerate}
