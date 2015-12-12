@@ -75,6 +75,8 @@ num_elements = len(Array)
 (dictionaries, see also lists)
 var={'name':'test', ra:1.}
 print var['name'], var['test']
+dicname = { 'A':[1,2,3], 'B':[2,4,6], 'C':[3,9,15] }
+print dicname
 # dictionaries are indexed by keys, rather than numbers.
 # Keys can be any immutable type. Can't use lists, since they can be modified.
 profile = {'density':rho_r, 'mass':mass, ...}
