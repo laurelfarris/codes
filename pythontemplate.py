@@ -165,7 +165,10 @@ data = numpy.loadtxt(file,
 
  data = astropy.io.ascii(file)
 
-# plotting...?
+# plotting
+
+import matplotlib.pyplot as plt
+
 .csv file --> ?
 pyplot.show()
 pyplot.savefig('tmp.pdf')
