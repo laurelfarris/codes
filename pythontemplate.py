@@ -128,17 +128,17 @@ print 'characters', string, variable
 template.format(var_1,var_2,...var_n)
 # template:
 #'{[field][!conversion]:[spec]}'
-#	field = index of variables listed in .format()
-#	conversion = int, float, string, etc.
-#	spec = specifier
-#		[[fill]align][sign][#][0][minwidth][.prec][type]
-#			align:
-#				<(left,default)
-#				>(right)
-#				=(padding after sign, before digits)
-#				^(center)
-#			0: zero padding (same as '=' and fill char of 0)
-#			type: e,f,g(general)
+field = index of variables listed in .format()
+conversion = int, float, string, etc.
+spec = specifier
+[[fill]align][sign][#][0][minwidth][.prec][type]
+align:
+<(left,default)
+>(right)
+=(padding after sign, before digits)
+^(center)
+0: zero padding (same as '=' and fill char of 0)
+type: e,f,g(general)
 
 # Including text:
 print 'Variable 2 is {1} and variable 1 is {0}'.format(var_1,var_2)
@@ -177,6 +177,9 @@ plt.xlabel('labelname',fontsize=14,color='red')
 fig = plt.figure()
 for i in range(0,some_number):
     ax = fig.add_subplot(n,m,i+1)
+    # n = number of plots vertically/horizontally
+    # m = number of plots vertically/horizontally
+    # i + 1 = plot being defined as 'ax'
 
 ax.tick_params(axis=['x'|'y'|'both'],labelsize='large')
 ax.ticklabel_format(style='sci',
