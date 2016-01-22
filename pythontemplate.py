@@ -33,7 +33,12 @@ implicit continuation using expression in parentheses...?
 
 # variables: not declared
 
-# arrays
+# lists... similar to arrays, but can't do mathematical operations
+x = [0,1,2,3,4]
+x = range(5) # Same as above... note that there are 5 elements, not
+             # including the number 5
+
+# numerical arrays
 import numpy as np
 np.zeros(n,m)
 np.array(n) # creates an array that consists of n, NOT LENGTH n
@@ -44,6 +49,9 @@ np.argmax(x) # returns INDEX of max value of x array
 np.append(array,what_to_append)
 np.linspace
 np.logspace
+np.sum(array)
+np.roll(x,2) # (~IDL's SHIFT); shifts array elements 2 to the right 
+  --> [3,4,0,1,2] # note x is still the same, unless do x = np.roll(...)
 
 # lists
 array.append(newValue)
@@ -58,7 +66,7 @@ np.append...?
 x = np.linspace(0,9,100) #0-9 with 100 increments
 y1 = x**2
 # just like with the math package, can't simply do sqrt(x). Need
-# np.sqrt or math.sqrt if not dealing with arrays.
+# np.sqrt (or math.sqrt if not dealing with arrays).
 y2 = np.sqrt(x)
 # Also this doesn't work:
 x = [1,2,3]
