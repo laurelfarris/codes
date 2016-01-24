@@ -25,6 +25,11 @@
 This is the paper's abstract \ldots  % \ldots....?
 \end{abstract}
 
+% Sections
+% \section{Section 1}
+% \subsection*{subsection, not numbered}
+% \subsubsection*{... also not numbered}
+
 \section{Introduction}
 Type intro here
 \paragraph{Outline}  %?????
@@ -49,9 +54,9 @@ We worked hard, and achieved very little.
 \label{greek}
 \end{figure}
 
-Figure~\ref{greek} shows how to insert greek symbols into a latex
-document. Note: the '~' symbol prevents white space from being
-inserted between the text and the figure number.
+%Figure~\ref{greek} shows how to insert greek symbols into a latex
+%document. Note: the '~' symbol prevents white space from being
+%inserted between the text and the figure number.
 
 % Table
 \begin{table}[h]
@@ -73,22 +78,23 @@ $n$ & $\xi_1$ & $\rho_c/\rho$ & $N_{n}$ & $W_n$ & $\Theta_n$
 
 % write out a fraction inside text
 $\frac{1}{4}$   % to print 1/4 as a nice fraction
-% Put dollar signs around any symbol, e.g. $L$ to put it in equation,
-%  or italic form within text (don't have to make equation).
+% Put dollar signs around any symbol, e.g. $L$ to put it in equation
+$G = 6.67\times10^{-8}$ [cgs] % \times makes nice multiplication symbol
+\int % indefinite integral
 
 % Equations
-\begin{equation}
-  something...
+\begin{equation}* % Remove '*' to include eq. number (1)
+    \bigg(\frac{1}{9}\bigg)
 \end{equation}
+% \big( \Big( \bigg( \Bigg(... or [,{, etc.
+\begin{equation*} % Need \usepackage{amsmath} for this...where does * go?
+\end{equation*}
 
-% Remove italics from certain parts of the text
-\textrm{text}
+%% Symbols
+\AA{} % Angstrom (does not go in between $s)
 
-% Adust size of brackets and parentheses (in increasing order)
-\big(
-\Big(
-\bigg(
-\Bigg(
+$\textrm{some\ text}$ % Remove italics, and '\' puts space between words
+
 
 % aligns the '=' signs for lots of equations
 \begin{align*}
@@ -101,10 +107,10 @@ y_n+\frac{1}{6}k_1+\frac{1}{3}k_2+\frac{1}{3}k_3+\frac{1}{6}k_4+O(h^5)\\
 \end{align*}
 
 % numbering: 1.1, 1.2 --> 1.2.1,1.2.2, etc
-\begin{enumerate}[label*=\arabic*.]
-\begin{enumerate}[I] % for roman numerals
-\begin{enumerate}[I.] % || followed by a period
-\begin{enumerate}[(a)] % you get the idea...
+%\begin{enumerate}[label*=\arabic*.]
+%\begin{enumerate}[I] % for roman numerals
+%\begin{enumerate}[I.] % || followed by a period
+%\begin{enumerate}[(a)] % you get the idea...
 
 % Spacing
 \\ new line
@@ -115,14 +121,41 @@ y_n+\frac{1}{6}k_1+\frac{1}{3}k_2+\frac{1}{3}k_3+\frac{1}{6}k_4+O(h^5)\\
 \noindent % exactly what it says... lovely
 
 % Color
-\usepackage{xcolor} % 'Paper' color
-\pagecolor{yellow!30}
-\usepackage{color} % text color
-\textcolor{red}{I want the text in the brackets to be red.}
+%\usepackage{xcolor} % 'Paper' color
+%\pagecolor{yellow!30}
+%\usepackage{color} % text color
+%\textcolor{red}{I want the text in the brackets to be red.}
+% Pre-defined colors: white, black, red, green, blue, cyan, magenta, yellow.
+
+% Insert hyperlink
+For more information, visit \textcolor{blue}{\url{http://google.com}}
+% replace link with text
+vist \textcolor{blue}{\href{http://google.com}{this link}}
 
 % Bibliography
-\bibliographystyle{abbrv}
-\bibliography{main}
+%\bibliographystyle{abbrv}
+%\bibliography{main}
+
+%% Makefiles
+% target:
+%   pdflatex doc
+%   bibtex doc
+%   pdflatex doc
+%   pdflatex doc
+%% Create reffile.bib, then:
+% \begin{document}
+% \bibliographystyle{plain}
+% ... \cite{id} ...
+% \bibliography{reffile}
+% \end{document}
+
 
 \end{document}
+
+
+
+
+
+
+
 
