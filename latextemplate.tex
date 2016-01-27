@@ -80,7 +80,9 @@ $n$ & $\xi_1$ & $\rho_c/\rho$ & $N_{n}$ & $W_n$ & $\Theta_n$
 $\frac{1}{4}$   % to print 1/4 as a nice fraction
 % Put dollar signs around any symbol, e.g. $L$ to put it in equation
 $G = 6.67\times10^{-8}$ [cgs] % \times makes nice multiplication symbol
-\int % indefinite integral
+$\int$ % indefinite integral
+$\int_{x1}^{x2}$ % definite integral, between x1 and x2
+$\sqrt{abc}$ % square root
 
 % Equations
 \begin{equation}* % Remove '*' to include eq. number (1)
@@ -92,13 +94,18 @@ $G = 6.67\times10^{-8}$ [cgs] % \times makes nice multiplication symbol
 
 %% Symbols
 \AA{}   % Angstrom (does not go in between $s)
+\infty  % infinity
 \sim    % '~' 
 \approx % 'double ~'
+\propto % proportionality symbol (like alpha)
+\equiv  % like '=', but with three lines.
+\& \%   % include these symbols in document 
+        % (also precede a space with '\' when in math mode).
 
 $\textrm{some\ text}$ % Remove italics, and '\' puts space between words
 
 
-% aligns the '=' signs for lots of equations
+% aligns the '=' signs for lots of equations (need \usepackage{amsmath})
 \begin{align*}
 k_1 &= hf(x_n,y_n)\\
 k_2 &= hf(x_n+\frac{1}{2}h,y_n+\frac{1}{2}k_1)\\
@@ -114,8 +121,25 @@ y_n+\frac{1}{6}k_1+\frac{1}{3}k_2+\frac{1}{3}k_3+\frac{1}{6}k_4+O(h^5)\\
 %\begin{enumerate}[I.] % || followed by a period
 %\begin{enumerate}[(a)] % you get the idea...
 
+%----------------------------------------------------------------------%
+% To go from section numbering 0.0.1 to just 1
+% (copied from internet...not actually sure how this works).
+\usepackage{titlesec}
+\titleformat{\section}%
+  [hang]% <shape>
+  {\normalfont\bfseries\Large}% <format>
+  {}% <label>
+  {0pt}% <sep>
+  {}% <before code>
+  \renewcommand{\thesection}{}% Remove section references...
+  \renewcommand{\thesubsection}{\arabic{subsection}}%...from subsections
+  \renewcommand{\thesubsubsection}{\arabic{subsubsection}}%...from subsections
+\begin{document}
+%----------------------------------------------------------------------%
+
+
 % Spacing
-\\ new line
+\\ % new line
 \hspace % horizontal space
 \hspace{20 mm} % Horizontal blank space equal to 20 mm
 \vspace % vertical space
