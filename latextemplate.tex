@@ -42,10 +42,7 @@ Type intro here
 \section{Conclusions}\label{conclusions}
 We worked hard, and achieved very little.
 
-
-
-
-%% Figure
+%%------------------Figures------------------------------------------%%
 
 \begin{figure}[h]   % placement specifiers[htbp!]: here,top,bottom,?,?
 \centering
@@ -58,7 +55,8 @@ We worked hard, and achieved very little.
 %document. Note: the '~' symbol prevents white space from being
 %inserted between the text and the figure number.
 
-% Table
+%---------------------Tables-----------------------------------------%
+
 \begin{table}[h]
 \caption{Values for polytropic index $n$ = 4.5}
 \centering
@@ -74,7 +72,7 @@ $n$ & $\xi_1$ & $\rho_c/\rho$ & $N_{n}$ & $W_n$ & $\Theta_n$
 \label{table:nonlin}
 \end{table}
 
-%% Maths!!
+%% ----------------------------------- Maths!!----------------------%
 
 % write out a fraction inside text
 $\frac{1}{4}$   % to print 1/4 as a nice fraction
@@ -83,6 +81,7 @@ $G = 6.67\times10^{-8}$ [cgs] % \times makes nice multiplication symbol
 $\int$ % indefinite integral
 $\int_{x1}^{x2}$ % definite integral, between x1 and x2
 $\sqrt{abc}$ % square root
+$$\sum_{n=1}^{\infty} 2^{-n} = 1$$ % summation
 
 % Equations
 \begin{equation}* % Remove '*' to include eq. number (1)
@@ -90,7 +89,12 @@ $\sqrt{abc}$ % square root
 \end{equation}
 % \big( \Big( \bigg( \Bigg(... or [,{, etc.
 \begin{equation*} % Need \usepackage{amsmath} for this...where does * go?
+    \int x\textrm{d}x = 1
 \end{equation*}
+% OR
+$$\int x\textrm{d}x = 1$$ % Double $'s also make separate equation!
+
+
 
 %% Symbols
 \AA{}   % Angstrom (does not go in between $s)
@@ -101,6 +105,7 @@ $\sqrt{abc}$ % square root
 \equiv  % like '=', but with three lines.
 \& \%   % include these symbols in document 
         % (also precede a space with '\' when in math mode).
+\pm     % plus or minus (\mp for minus or plus)
 
 $\textrm{some\ text}$ % Remove italics, and '\' puts space between words
 
@@ -137,6 +142,16 @@ y_n+\frac{1}{6}k_1+\frac{1}{3}k_2+\frac{1}{3}k_3+\frac{1}{6}k_4+O(h^5)\\
 \begin{document}
 %----------------------------------------------------------------------%
 
+
+%% Headers and footers (before \begindocument)
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{text} % Top left
+\rhead{text} % Top right
+\chead{text} % Top center
+\lfoot{text} % Bottom left
+\rfoot{text} % Bottom right
+\cfoot{text} % Bottom center
 
 % Spacing
 \\ % new line
