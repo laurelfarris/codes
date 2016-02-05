@@ -4,6 +4,9 @@
 \usepackage{enumitem}
 \usepackage{amsmath}
 
+% Create your own command!
+\newcommand{\bla}{blah blah blah}
+
 \title{ASTR 656}
 \author{Laurel Farris}
 \date{\today}
@@ -16,13 +19,16 @@
   % Top/bottom
     \addtolength{\topmargin}{-0.875in}
     \addtolength{\textheight}{1.75in}
+% BETTER way to do this:
+    \usepackage{fullpage} % or
+    \usepackage[margin=1in]{geometry}
 
 \begin{document}    % Put \end{document} last line of doc.
 
 \maketitle
 
 \begin{abstract}
-This is the paper's abstract \ldots  % \ldots....?
+This is the paper's abstract \ldots
 \end{abstract}
 
 % Sections
@@ -60,6 +66,7 @@ We worked hard, and achieved very little.
 \begin{table}[h]
 \caption{Values for polytropic index $n$ = 4.5}
 \centering
+ % c=center; use l/r for left/right justify
 \begin{tabular}{ c c c c c c c c c  }
  \hline\hline
 $n$ & $\xi_1$ & $\rho_c/\rho$ & $N_{n}$ & $W_n$ & $\Theta_n$
@@ -78,6 +85,10 @@ $n$ & $\xi_1$ & $\rho_c/\rho$ & $N_{n}$ & $W_n$ & $\Theta_n$
 $\frac{1}{4}$   % to print 1/4 as a nice fraction
 % Put dollar signs around any symbol, e.g. $L$ to put it in equation
 $G = 6.67\times10^{-8}$ [cgs] % \times makes nice multiplication symbol
+% If text is bold, make math symbols bold as well:
+\textbf{This article discusses the \boldmath$\beta$ parameter}
+
+
 $\int$ % indefinite integral
 $\int_{x1}^{x2}$ % definite integral, between x1 and x2
 $\sqrt{abc}$ % square root
@@ -160,6 +171,11 @@ y_n+\frac{1}{6}k_1+\frac{1}{3}k_2+\frac{1}{3}k_3+\frac{1}{6}k_4+O(h^5)\\
 \vspace % vertical space
 \newpage  % Jump to a new page after previous section
 \noindent % exactly what it says... lovely
+
+% Center justify text
+\begin{centering}
+    Here is some text to go in the middle of my page, e.g. a title
+\end{centering}
 
 % Color
 %\usepackage{xcolor} % 'Paper' color
