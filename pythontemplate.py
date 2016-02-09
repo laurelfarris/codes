@@ -11,6 +11,8 @@ astropy.org
 stackoverflow
 rgex
 
+# 'pickle' is the equivalent of IDL's 'save'
+
 # To allow import:
 def main():
     # program statements
