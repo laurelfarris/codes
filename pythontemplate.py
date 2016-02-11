@@ -132,9 +132,10 @@ while (condition):
 # Simple output
 print 'characters', string, variable
 
-# Formatted output
-
-## General syntax:
+## Formatted output
+# > print 'the number is {:.#e|:nd|:n.nf|:ns}'.format(x)
+#    exponential, integer, float, string
+# General syntax:
 template.format(var_1,var_2,...var_n)
 # template:
 #'{[field][!conversion]:[spec]}'
