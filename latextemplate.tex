@@ -99,6 +99,7 @@ $$\sum_{n=1}^{\infty} 2^{-n} = 1$$ % summation
     \bigg(\frac{1}{9}\bigg)
 \end{equation}
 % \big( \Big( \bigg( \Bigg(... or [,{, etc.
+% BETTER:  \left( ... \right) to scale size of ()s to what's indside them
 \begin{equation*} % Need \usepackage{amsmath} for this...where does * go?
     \int x\textrm{d}x = 1
 \end{equation*}
@@ -110,11 +111,11 @@ $$\int x\textrm{d}x = 1$$ % Double $'s also make separate equation!
 %% Symbols
 \AA{}   % Angstrom (does not go in between $s)
 \infty  % infinity
-\sim    % '~' 
+\sim    % '~'
 \approx % 'double ~'
 \propto % proportionality symbol (like alpha)
 \equiv  % like '=', but with three lines.
-\& \%   % include these symbols in document 
+\& \%   % include these symbols in document
         % (also precede a space with '\' when in math mode).
 \pm     % plus or minus (\mp for minus or plus)
 
@@ -176,6 +177,10 @@ y_n+\frac{1}{6}k_1+\frac{1}{3}k_2+\frac{1}{3}k_3+\frac{1}{6}k_4+O(h^5)\\
 \scriptsize
 \tiny
 
+% Font style
+\textbf{bold text}
+\emph{italics}
+\underline{underlined text}
 
 % Spacing
 \\ % new line
@@ -200,7 +205,7 @@ y_n+\frac{1}{6}k_1+\frac{1}{3}k_2+\frac{1}{3}k_3+\frac{1}{6}k_4+O(h^5)\\
 
 % Define your own colors!
 \usepackage[usenames, dvipsnames]{color}
- 
+
  \definecolor{mypink1}{rgb}{0.858, 0.188, 0.478}
  \definecolor{mypink2}{RGB}{219, 48, 122}
  \definecolor{mypink3}{cmyk}{0, 0.7808, 0.4429, 0.1412}
