@@ -88,7 +88,6 @@ $G = 6.67\times10^{-8}$ [cgs] % \times makes nice multiplication symbol
 % If text is bold, make math symbols bold as well:
 \textbf{This article discusses the \boldmath$\beta$ parameter}
 
-
 $\int$ % indefinite integral
 $\int_{x1}^{x2}$ % definite integral, between x1 and x2
 $\sqrt{abc}$ % square root
@@ -107,8 +106,7 @@ $$\sum_{n=1}^{\infty} 2^{-n} = 1$$ % summation
 $$\int x\textrm{d}x = 1$$ % Double $'s also make separate equation!
 
 
-
-%% Symbols
+%% ----------------------------------- Symbols----------------------%
 \AA{}   % Angstrom (does not go in between $s)
 \infty  % infinity
 \sim    % '~'
@@ -188,7 +186,13 @@ y_n+\frac{1}{6}k_1+\frac{1}{3}k_2+\frac{1}{3}k_3+\frac{1}{6}k_4+O(h^5)\\
 \hspace{20 mm} % Horizontal blank space equal to 20 mm
 \vspace % vertical space
 \newpage  % Jump to a new page after previous section
-\noindent % exactly what it says... lovely
+\noindent % exactly what it says, but use \setlength{\parindent}{0em}
+\setlist[1]{itemsep=-2pt} %Adjust space between items in lists
+        % \usepackage{enumitem}
+        % Not sure what the option in brackets is doing.
+\begin{itemize}[noitemsep,topsep=0pt]
+        % No space between items, no space between text and list, resp.
+        % Can also add this to \setlist in preamble to apply globally
 
 % Center justify text
 \begin{centering}
