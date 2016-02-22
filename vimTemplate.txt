@@ -1,4 +1,6 @@
 
+set ignorecase ;; in .vimrc
+     ;; can add \C for a single search for case sensitive
 
 ~ ;; toggle between upper- and lower-case
 control + G  ;; shows line and column number... how to keep this?
@@ -12,3 +14,7 @@ control + G  ;; shows line and column number... how to keep this?
 computer handles tabs the same way, but note that makefiles will not
 work without actual tabs.
 :set  
+
+
+
+:edit!  Undoes all edits since last write
