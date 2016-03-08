@@ -115,27 +115,34 @@ else:
     statements
     (extent of conditional statements specified by indentation)
     pass # need to have 'something' here.
-
-# Conditions (logical operators)
+if (condition):
+    break
+else:
+    continue
+''' Conditions (logical operators) '''
 ==, !=, >, >=, <, <=, and, or, not
 
-# Looping
- for i in (list):
+''' Looping '''
+for i in (list): # i = value in list, NOT the index of each value
     statements
-# PYTHON IS NOT INCLUSIVE!
-for i in range(1,x):  # ~ for i=1,x-1
+for i in range(1,x):  # ~ for i=1,x-1, i IS the index here
 
-#Looping with condition
+''' PYTHON IS NOT INCLUSIVE! '''
+
+
+''' Looping with condition '''
 while (condition):
     statements
 
-# Simple output
+''' Simple output '''
 print 'characters', string, variable
 
-## Formatted output
-# > print 'the number is {:.#e|:nd|:n.nf|:ns}'.format(x)
-#    exponential, integer, float, string
-# General syntax:
+'''
+Formatted output
+ > print 'the number is {:.#e|:nd|:n.nf|:ns}'.format(x)
+    exponential, integer, float, string
+ General syntax:
+'''
 template.format(var_1,var_2,...var_n)
 # template:
 #'{[field][!conversion]:[spec]}'
@@ -176,8 +183,9 @@ data = numpy.loadtxt(file,
 
  data = astropy.io.ascii(file)
 
-# plotting
-
+'''
+-------------------Plotting-----------------------------
+'''
 import matplotlib.pyplot as plt
 
 .csv file --> ?
@@ -186,15 +194,18 @@ pyplot.savefig('tmp.pdf')
   --> rewritten each time!
 plt.xlabel('labelname',fontsize=14,color='red')
 
+color='#eeefff'
+
 # axes objects
 
 fig = plt.figure()
 for i in range(0,some_number):
     ax = fig.add_subplot(n,m,i+1)
-    # n = number of plots vertically/horizontally
-    # m = number of plots vertically/horizontally
-    # i + 1 = plot being defined as 'ax'
+    # n - vertical; m - horizontal; i+1 - plot being defined as 'ax'
 
+fig.suptitle('bold figure suptitle',fontsize=14,fontweight='bold')
+plt.xlabel('xlabel') # whole figure
+plt.ylabel('xlabel') # whole figure
 ax.tick_params(axis=['x'|'y'|'both'],labelsize='large')
 ax.ticklabel_format(style='sci',
 
