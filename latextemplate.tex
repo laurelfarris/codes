@@ -32,33 +32,23 @@ This is the paper's abstract $\ldots$
 \end{abstract}
 
 %%------------------Sections------------------------------------------%%
-% \section{Section 1}
-% \subsection*{subsection, not numbered}
-% \subsubsection*{... also not numbered}
-
-\section{Introduction}
-See section $\S$\ref{data} for the data description.
-\paragraph{Outline}
-\section{Observations}
-  \subsection{The Data}\label{data}
-  text text text
-  \subsubsection{First data set}
-  \subsubsection{Second data set}
-
-%\documentclass{article}
-%\usepackage{titlesec}
+\documentclass{article}
+\renewcommand{\thesection}{\Roman{section}} % RNs instead of regular #s.
+\usepackage{titlesec}
 \titleformat*{\section}{\LARGE\bfseries}
 \titleformat*{\subsection}{\Large\bfseries}
 \titleformat*{\subsubsection}{\large\bfseries}
 \titleformat*{\paragraph}{\large\bfseries} %?? Paragraphs??
 \titleformat*{\subparagraph}{\large\bfseries} %??????
-%\begin{document}
-\section{Test section}
-\subsection{Test section}
-\subsubsection{Test section}
+% ...\begin{document}
+\section{Introduction}
+See section $\S$\ref{data} for the data description.
+\subsection{The Data}\label{data}
+\subsection{Motivation}
+\subsubsection*{Another sub section} % * - not numbered
 \paragraph{Test section} % No section numbering for paragraphs
 \subparagraph{Test section} % ?
-%\end{document}
+% ...\end{document}
 
 %%------------------Figures------------------------------------------%%
 
