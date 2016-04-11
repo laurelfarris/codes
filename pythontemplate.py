@@ -52,7 +52,7 @@ np.append(array,what_to_append)
 np.linspace
 np.logspace
 np.sum(array)
-np.roll(x,2) # (~IDL's SHIFT); shifts array elements 2 to the right 
+np.roll(x,2) # (~IDL's SHIFT); shifts array elements 2 to the right
   --> [3,4,0,1,2] # note x is still the same, unless do x = np.roll(...)
 
 # lists
@@ -209,4 +209,4 @@ plt.ylabel('xlabel') # whole figure
 ax.tick_params(axis=['x'|'y'|'both'],labelsize='large')
 ax.ticklabel_format(style='sci',
 
-
+78

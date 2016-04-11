@@ -1,0 +1,51 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{0.5em}
+
+\begin{document}
+
+\section{Cursor movement}
+\begin{minipage}[t]{0.2\textwidth}
+    \texttt{z<ENTER>}\\
+\end{minipage}
+\begin{minipage}[t]{0.8\textwidth}
+    makes current line the top line of the page\\
+\end{minipage}
+
+\section{Searching}
+
+\section{Mapping}
+\begin{minipage}[t]{0.4\textwidth}
+    \texttt{:map <ENTER> a<ENTER><ESC}\\
+    \texttt{:map <F9> 070l}\\
+\end{minipage}
+\begin{minipage}[t]{0.7\textwidth}
+    use return to break lines without going into insert mode.\\
+    shortcut for moving to right edge of screen (not working).\\
+\end{minipage}
+
+\section{Misc}
+
+\subsection{`set' options}
+\subsubsection{Syntax}
+\texttt{:set \emph{mycommand}}
+\subsubsection{Examples}
+\par\texttt{:set ignorecase}
+\par\texttt{:set tabstop = 4} tab four spaces instead of the default of eight
+\par\texttt{:set expandtab} tabs are converted to spaces (useful since not every
+computer handles tabs the same way, but note that makefiles will not
+work without actual tabs).
+\par\texttt{set spell} Spellcheck! Do this in command mode; leaving it on
+will probably get really annoying.
+
+\section{Buffers}
+
+\subsection{Other}
+\par\texttt{:edit!} or \texttt{:e!} Undoes all edits since last write
+\par\texttt{:cal cursor(row, column)} Go to row, column. What can you put
+in for ``row'' to indicate the current line the cursor is in?
+\par\texttt{:help map-which-keys} Tells what keys are currenly in use.
+
+
+\end{document}

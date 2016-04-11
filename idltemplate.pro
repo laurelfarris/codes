@@ -45,7 +45,6 @@ plot,x,y,xtitle='title',charsize=charsize ;make axis labels bigger!
 
 ;Options (all preceeded with [xyz])
 
-; LEARN TO DO THESE!
 ; Greek symbols, superscripts/subscripts, etc. in axis labels
 
 WRITE_JPEG, 'figname.jpg', TVRD(), QUALITY=25
@@ -67,7 +66,7 @@ minor=0 ;default
 minor=1 ;supress minor tick marks
 minor=n; n intervals ~ n-l minor tick MARKS
 ticks=1; supress major tick marks
-tickformat='(F6.2)' 
+tickformat='(F6.2)'
 tickinterval=n ;interval bet. major tick marks
                      (overrides 'ticks' option)
 ticklayout = 0 or 1 or 2
@@ -77,7 +76,3 @@ ticks
 tickunits
 position = [x_o,y_o,x_1,y_1]  ; puts plot in corner or something
 psym = 1(+),2(*),3(.),4(diamond),5(triangle),6(square),7(x)
-
-
-
-
