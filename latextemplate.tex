@@ -1,75 +1,213 @@
-\documentclass[12pt]{article}
+\documentclass{article}
+\usepackage[margin=0.75in]{geometry}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{0.75em}
 \usepackage{graphicx}
 \usepackage{enumerate}
 \usepackage{enumitem}
 \usepackage{amsmath}
+\usepackage{mdwlist}
+\usepackage{color}
+\usepackage{xcolor}
 
-% Create your own command!
-\newcommand{\bla}{blah blah blah}
-
-\title{ASTR 656}
-\author{Laurel Farris}
-\date{\today}
-
-% Increase margins (manually)
-  % Sides (odd- and even-numbered pages)
-    \addtolength{\oddsidemargin}{-0.875in}
-    \addtolength{\evensidemargin}{-0.875in}
-    \addtolength{\textwidth}{1.75in}
-  % Top/bottom
-    \addtolength{\topmargin}{-0.875in}
-    \addtolength{\textheight}{1.75in}
-% BETTER way to do this:
-    \usepackage{fullpage} % or
-    \usepackage[margin=1in]{geometry}
-
-\begin{document}    % Put \end{document} last line of doc.
-
-\maketitle
-
-\begin{abstract}
-This is the paper's abstract $\ldots$
-\end{abstract}
-
-%%------------------Sections------------------------------------------%%
-\documentclass{article}
-\renewcommand{\thesection}{\Roman{section}} % RNs instead of regular #s.
 \usepackage{titlesec}
 \titleformat*{\section}{\LARGE\bfseries}
 \titleformat*{\subsection}{\Large\bfseries}
 \titleformat*{\subsubsection}{\large\bfseries}
-\titleformat*{\paragraph}{\large\bfseries} %?? Paragraphs??
-\titleformat*{\subparagraph}{\large\bfseries} %??????
-% ...\begin{document}
-\section{Introduction}
+
+\definecolor{cadmiumorange}{rgb}{0.93, 0.53, 0.18}
+\definecolor{cadmiumgreen}{rgb}{0.0, 0.42, 0.24}
+\definecolor{darklavender}{rgb}{0.45, 0.31, 0.59}
+
+\usepackage{sectsty}
+\sectionfont{\color{cadmiumorange}}
+\subsectionfont{\color{cadmiumgreen}}
+\subsubsectionfont{\color{darklavender}}
+\definecolor{darkpowderblue}{rgb}{0.0, 0.2, 0.6}
+
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,urlcolor=darkpowderblue}
+\urlstyle{same}
+
+\title{LaTeX reference}
+\author{Laurel Farris}
+\date{\today}
+
+%------------------------------------------------------------------------------%
+\begin{document}
+\maketitle
+\url{https://www.sharelatex.com/learn/Main_Page}
+%---------------------------------------------------------------------------%
+\section{Structure/Appearance}
+
+\subsection{Types of documents}
+\subsubsection{Article}
+\begin{verbatim}
+\documentclass[12pt]{article}
+\documentclass[11pt]{article}
+\documentclass[10pt]{article}
+\end{verbatim}
+(10pt is the default font size)
+\subsubsection{Report}
+\subsubsection{Beamer}
+This one may or may not have its own how-to document.
+
+\subsection{Margins}
+\begin{enumerate}
+    \item Sides (odd- and even-numbered pages):
+\begin{verbatim}
+\addtolength{\oddsidemargin}{-0.875in}
+\addtolength{\evensidemargin}{-0.875in}
+\addtolength{\textwidth}{1.75in}
+\end{verbatim}
+    \item Top/bottom:
+\begin{verbatim}
+\addtolength{\topmargin}{-0.875in}
+\addtolength{\textheight}{1.75in}
+\end{verbatim}
+\end{enumerate}
+A better way (both do the same thing;
+can customize the second a little more):
+\begin{itemize*}
+    \item \verb|\usepackage{fullpage}|
+    \item \verb|\usepackage[margin=1in]{geometry}|
+\end{itemize*}
+
+\subsection{Line spacing and indentation}
+\verb|\setlength{\parindent}{0m}| Set indent for new paragraphs
+\verb|\setlength{\parskip}{0.5em}| Set spacing between paragraphs
+
+\subsection{Headers and footers}
+In preamble:
+\begin{verbatim}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{text} % Top left
+\rhead{text} % Top right
+\chead{text} % Top center
+\lfoot{text} % Bottom left
+\rfoot{text} % Bottom right
+\cfoot{text} % Bottom center
+\end{verbatim}
+
+\subsection{Text alignment}
+\begin{itemize*}
+    \item \verb|\begin{flushright}...\end{flushright}|
+    \item \verb|\begin{center} ... \end{center}|
+    \item \verb|\begin{justify} ... \end{justify}|
+\end{itemize*}
+
+\subsection{Font size inside text}
+\begin{verbatim}
+{\Large I want this text to be big.}
+\end{verbatim}
+{\Large I want this text to be big.}
+
+(enclosing entire thing in \verb|{}|s keeps from having to use
+\verb|\normalsize| at the end).
+
+\begin{verbatim}
+\Huge
+\huge
+\Large
+\large
+\normalsize
+\small
+\footnotesize
+\scriptsize
+\tiny
+\end{verbatim}
+
+\subsection{Font style}
+\begin{verbatim}
+\textbf{This text is bold}
+\textit{This text is in italics}
+\emph{This text is also in italics.. what's the difference??}
+\underline{This text is underlined}
+\end{verbatim}
+
+\subsection{Spacing}
+This website is glorious:\\
+\url{http://www.terminally-incoherent.com/blog/2007/09/19/latex-squeezing-the-vertical-white-space/}
+\begin{itemize*}
+    \item \verb|\newpage| Jump to a new page after previous section
+    \item \verb|\\| new line
+    \item \verb|\hspace| horizontal space
+    \item \verb|\hspace{20 mm}| horizontal blank space equal to 20 mm
+    \item \verb|\vspace| vertical space
+    \item \verb|\noindent| self-explanatory
+\end{itemize*}
+
+
+\subsubsection{Center justify text}
+\begin{verbatim}
+\begin{centering}
+    Here is some text to go in the middle of my page, e.g. a title
+\end{centering}
+\end{verbatim}
+
+
+
+
+
+%---------------------------------------------------------------------------%
+\section{Sections}
+\subsection{Nested section options}
+\begin{verbatim}
+\section{My First Section}
+\subsection{My Subsection}
+\subsubsection{A subsubsection}
+\paragraph{text}
+\subparagraph{text}
+\end{verbatim}
+Paragraphs are not numbered or followed by a line break.
+There appears to be no difference between \verb|\paragraph{}|
+and \verb|\textbf{}| except for some extra space after the paragraph.
+Note that \verb|\paragraph{}| and \verb|\par| are not the same thing.
+\verb|\par| does the same thing as a blank line; useful if you don't
+want unnecessary blank space.
+\subsection{Referring to sections in text using section labels}
+\begin{verbatim}
 See section $\S$\ref{data} for the data description.
+...
 \subsection{The Data}\label{data}
-\subsection{Motivation}
-\subsubsection*{Another sub section} % * - not numbered
-\paragraph{Test section} % No section numbering for paragraphs
-\subparagraph{Test section} % ?
-% ...\end{document}
+...
+\end{verbatim}
+\subsection{Customize sectioning in the preamble}
+(See \S{}~\ref{color} for adding color to section names).
+\paragraph{Change font size, make font bold, etc.}
+\begin{verbatim}
+\usepackage{titlesec}
+\titleformat*{\section}{\LARGE\bfseries}
+\titleformat*{\subsection}{\Large\bfseries}
+\titleformat*{\subsubsection}{\large\bfseries}
+\titleformat*{\paragraph}{\large\bfseries}
+\titleformat*{\subparagraph}{\large\bfseries}
+\end{verbatim}
+(not sure what the subparagraph is.)
+\paragraph{Use roman numerals instead of regular numbers}
+\begin{verbatim}
+\renewcommand{\thesection}{\Roman{section}}
+\end{verbatim}
 
-%%------------------Figures------------------------------------------%%
-
-%\usepackage{graphicx}
-\begin{figure}[h]   % placement specifiers[htbp!]: here,top,bottom,?,?
+\section{Figures}
+\begin{verbatim}
+\usepackage{graphicx}
+...
+\begin{figure}[h]
 \centering
 \includegraphics[width=5.0in]{GreekSymbols.jpg}
 \caption{How to insert greek symbols in LaTeX}
 \label{greek}
 \end{figure}
+\end{verbatim}
+placement specifiers: \verb|[htbp!]| `here', `top', `bottom',$\ldots$
 
-%Figure~\ref{greek} shows how to insert greek symbols into a latex
-%document. Note: the '~' symbol prevents white space from being
-%inserted between the text and the figure number.
-
-%---------------------Tables-----------------------------------------%
-
+\section{Tables}
+\begin{verbatim}
 \begin{table}[h]
 \caption{Values for polytropic index $n$ = 4.5}
 \centering
- % c=center; use l/r for left/right justify
 \begin{tabular}{ c c c c c c c c c  }
  \hline\hline
 $n$ & $\xi_1$ & $\rho_c/\rho$ & $N_{n}$ & $W_n$ & $\Theta_n$
@@ -81,35 +219,135 @@ $n$ & $\xi_1$ & $\rho_c/\rho$ & $N_{n}$ & $W_n$ & $\Theta_n$
 \end{tabular}\\
 \label{table:nonlin}
 \end{table}
+\end{verbatim}
+For the \verb|tabular| line, \verb|c| stands for center-justified;
+use \verb|l| and \verb|r| for left and right justified.
 
-%% ----------------------------------- Maths!!----------------------%
-
-% write out a fraction inside text
-$\frac{1}{4}$   % to print 1/4 as a nice fraction
-% Put dollar signs around any symbol, e.g. $L$ to put it in equation
-$G = 6.67\times10^{-8}$ [cgs] % \times makes nice multiplication symbol
-% If text is bold, make math symbols bold as well:
+%---------------------------------------------------------------------------%
+\section{Maths!}
+\url{http://www.math.harvard.edu/texman/node17.html}
+\subsection{Inside text}
+Examples
+\begin{itemize}
+    \item \verb|$\frac{1}{4}$| $\rightarrow$ $\frac{1}{4}$
+    \item \verb|$G=6.67\times10^{-8}$| $\rightarrow$
+        $G=6.67\times10^{-8}$
+\end{itemize}
+If text is bold, make math symbols bold as well:
+\begin{verbatim}
+\textbf{This article discusses the \boldmath$\beta$ parameter}
+\end{verbatim}
 \textbf{This article discusses the \boldmath$\beta$ parameter}
 
+\subsection{Equations}
+\subsubsection{Numbered equations}
+\begin{verbatim}
+\begin{equation}
+    P_{\textrm{mag}} = \frac{B^2}{\sqrt{4\pi\rho_o}}
+\end{equation}
+\end{verbatim}
+
+\begin{equation}
+    \boxed{P_{\textrm{mag}} = \frac{B^2}{\sqrt{4\pi\rho_o}}}
+\end{equation}
+
+\textcolor{red}{INCLUDE LABELING AND REFERENCING HERE!}
+
+\subsubsection{Equations without numbering}
+Note that the \verb|\boxed{...}| commands are putting the examples
+in boxes, but are not necessary for writing equations.
+\begin{verbatim}
+\begin{equation*}
+    \boxed{%
+    P_{\textrm{mag}} = \frac{B^2}{\sqrt{4\pi\rho_o}}
+    }
+\end{equation*}
+\end{verbatim}
+\begin{equation*}
+    \boxed{%
+    P_{\textrm{mag}} = \frac{B^2}{\sqrt{4\pi\rho_o}}
+    }
+\end{equation*}
+
+Or simply put double \verb|$|s on each side of equation:
+\begin{verbatim}
+$$  P_{\textrm{mag}} = \frac{B^2}{\sqrt{4\pi\rho_o}} $$
+\end{verbatim}
+$$  P_{\textrm{mag}} = \frac{B^2}{\sqrt{4\pi\rho_o}} $$
+This may not work for more complicated math, such as matrices.
+
+\subsubsection{Aligning equations}
+\begin{verbatim}
+\usepackage{amsmath}
+...
+\begin{align}
+k_1 &= hf(x_n,y_n)\\
+k_2 &= hf(x_n+\frac{1}{2}h,y_n+\frac{1}{2}k_1)\\
+k_3 &= hf(x_n+\frac{1}{2}h,y_n+\frac{1}{2}k_2)\\
+k_4 &= hf(x_n+h,y_n+k_3)\\
+y_{n+1} &=
+y_n+\frac{1}{6}k_1+\frac{1}{3}k_2+\frac{1}{3}k_3+\frac{1}{6}k_4+O(h^5)\\
+\end{align}
+\end{verbatim}
+\begin{align}
+k_1 &= hf(x_n,y_n)\\
+k_2 &= hf(x_n+\frac{1}{2}h,y_n+\frac{1}{2}k_1)\\
+k_3 &= hf(x_n+\frac{1}{2}h,y_n+\frac{1}{2}k_2)\\
+k_4 &= hf(x_n+h,y_n+k_3)\\
+y_{n+1} &=
+y_n+\frac{1}{6}k_1+\frac{1}{3}k_2+\frac{1}{3}k_3+\frac{1}{6}k_4+O(h^5)\\
+\end{align}
+
+Can also remove numbering from aligned equations:
+\begin{verbatim}
+\begin{align*}
+    ...
+\end{align*}
+\end{verbatim}
+
+\subsection{Size of brackets, parentheses, etc.}
+In order of increasing size:
+\begin{verbatim}
+\big( ... \big)
+\Big( ... \Big)
+\bigg( ... \bigg)
+\Bigg( ... \Bigg)
+\end{verbatim}
+BETTER\@:
+\begin{verbatim}
+\left( ... \right)
+\end{verbatim}
+to scale size of brackets to what is inside them!
+
+\subsection{Operations}
+\subsubsection{Integrals}
+\begin{verbatim}
 $\int$ % indefinite integral
 $\int_{x1}^{x2}$ % definite integral, between x1 and x2
-$\sqrt{abc}$ % square root
-$$\sum_{n=1}^{\infty} 2^{-n} = 1$$ % summation
+\end{verbatim}
+\subsubsection{Square root}
+\begin{verbatim}
+$\sqrt{2\ln(2)}$
+\end{verbatim}
+\subsubsection{Summation (and the multiplication version)}
+\begin{verbatim}
+$$\sum_{n=1}^{\infty} 2^{-n} = 1$$
+\end{verbatim}
+$$\sum_{n=1}^{\infty} 2^{-n} = 1$$
 
-% Equations
-\begin{equation}* % Remove '*' to include eq. number (1)
-    \bigg(\frac{1}{9}\bigg)
-\end{equation}
-% \big( \Big( \bigg( \Bigg(... or [,{, etc.
-% BETTER:  \left( ... \right) to scale size of ()s to what's indside them
-\begin{equation*} % Need \usepackage{amsmath} for this...where does * go?
-    \int x\textrm{d}x = 1
-\end{equation*}
-% OR
-$$\int x\textrm{d}x = 1$$ % Double $'s also make separate equation!
+\begin{verbatim}
+$$ P(D|M) \propto \prod^{N-1}_{i=0}\left\{\exp
+    \left[-\frac{1}{2}\left[\frac{y_i-y(x_i|a_j)}
+{\sigma}\right]^2\right]\Delta y \right\} $$
+\end{verbatim}
+$$ P(D|M) \propto \prod^{N-1}_{i=0}\left\{\exp
+    \left[-\frac{1}{2}\left[\frac{y_i-y(x_i|a_j)}
+{\sigma}\right]^2\right]\Delta y \right\} $$
 
 
-%% ----------------------------------- Symbols----------------------%
+\newpage
+\section{Symbols}
+\begin{verbatim}
 \AA{}   % Angstrom (does not go in between $s)
 \infty  % infinity
 \sim    % '~'
@@ -119,29 +357,51 @@ $$\int x\textrm{d}x = 1$$ % Double $'s also make separate equation!
 \& \%   % include these symbols in document
         % (also precede a space with '\' when in math mode).
 \pm     % plus or minus (\mp for minus or plus)
+\end{verbatim}
 
 $\textrm{some\ text}$ % Remove italics, and '\' puts space between words
 
 
-% aligns the '=' signs for lots of equations (need \usepackage{amsmath})
-\begin{align*}
-k_1 &= hf(x_n,y_n)\\
-k_2 &= hf(x_n+\frac{1}{2}h,y_n+\frac{1}{2}k_1)\\
-k_3 &= hf(x_n+\frac{1}{2}h,y_n+\frac{1}{2}k_2)\\
-k_4 &= hf(x_n+h,y_n+k_3)\\
-y_{n+1} &=
-y_n+\frac{1}{6}k_1+\frac{1}{3}k_2+\frac{1}{3}k_3+\frac{1}{6}k_4+O(h^5)\\
-\end{align*}
+\section{Itemized Lists}
 
-% numbering: 1.1, 1.2 --> 1.2.1,1.2.2, etc
-%\begin{enumerate}[label*=\arabic*.]
-%\begin{enumerate}[I] % for roman numerals
-%\begin{enumerate}[I.] % || followed by a period
-%\begin{enumerate}[(a)] % you get the idea...
+\subsubsection{Adjust spacing between items}
+In preamble:
+\begin{verbatim}
+\usepackage{enumitem}
+\setlist[1]{itemsep=-2pt}
+\end{verbatim}
 
-%----------------------------------------------------------------------%
-% To go from section numbering 0.0.1 to just 1
-% (copied from internet...not actually sure how this works).
+Within text:
+no space between items, no space between text and list.
+(Can also add this to \verb|\setlist| in preamble to apply globally).
+\begin{verbatim}
+\begin{itemize}[noitemsep,topsep=0pt]
+\end{verbatim}
+
+No space between items:
+\begin{verbatim}
+\usepackage{mdwlist}
+...
+\begin{itemize*}
+    \item ...
+\end{itemize*}
+\end{verbatim}
+
+\subsubsection{Numbering}
+1.1, 1.2 $\rightarrow$ 1.2.1,1.2.2, etc
+\begin{verbatim}
+\usepackage{enumitem}
+...
+\begin{enumerate}[label*=\arabic*.] % ???
+\begin{enumerate}[I] % roman numerals
+\begin{enumerate}[I.] % roman numberals followed by a period
+\begin{enumerate}[(a)] % you get the idea...
+\end{verbatim}
+
+To go from section numbering 0.0.1 to just 1,
+put this in the preamble
+(copied from internet, but not actually sure how this works).
+\begin{verbatim}
 \usepackage{titlesec}
 \titleformat{\section}%
   [hang]% <shape>
@@ -153,130 +413,155 @@ y_n+\frac{1}{6}k_1+\frac{1}{3}k_2+\frac{1}{3}k_3+\frac{1}{6}k_4+O(h^5)\\
   \renewcommand{\thesubsection}{\arabic{subsection}}%...from subsections
   \renewcommand{\thesubsubsection}{\arabic{subsubsection}}%...from subsections
 \begin{document}
-%----------------------------------------------------------------------%
+...
+\end{verbatim}
 
+\section{Color}\label{color}
 
-%% Headers and footers (before \begindocument)
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-\lhead{text} % Top left
-\rhead{text} % Top right
-\chead{text} % Top center
-\lfoot{text} % Bottom left
-\rfoot{text} % Bottom right
-\cfoot{text} % Bottom center
+\verb|\usepackage{color}| is required for
+pre-defined colors (white, black, red, green, blue, cyan, magenta, yellow)
 
-% Font size
-% e.g. \Large I want this text to be big. \normalsize
-\Huge
-\huge
-\Large
-\large
-\normalsize
-\small
-\footnotesize
-\scriptsize
-\tiny
+\verb|\usepackage{xcolors}|
+is needed to define new colors (see \SS{}~\ref{definecolors}).
 
-% Font style
-\textbf{bold text}
-\emph{italics}
-\underline{underlined text}
+\subsection{Color section names}
+In Preamble:
+\begin{verbatim}
+\usepackage{sectsty}
+\sectionfont{\color{blue}}
+\subsectionfont{\color{blue}}
+\subsubsectionfont{\color{blue}}
+\end{verbatim}
 
-%-------------------- Spacing ----------------------%
-% This website is glorious:
-% \usepackage{hyperref}
-\url{http://www.terminally-incoherent.com/blog/2007/09/19/latex-squeezing-the-vertical-white-space/}
-\\ % new line
-\hspace % horizontal space
-\hspace{20 mm} % Horizontal blank space equal to 20 mm
-\vspace % vertical space
-\newpage  % Jump to a new page after previous section
-\noindent % exactly what it says, but use \setlength{\parindent}{0em}
-\setlist[1]{itemsep=-2pt} %Adjust space between items in lists
-        % \usepackage{enumitem}
-        % Not sure what the option in brackets is doing.
-\begin{itemize}[noitemsep,topsep=0pt]
-        % No space between items, no space between text and list, resp.
-        % Can also add this to \setlist in preamble to apply globally
+\subsection{Color background }
+\begin{verbatim}
+\usepackage{xcolor}
+\pagecolor{yellow!30}
+\end{verbatim}
 
-\usepackage{mdwlist}
-%...
-\begin{itemize*}
-    \item first item
-    \item second item with no space between it and the first
-\end{itemize*}
-%...
+\subsection{Color text}
+\begin{verbatim}
+\usepackage{color}
+...
+\textcolor{red}{I want the text in the brackets to be red.}
+\end{verbatim}
 
-% Center justify text
-\begin{centering}
-    Here is some text to go in the middle of my page, e.g. a title
-\end{centering}
-
-%-------------------- Color ----------------------%
-
-%\usepackage{xcolor} % 'Paper' color
-%\pagecolor{yellow!30}
-%\usepackage{color} % text color
-%\textcolor{red}{I want the text in the brackets to be red.}
-% Pre-defined colors: white, black, red, green, blue, cyan, magenta, yellow.
-
-% Define your own colors!
+\subsection{Define your own colors!}\label{ssec:definecolors}
+\url{http://latexcolor.com}
+\begin{verbatim}
 \usepackage[usenames, dvipsnames]{color}
-
  \definecolor{mypink1}{rgb}{0.858, 0.188, 0.478}
  \definecolor{mypink2}{RGB}{219, 48, 122}
  \definecolor{mypink3}{cmyk}{0, 0.7808, 0.4429, 0.1412}
  \definecolor{mygray}{gray}{0.6}
-
 \textcolor{mygray}{text I want to be gray}.
-%-------------------------------------------------%
+\end{verbatim}
 
-% Insert hyperlink
-For more information, visit \textcolor{blue}{\url{http://google.com}}
-% replace link with text
-vist \textcolor{blue}{\href{http://google.com}{this link}}
+\section{Hyperlinks}
+Insert hyperlink:
+\begin{verbatim}
+\url{http://google.com}
+\href{http://google.com}{link text}
+\href{http://google.com}{\textcolor{blue}{link text}}
+\end{verbatim}
 
-% Bibliography
-%\bibliographystyle{abbrv}
-%\bibliography{main}
+For more information, visit \href{http://google.com}
+{\textcolor{blue}{this link}}.
 
-%% Makefiles
-% target:
-%   pdflatex doc
-%   bibtex doc
-%   pdflatex doc
-%   pdflatex doc
-%% Create reffile.bib, then:
-% \begin{document}
-% \bibliographystyle{plain}
-% ... \cite{id} ...
-% \bibliography{reffile}
-% \end{document}
+\section{Putting text in a box}
 
-%% Columns
+\begin{verbatim}
+\usepackage{xcolor}
+\usepackage{lipsum}
+\begin{document}
+\lipsum[1]
+\medskip
+\noindent\fcolorbox{red}{yellow}{%
+   \minipage[t]{\dimexpr0.48\linewidth-2\fboxsep-2\fboxrule\relax}
+      \lipsum[2]
+   \endminipage}\hfill
+   \fcolorbox{red}{yellow}{%
+   \minipage[t]{\dimexpr0.48\linewidth-2\fboxsep-2\fboxrule\relax}
+      \lipsum[3]
+   \endminipage}
+\medskip
+\lipsum[4]
+\end{verbatim}
+
+Notes:
+You can adjust the thickness of border and padding of
+\verb|\fcolorbox{<border-color>}{<background-color>}{<contents>}|
+by setting \verb|\fboxrule=<value><unit>| and
+\verb|\fboxsep=<value><unit>|, respectively. Put the setting
+before invoking
+\verb|\fcolorbox{<border-color>}{<background-color>}{<contents>}|.
+For example: \verb|\fboxrule=1pt and \fboxsep=5pt|. Use
+\textrm{t}, \textrm{c}, \textrm{b}
+options to align the base line of the most top row,
+the center row and the most bottom row with the surrounding baseline.
+
+\section{Bibliographies}
+\begin{verbatim}
+\bibliographystyle{plain}
+\begin{document}
+... \cite{id} ...
+\bibliography{reffile}
+\end{document}
+\end{verbatim}
+\subsection{Creating and using a makefile}
+\begin{verbatim}
+cl> vi reffile.bib
+  @ARTICLE{label_name,
+    title={},
+    journal={},
+    ...
+  }
+cl> vi makefile
+ my_paper: paper.tex
+   pdflatex paper
+   bibtex paper
+   pdflatex paper
+   pdflatex paper
+cl> make my_paper
+\end{verbatim}
+
+\section{Columns}
+\begin{verbatim}
 \begin{minipage}[t]{0.2\textwidth}
     stuff
 \end{minipage}
 \begin{minipage}[t]{0.8\textwidth}
     longer stuff
 \end{minipage}
+\end{verbatim}
 
-%% Other
-\begin{flushright}
-    text I want right-justified
-\end{flushright}
-% similarly...
-\begin{center} ... \end{center}
-\begin{justify} ... \end{justify}
+\section{Misc}
+\subsection{Create your own command!}
+\verb|\newcommand{\bla}{blah blah blah}|
+\subsection{Verbatim}
+\texttt{verb} is used ``in line'', while \texttt{verbatim} makes a display.
+E.g.\
+\begin{verbatim}
+\begin{verbatim}
+cl> git status
+cl> git add -A
+cl> git commit -m "commit message"
+end{verbatim}
+\end{verbatim}
+(\texttt{``end{verbatim}''} is also preceded with a backslash, but there were
+difficulties in printing it out in this document).
+\begin{verbatim}
+cl> git status
+cl> git add -A
+cl> git commit -m "commit message"
+\end{verbatim}
+
+
+Or do:
+\begin{verbatim}
+Define a document class like this: \verb|\documentclass{article}|
+\end{verbatim}
+Define a document class like this: \verb|\documentclass{article}|
 
 
 \end{document}
-
-
-
-
-
-
-
-
