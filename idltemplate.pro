@@ -17,6 +17,8 @@ FOR i=0,n_elements(myArray) DO BEGIN
 ENDFOR
 
 ; if statement
+IF conditions THEN this ELSE IF this THEN this ELSE this
+
 IF conditions THEN BEGIN
     statements...
 ENDIF [ELSE BEGIN
