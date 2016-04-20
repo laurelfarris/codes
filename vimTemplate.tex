@@ -1,4 +1,4 @@
-\documentclass[12pt]{article}
+\documentclass{article}
 \usepackage[margin=1in]{geometry}
 \setlength{\parindent}{0em}
 \setlength{\parskip}{0.5em}
@@ -6,12 +6,13 @@
 \begin{document}
 
 \section{Cursor movement}
-\begin{minipage}[t]{0.2\textwidth}
-    \texttt{z<ENTER>}\\
-\end{minipage}
-\begin{minipage}[t]{0.8\textwidth}
-    makes current line the top line of the page\\
-\end{minipage}
+
+\begin{tabular}{l l}
+    \textbf{command} & \textbf{description}\\
+    \hline
+    \verb|z<ENTER>| & makes current line the top line of the page\\
+    \verb|%| & move to matching bracket, parentheses, etc.\\
+\end{tabular}
 
 \section{Searching}
 
@@ -27,7 +28,7 @@
 
 \section{Misc}
 
-\subsection{`set' options}
+\subsection{``set'' options}
 \subsubsection{Syntax}
 \texttt{:set \emph{mycommand}}
 \subsubsection{Examples}

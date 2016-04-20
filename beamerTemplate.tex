@@ -1,44 +1,204 @@
-%% Resources
-sharelatex.com/learn/Beamer
+\documentclass{beamer}
+\usepackage[T1]{fontenc} %????
+%\usepackage{mdwlist}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{verbatim} % For using /begin{comment}; /end{comment}
+\usepackage{lmodern}
 
-%% Set the document class as beamer
+% Bright colors
+\definecolor{oj}{rgb}{1.0,0.65,0.0}
+\definecolor{cblue}{rgb}{0.39,0.58,0.93}
+\definecolor{amethyst}{rgb}{0.6, 0.4, 0.8}
+
+% Pale colors
+\definecolor{lightgrey}{rgb}{0.75, 0.75, 0.80}
+\definecolor{tangerine}{rgb}{1.0, 0.6, 0.4}
+\definecolor{arylyellow}{rgb}{0.91, 0.84, 0.42}
+\definecolor{gsa}{rgb}{0.66, 0.89, 0.63}
+\definecolor{aqua}{rgb}{0.5, 1.0, 0.83}
+\definecolor{bblue}{rgb}{0.67, 0.9, 0.93}
+
+\setbeamercolor{normal text}{bg=black, fg=lightgrey}
+\setbeamercolor{title}{fg=arylyellow}
+\setbeamercolor{frametitle}{fg=tangerine}
+\setbeamercolor{framesubtitle}{fg=gsa}
+\setbeamercolor{block title}{fg=aqua}
+\setbeamercolor{itemize item}{fg=amethyst} % all frames will have red bullets
+\setbeamercolor{enumerate item}{fg=amethyst} % all frames will have red bullets
+%\setbeamercolor{block title}{fg=green}
+
+
+\setbeamertemplate{itemize items}[circle]
+\title{\textbf{Coronal Seismology}}
+\subtitle{\textbf{ASTR 598}}
+\date{\textbf{Spring 2016}}
+\author{\textbf{Laurel Farris}}
+
+\begin{document}
+
+\begin{frame}{Colors}
+%\usepackage{selinput} % ?  %Loading a font package, uncomment one of the following lines to see changes
+%\usepackage{libertine}
+%\usefonttheme{default}
+%\usefonttheme{professionalfonts}
+
+%\setbeamerfont{frametitle}{series=\bfseries} % Frame titles should be bold
+
+%\usepackage{lmodern}
+\end{frame}%-------------------------------------------------------------%
+\begin{frame}{image on title slide background}
+%{\usebackgroundtemplate{\includegraphics[width=\paperwidth]
+%    {awesome.jpg}}
+%\begin{frame}
+%    \titlepage{}
+%\end{frame}}
+\end{frame}%-------------------------------------------------------------%
+\begin{frame}{Magnetohydrodynamics (MHD)}{Theory}
+    %[Relationship between size and decay time].
+    \begin{columns}
+        \column{0.5\textwidth}
+        %\includegraphics[width=\textwidth]{cylinder.png}
+        \column{0.5\textwidth}
+        \begin{itemize}
+            \item Straight flux tube in uniform magnetic field.
+            \item $ \xi(x) = \xi(r)e^{i(kz+m{\phi})} $
+            \item Characteristic speeds are determined by the
+                environment
+        \end{itemize}
+    Types of waves/oscillations:
+    \begin{itemize}
+        \item Alfv\'en: $V_A = \frac{B}{\mu_0\rho}$
+        \item Magnetoacoustic: $C_s = \sqrt{\frac{\gamma P}{\rho}}$
+            \begin{itemize}
+                \item Fast $C_{A_0} < C_{fast} < C_{A_e} $
+                \item Slow $C_{T_0} < C_{slow} < C_{s_0} $
+            \end{itemize}
+    \end{itemize}
+    \end{columns}
+\end{frame}%-------------------------------------------------------------%
+\begin{frame}{Example using columns}
+%\begin{center}
+\begin{columns}
+        \column{0.6\textwidth}
+        %\framebox{\includegraphics[width=2.5in]{kink_saus.png}}
+    %\par{\tiny image credit:\\
+    %$https://inspirehep.net/record/1088737/files/figures_instab_locations.png$}
+    %\end{center}
+        \column{0.4\textwidth}
+    \begin{block}{Kink}
+        \begin{itemize}
+            \item loop spatial displacement
+            \item Asymmetric
+            \item No intensity change
+            \item $k\sigma \ll 1$, or $\sigma\ll\lambda$
+        \end{itemize}
+    \end{block}
+    \begin{block}{Sausage}
+        \begin{itemize}
+            \item No loop spatial displacement
+            \item Symmetric
+            \item Intensity change\\ $\rightarrow$ density change
+            \item $\lambda\sim\sigma$
+            \item long-wavelength limit
+        \end{itemize}
+    \end{block}
+\end{columns}
+\end{frame}%-------------------------------------------------------------%
+\begin{frame}{Important Properties}
+    \begin{center}
+        \begin{tabular}{c|c|c|c|}
+            \cline{2-4} & {\textbf{period}} & {\textbf{wavelength}} &
+                {\textbf{velocity}}\\
+            \hline \multicolumn{0}{|c|}{kink osc} & value & value & value\\
+            \hline \multicolumn{0}{|c|}{sausage osc} & value & value & value\\
+            \hline \multicolumn{0}{|c|}{acoustic osc} & value & value & value\\
+            \hline \multicolumn{0}{|c|}{acoustic waves} & value & value & value\\
+            \hline \multicolumn{0}{|c|}{fast waves} & value & value & value\\
+            \hline \multicolumn{0}{|c|}{torsional modes} & 10 m & value &
+                1000 km s$^{-1}$\\
+            \hline
+        \end{tabular}
+    \end{center}
+\end{frame}%-------------------------------------------------------------%
+%========================================================================%
+%\begin{frame}{Example Table}
+    \begin{verbatim}
+\begin{center}
+   \begin{tabular}{cc|c|c|}
+% row 1
+   \cline{3-4} & & \multicolumn{2}{|c|}{Condition (Gold standard)}\\
+% row 2
+   \cline{3-4} & & True & False \\
+   \hline
+% row 3 (and 4) - multirow
+   \multicolumn{1}{|c|} % add in vertical lines
+   {\multirow{2}{*}{Test outcome}}& % Text covers rows 3 and 4
+ % row 3
+   \multicolumn{1}{|c|}{Positive} %
+     & True Positive \cellcolor{green} & False Positive\cellcolor{red}\\
+ % row 4
+   \cline{2-4} \multicolumn{1}{|c|}{}
+     & \multicolumn{1}{|c|}{Negative}
+     & False Negative\cellcolor{red} & True Negative \cellcolor{green}\\
+    \hline
+    \end{tabular}
+\end{center}
+    \end{verbatim}
+%\end{frame}%-------------------------------------------------------------%
+
+\begin{frame}{Example of Two Column Output}
+    \begin{columns}[c]
+        \column{1.5in}
+            Practical \TeX\ 2005\\
+            Practical \TeX\ 2005\\
+            Practical \TeX\ 2005
+        \column{1.5in}
+            % put nice little frame around graphic
+            %\framebox{\includegraphics[width=1.5in]{kink_saus.png}}
+    \end{columns}
+\end{frame}%-------------------------------------------------------------%
+\begin{frame}{Resources}
+    \url{sharelatex.com/learn/Beamer}
+\end{frame}
+\begin{frame}[fragile=singleslide]{Getting started}
+\begin{verbatim}
 \documentclass{beamer}
 \documentclass[17pt]{beamer} % change overall font size
 \usepackage{graphicx} % Always use this for images
+\end{verbatim}
+\end{frame}
 
-%% Fonts
-
+\begin{frame}[fragile=singleslide]{Fonts}
 % common fonts: mathptmx, helvet, avat, bookman, chancery, charter, culer, mathtime,
 % mathptm, newcent, palatino, pifont and utopia.
-
+    \begin{verbatim}
 \usefonttheme{serif}
-\setbeamerfont{frametitle}{series=\bfseries} % Frame titles will be bold
+\setbeamerfont{frametitle}{series=\bfseries}
+    \end{verbatim}
 
-\DeclareGraphicsExtensions{.pdf,.png,.jpg} % Order of preference
+%\DeclareGraphicsExtensions{.pdf,.png,.jpg} % Order of preference
 % Don't include extension when inserting pics! Compilers will
-% automatically look for images with these extensions... how did I
-% manage to automatically start nl with '%'?? By typing until the
-% character limit I set... that's how.
+% automatically look for images with these extensions.
 
 % SEE LATEX.PDF PAGE 506
-\useoutertheme{smoothbars} % defines head and footline of each slide.
-\useinnertheme{circles}     % defines... what?
+%\useoutertheme{smoothbars} % defines head and footline of each slide.
+%\useinnertheme{circles}     % defines... what?
 
-\setbeamercolor{normal text}{bg=black, fg=yellow}
-\setbeamercolor{frametitle}{fg=brown}
+%\setbeamercolor{normal text}{bg=black, fg=yellow}
+%\setbeamercolor{frametitle}{fg=brown}
 
-\title{Pluto}
-\author{Laurel Farris}
-\date{11/30/2015}
+%\title{Pluto}
+%\author{Laurel Farris}
+%\date{11/30/2015}
 
-\begin{document}
-\maketitle
-
-
+%\begin{document}
+%\maketitle
+\end{frame}
 
 \begin{frame}
     \frametitle{Figure Template}
-    \includegraphics[]{pluto}
+    %\includegraphics[]{pluto}
 
 %Other options!!!
 
@@ -87,7 +247,7 @@ sharelatex.com/learn/Beamer
     \frametitle{Multiple columns}
     \begin{columns}[c] %c-centered vertical alignment (t-top centered)
         \column{.45\textwidth} %left column and width
-        \textbf{Heading}
+        {\textbf{Heading}}
         \begin{enumerate}
             \item Statement
             \item Explanation
@@ -98,10 +258,4 @@ sharelatex.com/learn/Beamer
         \end{columns}
 \end{frame}
 
-
 \end{document}
-
-
-
-
-
