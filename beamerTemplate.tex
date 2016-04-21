@@ -4,14 +4,11 @@
 \usepackage{multirow}
 \usepackage{graphicx}
 \usepackage{verbatim} % For using /begin{comment}; /end{comment}
-\usepackage{lmodern}
+%\usepackage{lmodern}
 
-% Bright colors
 \definecolor{oj}{rgb}{1.0,0.65,0.0}
 \definecolor{cblue}{rgb}{0.39,0.58,0.93}
 \definecolor{amethyst}{rgb}{0.6, 0.4, 0.8}
-
-% Pale colors
 \definecolor{lightgrey}{rgb}{0.75, 0.75, 0.80}
 \definecolor{tangerine}{rgb}{1.0, 0.6, 0.4}
 \definecolor{arylyellow}{rgb}{0.91, 0.84, 0.42}
@@ -19,7 +16,7 @@
 \definecolor{aqua}{rgb}{0.5, 1.0, 0.83}
 \definecolor{bblue}{rgb}{0.67, 0.9, 0.93}
 
-\setbeamercolor{normal text}{bg=black, fg=lightgrey}
+\setbeamercolor{normal text}{bg=black, fg=white}
 \setbeamercolor{title}{fg=arylyellow}
 \setbeamercolor{frametitle}{fg=tangerine}
 \setbeamercolor{framesubtitle}{fg=gsa}
@@ -28,6 +25,11 @@
 \setbeamercolor{enumerate item}{fg=amethyst} % all frames will have red bullets
 %\setbeamercolor{block title}{fg=green}
 
+
+% Make all 'verbatim' text a different color!
+\makeatletter
+  \renewcommand\verbatim@font{\normalfont\ttfamily\color{aqua}}
+\makeatother
 
 \setbeamertemplate{itemize items}[circle]
 \title{\textbf{Coronal Seismology}}
@@ -54,28 +56,17 @@
 %    \titlepage{}
 %\end{frame}}
 \end{frame}%-------------------------------------------------------------%
-\begin{frame}{Magnetohydrodynamics (MHD)}{Theory}
-    %[Relationship between size and decay time].
-    \begin{columns}
-        \column{0.5\textwidth}
-        %\includegraphics[width=\textwidth]{cylinder.png}
-        \column{0.5\textwidth}
-        \begin{itemize}
-            \item Straight flux tube in uniform magnetic field.
-            \item $ \xi(x) = \xi(r)e^{i(kz+m{\phi})} $
-            \item Characteristic speeds are determined by the
-                environment
-        \end{itemize}
-    Types of waves/oscillations:
-    \begin{itemize}
-        \item Alfv\'en: $V_A = \frac{B}{\mu_0\rho}$
-        \item Magnetoacoustic: $C_s = \sqrt{\frac{\gamma P}{\rho}}$
-            \begin{itemize}
-                \item Fast $C_{A_0} < C_{fast} < C_{A_e} $
-                \item Slow $C_{T_0} < C_{slow} < C_{s_0} $
-            \end{itemize}
-    \end{itemize}
-    \end{columns}
+\begin{frame}[fragile=singleslide]{Centering}
+    \begin{verbatim}
+\begin{frame}[c]{ }
+    \centering
+    Thank you!
+\end{frame}
+    \end{verbatim}
+
+    \verb|\centering| centers \emph{horizontally}\\
+    The \verb|[c]| option centers \emph{vertically}
+
 \end{frame}%-------------------------------------------------------------%
 \begin{frame}{Example using columns}
 %\begin{center}
@@ -105,7 +96,7 @@
     \end{block}
 \end{columns}
 \end{frame}%-------------------------------------------------------------%
-\begin{frame}{Important Properties}
+\begin{frame}{Example of table}
     \begin{center}
         \begin{tabular}{c|c|c|c|}
             \cline{2-4} & {\textbf{period}} & {\textbf{wavelength}} &
@@ -146,7 +137,6 @@
 \end{center}
     \end{verbatim}
 %\end{frame}%-------------------------------------------------------------%
-
 \begin{frame}{Example of Two Column Output}
     \begin{columns}[c]
         \column{1.5in}
