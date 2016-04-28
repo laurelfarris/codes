@@ -97,6 +97,28 @@ In preamble:
     \item \verb|\begin{justify} ... \end{justify}|
 \end{itemize*}
 
+\begin{verbatim}
+
+\begin{center}
+    ...
+\end{center}
+
+\end{verbatim}
+vs.
+\begin{verbatim}
+\centering
+\end{verbatim}
+
+Both are \emph{horizontal} alignments. Using \verb|begin/end| will pad above and
+below with white space (like bulleted lists). Don't use it inside the figure
+environment.
+
+\verb|centering| will not pad with white space.
+Use braces: \verb|{\centering text I want centered.}|
+
+\verb|\center| is not a thing.
+
+
 \subsection{Font size inside text}
 \begin{verbatim}
 {\Large I want this text to be big.}
@@ -536,6 +558,14 @@ cl> make my_paper
 \end{verbatim}
 
 \section{Misc}
+\subsection{Tips}
+To squelch that stupid warning about ``possible unwanted white space'',
+add a \verb|%| sign after the opening bracket:
+\begin{verbatim}
+{%
+    blah blah blah
+}
+\end{verbatim}
 \subsection{Create your own command!}
 \verb|\newcommand{\bla}{blah blah blah}|
 \subsection{Verbatim}
