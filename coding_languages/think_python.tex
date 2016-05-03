@@ -1,0 +1,651 @@
+\documentclass{article}
+\usepackage[margin=1.5in]{geometry}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{0.5em}
+\usepackage{graphicx}
+\usepackage{enumerate}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{mdwlist}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{verbatim}
+
+\usepackage{titlesec}
+\titleformat*{\section}{\LARGE\bfseries}
+\titleformat*{\subsection}{\Large\bfseries}
+\titleformat*{\subsubsection}{\large\bfseries}
+
+\definecolor{sectioncolor}{rgb}{0.5,0.0,0.13}
+\definecolor{subsectioncolor}{rgb}{0.41,0.16,0.38}
+\definecolor{subsubsectioncolor}{rgb}{0.45, 0.31, 0.59}
+\definecolor{ver}{HTML}{004400}
+
+% Make all 'verbatim' text a different color!
+\makeatletter
+  \renewcommand\verbatim@font{\normalfont\ttfamily\color{ver}}
+\makeatother
+
+\usepackage{sectsty}
+\sectionfont{\color{sectioncolor}}
+\subsectionfont{\color{subsectioncolor}}
+\subsubsectionfont{\color{subsubsectioncolor}}
+\definecolor{darkpowderblue}{rgb}{0.0, 0.2, 0.6}
+
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,urlcolor=darkpowderblue}
+\urlstyle{same}
+
+\title{Think Python (and other useful things)}
+\author{Allen B. Downey (and Laurel Farris)}
+\date{\today}
+
+%------------------------------------------------------------------------------%
+\begin{document}
+\maketitle
+\url{http://www.greenteapress.com/thinkpython/html/index.html}
+%---------------------------------------------------------------------------%
+\section*{Preface}
+\section{The way of the program}
+\section{Variables, expressions, and statements}
+\subsection{Values and types}
+\subsection{Variables}
+\subsection{Variable names and keywords}
+\subsection{Operators and operands}
+\subsection{Expressions and statements}
+\subsection{Interactive mode and script mode}
+\subsection{Order of operations}
+\subsection{String operations}
+\subsection{Comments}
+\subsection{Debugging}
+
+
+\section{Functions}
+\section{Case study: interface design}
+\section{Conditionals and recursion}
+\section{Fruitful functions}
+\section{Iteration}
+\newpage%-------------------------------------------------------------------%
+\section{Strings}
+\subsection{A string is a sequence}
+\subsection{\texttt{len}}
+\subsection{Traversal with a \texttt{for} loop}
+\subsection{String slices}
+\subsection{Strings are immutable}
+\subsection{Searching}
+\subsection{Looping and counting}
+\subsection{String methods}
+A \textbf{method} is similar to a function - it takes arguments and returns a
+value, but the syntax is different. For example, the method
+\verb|upper|
+takes a string and returns a new string with all uppercase letters:
+\par Instead of the function syntax \verb|upper(word)|,
+it uses the method syntax \verb|word.upper()|.
+\begin{verbatim}
+>>> word = 'banana'
+>>> new_word = word.upper()
+>>> print new_word
+BANANA
+\end{verbatim}
+\par This form of dot notation specifies the name of the method,
+\verb|upper|, and the name of the string to apply the method to,
+\verb|word|. The empty
+parentheses indicate that this method takes no argument.
+\par A method call is called an \textbf{invocation};
+in this case, we would say that
+we are invoking \verb|upper| on the \verb|word|.
+\par As it turns out, there is a string method named \verb|find| that is
+remarkably similar to the function we wrote:
+\begin{verbatim}
+>>> word = `banana'
+>>> index = word.find(`a')
+>>> print index
+1
+\end{verbatim}
+\par In this example, we invoke \verb|find| on \verb|word|
+and pass the letter we are looking for as a parameter.
+\par Actually, the \verb|find| method is more general than our function; it can
+find substrings, not just characters:
+\begin{verbatim}
+>>> word.find('na')
+2
+\end{verbatim}
+\par It can take as a second argument the index where it should start:
+\begin{verbatim}
+>>> word.find('na', 3)
+4
+\end{verbatim}
+\par And as a third argument the index where it should stop:
+\begin{verbatim}
+>>> name = 'bob'
+>>> name.find('b', 1, 2)
+-1
+\end{verbatim}
+\par This search fails because \verb|b| does not appear in the index range from
+\verb|1| to \verb|2| (not including \verb|2|).
+
+\subsection{The \texttt{in} operator}
+\subsection{String comparison}
+\subsection{Debugging}
+
+\newpage%-------------------------------------------------------------------%
+\section{Case study: word play}
+\section{Lists}
+\subsection{A list is a sequence}
+Like a string, a \textbf{list} is a sequence of values.
+In a string, the values
+are characters; in a list, they can be any type. The values in a list
+are called \textbf{elements} or sometimes \textbf{items}.
+\par There are several ways to create a new list; the simplest is to
+enclose the elements in square brackets:
+\begin{verbatim}
+[10, 20, 30, 40]
+['crunchy frog', 'ram bladder', 'lark vomit']
+\end{verbatim}
+\par \emph{The elements of a list don't have to be the same
+type}. The following list contains a string, a float, an integer, and
+(lo!) another list:
+\begin{verbatim}
+['spam', 2.0, 5, [10, 20]]
+\end{verbatim}
+\par A list within another list is \textbf{nested}.
+\par A list that contains no elements is called an \emph{empty list};
+you can create one with empty brackets, [].
+\par As you might expect, you can assign list values to variables:
+\begin{verbatim}
+>>> cheeses = ['Cheddar', 'Edam', 'Gouda']
+>>> numbers = [17, 123]
+>>> empty = []
+>>> print cheeses, numbers, empty
+['Cheddar', 'Edam', 'Gouda'] [17, 123] []
+\end{verbatim}
+\subsection{Lists are mutable}
+The syntax for \emph{accessing} the elements of a list is the same as for
+accessing the characters of a string - the bracket operator. The
+expression inside the brackets specifies the index. Remember that the
+indices start at 0:
+\begin{verbatim}
+>>> print cheeses[0]
+Cheddar
+\end{verbatim}
+\par \emph{Unlike strings}, lists are mutable. When the bracket operator appears
+on the left side of an assignment, it identifies the element of the
+list that will be assigned.
+\begin{verbatim}
+>>> numbers = [17, 123]
+>>> numbers[1] = 5
+>>> print numbers
+[17, 5]
+\end{verbatim}
+\par The one-eth element of numbers, which used to be 123, is now 5.
+\par You can think of a list as a relationship between indices and
+elements. This relationship is called a \textbf{mapping}; each index
+``maps to'' one of the elements.
+\par List indices work the same way as string indices:
+\begin{itemize*}
+\item Any integer expression can be used as an index.
+\item If you try to read or write an element that does not exist,
+        you get an \verb|IndexError|.
+\item If an index has a negative value, it counts backward from
+    the end of the list.
+\end{itemize*}
+The \verb|in| operator also works on lists.
+\begin{verbatim}
+>>> cheeses = [`Cheddar', `Edam', `Gouda']
+>>> `Edam' in cheeses
+True
+>>> `Brie' in cheeses
+False
+\end{verbatim}
+\subsection{Traversing a list}
+\par The most common way to traverse the elements of a list is with a
+\verb|for| loop. The syntax is the same as for strings:
+\begin{verbatim}
+for cheese in cheeses:
+    print cheese
+\end{verbatim}
+\par This works well if you only need to read the elements of the list. But if
+you want to write or update the elements, you need the indices. A common
+way to do that is to combine the functions \verb|range| and \verb|len|:
+\begin{verbatim}
+for i in range(len(numbers)):
+    numbers[i] = numbers[i] * 2
+\end{verbatim}
+\par This loop traverses the list and updates each element.
+\verb|len| returns the
+number of elements in the list. \verb|range| returns a list of indices from 0
+to $n-1$, where $n$ is the length of the list. Each time through the
+loop \verb|i| gets the index of the next element. The assignment statement in
+the body uses \verb|i| to read the old value of the element and to assign the
+new value.
+\par A for \verb|loop| over an \emph{empty} list never executes the body:
+\begin{verbatim}
+for x in []:
+    print `This never happens.'
+\end{verbatim}
+\par Although a list can contain another list, \emph{the nested list still
+counts as a single element}. The length of this list is 4:
+\begin{verbatim}
+[`spam', 1, [`Brie', `Roquefort', `Pol le Veq'], [1, 2, 3]]
+\end{verbatim}
+\subsection{List operations}
+\textcolor{red}{IMPORTANT: these are not mathematical operations
+for lists. Convert to numpy arrays:} \verb|a = np.array(a)|
+\par The \verb|+| operator concatenates lists:
+\begin{verbatim}
+>>> a = [1, 2, 3]
+>>> b = [4, 5, 6]
+>>> c = a + b
+>>> print c
+[1, 2, 3, 4, 5, 6]
+\end{verbatim}
+\par Similarly, the \verb|*| operator repeats a list a given number of times:
+\begin{verbatim}
+>>> [0] * 4
+[0, 0, 0, 0]
+>>> [1, 2, 3] * 3
+[1, 2, 3, 1, 2, 3, 1, 2, 3]
+\end{verbatim}
+\par The first example repeats \verb|[0]| four times. The second example
+repeats the list \verb|[1,2,3]| three times.
+\subsection{List slices}
+\subsection{List methods}
+\subsection{Map, filter, and reduce}
+\subsection{Deleting elements}
+\subsection{Lists and strings}
+\subsection{Objects and values}
+\subsection{Aliasing}
+\subsection{List arguments}
+\subsection{Debugging}
+
+
+\section{Dictionaries}
+\section{Tuples}
+\section{Case study: data structure selection}
+%----------------------------------------------------------------------%
+\section{Files}
+\url{%
+http://www.greenteapress.com/thinkpython/html/thinkpython015.html}
+\subsection{Persistence}
+Most of the programs we have seen so far are transient in the sense
+that they run for a short time and produce some output, but when they
+end, their data disappears. If you run the program again, it starts
+with a clean slate.
+\par Other programs are \textbf{persistent}: they run for a long time
+(or all the time);
+they keep at least some of their data in permanent storage (a
+hard drive, for example); and if they shut down and restart, they pick
+up where they left off.
+\par Examples of persistent programs are operating systems, which run
+pretty much whenever a computer is on, and web servers, which run all
+the time, waiting for requests to come in on the network.
+\par One of the simplest ways for programs to maintain their data is by
+reading and writing text files. We have already seen programs that
+read text files; in this chapter we will see programs that write them.
+\par An alternative is to store the state of the program in a database. In
+this chapter I will present a simple database and a module,
+\verb|pickle|,
+that makes it easy to store program data. 
+\subsection{Reading and writing}
+\begin{verbatim}
+file:
+f=open('file.txt','[rwa]') [read,write,append]
+s=f.readline()
+f.close(),
+alternatively:
+for line in f:
+  print line
+\end{verbatim}
+\par A text file is a sequence of characters stored on a permanent medium
+like a hard drive, flash memory, or CD-ROM. We saw how to open and
+read a file in Section 9.1.
+\par To write a file, you have to open it with mode 'w' as a second
+parameter:
+\begin{verbatim}
+>>> fout = open(`output.txt', `w')
+>>> print fout
+<open file `output.txt', mode `w' at 0xb7eb2410>
+\end{verbatim}
+\par \textcolor{red}{If the file already exists, opening it in
+write mode clears out the
+old data and starts fresh, so be careful!} If the file doesn't
+exist, a new one is created.
+\par The \verb|write| method puts data into the file.
+\begin{verbatim}
+>>> line1 = ``This here's the wattle,\n''
+>>> fout.write(line1)
+\end{verbatim}
+\par Again, the file object keeps track of where it is, so if you call
+\verb|write| again, it adds the new data to the end.
+\begin{verbatim}
+>>> line2 = "the emblem of our land.\n"
+>>> fout.write(line2)
+\end{verbatim}
+\par When you are done writing, you have to close the file.
+\begin{verbatim}
+>>> fout.close()
+\end{verbatim}
+
+\subsection{Format operator}
+
+\begin{verbatim}
+'''
+Formatted output
+ > print 'the number is {:.#e|:nd|:n.nf|:ns}'.format(x)
+    exponential, integer, float, string
+ General syntax:
+'''
+template.format(var_1,var_2,...var_n)
+# template:
+#'{[field][!conversion]:[spec]}'
+field = index of variables listed in .format()
+conversion = int, float, string, etc.
+spec = specifier
+[[fill]align][sign][#][0][minwidth][.prec][type]
+align:
+<(left,default)
+>(right)
+=(padding after sign, before digits)
+^(center)
+0: zero padding (same as '=' and fill char of 0)
+type: e,f,g(general)
+
+# Including text:
+print 'Variable 2 is {1} and variable 1 is {0}'.format(var_1,var_2)
+
+'{:8d}asdfad{:8.2f}'.format(i,f)
+formats: {:nd},{:n.nf},{:ns}
+#    n-number (width.precision), d-integer, f-float, s-string
+#-------------- How to use a variable for width?? ------------------#
+\end{verbatim}
+
+The argument of \verb|write| has to be a string, so if we want to put other
+values in a file, we have to convert them to strings. The easiest way
+to do that is with \verb|str|:
+\begin{verbatim}
+>>> x = 52
+>>> fout.write(str(x))
+\end{verbatim}
+An alternative is to use the \textbf{format operator}, \verb|%|.
+When applied to integers, \verb|%| is the modulus operator.
+But when the first operand is a string, \verb|%| is the format operator.
+\par The first operand is the \textbf{format string},
+which contains one or more
+\textbf{format sequences}, which specify how the second operand is formatted.
+The result is a string.
+\par For example, the format sequence \verb|`%d'| means that the second operand
+should be formatted as an integer (\verb|d| stands for ``decimal''):
+\begin{verbatim}
+>>> camels = 42
+>>> '%d' % camels
+'42'
+\end{verbatim}
+\par The result is the string \verb|`42'|,
+which is not to be confused with the integer value 42.
+\par A format sequence can appear anywhere in the string, so you can embed
+a value in a sentence:
+\begin{verbatim}
+>>> camels = 42
+>>> `I have spotted %d camels.' % camels
+`I have spotted 42 camels.'
+\end{verbatim}
+\par If there is more than one format sequence in the string, the second
+argument has to be a tuple. Each format sequence is matched with an
+element of the tuple, in order.
+\par The following example uses \verb|`%d'| to format an integer,
+\verb|'%g'| to format a
+floating-point number, and \verb|'%s'| to format a string:
+\begin{verbatim}
+>>> `In %d years I have spotted %g %s.' % (3, 0.1, `camels')
+`In 3 years I have spotted 0.1 camels.'
+\end{verbatim}
+\par The number of elements in the tuple has to match the number of format
+sequences in the string. Also, the types of the elements have to match
+the format sequences:
+\begin{verbatim}
+>>> `%d %d %d' % (1, 2)
+TypeError: not enough arguments for format string
+>>> `%d' % `dollars'
+TypeError: illegal argument type for built-in operation
+\end{verbatim}
+\par In the first example, there aren't enough elements; in the second,
+the element is the wrong type.
+\par The format operator is powerful, but it can be difficult to use. You
+can read more about it at
+\url{http://docs.python.org/2/library/stdtypes.html#string-formatting}.
+\subsection{Filenames and paths}
+
+\newpage%--------------------------------------------------------------%
+\section{Classes and objects}
+\newpage%--------------------------------------------------------------%
+\section{Classes and functions}
+\newpage%--------------------------------------------------------------%
+\section{Classes and methods}
+\newpage%--------------------------------------------------------------%
+\section{Inheritance}
+\newpage%--------------------------------------------------------------%
+\section{Case study: Tkinter}
+\newpage%--------------------------------------------------------------%
+\section{Debugging}
+\newpage%--------------------------------------------------------------%
+\section{Analysis of Algorithms}
+\newpage%--------------------------------------------------------------%
+\section{Lumpy}
+
+\section*{Glossary}
+\begin{description}
+\item [accumulator] A variable used in a loop to add up or accumulate a result. 
+\item [aliasing] A circumstance where two or more variables refer to the same object. 
+\item [augmented assignment] A statement that updates the value of a variable using an operator like +=. 
+\item [delimiter] A character or string used to indicate where a string should be split. 
+\item [element] One of the values in a list (or other sequence), also called items. 
+\item [equivalent] Having the same value. 
+\item [filter] A processing pattern that traverses a list and selects the elements that satisfy some criterion. 
+\item [identical] Being the same object (which implies equivalence). 
+\item [index] An integer value that indicates an element in a list. 
+\item [list] A sequence of values. 
+\item [list traversal] The sequential accessing of each element in a list. 
+\item [map] A processing pattern that traverses a sequence and performs an operation on each element. 
+\item [mapping] A relationship in which each element of one set corresponds to an element of another set. For example, a list is a mapping from indices to elements. 
+\item [nested list] A list that is an element of another list. 
+\item [object] Something a variable can refer to. An object has a type and a value. 
+\item [reduce] A processing pattern that traverses a sequence and accumulates the elements into a single result. 
+\item [reference] The association between a variable and its value. 
+\end{description}
+
+\begin{verbatim}
+
+#export PYTHONPATH="${PYTHONPATH}:/new/path
+
+# not compiled, execute with cl> python program_name.py
+#   or cl> ./program_name.py IF you have the top line in your program
+#     (must be the first line, literally)
+
+# Resources
+astropy.org
+stackoverflow
+rgex
+
+# 'pickle' is the equivalent of IDL's 'save'
+
+# To allow import:
+def main():
+    # program statements
+    print "hello world."
+if __name__=="__main__":  # flexible way of running routines
+    main()
+
+
+# Things to import (packages?)
+import math [as shortername]
+print math.sqrt(4)
+circumference = 2*math.pi*radius
+print math.exp(2) --> get e^2
+
+import pdb
+pdb.set_trace() #equivalent of 'STOP' in IDL
+
+# line continuation:
+implicit continuation using expression in parentheses...?
+
+# variables: not declared
+
+# lists... similar to arrays, but can't do mathematical operations
+x = [0,1,2,3,4]
+x = range(5) # Same as above... note that there are 5 elements, not
+             # including the number 5
+
+# numerical arrays
+import numpy as np
+np.zeros(n,m)
+np.array(n) # creates an array that consists of n, NOT LENGTH n
+np.array([[a,b,c,d][e,f,g]])
+np.arange(n) # [0,1,2,...,n-1]
+np.ndarray(...) # two-dimensional array
+np.argmax(x) # returns INDEX of max value of x array
+np.append(array,what_to_append)
+np.linspace
+np.logspace
+np.sum(array)
+np.roll(x,2) # (~IDL's SHIFT); shifts array elements 2 to the right
+  --> [3,4,0,1,2] # note x is still the same, unless do x = np.roll(...)
+
+# lists
+array.append(newValue)
+A = [1,2,3] # --> [1,2,3]
+print A*2 # --> [1,2,3,1,2,3]... not [2,4,6] as expected
+B = np.array([1,2,3]) # --> [1 2 3]
+B*2  # --> [2 4 6]
+<<<<<<< HEAD
+=======
+np.ndarray(...) # two-dimensional array
+np.append...?
+x = np.linspace(0,9,100) #0-9 with 100 increments
+y1 = x**2
+# just like with the math package, can't simply do sqrt(x). Need
+# np.sqrt (or math.sqrt if not dealing with arrays).
+y2 = np.sqrt(x)
+# Also this doesn't work:
+x = [1,2,3]
+y = x**2
+# because x is a list, not an array... even though it's just numbers.
+
+>>>>>>> e65b08cb7892365af863d0202be5fe03115aa38c
+
+num_elements = len(Array)
+
+# dynamic memory allocation
+
+# structures
+(dictionaries, see also lists)
+var={'name':'test', ra:1.}
+print var['name'], var['test']
+dicname = { 'A':[1,2,3], 'B':[2,4,6], 'C':[3,9,15] }
+print dicname
+# dictionaries are indexed by keys, rather than numbers.
+# Keys can be any immutable type. Can't use lists, since they can be modified.
+profile = {'density':rho_r, 'mass':mass, ...}
+density = np.array(profile['density'])
+
+# structure arrays
+sarray = np.zeros(nelem,
+ dtype=[('name','a12'),('ra','f4'),('dec','f4')])
+sarray=np.zeros(nelem,
+ dtype={'names': ('name', 'ra', 'dec'),
+  'formats': ('S12','f4','f4')})
+
+# operators (add, subtract, multiply, divide, exponent)
++,-,*,/,**,+=,-=,*=,/=,++,--
+# bitwise operators (and, or, xor, not)
+&,|,^,!
+# string operators
++, str[i1:i2] (string slice, but string is immutable)
+
+#matrix operations
+
+# conditionals
+if (condition):
+    statements
+else:
+    statements
+    (extent of conditional statements specified by indentation)
+    pass # need to have 'something' here.
+if (condition):
+    break
+else:
+    continue
+''' Conditions (logical operators) '''
+==, !=, >, >=, <, <=, and, or, not
+\end{verbatim}
+
+\section*{Looping}
+\verb|for i in (list):| i = value in list, NOT the index of each value
+
+\verb|for i in range(1,x): ...  ~ IDL> for i=1,x-1...| i IS the index here
+
+\textcolor{red}{PYTHON IS NOT INCLUSIVE!}
+
+\begin{verbatim}
+
+''' Looping with condition '''
+while (condition):
+    statements
+
+''' Simple output '''
+print 'characters', string, variable
+
+
+# simple reading from terminal and file
+terminal:
+s=raw_input('prompt')
+
+# higher level file reading routines
+data = numpy.loadtxt(file,
+ dtype=[('name','a12'),('ra',f4),('dec','f4')])
+
+ data = astropy.io.ascii(file)
+
+\end{verbatim}
+
+\section*{Plotting}
+\url{http://latexcolor.com/}
+
+???
+\begin{verbatim}
+>>> import matplotlib.pyplot as plt
+.csv file --> ?
+pyplot.show()
+pyplot.savefig('tmp.pdf')
+  --> rewritten each time!
+plt.xlabel('labelname',fontsize=14,color='red')
+color='#eeefff'
+\end{verbatim}
+???
+
+\subsection*{axes objects}
+Whole figure:
+\begin{verbatim}
+fig = plt.figure()
+fig.suptitle('bold figure suptitle',fontsize=14,fontweight='bold')
+plt.xlabel('xlabel') # whole figure
+plt.ylabel('xlabel') # whole figure
+\end{verbatim}
+
+Individual axes:
+\begin{verbatim}
+ax.set_xlabel('labelname',
+    fontsize = 14,
+    )
+ax.tick_params(axis=['x'|'y'|'both'],
+    labelsize='large')
+ax.ticklabel_format(style='sci',
+\end{verbatim}
+
+\begin{verbatim}
+for i in range(0,some_number):
+    ax = fig.add_subplot(n,m,i+1)
+    # n - vertical; m - horizontal; i+1 - plot being defined as 'ax'
+\end{verbatim}
+
+
+\end{document}

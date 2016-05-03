@@ -1,0 +1,60 @@
+\BOOKMARK [1][-]{section.1}{The way of the program}{}
+\BOOKMARK [1][-]{section.2}{Variables, expressions, and statements}{}
+\BOOKMARK [2][-]{subsection.2.1}{Values and types}{section.2}
+\BOOKMARK [2][-]{subsection.2.2}{Variables}{section.2}
+\BOOKMARK [2][-]{subsection.2.3}{Variable names and keywords}{section.2}
+\BOOKMARK [2][-]{subsection.2.4}{Operators and operands}{section.2}
+\BOOKMARK [2][-]{subsection.2.5}{Expressions and statements}{section.2}
+\BOOKMARK [2][-]{subsection.2.6}{Interactive mode and script mode}{section.2}
+\BOOKMARK [2][-]{subsection.2.7}{Order of operations}{section.2}
+\BOOKMARK [2][-]{subsection.2.8}{String operations}{section.2}
+\BOOKMARK [2][-]{subsection.2.9}{Comments}{section.2}
+\BOOKMARK [2][-]{subsection.2.10}{Debugging}{section.2}
+\BOOKMARK [1][-]{section.3}{Functions}{}
+\BOOKMARK [1][-]{section.4}{Case study: interface design}{}
+\BOOKMARK [1][-]{section.5}{Conditionals and recursion}{}
+\BOOKMARK [1][-]{section.6}{Fruitful functions}{}
+\BOOKMARK [1][-]{section.7}{Iteration}{}
+\BOOKMARK [1][-]{section.8}{Strings}{}
+\BOOKMARK [2][-]{subsection.8.1}{A string is a sequence}{section.8}
+\BOOKMARK [2][-]{subsection.8.2}{len}{section.8}
+\BOOKMARK [2][-]{subsection.8.3}{Traversal with a for loop}{section.8}
+\BOOKMARK [2][-]{subsection.8.4}{String slices}{section.8}
+\BOOKMARK [2][-]{subsection.8.5}{Strings are immutable}{section.8}
+\BOOKMARK [2][-]{subsection.8.6}{Searching}{section.8}
+\BOOKMARK [2][-]{subsection.8.7}{Looping and counting}{section.8}
+\BOOKMARK [2][-]{subsection.8.8}{String methods}{section.8}
+\BOOKMARK [2][-]{subsection.8.9}{The in operator}{section.8}
+\BOOKMARK [2][-]{subsection.8.10}{String comparison}{section.8}
+\BOOKMARK [2][-]{subsection.8.11}{Debugging}{section.8}
+\BOOKMARK [1][-]{section.9}{Case study: word play}{}
+\BOOKMARK [1][-]{section.10}{Lists}{}
+\BOOKMARK [2][-]{subsection.10.1}{A list is a sequence}{section.10}
+\BOOKMARK [2][-]{subsection.10.2}{Lists are mutable}{section.10}
+\BOOKMARK [2][-]{subsection.10.3}{Traversing a list}{section.10}
+\BOOKMARK [2][-]{subsection.10.4}{List operations}{section.10}
+\BOOKMARK [2][-]{subsection.10.5}{List slices}{section.10}
+\BOOKMARK [2][-]{subsection.10.6}{List methods}{section.10}
+\BOOKMARK [2][-]{subsection.10.7}{Map, filter, and reduce}{section.10}
+\BOOKMARK [2][-]{subsection.10.8}{Deleting elements}{section.10}
+\BOOKMARK [2][-]{subsection.10.9}{Lists and strings}{section.10}
+\BOOKMARK [2][-]{subsection.10.10}{Objects and values}{section.10}
+\BOOKMARK [2][-]{subsection.10.11}{Aliasing}{section.10}
+\BOOKMARK [2][-]{subsection.10.12}{List arguments}{section.10}
+\BOOKMARK [2][-]{subsection.10.13}{Debugging}{section.10}
+\BOOKMARK [1][-]{section.11}{Dictionaries}{}
+\BOOKMARK [1][-]{section.12}{Tuples}{}
+\BOOKMARK [1][-]{section.13}{Case study: data structure selection}{}
+\BOOKMARK [1][-]{section.14}{Files}{}
+\BOOKMARK [2][-]{subsection.14.1}{Persistence}{section.14}
+\BOOKMARK [2][-]{subsection.14.2}{Reading and writing}{section.14}
+\BOOKMARK [2][-]{subsection.14.3}{Format operator}{section.14}
+\BOOKMARK [2][-]{subsection.14.4}{Filenames and paths}{section.14}
+\BOOKMARK [1][-]{section.15}{Classes and objects}{}
+\BOOKMARK [1][-]{section.16}{Classes and functions}{}
+\BOOKMARK [1][-]{section.17}{Classes and methods}{}
+\BOOKMARK [1][-]{section.18}{Inheritance}{}
+\BOOKMARK [1][-]{section.19}{Case study: Tkinter}{}
+\BOOKMARK [1][-]{section.20}{Debugging}{}
+\BOOKMARK [1][-]{section.21}{Analysis of Algorithms}{}
+\BOOKMARK [1][-]{section.22}{Lumpy}{}
