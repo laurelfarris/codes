@@ -1,3 +1,4 @@
+%\documentclass[12pt]{article}
 \documentclass{article}
 \usepackage[margin=0.75in]{geometry}
 \setlength{\parindent}{0em}
@@ -6,20 +7,29 @@
 \usepackage{enumerate}
 \usepackage{enumitem}
 \usepackage{amsmath}
-\usepackage{mdwlist}
+\usepackage{mdwlist} % For getting rid of space between items
 \usepackage{color}
 \usepackage{xcolor}
+\usepackage{sectsty} % For setting section colors
+\usepackage{fancyhdr} % For headers
+
+\pagestyle{fancy}
+\setlength{\headheight}{15pt} % space between header and top of paper
+\lhead{Laurel Farris}
+\chead{ASTR 101}
+\rhead{dd mm yyyy}
+
+\pagenumering{gobble}
+
+\definecolor{sectioncolor}{rgb}{0.93, 0.53, 0.18}
+\definecolor{subsectioncolor}{rgb}{0.0, 0.42, 0.24}
+\definecolor{subsubsectioncolor}{rgb}{0.45, 0.31, 0.59}
 
 \usepackage{titlesec}
 \titleformat*{\section}{\LARGE\bfseries}
 \titleformat*{\subsection}{\Large\bfseries}
 \titleformat*{\subsubsection}{\large\bfseries}
 
-\definecolor{sectioncolor}{rgb}{0.93, 0.53, 0.18}
-\definecolor{subsectioncolor}{rgb}{0.0, 0.42, 0.24}
-\definecolor{subsubsectioncolor}{rgb}{0.45, 0.31, 0.59}
-
-\usepackage{sectsty}
 \sectionfont{\color{sectioncolor}}
 \subsectionfont{\color{subsectioncolor}}
 \subsubsectionfont{\color{subsubsectioncolor}}
@@ -28,6 +38,8 @@
 \usepackage{hyperref}
 \hypersetup{colorlinks=true,urlcolor=darkpowderblue}
 \urlstyle{same}
+
+
 
 \title{LaTeX reference}
 \author{Laurel Farris}

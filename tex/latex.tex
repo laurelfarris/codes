@@ -83,6 +83,7 @@ In preamble:
 \begin{verbatim}
 \usepackage{fancyhdr}
 \pagestyle{fancy}
+\setlength{\headheight}{15pt}
 \lhead{text} % Top left
 \rhead{text} % Top right
 \chead{text} % Top center
@@ -91,7 +92,13 @@ In preamble:
 \cfoot{text} % Bottom center
 \end{verbatim}
 
+The \verb|\headheight| option sets the amount of space between the
+header and the top edge of the paper. Value has to be greater than
+some amount, otherwise will get an error message. Document still
+compiles, but better safe than sorry.
+
 \subsection{Text alignment}
+\subsubsection{Horizontal alignment}
 \verb|\usepackage{ragged2e}|
 \begin{itemize*}
     \item \verb|\begin{flushright}...\end{flushright}|
@@ -100,26 +107,50 @@ In preamble:
 \end{itemize*}
 
 \begin{verbatim}
-
 \begin{center}
     ...
 \end{center}
-
 \end{verbatim}
 vs.
 \begin{verbatim}
 \centering
 \end{verbatim}
 
-Both are \emph{horizontal} alignments. Using \verb|begin/end| will pad above and
+Using \verb|begin/end| will pad above and
 below with white space (like bulleted lists). Don't use it inside the figure
-environment.
-
-\verb|centering| will not pad with white space.
+environment. \verb|centering| will not pad with white space.
 Use braces: \verb|{\centering text I want centered.}|
-
 \verb|\center| is not a thing.
 
+\verb|\hfill| will essentially push the text in front of it to the right
+edge of the document.
+\begin{verbatim}
+This text is on the left.\hfill This text is on the right.
+\end{verbatim}
+This text is on the left.\hfill This text is on the right.
+
+\subsubsection{Vertical alignment}
+\verb|[ct| Options like this will center at top, center, etc.
+
+\subsection{Spacing}
+This website is glorious:\\
+\url{http://www.terminally-incoherent.com/blog/2007/09/19/latex-squeezing-the-vertical-white-space/}
+\begin{itemize*}
+    \item \verb|\newpage| Jump to a new page after previous section
+    \item \verb|\\| new line
+    \item \verb|\hspace| horizontal space
+    \item \verb|\hspace{20 mm}| horizontal blank space equal to 20 mm
+    \item \verb|\vspace| vertical space
+    \item \verb|\noindent| self-explanatory
+\end{itemize*}
+
+\subsection{Font style}
+\begin{verbatim}
+\textbf{This text is bold}
+\textit{This text is in italics}
+\emph{This text is also in italics.. what's the difference??}
+\underline{This text is underlined}
+\end{verbatim}
 
 \subsection{Font size inside text}
 \begin{verbatim}
@@ -141,38 +172,6 @@ Use braces: \verb|{\centering text I want centered.}|
 \scriptsize
 \tiny
 \end{verbatim}
-
-\subsection{Font style}
-\begin{verbatim}
-\textbf{This text is bold}
-\textit{This text is in italics}
-\emph{This text is also in italics.. what's the difference??}
-\underline{This text is underlined}
-\end{verbatim}
-
-\subsection{Spacing}
-This website is glorious:\\
-\url{http://www.terminally-incoherent.com/blog/2007/09/19/latex-squeezing-the-vertical-white-space/}
-\begin{itemize*}
-    \item \verb|\newpage| Jump to a new page after previous section
-    \item \verb|\\| new line
-    \item \verb|\hspace| horizontal space
-    \item \verb|\hspace{20 mm}| horizontal blank space equal to 20 mm
-    \item \verb|\vspace| vertical space
-    \item \verb|\noindent| self-explanatory
-\end{itemize*}
-
-
-\subsubsection{Center justify text}
-\begin{verbatim}
-\begin{centering}
-    Here is some text to go in the middle of my page, e.g. a title
-\end{centering}
-\end{verbatim}
-
-
-
-
 
 %---------------------------------------------------------------------------%
 \section{Sections}
