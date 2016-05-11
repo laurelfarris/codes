@@ -489,13 +489,26 @@ pdb.set_trace() #equivalent of 'STOP' in IDL
 implicit continuation using expression in parentheses...?
 
 # variables: not declared
+\end{verbatim}
 
-# lists... similar to arrays, but can't do mathematical operations
+\section*{Lists}
+
+lists are similar to arrays, but can't do mathematical operations
+\begin{verbatim}
 x = [0,1,2,3,4]
 x = range(5) # Same as above... note that there are 5 elements, not
              # including the number 5
 
-# numerical arrays
+array.append(newValue)
+A = [1,2,3] # --> [1,2,3]
+print A*2 # --> [1,2,3,1,2,3]... not [2,4,6] as expected
+B = np.array([1,2,3]) # --> [1 2 3]
+B*2  # --> [2 4 6]
+<<<<<<< HEAD
+\end{verbatim}
+
+\section*{numerical arrays}
+\begin{verbatim}
 import numpy as np
 np.zeros(n,m)
 np.array(n) # creates an array that consists of n, NOT LENGTH n
@@ -504,23 +517,12 @@ np.arange(n) # [0,1,2,...,n-1]
 np.ndarray(...) # two-dimensional array
 np.argmax(x) # returns INDEX of max value of x array
 np.append(array,what_to_append)
-np.linspace
+np.linspace(0,9,100) #0-9 with 100 increments
 np.logspace
 np.sum(array)
 np.roll(x,2) # (~IDL's SHIFT); shifts array elements 2 to the right
   --> [3,4,0,1,2] # note x is still the same, unless do x = np.roll(...)
 
-# lists
-array.append(newValue)
-A = [1,2,3] # --> [1,2,3]
-print A*2 # --> [1,2,3,1,2,3]... not [2,4,6] as expected
-B = np.array([1,2,3]) # --> [1 2 3]
-B*2  # --> [2 4 6]
-<<<<<<< HEAD
-=======
-np.ndarray(...) # two-dimensional array
-np.append...?
-x = np.linspace(0,9,100) #0-9 with 100 increments
 y1 = x**2
 # just like with the math package, can't simply do sqrt(x). Need
 # np.sqrt (or math.sqrt if not dealing with arrays).
@@ -531,6 +533,12 @@ y = x**2
 # because x is a list, not an array... even though it's just numbers.
 
 >>>>>>> e65b08cb7892365af863d0202be5fe03115aa38c
+
+
+>>> A = np.array([1,2,3])
+>>> A + 1
+    [2,3,4]
+
 
 num_elements = len(Array)
 
@@ -631,6 +639,11 @@ plt.xlabel('xlabel') # whole figure
 plt.ylabel('xlabel') # whole figure
 \end{verbatim}
 
+Simpler?:
+\begin{verbatim}
+fig, ax = plt.subplots()
+\end{verbatim}
+
 Individual axes:
 \begin{verbatim}
 ax.set_xlabel('labelname',
@@ -647,5 +660,14 @@ for i in range(0,some_number):
     # n - vertical; m - horizontal; i+1 - plot being defined as 'ax'
 \end{verbatim}
 
+\subsubsection*{Legend}
+\begin{verbatim}
+    ax.plot(x,y1, 'k--', label='line 1')
+    ax.plot(x,y2, 'k:', label='line 2')
+    ax.plot(x,y3, 'k', label='line 3')
+    legend = ax.legend(loc='upper center', shadow=True)
+    legend = ax.legend(loc='lower left')
+\end{verbatim}
+'k' is black.
 
 \end{document}

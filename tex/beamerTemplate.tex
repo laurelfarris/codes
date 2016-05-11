@@ -1,6 +1,5 @@
-\documentclass{beamer}
+\documentclass[9pt]{beamer}
 \usepackage[T1]{fontenc} %????
-%\usepackage{mdwlist}
 \usepackage{multirow}
 \usepackage{graphicx}
 \usepackage{verbatim} % For using /begin{comment}; /end{comment}
@@ -15,6 +14,7 @@
 \definecolor{gsa}{rgb}{0.66, 0.89, 0.63}
 \definecolor{aqua}{rgb}{0.5, 1.0, 0.83}
 \definecolor{bblue}{rgb}{0.67, 0.9, 0.93}
+\definecolor{ver}{rgb}{0.94,0.92,0.84}
 
 \setbeamercolor{normal text}{bg=black, fg=white}
 \setbeamercolor{title}{fg=arylyellow}
@@ -28,7 +28,7 @@
 
 % Make all 'verbatim' text a different color!
 \makeatletter
-  \renewcommand\verbatim@font{\normalfont\ttfamily\color{aqua}}
+  \renewcommand\verbatim@font{\normalfont\ttfamily\color{ver}}
 \makeatother
 
 \setbeamertemplate{itemize items}[circle]
@@ -39,7 +39,8 @@
 
 \begin{document}
 
-\begin{frame}{Colors}
+\begin{frame}[fragile=singleslide]{Colors}
+\begin{verbatim}
 %\usepackage{selinput} % ?  %Loading a font package, uncomment one of the following lines to see changes
 %\usepackage{libertine}
 %\usefonttheme{default}
@@ -66,35 +67,17 @@
 
     \verb|\centering| centers \emph{horizontally}\\
     The \verb|[c]| option centers \emph{vertically}
-
 \end{frame}%-------------------------------------------------------------%
-\begin{frame}{Example using columns}
-%\begin{center}
-\begin{columns}
-        \column{0.6\textwidth}
-        %\framebox{\includegraphics[width=2.5in]{kink_saus.png}}
-    %\par{\tiny image credit:\\
-    %$https://inspirehep.net/record/1088737/files/figures_instab_locations.png$}
-    %\end{center}
-        \column{0.4\textwidth}
-    \begin{block}{Kink}
-        \begin{itemize}
-            \item loop spatial displacement
-            \item Asymmetric
-            \item No intensity change
-            \item $k\sigma \ll 1$, or $\sigma\ll\lambda$
-        \end{itemize}
-    \end{block}
-    \begin{block}{Sausage}
-        \begin{itemize}
-            \item No loop spatial displacement
-            \item Symmetric
-            \item Intensity change\\ $\rightarrow$ density change
-            \item $\lambda\sim\sigma$
-            \item long-wavelength limit
-        \end{itemize}
-    \end{block}
-\end{columns}
+
+\begin{frame}[fragile=singleslide]{labelling frame numbers}
+    \begin{verbatim}
+\setbeamertemplate{footline}{%
+    \raisebox{5pt}{\makebox[\paperwidth]{\hfill\makebox[10pt]{%
+    \scriptsize\insertframenumber}}}}
+\setbeamercolor{footline}{fg=color}
+...
+\begin{document}
+    \end{verbatim}
 \end{frame}%-------------------------------------------------------------%
 \begin{frame}{Example of table}
     \begin{center}
@@ -112,7 +95,6 @@
         \end{tabular}
     \end{center}
 \end{frame}%-------------------------------------------------------------%
-%========================================================================%
 %\begin{frame}{Example Table}
     \begin{verbatim}
 \begin{center}
@@ -137,17 +119,6 @@
 \end{center}
     \end{verbatim}
 %\end{frame}%-------------------------------------------------------------%
-\begin{frame}{Example of Two Column Output}
-    \begin{columns}[c]
-        \column{1.5in}
-            Practical \TeX\ 2005\\
-            Practical \TeX\ 2005\\
-            Practical \TeX\ 2005
-        \column{1.5in}
-            % put nice little frame around graphic
-            %\framebox{\includegraphics[width=1.5in]{kink_saus.png}}
-    \end{columns}
-\end{frame}%-------------------------------------------------------------%
 \begin{frame}{Resources}
     \url{sharelatex.com/learn/Beamer}
 \end{frame}
@@ -160,14 +131,14 @@
 \end{frame}
 
 \begin{frame}[fragile=singleslide]{Fonts}
-% common fonts: mathptmx, helvet, avat, bookman, chancery, charter, culer, mathtime,
-% mathptm, newcent, palatino, pifont and utopia.
+%common fonts: mathptmx, helvet, avat, bookman, chancery, charter, culer, mathtime,
+%mathptm, newcent, palatino, pifont and utopia.
     \begin{verbatim}
 \usefonttheme{serif}
 \setbeamerfont{frametitle}{series=\bfseries}
     \end{verbatim}
 
-%\DeclareGraphicsExtensions{.pdf,.png,.jpg} % Order of preference
+%\DeclareGraphi c sExtensions{.pdf,.png,.jpg} % Order of preference
 % Don't include extension when inserting pics! Compilers will
 % automatically look for images with these extensions.
 
@@ -189,6 +160,8 @@
 \begin{frame}
     \frametitle{Figure Template}
     %\includegraphics[]{pluto}
+            % put nice little frame around graphic
+            %\framebox{\includegraphics[width=1.5in]{kink_saus.png}}
 
 %Other options!!!
 
@@ -216,36 +189,5 @@
 %   \caption{Awesome image}
 %   \label{fig:awesome_image}
 %\end{figure}
-
 \end{frame}
-
-
-\begin{frame}
-    \frametitle{Science Goals}
-    This is what NH hoped to acheive, and how meeting these goals
-    would contribute to planetary science in general solar system
-    formation and evolution, etc.
-    \begin{enumerate}
-    \item First Goal
-    \item Second Goal
-    \item Third Goal
-    \end{enumerate}
-\end{frame}
-
-
-\begin{frame}
-    \frametitle{Multiple columns}
-    \begin{columns}[c] %c-centered vertical alignment (t-top centered)
-        \column{.45\textwidth} %left column and width
-        {\textbf{Heading}}
-        \begin{enumerate}
-            \item Statement
-            \item Explanation
-            \item Example
-        \end{enumerate}
-        \column{.5\textwidth} %right column and width
-            Text text text
-        \end{columns}
-\end{frame}
-
 \end{document}
