@@ -39,34 +39,43 @@
 
 \begin{document}
 
-\begin{frame}[fragile=singleslide]{Colors}
+\begin{frame}[fragile=singleslide]{Title}
+\end{frame}%-------------------------------------------------------------%
+\begin{frame}[fragile=singleslide]{Getting started}
 \begin{verbatim}
-%\usepackage{selinput} % ?  %Loading a font package, uncomment one of the following lines to see changes
-%\usepackage{libertine}
-%\usefonttheme{default}
-%\usefonttheme{professionalfonts}
-
-%\setbeamerfont{frametitle}{series=\bfseries} % Frame titles should be bold
-
-%\usepackage{lmodern}
+\documentclass{beamer}
+\documentclass[17pt]{beamer} % change overall font size
+\usepackage{graphicx} % Always use this for images
+\end{verbatim}
+\end{frame}%-------------------------------------------------------------%
+\begin{frame}[fragile=singleslide]{Fonts}
+\begin{verbatim}
+\usepackage{selinput}
+\usepackage{lmodern}
+\usepackage{libertine}
+\usefonttheme{default}
+\usefonttheme{professionalfonts}
+\setbeamerfont{frametitle}{series=\bfseries}
+\end{verbatim}
 \end{frame}%-------------------------------------------------------------%
 \begin{frame}{image on title slide background}
-%{\usebackgroundtemplate{\includegraphics[width=\paperwidth]
-%    {awesome.jpg}}
-%\begin{frame}
-%    \titlepage{}
-%\end{frame}}
+\begin{verbatim}
+{\usebackgroundtemplate{\includegraphics[width=\paperwidth]
+    {awesome.jpg}}
+\begin{frame}
+    \titlepage{}
+\end{frame}}
+\end{verbatim}
 \end{frame}%-------------------------------------------------------------%
 \begin{frame}[fragile=singleslide]{Centering}
     \begin{verbatim}
 \begin{frame}[c]{ }
-    \centering
-    Thank you!
+\centering
 \end{frame}
     \end{verbatim}
 
-    \verb|\centering| centers \emph{horizontally}\\
-    The \verb|[c]| option centers \emph{vertically}
+\verb|\centering| centers \emph{horizontally}\\
+The \verb|[c]| option centers \emph{vertically}
 \end{frame}%-------------------------------------------------------------%
 
 \begin{frame}[fragile=singleslide]{labelling frame numbers}
@@ -95,22 +104,22 @@
         \end{tabular}
     \end{center}
 \end{frame}%-------------------------------------------------------------%
-%\begin{frame}{Example Table}
+\begin{frame}{Example Table}
     \begin{verbatim}
 \begin{center}
    \begin{tabular}{cc|c|c|}
-% row 1
+ row 1
    \cline{3-4} & & \multicolumn{2}{|c|}{Condition (Gold standard)}\\
-% row 2
+ row 2
    \cline{3-4} & & True & False \\
    \hline
-% row 3 (and 4) - multirow
+ row 3 (and 4) - multirow
    \multicolumn{1}{|c|} % add in vertical lines
    {\multirow{2}{*}{Test outcome}}& % Text covers rows 3 and 4
- % row 3
+ row 3
    \multicolumn{1}{|c|}{Positive} %
      & True Positive \cellcolor{green} & False Positive\cellcolor{red}\\
- % row 4
+ row 4
    \cline{2-4} \multicolumn{1}{|c|}{}
      & \multicolumn{1}{|c|}{Negative}
      & False Negative\cellcolor{red} & True Negative \cellcolor{green}\\
@@ -118,17 +127,10 @@
     \end{tabular}
 \end{center}
     \end{verbatim}
-%\end{frame}%-------------------------------------------------------------%
+\end{frame}%-------------------------------------------------------------%
 \begin{frame}{Resources}
     \url{sharelatex.com/learn/Beamer}
-\end{frame}
-\begin{frame}[fragile=singleslide]{Getting started}
-\begin{verbatim}
-\documentclass{beamer}
-\documentclass[17pt]{beamer} % change overall font size
-\usepackage{graphicx} % Always use this for images
-\end{verbatim}
-\end{frame}
+\end{frame}%-------------------------------------------------------------%
 
 \begin{frame}[fragile=singleslide]{Fonts}
 %common fonts: mathptmx, helvet, avat, bookman, chancery, charter, culer, mathtime,
