@@ -39,33 +39,39 @@
 
 \begin{document}
 
-\begin{frame}[fragile=singleslide]{Title}
-\end{frame}%-------------------------------------------------------------%
+%------------------------------------------------------------------------%
 \begin{frame}[fragile=singleslide]{Getting started}
-\begin{verbatim}
+    \begin{verbatim}
 \documentclass{beamer}
 \documentclass[17pt]{beamer} % change overall font size
 \usepackage{graphicx} % Always use this for images
-\end{verbatim}
+
+\title{Pluto}
+\author{Laurel Farris}
+\date{11/30/2015}
+
+\begin{document}
+\maketitle
+    \end{verbatim}
 \end{frame}%-------------------------------------------------------------%
 \begin{frame}[fragile=singleslide]{Fonts}
-\begin{verbatim}
+    \begin{verbatim}
 \usepackage{selinput}
 \usepackage{lmodern}
 \usepackage{libertine}
 \usefonttheme{default}
 \usefonttheme{professionalfonts}
 \setbeamerfont{frametitle}{series=\bfseries}
-\end{verbatim}
+    \end{verbatim}
 \end{frame}%-------------------------------------------------------------%
 \begin{frame}{image on title slide background}
-\begin{verbatim}
+    \begin{verbatim}
 {\usebackgroundtemplate{\includegraphics[width=\paperwidth]
     {awesome.jpg}}
 \begin{frame}
     \titlepage{}
 \end{frame}}
-\end{verbatim}
+    \end{verbatim}
 \end{frame}%-------------------------------------------------------------%
 \begin{frame}[fragile=singleslide]{Centering}
     \begin{verbatim}
@@ -104,7 +110,7 @@ The \verb|[c]| option centers \emph{vertically}
         \end{tabular}
     \end{center}
 \end{frame}%-------------------------------------------------------------%
-\begin{frame}{Example Table}
+\begin{frame}[fragile=singleslide]{Example Table}
     \begin{verbatim}
 \begin{center}
    \begin{tabular}{cc|c|c|}
@@ -128,68 +134,85 @@ The \verb|[c]| option centers \emph{vertically}
 \end{center}
     \end{verbatim}
 \end{frame}%-------------------------------------------------------------%
-\begin{frame}{Resources}
+\begin{frame}[fragile=singleslide]{Resources}
     \url{sharelatex.com/learn/Beamer}
 \end{frame}%-------------------------------------------------------------%
-
 \begin{frame}[fragile=singleslide]{Fonts}
-%common fonts: mathptmx, helvet, avat, bookman, chancery, charter, culer, mathtime,
-%mathptm, newcent, palatino, pifont and utopia.
     \begin{verbatim}
 \usefonttheme{serif}
 \setbeamerfont{frametitle}{series=\bfseries}
     \end{verbatim}
+common fonts:
+    \begin{itemize}
+        \item mathptmx
+        \item helvet
+        \item avat
+        \item bookman
+        \item chancery
+        \item charter
+        \item culer
+        \item mathtime
+        \item mathptm
+        \item newcent
+        \item palatino
+        \item pifont
+        \item utopia.
+    \end{itemize}
+\end{frame}%-------------------------------------------------------------%
+\begin{frame}[fragile=singleslide]{Graphics}
+    \verb|\DeclareGraphicsExtensions{.pdf,.png,.jpg}|
+    In order of preference. Don't include extension when inserting
+    graphics. Compilers will automatically look for images with these
+    extensions.
+\end{frame}%-------------------------------------------------------------%
+\begin{frame}[fragile=singleslide]{Colors}
+    \begin{list}{}
+        \item \verb|\setbeamercolor{normal text}{bg=black, fg=yellow}|
+        \item \verb|\setbeamercolor{frametitle}{fg=brown}|
+    \end{list}
+\end{frame}%-------------------------------------------------------------%
+\begin{frame}[fragile=singleslide]{Figure Template}
+    \begin{verbatim}
+    \includegraphics[]{pluto}
+    \end{verbatim}
+    Put nice little frame around graphic.
+    \begin{verbatim}
+    \framebox{\includegraphics[width=1.5in]{kink_saus.png}}
+    \end{verbatim}
+\end{frame}%-------------------------------------------------------------%
+\begin{frame}[fragile=singleslide]{Figure Template}
+Other options:
+    \begin{verbatim}
+width=xx[cm][in]  preferred width
+width=\linewidth scale wrt width of a line in the local env.
+height=xx         preferred height
+height=\textheight  scale wrt to height of text on page
+keepaspectratio   set to true or false, only change w or h!!
+scale=xx          2 to double, .5 to reduce by half, etc.
+angle=xx          rotates image by xx degrees (cc)
+trim=l b r t      crop image by l from left, b from bottom, etc.
+                      e.g. trim=0 1 0 2 to only trim t and b?
+clip              set clip=true for 'trim' option to work
+page=x            for pdfs with multiple pages
+resolution=x      specify image resolution in dpi
+    \end{verbatim}
+\end{frame}%-------------------------------------------------------------%
+\begin{frame}[fragile=singleslide]{Figure Template}
+    can also:
+    \begin{verbatim}
+*set borders
+*
+    \end{verbatim}
+    Example:
+    \begin{verbatim}
+\begin{figure}[p]
+   \centering
+   \includegraphics[width=0.8\textwidth]{image.png}
+   \caption{Awesome image}
+   \label{fig:awesome_image}
+\end{figure}
+    \end{verbatim}
+\end{frame}%-------------------------------------------------------------%
 
-%\DeclareGraphi c sExtensions{.pdf,.png,.jpg} % Order of preference
-% Don't include extension when inserting pics! Compilers will
-% automatically look for images with these extensions.
-
-% SEE LATEX.PDF PAGE 506
-%\useoutertheme{smoothbars} % defines head and footline of each slide.
-%\useinnertheme{circles}     % defines... what?
-
-%\setbeamercolor{normal text}{bg=black, fg=yellow}
-%\setbeamercolor{frametitle}{fg=brown}
-
-%\title{Pluto}
-%\author{Laurel Farris}
-%\date{11/30/2015}
-
-%\begin{document}
-%\maketitle
-\end{frame}
-
-\begin{frame}
-    \frametitle{Figure Template}
-    %\includegraphics[]{pluto}
-            % put nice little frame around graphic
-            %\framebox{\includegraphics[width=1.5in]{kink_saus.png}}
-
-%Other options!!!
-
-% width=xx[cm][in]  preferred width
-%  width=\linewidth scale wrt width of a line in the local env.
-% height=xx         preferred height
-%  height=\textheight  scale wrt to height of text on page
-% keepaspectratio   set to true or false, only change w or h!!
-% scale=xx          2 to double, .5 to reduce by half, etc.
-% angle=xx          rotates image by xx degrees (cc)
-% trim=l b r t      crop image by l from left, b from bottom, etc.
-%                       e.g. trim=0 1 0 2 to only trim t and b?
-%                       should test this...
-% clip              set clip=true for 'trim' option to work
-% page=x            for pdfs with multiple pages
-% resolution=x      specify image resolution in dpi
-
-% can also:
-%  *set borders
-%  *
-
-%\begin{figure}[p]
-%   \centering
-%   \includegraphics[width=0.8\textwidth]{image.png}  % extensions?
-%   \caption{Awesome image}
-%   \label{fig:awesome_image}
-%\end{figure}
 \end{frame}
 \end{document}

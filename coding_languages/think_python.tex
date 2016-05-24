@@ -46,7 +46,9 @@
 \url{http://www.greenteapress.com/thinkpython/html/index.html}
 %---------------------------------------------------------------------------%
 \section*{Preface}
+% Chapter 1
 \section{The way of the program}
+% Chapter 2
 \section{Variables, expressions, and statements}
 \subsection{Values and types}
 \subsection{Variables}
@@ -59,8 +61,157 @@
 \subsection{Comments}
 \subsection{Debugging}
 
-
+% Chapter 3
 \section{Functions}
+\subsection{Function calls}
+In the context of programming, a \textbf{function} is a named
+sequence of statements that performs a computation.
+To define a function, specify the name and sequence of
+statements. Then ``call'' the function by name later.
+Example of a \textbf{function call}:
+\begin{verbatim}
+>>> type(32)
+<type `int'>
+\end{verbatim}
+The name of the function is \verb|type|. The expression in
+parentheses is called the \textbf{argument} of the function.
+The result, for this function, is the type of the argument.
+
+It is common to say that a function ``takes'' an argument and
+``returns'' a result. The result is called the \textbf{return value}.
+\subsection{Type conversion functions}
+Python provides built-in functions that convert values from
+one type to another. The \verb|int| function takes any value
+and converts it to an integer:
+\begin{verbatim}
+>>> int(`32')
+32
+>>> int(3.999)
+3
+\end{verbatim}
+Note that decimals are truncated, not rounded.
+
+The \verb|float| function converts integers and strings to
+floating-point numbers:
+\begin{verbatim}
+>>> float(32)
+32.0
+>>> float(`3.14159')
+3.14159
+\end{verbatim}
+The \verb|str| function converts its argument to a string:
+\begin{verbatim}
+>>> str(32)
+`32'
+>>> str(3.14159)
+`3.14159'
+\end{verbatim}
+\subsection{Math functions}
+Python has a math module that provides most of the familiar
+mathematical functions. A \textbf{module} is a file that
+contains a collection of related functions. Modules must
+be imported before they can be used
+(such as \verb|>>> import math|, which creates a
+\textbf{module object}) named math. If you print the module
+object, you get some information about it:
+\begin{verbatim}
+>>> print math
+<module `math' from `/usr/lib/python2.5/lib-dynload/math.so'>
+\end{verbatim}
+The module object contains the functions and variables defined
+in the module. To access one of the functions, you have to specify
+the name of the module and the name of the function, separated
+by a dot (this format is called \textbf{dot notation}).
+\begin{verbatim}
+>>> ratio = signal_power / noise_power
+>>> decibels = 10 * math.log10(ratio)
+
+>>> radians = 0.7
+>>> height = math.sin(radians)
+\end{verbatim}
+The first example computes the logarithm base 10 of the
+signal-to-noise ratio. The math module also provides a function called
+\verb|log| that computes logarithms base \verb|e|.
+
+The second example finds the
+sine of \verb|radians|.
+Trigonometric functions (\verb|sin|, \verb|cos|, \verb|tan|, etc.)
+\textcolor{red}{take arguments in radians.}
+
+The expression \verb|math.pi| gets the variable \verb|pi| from
+the math module, which is accurate to about 15 digits.
+
+\subsection{Composition}
+So far, we have looked at the elements of a program—variables,
+expressions, and statements—in
+isolation.
+One of the most useful features of programming languages is their
+ability to take small building
+blocks and \textbf{compose} them. For example,
+the argument of a function can be any kind of expression,
+including arithmetic operators and function calls:
+\begin{verbatim}
+x = math.sin(degrees / 360.0 * 2 * math.pi)
+x = math.exp(math.log(x+1))
+\end{verbatim}
+
+\subsection{Adding new functions}
+A \textbf{Function definition} specifies the name of a new
+function and the sequence of statements that execute when the
+function is called, e.g.:
+\begin{verbatim}
+def do_nothing():
+    print ``Doing nothing.''
+\end{verbatim}
+
+\verb|def| is a keyword that indicates that this is a function
+definition. The name of the function is \verb|do_nothing|.
+You should avoid having a variable and a function with the same
+name. The empty parentheses indicate that this function doesn't
+take any arguments.
+
+The first line of the function definition is called the
+\textbf{header}; the rest is called the \textbf{body}. The header
+has to end with a colon and the body has to be indented.
+By convention, the indentation is always four spaces
+(see Section 3.13).
+
+If you type a function definition in interactive mode, the interpreter
+prints ellipses (\ldots) to let you
+know that the definition isn't complete:
+\begin{verbatim}
+>>> def print_lyrics():
+... print ``I'm a lumberjack, and I'm okay.''
+... print ``I sleep all night and I work all day.''
+...
+\end{verbatim}
+To end the function, enter an empty line (this is not
+necessary in a script).
+
+Defining a function creates a variable with the same name.
+The value of \verb|print_lyrics| is a \textbf{function object},
+which has type `function'.
+
+The syntax for calling the new function is the same as for
+built-in functions:
+\begin{verbatim}
+>>> print_lyrics()
+I'm a lumberjack, and I'm okay.
+I sleep all night and I work all day.
+\end{verbatim}
+
+\subsection{}
+\subsection{}
+\subsection{}
+\subsection{}
+\subsection{}
+\subsection{}
+\subsection{}
+\subsection{}
+
+
+
+% Chapter 4
 \section{Case study: interface design}
 \section{Conditionals and recursion}
 \section{Fruitful functions}
@@ -285,7 +436,7 @@ read text files; in this chapter we will see programs that write them.
 \par An alternative is to store the state of the program in a database. In
 this chapter I will present a simple database and a module,
 \verb|pickle|,
-that makes it easy to store program data. 
+that makes it easy to store program data.
 \subsection{Reading and writing}
 \begin{verbatim}
 file:
@@ -434,23 +585,23 @@ can read more about it at
 
 \section*{Glossary}
 \begin{description}
-\item [accumulator] A variable used in a loop to add up or accumulate a result. 
-\item [aliasing] A circumstance where two or more variables refer to the same object. 
-\item [augmented assignment] A statement that updates the value of a variable using an operator like +=. 
-\item [delimiter] A character or string used to indicate where a string should be split. 
-\item [element] One of the values in a list (or other sequence), also called items. 
-\item [equivalent] Having the same value. 
-\item [filter] A processing pattern that traverses a list and selects the elements that satisfy some criterion. 
-\item [identical] Being the same object (which implies equivalence). 
-\item [index] An integer value that indicates an element in a list. 
-\item [list] A sequence of values. 
-\item [list traversal] The sequential accessing of each element in a list. 
-\item [map] A processing pattern that traverses a sequence and performs an operation on each element. 
-\item [mapping] A relationship in which each element of one set corresponds to an element of another set. For example, a list is a mapping from indices to elements. 
-\item [nested list] A list that is an element of another list. 
-\item [object] Something a variable can refer to. An object has a type and a value. 
-\item [reduce] A processing pattern that traverses a sequence and accumulates the elements into a single result. 
-\item [reference] The association between a variable and its value. 
+\item [accumulator] A variable used in a loop to add up or accumulate a result.
+\item [aliasing] A circumstance where two or more variables refer to the same object.
+\item [augmented assignment] A statement that updates the value of a variable using an operator like +=.
+\item [delimiter] A character or string used to indicate where a string should be split.
+\item [element] One of the values in a list (or other sequence), also called items.
+\item [equivalent] Having the same value.
+\item [filter] A processing pattern that traverses a list and selects the elements that satisfy some criterion.
+\item [identical] Being the same object (which implies equivalence).
+\item [index] An integer value that indicates an element in a list.
+\item [list] A sequence of values.
+\item [list traversal] The sequential accessing of each element in a list.
+\item [map] A processing pattern that traverses a sequence and performs an operation on each element.
+\item [mapping] A relationship in which each element of one set corresponds to an element of another set. For example, a list is a mapping from indices to elements.
+\item [nested list] A list that is an element of another list.
+\item [object] Something a variable can refer to. An object has a type and a value.
+\item [reduce] A processing pattern that traverses a sequence and accumulates the elements into a single result.
+\item [reference] The association between a variable and its value.
 \end{description}
 
 \begin{verbatim}
