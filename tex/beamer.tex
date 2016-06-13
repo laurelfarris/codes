@@ -27,9 +27,9 @@
 
 
 % Make all 'verbatim' text a different color!
-\makeatletter
-  \renewcommand\verbatim@font{\normalfont\ttfamily\color{ver}}
-\makeatother
+%\makeatletter
+%  \renewcommand\verbatim@font{\normalfont\ttfamily\color{ver}}
+%\makeatother
 
 \setbeamertemplate{itemize items}[circle]
 \title{\textbf{Coronal Seismology}}
@@ -169,6 +169,7 @@ common fonts:
     \begin{list}{}
         \item \verb|\setbeamercolor{normal text}{bg=black, fg=yellow}|
         \item \verb|\setbeamercolor{frametitle}{fg=brown}|
+        \item \verb|\setbeamercolor{block title}{fg=brown}|
     \end{list}
 \end{frame}%-------------------------------------------------------------%
 \begin{frame}[fragile=singleslide]{Figure Template}
@@ -214,5 +215,4 @@ resolution=x      specify image resolution in dpi
     \end{verbatim}
 \end{frame}%-------------------------------------------------------------%
 
-\end{frame}
 \end{document}

@@ -1,0 +1,78 @@
+\documentclass[11pt,table]{beamer} % ???
+\usepackage{graphicx}
+\usepackage{verbatim}
+
+% Footline
+\setbeamertemplate{footline}{%
+    \raisebox{5pt}{\makebox[\paperwidth]{\hfill\makebox[10pt]{%
+    \scriptsize\insertframenumber}}}}
+\setbeamercolor{footline}{fg=gray}
+\setbeamertemplate{navigation symbols}{}% Empty to get rid of them!
+
+\setbeamertemplate{itemize items}{$\circ$}
+\usepackage{multirow} % For tables
+\usepackage{ragged2e}
+\usepackage{booktabs} % ???
+\usepackage{textpos} % for inserting tcolorbox...?
+%\useoutertheme{infolines}
+\usepackage{lmodern}
+
+% Blocks
+%\addtobeamertemplate{block begin}{\vspace{-8pt}}{}
+
+%\setbeamercolor{background canvas}{bg=onyx}
+%\setbeamercolor{normal text}{fg=white}
+%\setbeamercolor{title}{fg=ay}
+%\setbeamercolor{frametitle}{fg=ay}
+%\setbeamercolor{framesubtitle}{fg=cblue}
+%\setbeamercolor{block title}{fg=gsa}
+%\setbeamercolor{itemize item}{fg=tan}
+%\setbeamercolor{itemize subitem}{fg=cblue}
+%\setbeamercolor{enumerate item}{fg=tan}
+%\setbeamercolor{enumerate subitem}{fg=cblue}
+
+% Let big graphic take up more of frame?
+\newcommand\Wider[2][3em]{%
+    \makebox[\linewidth][c]{%
+       \begin{minipage}{\dimexpr\textwidth+#1\relax}
+           \raggedright#2
+       \end{minipage}%
+    }%
+}
+
+\title{\textbf{Title}}
+\subtitle{\textbf{Subtitle}}
+\date{\textbf{Date}}
+\author{\textbf{Laurel Farris}}
+
+\begin{document}
+
+% Make background image for one frame only
+%{\usebackgroundtemplate{\includegraphics[width=\paperwidth]
+%    {awesome.jpg}}
+%\begin{frame}
+%    \titlepage{}
+%\end{frame}}%-------------------------------------------------------------%
+
+\setbeamercolor{background canvas}{bg=black}
+\setbeamertemplate{background}{%
+\parbox[c][\paperheight][c]{\paperwidth}{%
+%\hspace{3cm}
+\centering
+\includegraphics[height=\paperheight]{figures/full_disk.png}}
+\begin{frame}[t]{Research}{AIA/\emph{SDO}}
+    \hspace{-2em}Fe {\footnotesize XII, XXIV}\\
+    \hspace{-2em}193 \AA{}\\
+\end{frame}}%------------------------------------------------------------%
+
+% Use of the new "Wider" command
+\begin{frame}{Research}{Cross-correlations}
+    \begin{block}{}
+    \Wider[4em]{%
+    \begin{center}
+        \includegraphics[width=\textwidth]{test2.png}
+    \end{center}}
+    \end{block}
+\end{frame}%-------------------------------------------------------------%
+
+\end{document}

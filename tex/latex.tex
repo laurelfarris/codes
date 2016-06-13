@@ -50,10 +50,9 @@
 \end{verbatim}
 (10pt is the default font size)
 \subsubsection{Report}
-\subsubsection{Beamer}
-This one may or may not have its own how-to document.
 
 \subsection{Margins}
+\subsubsection{Entire document}
 \begin{enumerate}
     \item Sides (odd- and even-numbered pages):
 \begin{verbatim}
@@ -73,9 +72,10 @@ can customize the second a little more):
     \item \verb|\usepackage{fullpage}|
     \item \verb|\usepackage[margin=1in]{geometry}|
 \end{itemize*}
+\subsubsection{Blocks of text}
 
 \subsection{Line spacing and indentation}
-\verb|\setlength{\parindent}{0m}| Set indent for new paragraphs
+\verb|\setlength{\parindent}{0m}| Set indent for new paragraphs\par
 \verb|\setlength{\parskip}{0.5em}| Set spacing between paragraphs
 
 \subsection{Headers and footers}
@@ -130,7 +130,7 @@ This text is on the left.\hfill This text is on the right.
 This text is on the left.\hfill This text is on the right.
 
 \subsubsection{Vertical alignment}
-\verb|[ct| Options like this will center at top, center, etc.
+\verb|[ct]| Options like this will center at top, center, etc.
 
 \subsection{Spacing}
 This website is glorious:\\
@@ -144,15 +144,20 @@ This website is glorious:\\
     \item \verb|\noindent| self-explanatory
 \end{itemize*}
 
-\subsection{Font style}
+\subsection{Font}
+\subsubsection{Font style}
 \begin{verbatim}
 \textbf{This text is bold}
 \textit{This text is in italics}
-\emph{This text is also in italics.. what's the difference??}
+\emph{This text is also in italics}
 \underline{This text is underlined}
+\texttt{This text is computer style}
+\textsf{sans serif}
+\textsl{slanted (slightly different from italics}
+\textsc{Small caps}
 \end{verbatim}
 
-\subsection{Font size inside text}
+\subsubsection{Font size inside text}
 \begin{verbatim}
 {\Large I want this text to be big.}
 \end{verbatim}
@@ -341,6 +346,15 @@ BETTER\@:
 \left( ... \right)
 \end{verbatim}
 to scale size of brackets to what is inside them!
+
+Increase size of fraction inside text:
+\begin{verbatim}
+\cfrac{1}{2}
+\end{verbatim}
+
+There are $\frac{1}{2}$ as many as there were.\par
+There are $\cfrac{1}{2}$ as many as there were.
+
 
 \subsection{Operations}
 \subsubsection{Integrals}

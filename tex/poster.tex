@@ -1,0 +1,111 @@
+\documentclass[t]{beamer}
+\usepackage[orientation=landscape,size=custom,width=115,height=100,scale=1]{beamerposter}
+\usepackage{textpos}
+%\usepackage[absolute,overlay]{textpos} % ??
+%\usepackage[absolute]{textpos} % ???
+% \usepackage{tikz} % What even is this?
+\usepackage{fancybox}
+\usepackage{multirow} % What even is this?
+\usepackage{booktabs} % What even is this?
+\usepackage{graphicx}
+\usepackage{lipsum}
+\usepackage{caption} % What does this include?
+\usepackage{lmodern} % Font style (default is nice)
+\usepackage{pstricks,pst-grad}
+
+\definecolor{arsenic}{rgb}{0.23, 0.27, 0.29}
+\definecolor{mycyan}{rgb}{0.0, 0.55, 0.55}
+\definecolor{mygray}{rgb}{0.23, 0.27, 0.29}
+\definecolor{myblue}{rgb}{0.16, 0.32, 0.75}
+\definecolor{mygreen}{rgb}{0.05, 0.5, 0.06}
+\definecolor{mypurple}{rgb}{0.45, 0.31, 0.59}
+\definecolor{myred}{rgb}{0.82, 0.1, 0.26}
+
+% Background
+\setbeamercolor{background canvas}{bg=arsenic}
+\setbeamersize{text margin left=3cm,text margin right=3cm}
+
+% Title
+\setbeamerfont{frametitle}{size=\Huge,series=\bfseries}
+\setbeamerfont{framesubtitle}{size=\huge}
+\setbeamercolor{frametitle}{fg=white}
+\setbeamercolor{framesubtitle}{fg=white}
+\setbeamertemplate{frametitle}[default][center]
+\addtobeamertemplate{frametitle}{\vspace*{5cm}}{\vspace*{5cm}}
+
+% Blocks
+\setbeamercolor{block title}{fg=white,bg=arsenic,size=\LARGE,series=\bfseries}
+\setbeamercolor{block body}{fg=black,bg=white,size=\normalsize}
+\setbeamertemplate{blocks}[rounded][shadow=false]
+\addtobeamertemplate{block begin}{\vspace*{40pt}}{}
+
+% Lists
+\setbeamertemplate{itemize items}{$\circ$}
+\setbeamercolor{itemize item}{fg=myblue}
+\setbeamercolor{enumerate item}{fg=myblue}
+\setbeamercolor{description item}{fg=myblue}
+
+% Captions
+\setbeamertemplate{caption}[numbered]
+\setbeamerfont{caption}{size=\small}
+\setbeamercolor{caption name}{fg=myblue}
+
+\begin{document}
+
+\begin{frame}[t]{Some Cool Scientific Title}
+    {Laurel Farris}
+    \begin{block}{} % Enclose everything to get white background
+
+    \begin{columns}
+        \column{0.3\textwidth}
+        \begin{block}{Introduction}
+            \lipsum[1]
+        \end{block}
+        \begin{block}{Data}
+            \begin{columns}
+                \column{0.50\textwidth}
+                \begin{figure}
+                    \includegraphics[width=0.9\textwidth]{sun.png}
+                    \caption{Here is the sun}
+                \end{figure}
+                \column{0.50\textwidth}
+                \lipsum[2]
+            \end{columns}
+        \end{block}
+
+        \column{0.3\textwidth}
+
+        \begin{block}{Results}
+            \begin{columns}
+                \column{0.50\textwidth}
+                \begin{figure}
+                    \includegraphics[width=0.9\textwidth]{sun.png}
+                    \caption{text}
+                \end{figure}
+                \column{0.50\textwidth}
+                \lipsum[3]
+            \end{columns}
+        \end{block}
+
+        \column{0.3\textwidth}
+
+        \begin{block}{Conclusions}
+            \lipsum[4]
+            \begin{itemize}
+                \item stuff
+                \item more stuff
+                \item even more stuff
+                \item stuff
+            \end{itemize}
+        \end{block}
+        \begin{block}{References}
+            \lipsum[5]
+        \end{block}
+        \begin{block}{Acknowledgements}
+            \lipsum[6]
+        \end{block}
+    \end{columns}
+\end{block}
+\end{frame}
+
+\end{document}

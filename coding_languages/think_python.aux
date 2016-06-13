@@ -1,16 +1,21 @@
 \relax 
-\ifx\hyper@anchor\@undefined
-\global \let \oldcontentsline\contentsline
-\gdef \contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}
-\global \let \oldnewlabel\newlabel
-\gdef \newlabel#1#2{\newlabelxx{#1}#2}
-\gdef \newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
-\AtEndDocument{\let \contentsline\oldcontentsline
-\let \newlabel\oldnewlabel}
-\else
-\global \let \hyper@last\relax 
-\fi
-
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyperFirstAtBeginDocument{\AtBeginDocument}
+\HyperFirstAtBeginDocument{\ifx\hyper@anchor\@undefined
+\global\let\oldcontentsline\contentsline
+\gdef\contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}
+\global\let\oldnewlabel\newlabel
+\gdef\newlabel#1#2{\newlabelxx{#1}#2}
+\gdef\newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
+\AtEndDocument{\ifx\hyper@anchor\@undefined
+\let\contentsline\oldcontentsline
+\let\newlabel\oldnewlabel
+\fi}
+\fi}
+\global\let\hyper@last\relax 
+\gdef\HyperFirstAtBeginDocument#1{#1}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
 \@writefile{toc}{\contentsline {section}{\numberline {1}The way of the program}{1}{section.1}}
 \@writefile{toc}{\contentsline {section}{\numberline {2}Variables, expressions, and statements}{1}{section.2}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Values and types}{1}{subsection.2.1}}
@@ -24,50 +29,73 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.9}Comments}{1}{subsection.2.9}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.10}Debugging}{1}{subsection.2.10}}
 \@writefile{toc}{\contentsline {section}{\numberline {3}Functions}{1}{section.3}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Case study: interface design}{2}{section.4}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Conditionals and recursion}{2}{section.5}}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Fruitful functions}{2}{section.6}}
-\@writefile{toc}{\contentsline {section}{\numberline {7}Iteration}{2}{section.7}}
-\@writefile{toc}{\contentsline {section}{\numberline {8}Strings}{3}{section.8}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.1}A string is a sequence}{3}{subsection.8.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.2}\texttt  {len}}{3}{subsection.8.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.3}Traversal with a \texttt  {for} loop}{3}{subsection.8.3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.4}String slices}{3}{subsection.8.4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.5}Strings are immutable}{3}{subsection.8.5}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.6}Searching}{3}{subsection.8.6}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.7}Looping and counting}{3}{subsection.8.7}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.8}String methods}{3}{subsection.8.8}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.9}The \texttt  {in} operator}{4}{subsection.8.9}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.10}String comparison}{4}{subsection.8.10}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {8.11}Debugging}{4}{subsection.8.11}}
-\@writefile{toc}{\contentsline {section}{\numberline {9}Case study: word play}{5}{section.9}}
-\@writefile{toc}{\contentsline {section}{\numberline {10}Lists}{5}{section.10}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {10.1}A list is a sequence}{5}{subsection.10.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {10.2}Lists are mutable}{5}{subsection.10.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {10.3}Traversing a list}{6}{subsection.10.3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {10.4}List operations}{7}{subsection.10.4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {10.5}List slices}{7}{subsection.10.5}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {10.6}List methods}{7}{subsection.10.6}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {10.7}Map, filter, and reduce}{7}{subsection.10.7}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {10.8}Deleting elements}{7}{subsection.10.8}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {10.9}Lists and strings}{7}{subsection.10.9}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {10.10}Objects and values}{7}{subsection.10.10}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {10.11}Aliasing}{7}{subsection.10.11}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {10.12}List arguments}{7}{subsection.10.12}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {10.13}Debugging}{7}{subsection.10.13}}
-\@writefile{toc}{\contentsline {section}{\numberline {11}Dictionaries}{7}{section.11}}
-\@writefile{toc}{\contentsline {section}{\numberline {12}Tuples}{7}{section.12}}
-\@writefile{toc}{\contentsline {section}{\numberline {13}Case study: data structure selection}{8}{section.13}}
-\@writefile{toc}{\contentsline {section}{\numberline {14}Files}{8}{section.14}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {14.1}Persistence}{8}{subsection.14.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {14.2}Reading and writing}{8}{subsection.14.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {14.3}Format operator}{9}{subsection.14.3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {14.4}Filenames and paths}{10}{subsection.14.4}}
-\@writefile{toc}{\contentsline {section}{\numberline {15}Classes and objects}{11}{section.15}}
-\@writefile{toc}{\contentsline {section}{\numberline {16}Classes and functions}{12}{section.16}}
-\@writefile{toc}{\contentsline {section}{\numberline {17}Classes and methods}{13}{section.17}}
-\@writefile{toc}{\contentsline {section}{\numberline {18}Inheritance}{14}{section.18}}
-\@writefile{toc}{\contentsline {section}{\numberline {19}Case study: Tkinter}{15}{section.19}}
-\@writefile{toc}{\contentsline {section}{\numberline {20}Debugging}{16}{section.20}}
-\@writefile{toc}{\contentsline {section}{\numberline {21}Analysis of Algorithms}{17}{section.21}}
-\@writefile{toc}{\contentsline {section}{\numberline {22}Lumpy}{18}{section.22}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Function calls}{2}{subsection.3.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Type conversion functions}{2}{subsection.3.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Math functions}{2}{subsection.3.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Composition}{3}{subsection.3.4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Adding new functions}{3}{subsection.3.5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.6}Definitions and uses}{4}{subsection.3.6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.7}Flow of execution}{5}{subsection.3.7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.8}Parameters and arguments}{5}{subsection.3.8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.9}Variables and parameters are local}{6}{subsection.3.9}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.10}Stack diagrams}{7}{subsection.3.10}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.11}Fruitful functions and void functions}{7}{subsection.3.11}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.12}Why functions?}{8}{subsection.3.12}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.13}Importing with \texttt  {from}}{8}{subsection.3.13}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.14}Debugging}{9}{subsection.3.14}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Case study: interface design}{9}{section.4}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Conditionals and recursion}{9}{section.5}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Fruitful functions}{9}{section.6}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Iteration}{9}{section.7}}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Strings}{10}{section.8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.1}A string is a sequence}{10}{subsection.8.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.2}\texttt  {len}}{10}{subsection.8.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.3}Traversal with a \texttt  {for} loop}{10}{subsection.8.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.4}String slices}{10}{subsection.8.4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.5}Strings are immutable}{10}{subsection.8.5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.6}Searching}{10}{subsection.8.6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.7}Looping and counting}{10}{subsection.8.7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.8}String methods}{10}{subsection.8.8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.9}The \texttt  {in} operator}{11}{subsection.8.9}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.10}String comparison}{11}{subsection.8.10}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.11}Debugging}{11}{subsection.8.11}}
+\@writefile{toc}{\contentsline {section}{\numberline {9}Case study: word play}{12}{section.9}}
+\@writefile{toc}{\contentsline {section}{\numberline {10}Lists}{12}{section.10}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.1}A list is a sequence}{12}{subsection.10.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.2}Lists are mutable}{12}{subsection.10.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.3}Traversing a list}{13}{subsection.10.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.4}List operations}{14}{subsection.10.4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.5}List slices}{14}{subsection.10.5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.6}List methods}{14}{subsection.10.6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.7}Map, filter, and reduce}{14}{subsection.10.7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.8}Deleting elements}{14}{subsection.10.8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.9}Lists and strings}{14}{subsection.10.9}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.10}Objects and values}{14}{subsection.10.10}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.11}Aliasing}{14}{subsection.10.11}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.12}List arguments}{14}{subsection.10.12}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.13}Debugging}{14}{subsection.10.13}}
+\@writefile{toc}{\contentsline {section}{\numberline {11}Dictionaries}{14}{section.11}}
+\@writefile{toc}{\contentsline {section}{\numberline {12}Tuples}{14}{section.12}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {12.1}Tuples are immutable}{15}{subsection.12.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {12.2}Tuple assignment}{16}{subsection.12.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {12.3}Tuples as return values}{17}{subsection.12.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {12.4}Variable-length argument tuples}{17}{subsection.12.4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {12.5}Lists and tuples}{18}{subsection.12.5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {12.6}Dictionaries and tuples}{19}{subsection.12.6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {12.7}Comparing tuples}{20}{subsection.12.7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {12.8}Sequences of sequences}{21}{subsection.12.8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {12.9}Debugging}{22}{subsection.12.9}}
+\@writefile{toc}{\contentsline {section}{\numberline {13}Case study: data structure selection}{23}{section.13}}
+\@writefile{toc}{\contentsline {section}{\numberline {14}Files}{23}{section.14}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {14.1}Persistence}{23}{subsection.14.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {14.2}Reading and writing}{23}{subsection.14.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {14.3}Format operator}{24}{subsection.14.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {14.4}Filenames and paths}{26}{subsection.14.4}}
+\@writefile{toc}{\contentsline {section}{\numberline {15}Classes and objects}{27}{section.15}}
+\@writefile{toc}{\contentsline {section}{\numberline {16}Classes and functions}{28}{section.16}}
+\@writefile{toc}{\contentsline {section}{\numberline {17}Classes and methods}{29}{section.17}}
+\@writefile{toc}{\contentsline {section}{\numberline {18}Inheritance}{30}{section.18}}
+\@writefile{toc}{\contentsline {section}{\numberline {19}Case study: Tkinter}{31}{section.19}}
+\@writefile{toc}{\contentsline {section}{\numberline {20}Debugging}{32}{section.20}}
+\@writefile{toc}{\contentsline {section}{\numberline {21}Analysis of Algorithms}{33}{section.21}}
+\@writefile{toc}{\contentsline {section}{\numberline {22}Lumpy}{34}{section.22}}
