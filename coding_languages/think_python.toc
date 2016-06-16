@@ -1,0 +1,98 @@
+\contentsline {section}{\numberline {1}The way of the program}{4}{section.1}
+\contentsline {section}{\numberline {2}Variables, expressions, and statements}{4}{section.2}
+\contentsline {subsection}{\numberline {2.1}Values and types}{4}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Variables}{5}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Variable names and keywords}{5}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Operators and operands}{5}{subsection.2.4}
+\contentsline {subsection}{\numberline {2.5}Expressions and statements}{5}{subsection.2.5}
+\contentsline {subsection}{\numberline {2.6}Interactive mode and script mode}{6}{subsection.2.6}
+\contentsline {subsection}{\numberline {2.7}Order of operations}{6}{subsection.2.7}
+\contentsline {subsection}{\numberline {2.8}String operations}{6}{subsection.2.8}
+\contentsline {subsection}{\numberline {2.9}Comments}{6}{subsection.2.9}
+\contentsline {subsection}{\numberline {2.10}Debugging}{6}{subsection.2.10}
+\contentsline {section}{\numberline {3}Functions}{6}{section.3}
+\contentsline {subsection}{\numberline {3.1}Function calls}{6}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Type conversion functions}{7}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Math functions}{7}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Composition}{8}{subsection.3.4}
+\contentsline {subsection}{\numberline {3.5}Adding new functions}{8}{subsection.3.5}
+\contentsline {subsection}{\numberline {3.6}Definitions and uses}{9}{subsection.3.6}
+\contentsline {subsection}{\numberline {3.7}Flow of execution}{10}{subsection.3.7}
+\contentsline {subsection}{\numberline {3.8}Parameters and arguments}{10}{subsection.3.8}
+\contentsline {subsection}{\numberline {3.9}Variables and parameters are local}{11}{subsection.3.9}
+\contentsline {subsection}{\numberline {3.10}Stack diagrams}{12}{subsection.3.10}
+\contentsline {subsection}{\numberline {3.11}Fruitful functions and void functions}{12}{subsection.3.11}
+\contentsline {subsection}{\numberline {3.12}Why functions?}{13}{subsection.3.12}
+\contentsline {subsection}{\numberline {3.13}Importing with \texttt {from}}{13}{subsection.3.13}
+\contentsline {subsection}{\numberline {3.14}Debugging}{14}{subsection.3.14}
+\contentsline {section}{\numberline {4}Case study: interface design}{14}{section.4}
+\contentsline {section}{\numberline {5}Conditionals and recursion}{14}{section.5}
+\contentsline {section}{\numberline {6}Fruitful functions}{14}{section.6}
+\contentsline {section}{\numberline {7}Iteration}{14}{section.7}
+\contentsline {section}{\numberline {8}Strings}{15}{section.8}
+\contentsline {subsection}{\numberline {8.1}A string is a sequence}{15}{subsection.8.1}
+\contentsline {subsection}{\numberline {8.2}\texttt {len}}{15}{subsection.8.2}
+\contentsline {subsection}{\numberline {8.3}Traversal with a \texttt {for} loop}{15}{subsection.8.3}
+\contentsline {subsection}{\numberline {8.4}String slices}{15}{subsection.8.4}
+\contentsline {subsection}{\numberline {8.5}Strings are immutable}{15}{subsection.8.5}
+\contentsline {subsection}{\numberline {8.6}Searching}{15}{subsection.8.6}
+\contentsline {subsection}{\numberline {8.7}Looping and counting}{15}{subsection.8.7}
+\contentsline {subsection}{\numberline {8.8}String methods}{15}{subsection.8.8}
+\contentsline {subsection}{\numberline {8.9}The \texttt {in} operator}{16}{subsection.8.9}
+\contentsline {subsection}{\numberline {8.10}String comparison}{16}{subsection.8.10}
+\contentsline {subsection}{\numberline {8.11}Debugging}{16}{subsection.8.11}
+\contentsline {section}{\numberline {9}Case study: word play}{17}{section.9}
+\contentsline {section}{\numberline {10}Lists}{17}{section.10}
+\contentsline {subsection}{\numberline {10.1}A list is a sequence}{17}{subsection.10.1}
+\contentsline {subsection}{\numberline {10.2}Lists are mutable}{17}{subsection.10.2}
+\contentsline {subsection}{\numberline {10.3}Traversing a list}{18}{subsection.10.3}
+\contentsline {subsection}{\numberline {10.4}List operations}{19}{subsection.10.4}
+\contentsline {subsection}{\numberline {10.5}List slices}{19}{subsection.10.5}
+\contentsline {subsection}{\numberline {10.6}List methods}{19}{subsection.10.6}
+\contentsline {subsection}{\numberline {10.7}Map, filter, and reduce}{19}{subsection.10.7}
+\contentsline {subsection}{\numberline {10.8}Deleting elements}{19}{subsection.10.8}
+\contentsline {subsection}{\numberline {10.9}Lists and strings}{19}{subsection.10.9}
+\contentsline {subsection}{\numberline {10.10}Objects and values}{19}{subsection.10.10}
+\contentsline {subsection}{\numberline {10.11}Aliasing}{19}{subsection.10.11}
+\contentsline {subsection}{\numberline {10.12}List arguments}{19}{subsection.10.12}
+\contentsline {subsection}{\numberline {10.13}Debugging}{19}{subsection.10.13}
+\contentsline {section}{\numberline {11}Dictionaries}{19}{section.11}
+\contentsline {section}{\numberline {12}Tuples}{19}{section.12}
+\contentsline {subsection}{\numberline {12.1}Tuples are immutable}{20}{subsection.12.1}
+\contentsline {subsection}{\numberline {12.2}Tuple assignment}{21}{subsection.12.2}
+\contentsline {subsection}{\numberline {12.3}Tuples as return values}{22}{subsection.12.3}
+\contentsline {subsection}{\numberline {12.4}Variable-length argument tuples}{22}{subsection.12.4}
+\contentsline {subsection}{\numberline {12.5}Lists and tuples}{23}{subsection.12.5}
+\contentsline {subsection}{\numberline {12.6}Dictionaries and tuples}{24}{subsection.12.6}
+\contentsline {subsection}{\numberline {12.7}Comparing tuples}{25}{subsection.12.7}
+\contentsline {subsection}{\numberline {12.8}Sequences of sequences}{26}{subsection.12.8}
+\contentsline {subsection}{\numberline {12.9}Debugging}{27}{subsection.12.9}
+\contentsline {section}{\numberline {13}Case study: data structure selection}{28}{section.13}
+\contentsline {section}{\numberline {14}Files}{28}{section.14}
+\contentsline {subsection}{\numberline {14.1}Persistence}{28}{subsection.14.1}
+\contentsline {subsection}{\numberline {14.2}Reading and writing}{28}{subsection.14.2}
+\contentsline {subsection}{\numberline {14.3}Format operator}{29}{subsection.14.3}
+\contentsline {subsection}{\numberline {14.4}Filenames and paths}{31}{subsection.14.4}
+\contentsline {subsection}{\numberline {14.5}Catching exceptions}{32}{subsection.14.5}
+\contentsline {subsection}{\numberline {14.6}Databases}{32}{subsection.14.6}
+\contentsline {subsection}{\numberline {14.7}Pickling}{33}{subsection.14.7}
+\contentsline {subsection}{\numberline {14.8}Pipes}{34}{subsection.14.8}
+\contentsline {subsection}{\numberline {14.9}Writing modules}{34}{subsection.14.9}
+\contentsline {subsection}{\numberline {14.10}Debugging}{35}{subsection.14.10}
+\contentsline {section}{\numberline {15}Classes and objects}{37}{section.15}
+\contentsline {section}{\numberline {16}Classes and functions}{38}{section.16}
+\contentsline {section}{\numberline {17}Classes and methods}{39}{section.17}
+\contentsline {section}{\numberline {18}Inheritance}{40}{section.18}
+\contentsline {section}{\numberline {19}Case study: Tkinter}{41}{section.19}
+\contentsline {section}{\numberline {20}Debugging}{42}{section.20}
+\contentsline {section}{\numberline {21}Analysis of Algorithms}{43}{section.21}
+\contentsline {section}{\numberline {22}Lumpy}{44}{section.22}
+\contentsline {section}{\numberline {23}Other}{46}{section.23}
+\contentsline {subsection}{\numberline {23.1}Lists}{47}{subsection.23.1}
+\contentsline {subsection}{\numberline {23.2}numerical arrays}{47}{subsection.23.2}
+\contentsline {subsection}{\numberline {23.3}Looping}{49}{subsection.23.3}
+\contentsline {subsection}{\numberline {23.4}FITS files}{50}{subsection.23.4}
+\contentsline {subsection}{\numberline {23.5}Plotting}{50}{subsection.23.5}
+\contentsline {subsubsection}{\numberline {23.5.1}Save figures}{50}{subsubsection.23.5.1}
+\contentsline {subsubsection}{\numberline {23.5.2}axes objects}{50}{subsubsection.23.5.2}
+\contentsline {subsubsection}{\numberline {23.5.3}Legend}{51}{subsubsection.23.5.3}

@@ -32,8 +32,10 @@
 \subsubsectionfont{\color{subsubsectioncolor}}
 \definecolor{darkpowderblue}{rgb}{0.0, 0.2, 0.6}
 
+%\setitemize{labelindent=5cm,labelsep=0.1em}
+
 \usepackage{hyperref}
-\hypersetup{colorlinks=true,urlcolor=darkpowderblue}
+\hypersetup{colorlinks=true,urlcolor=darkpowderblue,linkcolor=black}
 \urlstyle{same}
 
 \title{Think Python (and other useful things)}
@@ -45,20 +47,105 @@
 \maketitle
 \url{http://www.greenteapress.com/thinkpython/html/index.html}
 %---------------------------------------------------------------------------%
-\section*{Preface}
+\tableofcontents
+
 % Chapter 1
 \section{The way of the program}
+
+The single most important skill for a computer scientist is
+{\bf problem solving}.
+Problem solving means the ability to formulate problems,
+think creatively about solutions, and express a solution clearly and
+accurately. As it turns out, the process of learning to program is an
+excellent opportunity to practice problem-solving skills. 
+
+\ldots
+
 % Chapter 2
 \section{Variables, expressions, and statements}
 \subsection{Values and types}
+If you are not sure what type a value has, the interpreter can tell
+you:
+\begin{verbatim}
+>>> type('Hello, World!')
+<type `str'>
+>>> type(17)
+<type `int'>
+>>> type(3.2)
+<type `float'>
+\end{verbatim}
 \subsection{Variables}
+An {\bf assignment statement} creates new variables and gives them values.
 \subsection{Variable names and keywords}
+Variable names can be arbitrarily long. They can contain both letters
+and numbers, but they have to begin with a letter. It is legal to use
+uppercase letters, but it is a good idea to begin variable names with
+a lowercase letter.
+
+The interpreter uses {\bf keywords} to recognize the structure of the
+program, and they cannot be used as variable names.
+
+Python 2 has 31 keywords:
+\begin{verbatim}
+and       del       from      not       while    
+as        elif      global    or        with     
+assert    else      if        pass      yield    
+break     except    import    print              
+class     exec      in        raise              
+continue  finally   is        return             
+def       for       lambda    try
+\end{verbatim}
 \subsection{Operators and operands}
 \subsection{Expressions and statements}
+An {\bf expression} is a combination of values, variables, and operators. A
+value all by itself is considered an expression, and so is a variable,
+so the following are all legal expressions (assuming that the variable
+\verb|x| has been assigned a value):
+\begin{verbatim}
+17
+x
+x + 17
+\end{verbatim}
+
+A {\bf statement} is a unit of code that the Python interpreter can execute.
+We have seen two kinds of statement: print and assignment.
+
+Technically an expression is also a statement, but it is probably
+simpler to think of them as different things. The important difference
+is that an expression has a value; a statement does not.
 \subsection{Interactive mode and script mode}
 \subsection{Order of operations}
+\begin{itemize*}
+    \item Parentheses
+    \item Exponents
+    \item Multiplication/Division
+    \item Addition/Subtraction
+\end{itemize*}
 \subsection{String operations}
+To perform a concatenation between two strings:
+\begin{verbatim}
+>>> a = 1
+>>> print `list_' + str(a) + `.txt'
+list_1.txt
+>>> print `Spam'*3
+SpamSpamSpam
+\end{verbatim}
 \subsection{Comments}
+It is reasonable to assume that the reader can figure out
+\emph{what} the code does; it is much more useful to explain
+\emph{why}.
+
+This comment is redundant with the code and useless:
+\begin{verbatim}
+v = 5     # assign 5 to v
+\end{verbatim}
+This comment contains useful information that is not in the code:
+\begin{verbatim}
+v = 5     # velocity in meters/second. 
+\end{verbatim}
+Good variable names can reduce the need for comments, but long names
+can make complex expressions hard to read, so there is a tradeoff.
+
 \subsection{Debugging}
 
 % Chapter 3
@@ -1135,8 +1222,11 @@ If you are having trouble keeping track of your data structures,
 
 
 %----------------------------------------------------------------------%
+% Chapter 13
 \section{Case study: data structure selection}
+
 %----------------------------------------------------------------------%
+% Chapter 14 --- Done!
 \section{Files}
 \url{%
 http://www.greenteapress.com/thinkpython/html/thinkpython015.html}
@@ -1160,42 +1250,43 @@ read text files; in this chapter we will see programs that write them.
 this chapter I will present a simple database and a module,
 \verb|pickle|,
 that makes it easy to store program data.
+
 \subsection{Reading and writing}
+
 \begin{verbatim}
 file:
-f=open('file.txt','[rwa]') [read,write,append]
+f=open(`file.txt',`[rwa]') [read,write,append]
 s=f.readline()
 f.close(),
 alternatively:
 for line in f:
   print line
 \end{verbatim}
-\par A text file is a sequence of characters stored on a permanent medium
-like a hard drive, flash memory, or CD-ROM. We saw how to open and
-read a file in Section 9.1.
-\par To write a file, you have to open it with mode 'w' as a second
-parameter:
+\par The \verb|write| method puts data into the file.
+To write a file, you have to open it with mode `w' as a second parameter:
+
 \begin{verbatim}
 >>> fout = open(`output.txt', `w')
 >>> print fout
-<open file `output.txt', mode `w' at 0xb7eb2410>
+    <open file `output.txt, mode `w' at 0x7fa44614c420>
+>>> line1 = ``This here's the wattle,\n''
+>>> fout.write(line1)
 \end{verbatim}
+
 \par \textcolor{red}{If the file already exists, opening it in
 write mode clears out the
 old data and starts fresh, so be careful!} If the file doesn't
 exist, a new one is created.
-\par The \verb|write| method puts data into the file.
-\begin{verbatim}
->>> line1 = ``This here's the wattle,\n''
->>> fout.write(line1)
-\end{verbatim}
-\par Again, the file object keeps track of where it is, so if you call
+The file object keeps track of where it is, so if you call
 \verb|write| again, it adds the new data to the end.
+
 \begin{verbatim}
 >>> line2 = "the emblem of our land.\n"
 >>> fout.write(line2)
 \end{verbatim}
+
 \par When you are done writing, you have to close the file.
+
 \begin{verbatim}
 >>> fout.close()
 \end{verbatim}
@@ -1287,23 +1378,311 @@ the element is the wrong type.
 \par The format operator is powerful, but it can be difficult to use. You
 can read more about it at
 \url{http://docs.python.org/2/library/stdtypes.html#string-formatting}.
-\subsection{Filenames and paths}
+\subsection{Filenames and paths} % 14.4
+The \verb|os| (`operating system') module provides functions for working with
+files and directories. \verb|os.getcwd| returns the current working directory.
+\begin{verbatim}
+>>> import os
+>>> cwd = os.getcwd()
+>>> print cwd
+/home/dinsdale
+\end{verbatim}
+To find the absolute path to a \emph{file}:
+\begin{verbatim}
+>>> os.path.abspath('memo.txt')
+'/home/dinsdale/memo.txt'
+\end{verbatim}
+\verb|os.path.exists| checks whether a file or directory exists.
+\begin{verbatim}
+>>> os.path.exists(`memo.txt')
+True
+\end{verbatim}
+
+If it exists, \verb|os.path.isdir| checks whether it's a directory:
+\begin{verbatim}
+>>> os.path.isdir('memo.txt')
+False
+>>> os.path.isdir('music')
+True
+\end{verbatim}
+Similarly, \verb|os.path.isfile| checks whether it's a file:
+
+\verb|os.listdir| returns a list of the files (and other directories) in the given
+directory:
+\begin{verbatim}
+>>> os.listdir(cwd)
+['music', 'photos', 'memo.txt']
+\end{verbatim}
+To demonstrate these functions, the following example ``walks'' through a
+directory, prints the names of all the files, and calls itself recursively on
+all the directories.
+\begin{verbatim}
+def walk(dirname):
+    for name in os.listdir(dirname):
+        path = os.path.join(dirname, name)
+
+        if os.path.isfile(path):
+            print path
+        else: walk(path)
+\end{verbatim}
+\verb|os.path.join| takes a directory and a file name and joins them into a
+complete path. 
+
+\subsection{Catching exceptions} % 14.5
+
+The \verb|try| statement:
+\begin{verbatim}
+try:    
+    fin = open('bad_file')
+    for line in fin:
+        print line
+    fin.close()
+except:
+    print 'Something went wrong.'
+\end{verbatim}
+The syntax is similar to an \verb|if| statement.  Python starts by executing
+the try clause. If all goes well, it skips the \verb|except| clause and
+proceeds.  If an exception occurs, it jumps out of the \verb|try| clause and
+executes the except clause.
+
+Handling an exception with a try statement is called {\bf catching} an
+exception. In this example, the \verb|except| clause prints an error message
+that is not very helpful. In general, catching an exception gives you
+a chance to fix the problem, or try again, or at least end the program
+gracefully.
+
+% 14.6
+\subsection{Databases}
+A {\bf database} is a file that is organized for storing data. Most
+databases are organized like a dictionary in the sense that they map
+from keys to values. The biggest difference is that the database is on
+disk (or other permanent storage), so it persists after the program
+ends.
+
+The module \verb|anydbm| provides an interface for creating and
+updating database files. As an example, I'll create a database that
+contains captions for image files.
+
+Opening a database is similar to opening other files:
+\begin{verbatim}
+>>> import anydbm
+>>> db = anydbm.open(`captions.db', `c')
+\end{verbatim}
+The mode \verb|`c'| means that the database should be created if it
+doesn't already exist. The result is a database object that can be
+used (for most operations) like a dictionary. If you create a new
+item, \verb|anydbm| updates the database file.
+\begin{verbatim}
+>>> db[`cleese.png'] = `Photo of John Cleese.'
+\end{verbatim}
+When you access one of the items, \verb|anydbm| reads the file:
+\begin{verbatim}
+>>> print db[`cleese.png']
+Photo of John Cleese.
+\end{verbatim}
+If you make another assignment to an existing key, \verb|anydbm|
+replaces the old value:
+\begin{verbatim}
+>>> db['cleese.png'] = 'Photo of John Cleese doing a silly walk.'
+>>> print db['cleese.png']
+Photo of John Cleese doing a silly walk.
+\end{verbatim}
+Many dictionary methods, like \verb|keys| and \verb|items|, also work
+with database objects. So does iteration with a \verb|for| statement.
+\begin{verbatim}
+for key in db:
+    print key
+\end{verbatim}
+As with other files, you should close the database when you are done:
+\begin{verbatim}
+>>> db.close()
+\end{verbatim}
+
+% 14.7
+\subsection{Pickling}
+A limitation of \verb|anydbm| is that the keys and values have to be
+strings. The \verb|pickle| module translates almost any type of object
+into a string suitable for storage in a database, and then translates
+strings back into objects. \verb|pickle.dumps| takes an object as a
+parameter and returns a string representation (\verb|dumps| is short
+for ``dump string''):
+\begin{verbatim}
+>>> import pickle
+>>> t = [1, 2, 3]
+>>> pickle.dumps(t)
+`(lp0\nI1\naI2\naI3\na.'
+\end{verbatim}
+\verb|pickle.loads| reconstitutes the object:
+\begin{verbatim}
+>>> t1 = [1, 2, 3]
+>>> s = pickle.dumps(t1)
+>>> t2 = pickle.loads(s)
+>>> print t2
+[1, 2, 3]
+\end{verbatim}
+Although the new object has the same value as the old, it is not (in
+general) the same object:
+\begin{verbatim}
+>>> t1 == t2
+True
+>>> t1 is t2
+False
+\end{verbatim}
+In other words, pickling and then unpickling has the same effect as
+copying the object.
+
+You can use \verb|pickle| to store non-strings in a database. In fact,
+this combination is so common that it has been encapsulated in a
+module called \verb|shelve|.
+
+\textcolor{blue}{From my notes:}
+\begin{verbatim}
+pickle.dump(var_name, open(``save.p'', ``wb''))
+var\_name = pickle.load(open(``save.p'', ``rb''))
+\end{verbatim}
+
+\subsection{Pipes} % 14.8
+Any program that you can launch from the shell can also be launched
+from Python using a {\bf pipe}. A pipe is an object that represents a
+running program.
+
+You can launch \verb|ls -l| with \verb|popen|:
+\begin{verbatim}
+>>> cmd = 'ls -l'
+>>> fp = os.popen(cmd)
+\end{verbatim}
+The argument is a string that contains a shell command. The return
+value is an object that behaves just like an open file. You can read
+the output from the \verb|ls| process one line at a time with \verb|readline|
+or get the whole thing at once with \verb|read|: 
+\begin{verbatim}
+>>> res = fp.read()
+\end{verbatim}
+When you are done, you close the pipe like a file:
+\begin{verbatim}
+>>> stat = fp.close()
+>>> print stat
+None
+\end{verbatim}
+The return value is the final status of the \verb|ls| process;
+None means that it ended normally (with no errors).
+
+For example, most Unix systems provide a command called \verb|md5sum| that
+reads the contents of a file and computes a ``checksum''. You
+can read about MD5 at \url{http://en.wikipedia.org/wiki/Md5}. This command
+provides an efficient way to check whether two files have the same
+contents. The probability that different contents yield the same
+checksum is very small (that is, unlikely to happen before the
+universe collapses).
+
+You can use a pipe to run \verb|md5sum| from Python and get the result:
+\begin{verbatim}
+>>> filename = `book.tex'
+>>> cmd = `md5sum ' + filename
+>>> fp = os.popen(cmd)
+>>> res = fp.read()
+>>> stat = fp.close()
+>>> print res
+1e0033f0ed0656636de0d75144ba32e0  book.tex
+>>> print stat
+None
+\end{verbatim}
+
+\subsection{Writing modules} % 14.9
+Any file that contains Python code can be imported as a module. For
+example, suppose you have a file named \verb|wc.py| with the following
+code:
+\begin{verbatim}
+def linecount(filename):
+    count = 0
+    for line in open(filename):
+        count += 1
+    return count
+
+print linecount('wc.py')
+\end{verbatim}
+You can import this program:
+\begin{verbatim}
+>>> import wc
+7
+\end{verbatim}
+Now you have a module object \verb|wc| that provides a function called
+\verb|linecount|:
+\begin{verbatim}
+>>> print wc
+<module `wc' from `wc.py'>
+>>> wc.linecount(`wc.py')
+7
+\end{verbatim}
+The only problem with this example is that when you import the module
+it executes the test code at the bottom. Normally when you import a
+module, it defines new functions but it doesn't execute them.
+
+Programs that will be imported as modules often use the following
+idiom:
+\begin{verbatim}
+if __name__ == '__main__':
+    print linecount('wc.py')
+\end{verbatim}
+\verb|__name__| is a built-in variable that is set when the program
+starts. If the program is running as a script, \verb|__name__| has the
+value \verb|__main__|; in that case, the test code is executed.
+Otherwise, if the module is being imported, the test code is skipped.
+
+\subsection{Debugging} % 14.10
+When you are reading and writing files, you might run into problems
+with whitespace. These errors can be hard to debug because spaces,
+tabs, and newlines are normally invisible:
+\begin{verbatim}
+>>> s = `1 2\t 3\n 4'
+>>> print s
+1 2  3
+ 4
+\end{verbatim}
+The built-in function \verb|repr| takes any object as an argument and
+returns a string representation of the object. For strings, it
+represents whitespace characters with backslash sequences:
+\begin{verbatim}
+>>> print repr(s)
+`1 2\t 3\n 4'
+\end{verbatim}
+This can be helpful for debugging.
+
+One other problem you might run into is that different systems use
+different characters to indicate the end of a line. Some systems use a
+newline, represented \verb|\n|. Others use a return character, represented
+\verb|\r|. Some use both. If you move files between different systems, these
+inconsistencies might cause problems.
+
+For most systems, there are applications to convert from one format to
+another. You can find them (and read more about this issue) at
+\url{http://en.wikipedia.org/wiki/Newline}. Or, of course, you could write
+one yourself.
+
 
 \newpage%--------------------------------------------------------------%
+% Chapter 15
 \section{Classes and objects}
 \newpage%--------------------------------------------------------------%
+% Chapter 16
 \section{Classes and functions}
 \newpage%--------------------------------------------------------------%
+% Chapter 17
 \section{Classes and methods}
 \newpage%--------------------------------------------------------------%
+% Chapter 18
 \section{Inheritance}
 \newpage%--------------------------------------------------------------%
+% Chapter 19
 \section{Case study: Tkinter}
 \newpage%--------------------------------------------------------------%
+% Chapter 20
 \section{Debugging}
 \newpage%--------------------------------------------------------------%
+% Chapter 21
 \section{Analysis of Algorithms}
 \newpage%--------------------------------------------------------------%
+% Chapter 22
 \section{Lumpy}
 
 \section*{Glossary}
@@ -1386,8 +1765,9 @@ can read more about it at
     evaluated and then its elements are assigned to the variables on
     the left.
 \item [void function] A function that doesn't return a value.
-
 \end{description}
+
+\section{Other}
 
 \begin{verbatim}
 
@@ -1427,7 +1807,7 @@ implicit continuation using expression in parentheses...?
 # variables: not declared
 \end{verbatim}
 
-\section*{Lists}
+\subsection{Lists}
 
 lists are similar to arrays, but can't do mathematical operations
 \begin{verbatim}
@@ -1443,13 +1823,14 @@ B*2  # --> [2 4 6]
 <<<<<<< HEAD
 \end{verbatim}
 
-\section*{numerical arrays}
+\subsection{numerical arrays}
 \begin{verbatim}
 import numpy as np
 np.zeros(n,m)
 np.array(n) # creates an array that consists of n, NOT LENGTH n
 np.array([[a,b,c,d][e,f,g]])
 np.arange(n) # [0,1,2,...,n-1]
+np.arange([start,] stop, [step,] dtype=None)
 np.ndarray(...) # two-dimensional array
 np.argmax(x) # returns INDEX of max value of x array
 np.append(array,what_to_append)
@@ -1458,6 +1839,22 @@ np.logspace
 np.sum(array)
 np.roll(x,2) # (~IDL's SHIFT); shifts array elements 2 to the right
   --> [3,4,0,1,2] # note x is still the same, unless do x = np.roll(...)
+np.where(condition) --> array
+np.max/min(array)
+np.median(A, axis=#)
+    axis - along which median is computed. Get array back, or if no
+    axis is specified, get a single number back.
+
+    A = [[1 2 3]
+         [4 5 6]
+         [7 8 9]]
+
+    np.median(A) --> 5.0
+    np.median(A, axis=0) --> [4 5 6]
+    np.median(A, axis=1) --> [2 5 8]
+    np.median(A, axis=2) --> Error
+
+ndarray.shape ... ?
 
 y1 = x**2
 # just like with the math package, can't simply do sqrt(x). Need
@@ -1470,11 +1867,12 @@ y = x**2
 
 >>>>>>> e65b08cb7892365af863d0202be5fe03115aa38c
 
-
 >>> A = np.array([1,2,3])
 >>> A + 1
     [2,3,4]
 
+str(number) --> num to string
+abs(number) --> abslute value
 
 num_elements = len(Array)
 
@@ -1522,10 +1920,12 @@ else:
 ==, !=, >, >=, <, <=, and, or, not
 \end{verbatim}
 
-\section*{Looping}
+\subsection{Looping}
 \verb|for i in (list):| i = value in list, NOT the index of each value
 
-\verb|for i in range(1,x): ...  ~ IDL> for i=1,x-1...| i IS the index here
+\verb|for i in range(1,x): ...  ~ IDL> for i=1,x-1...| i IS the index here.
+By default, the step is equal to 1. To change this, do:
+\verb|for i in range(0,N,step)|
 
 \textcolor{red}{PYTHON IS NOT INCLUSIVE!}
 
@@ -1551,22 +1951,36 @@ data = numpy.loadtxt(file,
 
 \end{verbatim}
 
-\section*{Plotting}
+\subsection{FITS files}
+\verb|hdu.header| to print full header. Useful keywords: NAXIS1, NAXIS2
+\verb|fls = glob.glob(`*.fits')| gives list of filenames
+\verb|from astropy.io import fits|
+\verb|hdu = fits.open(`name.fits')... hdu.close()| for a single fits file. Probably
+need to do some kind of loop to use \verb|fls|. \verb|hdu| is a list object.
+\verb|image = hdu[0].data|
+\verb|info = hdu[0].header|
+\verb|hdu.info()|
+\verb|type(im) --> numpy.ndarray|
+\verb|im.shape| gives dimensions.
+\verb|im.header| prints out full header. Can pull keywords from this.
+
+\subsection{Plotting}
 \url{http://latexcolor.com/}
 
-???
 \begin{verbatim}
 >>> import matplotlib.pyplot as plt
-.csv file --> ?
-pyplot.show()
-pyplot.savefig('tmp.pdf')
-  --> rewritten each time!
 plt.xlabel('labelname',fontsize=14,color='red')
 color='#eeefff'
+plt.tight_layout()
 \end{verbatim}
-???
 
-\subsection*{axes objects}
+\subsubsection{Save figures}
+\begin{verbatim}
+pyplot.show()
+pyplot.savefig('tmp.pdf') # rewritten each time!
+\end{verbatim}
+
+\subsubsection{axes objects}
 Whole figure:
 \begin{verbatim}
 fig = plt.figure()
@@ -1585,9 +1999,10 @@ Individual axes:
 ax.set_xlabel('labelname',
     fontsize = 14,
     )
-ax.tick_params(axis=['x'|'y'|'both'],
-    labelsize='large')
-ax.ticklabel_format(style='sci',
+ax.set_yscale("log")
+ax.set_xticklabels(columnlabels, rotation=(45),fontsize=10,va=1bottom',ha=`left')
+ax.set_xticks(np.arange(start,stop,step))
+ax.tick_params(axis=['x'|'y'|'both'],labelsize='large')
 \end{verbatim}
 
 \begin{verbatim}
@@ -1596,7 +2011,7 @@ for i in range(0,some_number):
     # n - vertical; m - horizontal; i+1 - plot being defined as 'ax'
 \end{verbatim}
 
-\subsubsection*{Legend}
+\subsubsection{Legend}
 \begin{verbatim}
     ax.plot(x,y1, 'k--', label='line 1')
     ax.plot(x,y2, 'k:', label='line 2')
@@ -1604,6 +2019,6 @@ for i in range(0,some_number):
     legend = ax.legend(loc='upper center', shadow=True)
     legend = ax.legend(loc='lower left')
 \end{verbatim}
-'k' is black.
+`k' is black.
 
 \end{document}

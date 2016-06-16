@@ -15,14 +15,15 @@
 \definecolor{aqua}{rgb}{0.5, 1.0, 0.83}
 \definecolor{bblue}{rgb}{0.67, 0.9, 0.93}
 \definecolor{ver}{rgb}{0.94,0.92,0.84}
+\definecolor{cal}{rgb}{0.12, 0.3, 0.17}
 
-\setbeamercolor{normal text}{bg=black, fg=white}
-\setbeamercolor{title}{fg=arylyellow}
-\setbeamercolor{frametitle}{fg=tangerine}
+%\setbeamercolor{normal text}{fg=black, bg=white}
+\setbeamercolor{title}{fg=blue}
+\setbeamercolor{frametitle}{fg=cal}
 \setbeamercolor{framesubtitle}{fg=gsa}
 \setbeamercolor{block title}{fg=aqua}
-\setbeamercolor{itemize item}{fg=amethyst} % all frames will have red bullets
-\setbeamercolor{enumerate item}{fg=amethyst} % all frames will have red bullets
+\setbeamercolor{itemize item}{fg=amethyst}
+\setbeamercolor{enumerate item}{fg=amethyst}
 %\setbeamercolor{block title}{fg=green}
 
 
@@ -33,8 +34,8 @@
 
 \setbeamertemplate{itemize items}[circle]
 \title{\textbf{Coronal Seismology}}
-\subtitle{\textbf{ASTR 598}}
-\date{\textbf{Spring 2016}}
+\subtitle{{\bf ASTR 598}}
+\date{{\bf Spring 2016}}
 \author{\textbf{Laurel Farris}}
 
 \begin{document}
@@ -52,90 +53,12 @@
 
 \begin{document}
 \maketitle
-    \end{verbatim}
-\end{frame}%-------------------------------------------------------------%
-\begin{frame}[fragile=singleslide]{Fonts}
-    \begin{verbatim}
-\usepackage{selinput}
-\usepackage{lmodern}
-\usepackage{libertine}
-\usefonttheme{default}
-\usefonttheme{professionalfonts}
-\setbeamerfont{frametitle}{series=\bfseries}
-    \end{verbatim}
-\end{frame}%-------------------------------------------------------------%
-\begin{frame}{image on title slide background}
-    \begin{verbatim}
-{\usebackgroundtemplate{\includegraphics[width=\paperwidth]
-    {awesome.jpg}}
-\begin{frame}
-    \titlepage{}
-\end{frame}}
-    \end{verbatim}
-\end{frame}%-------------------------------------------------------------%
-\begin{frame}[fragile=singleslide]{Centering}
-    \begin{verbatim}
-\begin{frame}[c]{ }
-\centering
+\begin{frame}{frame title here}{frame subtitle here}
+    text text text
 \end{frame}
-    \end{verbatim}
 
-\verb|\centering| centers \emph{horizontally}\\
-The \verb|[c]| option centers \emph{vertically}
-\end{frame}%-------------------------------------------------------------%
-
-\begin{frame}[fragile=singleslide]{labelling frame numbers}
-    \begin{verbatim}
-\setbeamertemplate{footline}{%
-    \raisebox{5pt}{\makebox[\paperwidth]{\hfill\makebox[10pt]{%
-    \scriptsize\insertframenumber}}}}
-\setbeamercolor{footline}{fg=color}
-...
-\begin{document}
+or \frame{title}{subtitle}
     \end{verbatim}
-\end{frame}%-------------------------------------------------------------%
-\begin{frame}{Example of table}
-    \begin{center}
-        \begin{tabular}{c|c|c|c|}
-            \cline{2-4} & {\textbf{period}} & {\textbf{wavelength}} &
-                {\textbf{velocity}}\\
-            \hline \multicolumn{0}{|c|}{kink osc} & value & value & value\\
-            \hline \multicolumn{0}{|c|}{sausage osc} & value & value & value\\
-            \hline \multicolumn{0}{|c|}{acoustic osc} & value & value & value\\
-            \hline \multicolumn{0}{|c|}{acoustic waves} & value & value & value\\
-            \hline \multicolumn{0}{|c|}{fast waves} & value & value & value\\
-            \hline \multicolumn{0}{|c|}{torsional modes} & 10 m & value &
-                1000 km s$^{-1}$\\
-            \hline
-        \end{tabular}
-    \end{center}
-\end{frame}%-------------------------------------------------------------%
-\begin{frame}[fragile=singleslide]{Example Table}
-    \begin{verbatim}
-\begin{center}
-   \begin{tabular}{cc|c|c|}
- row 1
-   \cline{3-4} & & \multicolumn{2}{|c|}{Condition (Gold standard)}\\
- row 2
-   \cline{3-4} & & True & False \\
-   \hline
- row 3 (and 4) - multirow
-   \multicolumn{1}{|c|} % add in vertical lines
-   {\multirow{2}{*}{Test outcome}}& % Text covers rows 3 and 4
- row 3
-   \multicolumn{1}{|c|}{Positive} %
-     & True Positive \cellcolor{green} & False Positive\cellcolor{red}\\
- row 4
-   \cline{2-4} \multicolumn{1}{|c|}{}
-     & \multicolumn{1}{|c|}{Negative}
-     & False Negative\cellcolor{red} & True Negative \cellcolor{green}\\
-    \hline
-    \end{tabular}
-\end{center}
-    \end{verbatim}
-\end{frame}%-------------------------------------------------------------%
-\begin{frame}[fragile=singleslide]{Resources}
-    \url{sharelatex.com/learn/Beamer}
 \end{frame}%-------------------------------------------------------------%
 \begin{frame}[fragile=singleslide]{Fonts}
     \begin{verbatim}
@@ -156,8 +79,67 @@ common fonts:
         \item newcent
         \item palatino
         \item pifont
-        \item utopia.
+        \item utopia
     \end{itemize}
+\end{frame}%-------------------------------------------------------------%
+\begin{frame}[fragile=singleslide]{Fonts}
+    \begin{verbatim}
+\usepackage{selinput}
+\usepackage{lmodern}
+\usepackage{libertine}
+\usefonttheme{default}
+\usefonttheme{professionalfonts}
+\setbeamerfont{frametitle}{series=\bfseries}
+    \end{verbatim}
+\end{frame}%-------------------------------------------------------------%
+\begin{frame}[fragile=singleslide]{Font sizes}
+    \verb|size = {\fontsize{a}{b}\selectfont}|
+    a = font size in pt., b = line space in pt.
+\end{frame}%-------------------------------------------------------------%
+\begin{frame}[fragile=singleslide]{Font colors}
+\begin{verbatim}
+\setbeamercolor{normal text}{bg=black, fg=yellow}
+\setbeamercolor{frametitle}{fg=brown}
+\end{verbatim}
+\end{frame}%-------------------------------------------------------------%
+\begin{frame}[fragile=singleslide]{Centering}
+    \begin{verbatim}
+\begin{frame}[c]{ }
+\centering
+\end{frame}
+    \end{verbatim}
+
+\verb|\centering| centers \emph{horizontally}\\
+The \verb|[c]| option centers \emph{vertically}
+\end{frame}%-------------------------------------------------------------%
+
+\begin{frame}[fragile=singleslide]{Lists}
+\begin{verbatim}
+\setbeamertemplate{itemize items}[circle]
+\setbeamercolor{itemize item}{fg=amethyst}
+\setbeamercolor{enumerate item}{fg=amethyst}
+\end{verbatim}
+\end{frame}%-------------------------------------------------------------%
+
+\begin{frame}[fragile=singleslide]{Blocks}
+    \begin{verbatim}
+    \setbeamercolor{block title}{fg=brown}
+    \begin{block}{\centering block_title}
+    \end{verbatim}
+    
+\end{frame}%-------------------------------------------------------------%
+\begin{frame}[fragile=singleslide]{Text blocks}
+\begin{verbatim}
+\begin{textblock}{<hsize>}{<hpos>,<vpos>}
+\setlength{\TPHorizModule}{<dimen>}
+\setlength{\TPVertModule}{<dimen>}
+\end{verbatim}
+<dimen> is typically 1 cm.
+\end{frame}%-------------------------------------------------------------%
+\begin{frame}[fragile=singleslide]{Columns}
+\end{frame}%-------------------------------------------------------------%
+\begin{frame}[fragile=singleslide]{Resources}
+    \url{sharelatex.com/learn/Beamer}
 \end{frame}%-------------------------------------------------------------%
 \begin{frame}[fragile=singleslide]{Graphics}
     \verb|\DeclareGraphicsExtensions{.pdf,.png,.jpg}|
@@ -165,12 +147,15 @@ common fonts:
     graphics. Compilers will automatically look for images with these
     extensions.
 \end{frame}%-------------------------------------------------------------%
-\begin{frame}[fragile=singleslide]{Colors}
-    \begin{list}{}
-        \item \verb|\setbeamercolor{normal text}{bg=black, fg=yellow}|
-        \item \verb|\setbeamercolor{frametitle}{fg=brown}|
-        \item \verb|\setbeamercolor{block title}{fg=brown}|
-    \end{list}
+\begin{frame}[fragile=singleslide]{labelling frame numbers}
+    \begin{verbatim}
+\setbeamertemplate{footline}{%
+    \raisebox{5pt}{\makebox[\paperwidth]{\hfill\makebox[10pt]{%
+    \scriptsize\insertframenumber}}}}
+\setbeamercolor{footline}{fg=color}
+...
+\begin{document}
+    \end{verbatim}
 \end{frame}%-------------------------------------------------------------%
 \begin{frame}[fragile=singleslide]{Figure Template}
     \begin{verbatim}
@@ -212,6 +197,55 @@ resolution=x      specify image resolution in dpi
    \caption{Awesome image}
    \label{fig:awesome_image}
 \end{figure}
+    \end{verbatim}
+\end{frame}%-------------------------------------------------------------%
+\begin{frame}[fragile=singleslide]{image on title slide background}
+    \begin{verbatim}
+{\usebackgroundtemplate{\includegraphics[width=\paperwidth]
+    {awesome.jpg}}
+\begin{frame}
+    \titlepage{}
+\end{frame}}
+    \end{verbatim}
+\end{frame}%-------------------------------------------------------------%
+\begin{frame}{Example of table}
+    \begin{center}
+        \begin{tabular}{c|c|c|c|}
+            \cline{2-4} & {\textbf{period}} & {\textbf{wavelength}} &
+                {\textbf{velocity}}\\
+            \hline \multicolumn{0}{|c|}{kink osc} & value & value & value\\
+            \hline \multicolumn{0}{|c|}{sausage osc} & value & value & value\\
+            \hline \multicolumn{0}{|c|}{acoustic osc} & value & value & value\\
+            \hline \multicolumn{0}{|c|}{acoustic waves} & value & value & value\\
+            \hline \multicolumn{0}{|c|}{fast waves} & value & value & value\\
+            \hline \multicolumn{0}{|c|}{torsional modes} & 10 m & value &
+                1000 km s$^{-1}$\\
+            \hline
+        \end{tabular}
+    \end{center}
+\end{frame}%-------------------------------------------------------------%
+\begin{frame}[fragile=singleslide]{Example Table}
+    \begin{verbatim}
+\begin{center}
+   \begin{tabular}{cc|c|c|}
+ row 1
+   \cline{3-4} & & \multicolumn{2}{|c|}{Condition (Gold standard)}\\
+ row 2
+   \cline{3-4} & & True & False \\
+   \hline
+ row 3 (and 4) - multirow
+   \multicolumn{1}{|c|} % add in vertical lines
+   {\multirow{2}{*}{Test outcome}}& % Text covers rows 3 and 4
+ row 3
+   \multicolumn{1}{|c|}{Positive} %
+     & True Positive \cellcolor{green} & False Positive\cellcolor{red}\\
+ row 4
+   \cline{2-4} \multicolumn{1}{|c|}{}
+     & \multicolumn{1}{|c|}{Negative}
+     & False Negative\cellcolor{red} & True Negative \cellcolor{green}\\
+    \hline
+    \end{tabular}
+\end{center}
     \end{verbatim}
 \end{frame}%-------------------------------------------------------------%
 
