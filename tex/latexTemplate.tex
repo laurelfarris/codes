@@ -39,7 +39,28 @@
 \hypersetup{colorlinks=true,urlcolor=darkpowderblue}
 \urlstyle{same}
 
-
+%\setlist[description]{style=multiline,leftmargin=3cm}
+\renewcommand{\descriptionlabel}[1]{\hspace{\labelsep}\ttfamily{#1}}
+\setlist[itemize,1]{%
+    leftmargin=10pt,
+    itemindent=10pt,
+    itemsep=-1ex,
+    topsep=0pt
+}
+\setlist[enumerate]{%
+    itemsep=-1ex
+}
+\setlist[description]{%
+    style=nextline,
+    %align=right,
+    %leftmargin=10pt,
+    %itemindent=20pt,
+    %listparindent=20pt,
+    %labelwidth=5in,
+    %labelsep=10pt,
+    %    itemsep=-1ex,
+    %    topsep=0pt
+}
 
 \title{LaTeX reference}
 \author{Laurel Farris}

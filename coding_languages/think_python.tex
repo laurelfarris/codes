@@ -57,7 +57,7 @@ The single most important skill for a computer scientist is
 Problem solving means the ability to formulate problems,
 think creatively about solutions, and express a solution clearly and
 accurately. As it turns out, the process of learning to program is an
-excellent opportunity to practice problem-solving skills. 
+excellent opportunity to practice problem-solving skills.
 
 \ldots
 
@@ -87,12 +87,12 @@ program, and they cannot be used as variable names.
 
 Python 2 has 31 keywords:
 \begin{verbatim}
-and       del       from      not       while    
-as        elif      global    or        with     
-assert    else      if        pass      yield    
-break     except    import    print              
-class     exec      in        raise              
-continue  finally   is        return             
+and       del       from      not       while
+as        elif      global    or        with
+assert    else      if        pass      yield
+break     except    import    print
+class     exec      in        raise
+continue  finally   is        return
 def       for       lambda    try
 \end{verbatim}
 \subsection{Operators and operands}
@@ -141,7 +141,7 @@ v = 5     # assign 5 to v
 \end{verbatim}
 This comment contains useful information that is not in the code:
 \begin{verbatim}
-v = 5     # velocity in meters/second. 
+v = 5     # velocity in meters/second.
 \end{verbatim}
 Good variable names can reduce the need for comments, but long names
 can make complex expressions hard to read, so there is a tradeoff.
@@ -1426,13 +1426,13 @@ def walk(dirname):
         else: walk(path)
 \end{verbatim}
 \verb|os.path.join| takes a directory and a file name and joins them into a
-complete path. 
+complete path.
 
 \subsection{Catching exceptions} % 14.5
 
 The \verb|try| statement:
 \begin{verbatim}
-try:    
+try:
     fin = open('bad_file')
     for line in fin:
         print line
@@ -1554,7 +1554,7 @@ You can launch \verb|ls -l| with \verb|popen|:
 The argument is a string that contains a shell command. The return
 value is an object that behaves just like an open file. You can read
 the output from the \verb|ls| process one line at a time with \verb|readline|
-or get the whole thing at once with \verb|read|: 
+or get the whole thing at once with \verb|read|:
 \begin{verbatim}
 >>> res = fp.read()
 \end{verbatim}
@@ -1854,7 +1854,10 @@ np.median(A, axis=#)
     np.median(A, axis=1) --> [2 5 8]
     np.median(A, axis=2) --> Error
 
-ndarray.shape ... ?
+ndarray.shape # E.g. for 2x2 array, gives (2,2)
+
+np.log
+np.log10
 
 y1 = x**2
 # just like with the math package, can't simply do sqrt(x). Need
@@ -1873,6 +1876,7 @@ y = x**2
 
 str(number) --> num to string
 abs(number) --> abslute value
+int(number) --> float to integer
 
 num_elements = len(Array)
 

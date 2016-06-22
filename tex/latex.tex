@@ -28,6 +28,18 @@
 \subsubsectionfont{\color{darklavender}}
 \definecolor{darkpowderblue}{rgb}{0.0, 0.2, 0.6}
 
+\setlist[itemize]{%
+    itemsep=-1ex}
+
+\setlist[description]{%
+    itemsep=0ex,
+    %leftmargin=3cm,
+    itemindent=1cm,
+    align=right,}
+\renewcommand{\descriptionlabel}[1]{%
+    \hspace{\labelsep} % ???
+    \ttfamily{#1}}
+
 \usepackage{hyperref}
 \hypersetup{colorlinks=true,
     urlcolor=darkpowderblue,
@@ -98,7 +110,7 @@ In body:
     \item \verb|\hfill| Pad with horizontal space to end of line
     \item \verb|\vspace| vertical space
     \item \verb|\noindent| self-explanatory
-    \item \verb|\begin{samepage}... \end{samepage}| Keep something from 
+    \item \verb|\begin{samepage}... \end{samepage}| Keep something from
         being split by a page break.
 \end{itemize*}
 
@@ -219,15 +231,16 @@ want unnecessary blank space.
 \end{verbatim}
 \subsection{Table of contents}
 
-\verb|\tableofcontents| wherever you want it to go.
+\verb|\tableofcontents| wherever you want it to go. You may need to
+run {\tt pdflatex} more than once.
 
 In preamble:
 \verb|\setcounter{tocdepth}{n}| where \verb|n| is the number of levels deep
 to go, e.g.\ 1: sections, 2: sections and subsections, etc.
 
 Some sections, like those with `*' won't be included. To add them:
-Syntax: \verb|\addcontentsline{type}{section_level}{entry}| 
-Example: \verb|\addcontentsline{toc}{section}{Preface}| 
+Syntax: \verb|\addcontentsline{type}{section_level}{entry}|
+Example: \verb|\addcontentsline{toc}{section}{Preface}|
 
 To change space between items in toc:
 \begin{verbatim}
@@ -255,10 +268,90 @@ See section $\S$\ref{data} for the data description.
 \end{verbatim}
 
 \section{Lists}
+
 In preamble:
 \begin{verbatim}
 \usepackage{enumitem}
-\setitemize{labelindent=1.5em,labelsep=1cm,leftmargin=*}
+\setlist[<typeoflist>,<n>]{<options>}
+\end{verbatim}
+\verb|typeoflist| can be itemize, enumerate, description, etc.
+\verb|n| is the nested level (1 for top level). Options are as follows:
+
+Horizontal spacing:
+\begin{itemize}
+    \item leftmargin
+    \item rightmargin
+    \item itemindent
+    \item listparindent
+    \item labelwidth
+    \item labelsep
+\end{itemize}
+Vertical spacing:
+\begin{itemize}
+    \item topsep: separation between list and paragraph above
+    \item partopsep: extra space added to topsep when environment starts
+        a new paragraph
+    \item parsep
+    \item itemsep
+\end{itemize}
+
+Example:
+\begin{verbatim}
+\setlist[itemize,1]{% Top level
+    leftmargin=10pt, Give 10pt margin, or
+        leftmargin=*, % Align with main text
+    itemindent=10pt,
+    itemsep=-1ex, % No separation
+    topsep=0pt % No separation between list and text above
+}
+\end{verbatim}
+
+Description:
+
+\begin{description}%[leftmargin=5cm, align=right, labelwidth=4cm]
+    \item [first thing] is this
+    \item [second] is something else
+    \item [first thing] is this
+\end{description}
+
+\begin{verbatim}
+\setlist[description]{%
+    font=\normalfont % Not bold, which is the default
+    style=nextline, % For when text is too long?
+    align=right,    % Want this! Always!
+    % leftmargin=10pt,
+    itemindent=1cm,
+    listparindent=20pt,
+    labelwidth=5in,
+    labelsep=10pt,
+    itemsep=-1ex,
+    topsep=0pt
+}
+\end{verbatim}
+
+\verb|leftmargin| by itself did nothing, but does add space when combined
+with \verb|itemindent|. Weird.
+Setting \verb|itemindent| equal to 1cm seems to be best so far.
+
+
+
+To customize the description labels (the items inside the square
+brackets), in the preamble:
+\begin{verbatim}
+\renewcommand{\descriptionlabel}[1]{\hspace{\labelsep}\ttfamily{#1}}
+\end{verbatim}
+This puts the labels in typewriter font. The hspace command does appear
+to be doing anything.
+
+No space between items (without \verb|enumitem| package):
+\begin{verbatim}
+\usepackage{mdwlist}
+...
+\begin{document}
+...
+\begin{itemize*}
+    \item ...
+\end{itemize*}
 \end{verbatim}
 
 \begin{verbatim}
@@ -278,45 +371,6 @@ These will be listed horizontally, rather than vertically.
 \end{verbatim}
 Brackets by list will set the style; leave this empty for no symbols
 
-\begin{verbatim}
-\begin{description}
-    \item [first thing] is this
-    \item [second] is something else
-    \item [first thing] is this
-\end{description}
-\end{verbatim}
-
-\verb|\begin{description}[align=right]|
-should align items to the right, and descriptions to the left.
-
-\begin{description}%[leftmargin=5cm, align=right, labelwidth=4cm]
-    \item [first thing] is this
-    \item [second] is something else
-    \item [first thing] is this
-\end{description}
-
-\subsection{Adjust spacing between items}
-In preamble:
-\begin{verbatim}
-\usepackage{enumitem}
-\setlist[1]{itemsep=-2pt}
-\end{verbatim}
-
-Within text:
-no space between items, no space between text and list.
-(Can also add this to \verb|\setlist| in preamble to apply globally).
-\begin{verbatim}
-\begin{itemize}[noitemsep,topsep=0pt]
-\end{verbatim}
-
-No space between items:
-\begin{verbatim}
-\usepackage{mdwlist}
-...
-\begin{itemize*}
-    \item ...
-\end{itemize*}
-\end{verbatim}
 
 \subsection{Numbering}
 1.1, 1.2 $\rightarrow$ 1.2.1,1.2.2, etc
@@ -435,7 +489,14 @@ For more information, visit \href{http://google.com}
    \endminipage}
 \medskip
 \lipsum[4]
+
+
+\colorbox{hl}{\parbox{0.9\textwidth}
+text to go in box}
 \end{verbatim}
+For last example, `hl' is the highlight color, or background color of
+the box. The parbox is the box that contains the text itself, here set
+to be not quite as wide as the body text.
 
 Notes:
 You can adjust the thickness of border and padding of
@@ -485,6 +546,53 @@ For the \verb|tabular| line, \verb|c| stands for center-justified;
 use \verb|l| and \verb|r| for left and right justified.
 
 %---------------------------------------------------------------------------%
+\section{Bibliographies}
+\begin{verbatim}
+\bibliographystyle{plain}
+\begin{document}
+... \cite{id} ...
+\bibliography{reffile}
+\end{document}
+\end{verbatim}
+\subsection{Creating and using a makefile}
+\begin{verbatim}
+cl> vi reffile.bib
+  @ARTICLE{label_name,
+    title={},
+    journal={},
+    ...
+  }
+cl> vi makefile
+ my_paper: paper.tex
+   pdflatex paper
+   bibtex paper
+   pdflatex paper
+   pdflatex paper
+cl> make my_paper
+\end{verbatim}
+
+\section{Columns}
+
+\begin{verbatim}
+\begin{columns}
+    \column{0.5\textwidth}
+    content goes here
+    \column{0.5\textwidth}
+    more content here
+\end{columns}
+
+\begin{minipage}[t]{0.2\textwidth}
+    stuff
+\end{minipage}
+\begin{minipage}[t]{0.8\textwidth}
+    longer stuff
+\end{minipage}
+\end{verbatim}
+
+\verb|\addtolength{\columnsep}{5mm}| add space between columns.
+
+Not sure what the difference is between columns and minipages.
+
 \section{Maths!}
 \url{http://www.math.harvard.edu/texman/node17.html}
 \subsection{Inside text}
@@ -633,53 +741,6 @@ $\textrm{some\ text}$ % Remove italics, and '\' puts space between words
 
 
 
-\section{Bibliographies}
-\begin{verbatim}
-\bibliographystyle{plain}
-\begin{document}
-... \cite{id} ...
-\bibliography{reffile}
-\end{document}
-\end{verbatim}
-\subsection{Creating and using a makefile}
-\begin{verbatim}
-cl> vi reffile.bib
-  @ARTICLE{label_name,
-    title={},
-    journal={},
-    ...
-  }
-cl> vi makefile
- my_paper: paper.tex
-   pdflatex paper
-   bibtex paper
-   pdflatex paper
-   pdflatex paper
-cl> make my_paper
-\end{verbatim}
-
-\section{Columns}
-
-\begin{verbatim}
-\begin{columns}
-    \column{0.5\textwidth}
-    content goes here
-    \column{0.5\textwidth}
-    more content here
-\end{columns}
-
-\begin{minipage}[t]{0.2\textwidth}
-    stuff
-\end{minipage}
-\begin{minipage}[t]{0.8\textwidth}
-    longer stuff
-\end{minipage}
-\end{verbatim}
-
-\verb|\addtolength{\columnsep}{5mm}| add space between columns.
-
-Not sure what the difference is between columns and minipages.
-
 \section{Misc}
 \subsection{Tips}
 To squelch that stupid warning about ``possible unwanted white space'',
@@ -689,8 +750,20 @@ add a \verb|%| sign after the opening bracket:
     blah blah blah
 }
 \end{verbatim}
+
 \subsection{Create your own command!}
-\verb|\newcommand{\bla}{blah blah blah}|
+Syntax: \verb|\newcommand{<cmd>}[<n>][<opt>]{<stuff>}|
+\begin{description}
+    %\item [\verb|n|] Number of arguments
+    %\item [\verb|opt|] Options
+    %\item [\verb|stuff|] stuff
+    \item [n] Number of arguments
+    \item [opt] Options
+    \item [stuff] stuff
+\end{description}
+
+
+
 \subsection{Verbatim}
 \texttt{verb} is used ``in line'', while \texttt{verbatim} makes a display.
 E.g.\
