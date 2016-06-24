@@ -7,7 +7,7 @@
 \usepackage{enumitem}
 \usepackage{amsmath}
 \usepackage{mdwlist}
-\usepackage{color}
+\usepackage{color} % Don't need this with xcolor?
 \usepackage{xcolor}
 \usepackage{ragged2e}
 
@@ -43,7 +43,7 @@
 \usepackage{hyperref}
 \hypersetup{colorlinks=true,
     urlcolor=darkpowderblue,
-    linkcolor=black
+    linkcolor=black % This may be what links the contents in the first place!
 }
 \urlstyle{same}
 
@@ -55,23 +55,12 @@
 \begin{document}
 \maketitle
 \url{https://www.sharelatex.com/learn/Main_Page}
+\url{http://texdoc.net/texmf-dist/doc/latex/lshort-english/lshort.pdf}
 \addtocontents{toc}{\protect\setstretch{0.1}}
 \tableofcontents
 %---------------------------------------------------------------------------%
-\section{Structure/Appearance}
 
-\subsection{Types of documents}
-\subsubsection{Article}
-\begin{verbatim}
-\documentclass[12pt]{article}
-\documentclass[11pt]{article}
-\documentclass[10pt]{article}
-\end{verbatim}
-(10pt is the default font size)
-\subsubsection{Report}
-
-\subsection{Margins}
-\subsubsection{Entire document}
+\section{Margins}
 \begin{enumerate}
     \item Sides (odd- and even-numbered pages):
 \begin{verbatim}
@@ -87,13 +76,12 @@
 \end{enumerate}
 A better way (both do the same thing;
 can customize the second a little more):
-\begin{itemize*}
+\begin{itemize}
     \item \verb|\usepackage{fullpage}|
     \item \verb|\usepackage[margin=1in]{geometry}|
-\end{itemize*}
-\subsubsection{Blocks of text}
+\end{itemize}
 
-\subsection{Line spacing and indentation}
+\section{Line spacing and indentation}
 \url{http://www.terminally-incoherent.com/blog/2007/09/19/latex-squeezing-the-vertical-white-space/}
 
 In preamble:
@@ -104,7 +92,7 @@ In preamble:
 In body:
 \begin{itemize*}
     \item \verb|\newpage| Jump to a new page after previous section
-    \item \verb|\\| new line
+    \item \verb|\\| Force line break
     \item \verb|\hspace| horizontal space
     \item \verb|\hspace{20 mm}| horizontal blank space equal to 20 mm
     \item \verb|\hfill| Pad with horizontal space to end of line
@@ -114,7 +102,7 @@ In body:
         being split by a page break.
 \end{itemize*}
 
-\subsection{Headers and footers}
+\section{Headers and footers}
 In preamble:
 \begin{verbatim}
 \usepackage{fancyhdr}
@@ -133,8 +121,8 @@ header and the top edge of the paper. Value has to be greater than
 13.6, otherwise will get an error message. Document still
 compiles, but better safe than sorry.
 
-\subsection{Text alignment}
-\subsubsection{Horizontal alignment}
+\section{Text alignment}
+\subsection{Horizontal alignment}
 \verb|\usepackage{ragged2e}|
 \begin{itemize*}
     \item \verb|\begin{flushright}...\end{flushright}|
@@ -158,14 +146,20 @@ environment. \verb|centering| will not pad with white space.
 Use braces: \verb|{\centering text I want centered.}|
 \verb|\center| is not a thing.
 
-\subsubsection{Vertical alignment}
+\subsection{Vertical alignment}
 \verb|[ctb]| Options like this will center at top, center, bottom, etc.
 
-\subsection{Font}
+\section{Font}
 
 \url{https://www.tug.org/pracjourn/2006-1/schmidt/schmidt.pdf}
+\begin{verbatim}
+\documentclass[12pt]{article}
+\documentclass[11pt]{article}
+\documentclass[10pt]{article}
+\end{verbatim}
+(10pt is the default font size)
 
-\subsubsection{Font style}
+\subsection{Font style}
 \begin{verbatim}
 \textbf{This text is bold}
 {\bf this text is also bold}
@@ -179,7 +173,7 @@ Use braces: \verb|{\centering text I want centered.}|
 \textsc{Small caps}
 \end{verbatim}
 
-\subsubsection{Font size inside text}
+\subsection{Font size inside text}
 \begin{verbatim}
 {\Large I want this text to be big.}
 \end{verbatim}
@@ -202,6 +196,7 @@ Use braces: \verb|{\centering text I want centered.}|
 
 %---------------------------------------------------------------------------%
 \section{Sections}
+\url{https://www.sharelatex.com/learn/Sections_and_chapters#Numbered_and_unnumbered_sections}
 \subsection{Nested section options}
 \begin{verbatim}
 \section{My First Section}
@@ -210,24 +205,30 @@ Use braces: \verb|{\centering text I want centered.}|
 \paragraph{text}
 \subparagraph{text}
 \end{verbatim}
+(not sure what the subparagraph is.)
 Paragraphs are not numbered or followed by a line break.
 There appears to be no difference between \verb|\paragraph{}|
 and \verb|\textbf{}| except for some extra space after the paragraph.
 Note that \verb|\paragraph{}| and \verb|\par| are not the same thing.
 \verb|\par| does the same thing as a blank line; useful if you don't
 want unnecessary blank space.
+
 \subsection{Customize sectioning in the preamble}
+
+
+
+
+
 (See \S{} \ref{color} for adding color to section names).
+\textcolor{red}{Need to move coloring for sections here. Organize
+things by the item itself (sections, lists, etc.),
+not by what is being done (coloring, sizing, etc.)}
 \paragraph{Change font size, make font bold, etc.}
 \begin{verbatim}
 \usepackage{titlesec}
 \titleformat*{\section}{\LARGE\bfseries}
-\titleformat*{\subsection}{\Large\bfseries}
-\titleformat*{\subsubsection}{\large\bfseries}
-\titleformat*{\paragraph}{\large\bfseries}
-\titleformat*{\subparagraph}{\large\bfseries}
 \end{verbatim}
-(not sure what the subparagraph is.)
+Do this with any of the nested sections.
 \paragraph{Use roman numerals instead of regular numbers}
 \begin{verbatim}
 \renewcommand{\thesection}{\Roman{section}}
@@ -271,6 +272,13 @@ See section $\S$\ref{data} for the data description.
 \end{verbatim}
 
 \section{Lists}
+
+\begin{itemize}
+    \item \url{ftp://ftp.nsu.ru/mirrors/ftp.dante.de/tex-archive/macros/latex/contrib/enumitem/enumitem.pdf}
+    \item \url{https://www.ntg.nl/maps/11/33.pdf}
+    \item \url{https://www.sharelatex.com/learn/Lists#Reference_guide}
+    \item \url{http://ctan.mirrors.hoobly.com/macros/latex/contrib/enumitem/enumitem.pdf}
+\end{itemize}
 
 In preamble:
 \begin{verbatim}
@@ -515,6 +523,27 @@ For example: \verb|\fboxrule=1pt and \fboxsep=5pt|. Use
 options to align the base line of the most top row,
 the center row and the most bottom row with the surrounding baseline.
 
+\section{Columns}
+
+\begin{verbatim}
+\begin{columns}
+    \column{0.5\textwidth}
+    content goes here
+    \column{0.5\textwidth}
+    more content here
+\end{columns}
+
+\begin{minipage}[t]{0.2\textwidth}
+    stuff
+\end{minipage}
+\begin{minipage}[t]{0.8\textwidth}
+    longer stuff
+\end{minipage}
+\end{verbatim}
+
+\verb|\addtolength{\columnsep}{5mm}| add space between columns.
+
+Not sure what the difference is between columns and minipages.
 
 
 \section{Figures}
@@ -575,28 +604,6 @@ cl> vi makefile
    pdflatex paper
 cl> make my_paper
 \end{verbatim}
-
-\section{Columns}
-
-\begin{verbatim}
-\begin{columns}
-    \column{0.5\textwidth}
-    content goes here
-    \column{0.5\textwidth}
-    more content here
-\end{columns}
-
-\begin{minipage}[t]{0.2\textwidth}
-    stuff
-\end{minipage}
-\begin{minipage}[t]{0.8\textwidth}
-    longer stuff
-\end{minipage}
-\end{verbatim}
-
-\verb|\addtolength{\columnsep}{5mm}| add space between columns.
-
-Not sure what the difference is between columns and minipages.
 
 \section{Maths!}
 \url{http://www.math.harvard.edu/texman/node17.html}
@@ -797,9 +804,14 @@ Define a document class like this: \verb|\documentclass{article}|
 
 \section{How can I do that?}
 
-Make \verb|\today| stay the same after the first run.
+Make table of contents single-spaced.
 
-Set up an environment with command in typewriter text on the left and normal
-text describing them on the right, without manually putting them in verbatim.
+
+\section{To be added}
+This may be required for a dissertation :(
+\begin{verbatim}
+\usepackage[doublespacing]{setspace}
+\end{verbatim}
+
 
 \end{document}
