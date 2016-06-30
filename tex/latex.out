@@ -1,46 +1,46 @@
-\BOOKMARK [1][-]{section.1}{Margins}{}% 1
-\BOOKMARK [1][-]{section.2}{Line spacing and indentation}{}% 2
-\BOOKMARK [1][-]{section.3}{Headers and footers}{}% 3
-\BOOKMARK [1][-]{section.4}{Text alignment}{}% 4
-\BOOKMARK [2][-]{subsection.4.1}{Horizontal alignment}{section.4}% 5
-\BOOKMARK [2][-]{subsection.4.2}{Vertical alignment}{section.4}% 6
-\BOOKMARK [1][-]{section.5}{Font}{}% 7
-\BOOKMARK [2][-]{subsection.5.1}{Font style}{section.5}% 8
-\BOOKMARK [2][-]{subsection.5.2}{Font size inside text}{section.5}% 9
-\BOOKMARK [1][-]{section.6}{Sections}{}% 10
-\BOOKMARK [2][-]{subsection.6.1}{Nested section options}{section.6}% 11
-\BOOKMARK [2][-]{subsection.6.2}{Customize sectioning in the preamble}{section.6}% 12
-\BOOKMARK [2][-]{subsection.6.3}{Table of contents}{section.6}% 13
-\BOOKMARK [2][-]{subsection.6.4}{Referring to sections in text using section labels}{section.6}% 14
-\BOOKMARK [1][-]{section.7}{Lists}{}% 15
-\BOOKMARK [2][-]{subsection.7.1}{Numbering}{section.7}% 16
-\BOOKMARK [1][-]{section.8}{Color}{}% 17
-\BOOKMARK [2][-]{subsection.8.1}{Color section names}{section.8}% 18
-\BOOKMARK [2][-]{subsection.8.2}{Color background }{section.8}% 19
-\BOOKMARK [2][-]{subsection.8.3}{Color text}{section.8}% 20
-\BOOKMARK [2][-]{subsection.8.4}{Define your own colors}{section.8}% 21
-\BOOKMARK [1][-]{section.9}{Hyperlinks}{}% 22
-\BOOKMARK [1][-]{section.10}{Putting text in a box}{}% 23
-\BOOKMARK [1][-]{section.11}{Columns}{}% 24
-\BOOKMARK [1][-]{section.12}{Figures}{}% 25
-\BOOKMARK [1][-]{section.13}{Tables}{}% 26
-\BOOKMARK [1][-]{section.14}{Bibliographies}{}% 27
-\BOOKMARK [2][-]{subsection.14.1}{Creating and using a makefile}{section.14}% 28
-\BOOKMARK [1][-]{section.15}{Maths!}{}% 29
-\BOOKMARK [2][-]{subsection.15.1}{Inside text}{section.15}% 30
-\BOOKMARK [2][-]{subsection.15.2}{Equations}{section.15}% 31
-\BOOKMARK [3][-]{subsubsection.15.2.1}{Numbered equations}{subsection.15.2}% 32
-\BOOKMARK [3][-]{subsubsection.15.2.2}{Equations without numbering}{subsection.15.2}% 33
-\BOOKMARK [3][-]{subsubsection.15.2.3}{Aligning equations}{subsection.15.2}% 34
-\BOOKMARK [2][-]{subsection.15.3}{Size of brackets, parentheses, etc.}{section.15}% 35
-\BOOKMARK [2][-]{subsection.15.4}{Operations}{section.15}% 36
-\BOOKMARK [3][-]{subsubsection.15.4.1}{Integrals}{subsection.15.4}% 37
-\BOOKMARK [3][-]{subsubsection.15.4.2}{Square root}{subsection.15.4}% 38
-\BOOKMARK [3][-]{subsubsection.15.4.3}{Summation \(and the multiplication version\)}{subsection.15.4}% 39
-\BOOKMARK [1][-]{section.16}{Symbols}{}% 40
-\BOOKMARK [1][-]{section.17}{Misc}{}% 41
-\BOOKMARK [2][-]{subsection.17.1}{Tips}{section.17}% 42
-\BOOKMARK [2][-]{subsection.17.2}{Create your own command!}{section.17}% 43
-\BOOKMARK [2][-]{subsection.17.3}{Verbatim}{section.17}% 44
-\BOOKMARK [1][-]{section.18}{How can I do that?}{}% 45
-\BOOKMARK [1][-]{section.19}{To be added}{}% 46
+\BOOKMARK [1][-]{section.1}{Units}{}% 1
+\BOOKMARK [1][-]{section.2}{Margins}{}% 2
+\BOOKMARK [1][-]{section.3}{Line spacing and indentation}{}% 3
+\BOOKMARK [1][-]{section.4}{Headers and footers}{}% 4
+\BOOKMARK [1][-]{section.5}{Text alignment}{}% 5
+\BOOKMARK [2][-]{subsection.5.1}{Horizontal alignment}{section.5}% 6
+\BOOKMARK [2][-]{subsection.5.2}{Vertical alignment}{section.5}% 7
+\BOOKMARK [1][-]{section.6}{Font}{}% 8
+\BOOKMARK [2][-]{subsection.6.1}{Font style}{section.6}% 9
+\BOOKMARK [2][-]{subsection.6.2}{Font size inside text}{section.6}% 10
+\BOOKMARK [1][-]{section.7}{Sections}{}% 11
+\BOOKMARK [2][-]{subsection.7.1}{Nested section options}{section.7}% 12
+\BOOKMARK [2][-]{subsection.7.2}{Customize sectioning in the preamble}{section.7}% 13
+\BOOKMARK [2][-]{subsection.7.3}{Referring to sections in text using section labels}{section.7}% 14
+\BOOKMARK [1][-]{section.8}{Table of contents}{}% 15
+\BOOKMARK [1][-]{section.9}{Lists}{}% 16
+\BOOKMARK [2][-]{subsection.9.1}{Numbering}{section.9}% 17
+\BOOKMARK [1][-]{section.10}{Color}{}% 18
+\BOOKMARK [2][-]{subsection.10.1}{Color section names}{section.10}% 19
+\BOOKMARK [2][-]{subsection.10.2}{Color background }{section.10}% 20
+\BOOKMARK [2][-]{subsection.10.3}{Color text}{section.10}% 21
+\BOOKMARK [2][-]{subsection.10.4}{Define your own colors}{section.10}% 22
+\BOOKMARK [1][-]{section.11}{Hyperlinks}{}% 23
+\BOOKMARK [1][-]{section.12}{Putting text in a box}{}% 24
+\BOOKMARK [1][-]{section.13}{Columns}{}% 25
+\BOOKMARK [1][-]{section.14}{Figures}{}% 26
+\BOOKMARK [1][-]{section.15}{Tables}{}% 27
+\BOOKMARK [1][-]{section.16}{Bibliographies}{}% 28
+\BOOKMARK [2][-]{subsection.16.1}{Creating and using a makefile}{section.16}% 29
+\BOOKMARK [1][-]{section.17}{Maths!}{}% 30
+\BOOKMARK [2][-]{subsection.17.1}{Inside text}{section.17}% 31
+\BOOKMARK [2][-]{subsection.17.2}{Equations}{section.17}% 32
+\BOOKMARK [3][-]{subsubsection.17.2.1}{Numbered equations}{subsection.17.2}% 33
+\BOOKMARK [3][-]{subsubsection.17.2.2}{Equations without numbering}{subsection.17.2}% 34
+\BOOKMARK [3][-]{subsubsection.17.2.3}{Aligning equations}{subsection.17.2}% 35
+\BOOKMARK [2][-]{subsection.17.3}{Size of brackets, parentheses, etc.}{section.17}% 36
+\BOOKMARK [2][-]{subsection.17.4}{Operations}{section.17}% 37
+\BOOKMARK [3][-]{subsubsection.17.4.1}{Integrals}{subsection.17.4}% 38
+\BOOKMARK [3][-]{subsubsection.17.4.2}{Square root}{subsection.17.4}% 39
+\BOOKMARK [3][-]{subsubsection.17.4.3}{Summation \(and the multiplication version\)}{subsection.17.4}% 40
+\BOOKMARK [1][-]{section.18}{Symbols}{}% 41
+\BOOKMARK [1][-]{section.19}{Misc}{}% 42
+\BOOKMARK [2][-]{subsection.19.1}{Tips}{section.19}% 43
+\BOOKMARK [2][-]{subsection.19.2}{Create your own command!}{section.19}% 44
+\BOOKMARK [2][-]{subsection.19.3}{Verbatim}{section.19}% 45
+\BOOKMARK [1][-]{section.20}{Questions and things to be added}{}% 46
