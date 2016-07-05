@@ -97,16 +97,17 @@
 \BOOKMARK [1][-]{section*.2}{Glossary}{}% 97
 \BOOKMARK [1][-]{section.23}{Quick reference}{}% 98
 \BOOKMARK [2][-]{subsection.23.1}{Debugging}{section.23}% 99
-\BOOKMARK [2][-]{subsection.23.2}{Maths}{section.23}% 100
-\BOOKMARK [2][-]{subsection.23.3}{Lists}{section.23}% 101
-\BOOKMARK [2][-]{subsection.23.4}{numerical arrays}{section.23}% 102
-\BOOKMARK [2][-]{subsection.23.5}{logical operators}{section.23}% 103
-\BOOKMARK [2][-]{subsection.23.6}{conditionals}{section.23}% 104
-\BOOKMARK [2][-]{subsection.23.7}{Looping}{section.23}% 105
-\BOOKMARK [2][-]{subsection.23.8}{I/O}{section.23}% 106
-\BOOKMARK [2][-]{subsection.23.9}{FITS files}{section.23}% 107
-\BOOKMARK [2][-]{subsection.23.10}{Classes \(maybe\)}{section.23}% 108
-\BOOKMARK [2][-]{subsection.23.11}{Plotting}{section.23}% 109
-\BOOKMARK [3][-]{subsubsection.23.11.1}{Legend}{subsection.23.11}% 110
-\BOOKMARK [3][-]{subsubsection.23.11.2}{Imaging}{subsection.23.11}% 111
-\BOOKMARK [3][-]{subsubsection.23.11.3}{Save figures}{subsection.23.11}% 112
+\BOOKMARK [2][-]{subsection.23.2}{Strings}{section.23}% 100
+\BOOKMARK [2][-]{subsection.23.3}{Maths}{section.23}% 101
+\BOOKMARK [2][-]{subsection.23.4}{Lists}{section.23}% 102
+\BOOKMARK [2][-]{subsection.23.5}{numpy arrays}{section.23}% 103
+\BOOKMARK [2][-]{subsection.23.6}{logical operators}{section.23}% 104
+\BOOKMARK [2][-]{subsection.23.7}{conditionals}{section.23}% 105
+\BOOKMARK [2][-]{subsection.23.8}{Looping}{section.23}% 106
+\BOOKMARK [2][-]{subsection.23.9}{I/O}{section.23}% 107
+\BOOKMARK [2][-]{subsection.23.10}{FITS files}{section.23}% 108
+\BOOKMARK [2][-]{subsection.23.11}{Classes \(maybe\)}{section.23}% 109
+\BOOKMARK [2][-]{subsection.23.12}{Plotting}{section.23}% 110
+\BOOKMARK [3][-]{subsubsection.23.12.1}{Imaging}{subsection.23.12}% 111
+\BOOKMARK [3][-]{subsubsection.23.12.2}{Legend}{subsection.23.12}% 112
+\BOOKMARK [3][-]{subsubsection.23.12.3}{Save figures}{subsection.23.12}% 113

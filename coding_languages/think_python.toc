@@ -97,16 +97,17 @@
 \contentsline {section}{Glossary}{40}{section*.2}
 \contentsline {section}{\numberline {23}Quick reference}{41}{section.23}
 \contentsline {subsection}{\numberline {23.1}Debugging}{41}{subsection.23.1}
-\contentsline {subsection}{\numberline {23.2}Maths}{41}{subsection.23.2}
-\contentsline {subsection}{\numberline {23.3}Lists}{41}{subsection.23.3}
-\contentsline {subsection}{\numberline {23.4}numerical arrays}{42}{subsection.23.4}
-\contentsline {subsection}{\numberline {23.5}logical operators}{43}{subsection.23.5}
-\contentsline {subsection}{\numberline {23.6}conditionals}{43}{subsection.23.6}
-\contentsline {subsection}{\numberline {23.7}Looping}{43}{subsection.23.7}
-\contentsline {subsection}{\numberline {23.8}I/O}{43}{subsection.23.8}
-\contentsline {subsection}{\numberline {23.9}FITS files}{44}{subsection.23.9}
-\contentsline {subsection}{\numberline {23.10}Classes (maybe)}{44}{subsection.23.10}
-\contentsline {subsection}{\numberline {23.11}Plotting}{44}{subsection.23.11}
-\contentsline {subsubsection}{\numberline {23.11.1}Legend}{45}{subsubsection.23.11.1}
-\contentsline {subsubsection}{\numberline {23.11.2}Imaging}{46}{subsubsection.23.11.2}
-\contentsline {subsubsection}{\numberline {23.11.3}Save figures}{46}{subsubsection.23.11.3}
+\contentsline {subsection}{\numberline {23.2}Strings}{41}{subsection.23.2}
+\contentsline {subsection}{\numberline {23.3}Maths}{41}{subsection.23.3}
+\contentsline {subsection}{\numberline {23.4}Lists}{42}{subsection.23.4}
+\contentsline {subsection}{\numberline {23.5}numpy arrays}{42}{subsection.23.5}
+\contentsline {subsection}{\numberline {23.6}logical operators}{44}{subsection.23.6}
+\contentsline {subsection}{\numberline {23.7}conditionals}{44}{subsection.23.7}
+\contentsline {subsection}{\numberline {23.8}Looping}{44}{subsection.23.8}
+\contentsline {subsection}{\numberline {23.9}I/O}{44}{subsection.23.9}
+\contentsline {subsection}{\numberline {23.10}FITS files}{45}{subsection.23.10}
+\contentsline {subsection}{\numberline {23.11}Classes (maybe)}{45}{subsection.23.11}
+\contentsline {subsection}{\numberline {23.12}Plotting}{45}{subsection.23.12}
+\contentsline {subsubsection}{\numberline {23.12.1}Imaging}{46}{subsubsection.23.12.1}
+\contentsline {subsubsection}{\numberline {23.12.2}Legend}{47}{subsubsection.23.12.2}
+\contentsline {subsubsection}{\numberline {23.12.3}Save figures}{47}{subsubsection.23.12.3}

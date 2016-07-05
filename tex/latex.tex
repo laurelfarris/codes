@@ -1,7 +1,7 @@
 \documentclass{article}
-\usepackage[margin=0.75in]{geometry}
+\usepackage[margin=1.75in]{geometry}
 \setlength{\parindent}{0em}
-\setlength{\parskip}{0.75em}
+\setlength{\parskip}{0.75ex}
 \usepackage{graphicx}
 \usepackage{enumerate}
 \usepackage{enumitem}
@@ -32,12 +32,17 @@
     itemsep=-1ex}
 \setlist[description]{%
     itemsep=0ex,
-    %leftmargin=3cm,
-    itemindent=1cm,
     align=right,}
+
+\definecolor{cadet}{rgb}{0.33, 0.41, 0.47}
 \renewcommand{\descriptionlabel}[1]{%
-    \hspace{\labelsep} % ???
-    \ttfamily{#1}}
+    \ttfamily\textcolor{cadet}{#1}}
+
+\newenvironment{myglossary}{%
+    \begin{list}{*}{}
+}{%
+    \end{list}
+}
 
 \usepackage{hyperref}
 \hypersetup{colorlinks=true,
@@ -227,7 +232,7 @@ want unnecessary blank space.
 
 \subsection{Customize sectioning in the preamble}
 
-(See \S{} \ref{color} for adding color to section names).
+(See \S{}~\ref{color} for adding color to section names).
 \textcolor{red}{Need to move coloring for sections here. Organize
 things by the item itself (sections, lists, etc.),
 not by what is being done (coloring, sizing, etc.)}
@@ -237,6 +242,12 @@ not by what is being done (coloring, sizing, etc.)}
 \titleformat*{\section}{\LARGE\bfseries}
 \end{verbatim}
 Do this with any of the nested sections.
+
+\paragraph{Add word (s) in front of section number}
+\begin{verbatim}
+\renewcommand{\thesection}{Text \arabic{section}}
+\end{verbatim}
+
 \paragraph{Use roman numerals instead of regular numbers}
 \begin{verbatim}
 \renewcommand{\thesection}{\Roman{section}}
@@ -299,7 +310,16 @@ Two columns:
     \item \url{https://www.ntg.nl/maps/11/33.pdf}
     \item \url{https://www.sharelatex.com/learn/Lists#Reference_guide}
     \item \url{http://ctan.mirrors.hoobly.com/macros/latex/contrib/enumitem/enumitem.pdf}
+    \item \url{http://www.troubleshooters.com/linux/lyx/ownlists.htm}
 \end{itemize}
+
+New stuff:
+\begin{verbatim}
+\setlist[enumerate]{font={\bfseries}}% global settings, for all lists
+\setlist[enumerate,1]{label={(\arabic*)}}
+\setlist[enumerate,1]{label={(\roman*)}}
+\end{verbatim}
+
 
 In preamble:
 \begin{verbatim}
@@ -309,67 +329,86 @@ In preamble:
 \verb|typeoflist| can be itemize, enumerate, description, etc.
 \verb|n| is the nested level (1 for top level). Options are as follows:
 
-Horizontal spacing:
-\begin{description}
-    \item [leftmargin]
-    \item [rightmargin]
+\paragraph{Horizontal spacing}
+\begin{description}[labelindent=2cm, leftmargin=\labelindent]
+    \item [rightmargin] Change right margin of description text.
+    \item [leftmargin] Distance from the left edge of the current
+        environment to the left margin of the item label. Remember,
+        environments can nest. Defaults to 0.
+    \item [listparindent] The indent of the first line of each
+        paragraph in an item, except for the first paragraph of an
+        item. If you're pressed for vertical space and want to
+        decrease interparagraph spacing within items while still
+        giving the user cues as where new paragraphs begin, this is
+        the way to do it.
+    \item [labelwidth]
+        Width allotted to the label. This should be equal to or
+        greater than the longest \emph{expected} label.  Good for
+        lining up text when labels are left-aligned.
+    \item [labelsep]
+        The distance between the rightmost part of the label (assuming
+        you haven't changed the label from its default right
+        justification) to the left margin of the item body. This is
+        one of the handiest adjustments you can make to create the
+        ultimately readable list for your exact situation. Use it
+        early and often.
+
+        BEWARE\@: This setting enforces this distance by shoving the
+        label left rather than moving the body left margin right. If
+        you set this you might need to add a corresponding amount to
+        \texttt{leftmargin}, if you want your labels in a specific place.
+        Space between label and following text
     \item [itemindent] Only indents the first line (with the label)
-    \item [listparindent]
-    \item [labelwidth] Designated space for label. Good for lining up
-        text when labels are left-aligned.
-    \item [labelsep] Space between label and following text
+        This length is capable of causing some real ugliness -- leave
+        it alone unless you have a really good reason not to. What
+        this horrid adjustment does is takes the label and first line
+        of a multiline body, and push them left from the normal item
+        body left margin. This makes the body lines not line up. It's
+        ugly. If you already have a list where multiline items look
+        wrong, try setting this length to 0 to see whether a previous
+        global setting of this length has caused problems.
+
+        Don't set this length except out of self-defense. It's trouble.
 \end{description}
-Vertical spacing:
-\begin{description}
-    \item [topsep] separation between list and paragraph above
-    \item [partopsep] extra space added to topsep when environment starts
-        a new paragraph
-    \item [parsep]
-    \item [itemsep] Space between items
-\end{description}
-
-Apparently topsep is also bottomsep $\ldots$?
-
-Example:
-\begin{verbatim}
-\setlist[itemize,1]{% Top level
-    leftmargin=10pt, Give 10pt margin, or
-        leftmargin=*, % Align with main text
-    itemindent=10pt,
-    itemsep=-1ex, % No separation
-    topsep=0pt % No separation between list and text above
-}
-\end{verbatim}
-
-Description:
-\begin{description}
-    \item [first thing] is this
-    \item [second] is something else
-    \item [first thing] is this
+\paragraph{Vertical spacing}
+\begin{description}[labelindent=2cm, leftmargin=\labelindent]
+    \item [parskip] Space between paragraphs outside of a list, and part of
+        the space between a non-list paragraph and a list item.
+        \textcolor{red}{This is NOT a list property; it can be set
+        globally for entire documen (see \SS{} \texttt{ref\{\}}).}
+    \item [topsep] Extra space added to \texttt{parskip} before the first
+        AND after the last item.
+    \item [parsep] Paragraph separation within a single item.
+    \item [itemsep] Extra inter-item spacing added to \texttt{parsep}
+    \item [partopsep] This is added to the top and/or bottom of the list
+        if and only if there's a blank line above or below the first
+        or last item. \emph{Leave this alone unless blank lines become a
+        problem}.
 \end{description}
 
 \begin{verbatim}
-\setlist[description]{%
-    font=\normalfont % Not bold, which is the default
-    style=nextline, % For when text is too long?
-    align=right,
-    leftmargin=*, % Align with text
-    labelindent=2cm,
-    labelsep=1em,
-    itemsep=-1ex,
-    topsep=0pt,
-}
+leftmargin=*        % Align with main text
+font=\normalfont    % Not bold, which is the default
+style=nextline      % For when text is too long?
+style=multiline     % ???
 \end{verbatim}
 
 To customize the description labels (the items inside the square
 brackets), in the preamble:
 \begin{verbatim}
-\renewcommand{\descriptionlabel}[1]{\hspace{\labelsep}\ttfamily{#1}}
+\renewcommand{\descriptionlabel}[1]{%
+    \hspace{\labelsep}
+    \ttfamily
+    \textcolor{red}{#1}
+}
 \end{verbatim}
-This puts the labels in typewriter font. The hspace command does not appear
-to be doing anything.
+This puts the labels in typewriter font in a different color.
+By default, description labels start a distance equal to
+\texttt{hspace} to the \emph{left} of the text, so adding that line
+causes them to line up with the left edge of the text instead.
 
-No space between items (without \verb|enumitem| package):
+Alternative way to get red of the space between items
+(without \texttt{enumitem} package):
 \begin{verbatim}
 \usepackage{mdwlist}
 ...
@@ -743,8 +782,8 @@ $$ P(D|M) \propto \prod^{N-1}_{i=0}\left\{\exp
     \left[-\frac{1}{2}\left[\frac{y_i-y(x_i|a_j)}
 {\sigma}\right]^2\right]\Delta y \right\} $$
 \end{verbatim}
-$$ P(D|M) \propto \prod^{N-1}_{i=0}\left\{\exp
-    \left[-\frac{1}{2}\left[\frac{y_i-y(x_i|a_j)}
+$$ P\left(D|M\right) \propto \prod^{N-1}_{i=0}\left\{\exp
+    \left[-\frac{1}{2}\left[\frac{y_i-y\left(x_i|a_j\right)}
 {\sigma}\right]^2\right]\Delta y \right\} $$
 
 
@@ -769,7 +808,7 @@ $\textrm{some\ text}$ % Remove italics, and '\' puts space between words
 \section{Misc}
 \subsection{Tips}
 To squelch that stupid warning about ``possible unwanted white space'',
-add a \verb|%| sign after the opening bracket:
+add a \verb|\%| sign after the opening bracket:
 \begin{verbatim}
 {%
     blah blah blah
