@@ -1,5 +1,5 @@
 \documentclass{article}
-\usepackage[margin=0.5in]{geometry}
+\usepackage[margin=0.75in]{geometry}
 \setlength{\parindent}{0em}
 \setlength{\parskip}{0.5em}
 \usepackage{graphicx}
@@ -11,31 +11,25 @@
 \usepackage{color}
 \usepackage{xcolor}
 \usepackage{verbatim}
+%\pagenumbering{gobble}
 
-\usepackage{titlesec}
-\titleformat*{\section}{\LARGE\bfseries}
-\titleformat*{\subsection}{\Large\bfseries}
-\titleformat*{\subsubsection}{\large\bfseries}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}  % Clear all headers and footers
+\renewcommand{\headrulewidth}{0pt} % remove the header rule
+\setlength{\headheight}{15pt}
+\rfoot{\thepage}
+%\fancyfoot[LE,RO]{\thepage} % Left side on Even pages; Right side on Odd pages
 
-\definecolor{sectioncolor}{rgb}{0.8, 0.0, 0.0}
-\definecolor{subsectioncolor}{rgb}{0.41,0.16,0.38}
-\definecolor{subsubsectioncolor}{rgb}{0.45, 0.31, 0.59}
 \definecolor{ver}{HTML}{004400}
-
 \makeatletter
   % Make all 'verbatim' text a different color!
-  \renewcommand\verbatim@font{\normalfont\ttfamily\color{ver}}
+  \renewcommand\verbatim@font{\normalfont\small\ttfamily\color{ver}}
   % Up single quote
   \let \@sverbatim \@verbatim
   \def \@verbatim {\@sverbatim \verbatimplus}
   {\catcode`'=13 \gdef \verbatimplus{\catcode`'=13 \chardef '=13 }}
 \makeatother
-
-\usepackage{sectsty}
-\sectionfont{\color{sectioncolor}}
-\subsectionfont{\color{subsectioncolor}}
-\subsubsectionfont{\color{subsubsectioncolor}}
-\definecolor{darkpowderblue}{rgb}{0.0, 0.2, 0.6}
 
 \setlist{itemsep=-1ex,}
 \setlist[description]{%
@@ -46,13 +40,61 @@
     }
 \renewcommand{\descriptionlabel}[1]{\ttfamily{#1}}
 
+\usepackage[toc]{multitoc}
+\renewcommand*{\multicolumntoc}{2}
+%\setlength{\columnseprule}{0.5pt}
+
 \usepackage{hyperref}
+\definecolor{darkpowderblue}{rgb}{0.0, 0.2, 0.6}
 \hypersetup{colorlinks=true,urlcolor=darkpowderblue,linkcolor=black}
 \urlstyle{same}
 
 \title{Think Python (and other useful things)}
 \author{Allen B. Downey (and Laurel Farris)}
 \date{\today}
+
+\usepackage{multicol}
+%\setlength{\columnsep}{1cm}
+ %\begin{multicols}{3}
+ %    [\section{First Section}
+ %        Text that is not divided into columns ]
+ %        Text that is divided into columns
+ %\end{multicols}
+
+\usepackage{listings}
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{cobalt}{rgb}{0.0, 0.28, 0.67}
+\definecolor{darkcyan}{rgb}{0.0, 0.55, 0.55}
+\definecolor{darklavender}{rgb}{0.45, 0.31, 0.59}
+
+\lstset{%
+  language=Python,
+  basicstyle=\footnotesize,
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=b,                    % sets the caption-position to bottom
+  deletekeywords={...},            % if you want to delete keywords from the given language
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  %frame=single,	                   % adds a frame around the code
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  otherkeywords={*,...},           % if you want to add more keywords to the set
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=true,                  % show tabs within strings adding particular underscores
+  tabsize=4,
+  %title=\lstname % show the filename of files included with \lstinputlisting; also try caption instead of title
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  backgroundcolor=\color{white},
+  commentstyle=\color{mygray},    % comment style
+  keywordstyle=\color{darkcyan},       % keyword style
+  stringstyle=\color{darklavender},     % string literal style
+}
+
+
+
+
 
 %------------------------------------------------------------------------------%
 \begin{document}
@@ -603,10 +645,127 @@ at the beginning of the program and run it again. If you don't see
 
 % Chapter 4
 \section{Case study: interface design}
+\subsection{TurtleWorld}
+A \textbf{package} is a collection of modules.
+\begin{lstlisting}
+from package_name.module_name import *
+\end{lstlisting}
+This should import all functions from the module.
+If you downloaded the Package modules but did not install them as a package, you
+can either work in the directory that contains the Package files, or add that
+directory to Python’s search path. Then you can import Module like this:
+\begin{lstlisting}
+from Module import *
+
+
+from Package.Module import *
+var1 = Module()
+var2 = Instance()  # One of several possible instances
+func(var2, args)
+\end{lstlisting}
+\subsection{Simple repetition}
+\subsection{Exercises}
+\subsection{Encapsulation}
+\subsection{Generalization}
+\subsection{Interface design}
+\subsection{Refactoring}
+\subsection{A development plan}
+\subsection{docstring}
+\subsection{Debugging}
+
+% Chapter 5
 \section{Conditionals and recursion}
+\subsection{Modulus operator}
+The \textbf{Modulus operator} works on integers and yields the remainder
+when the first operand is divided by the second.
+\begin{verbatim}
+>>> quotient = 7 / 3
+>>> print quotient
+2
+>>> remainder = 7 % 3
+>>> print remainder
+1
+\end{verbatim}
+The modulus operator turns out to be surprisingly useful. For example,
+you can check whether one number is divisible by another—if x \% y is
+zero, then x is divisible by y.
+
+Also, you can extract the right-most digit or digits from a number.
+For example, x \% 10 yields the right-most digit of x (in base 10).
+Similarly x \% 100 yields the last two digits.
+\subsection{Boolean expressions}
+\begin{verbatim}
+>>> 5 == 5
+True
+>>> 5 == 6
+False
+\end{verbatim}
+True and False are special values that belong to the type
+\verb|bool|; they are not strings.
+
+\textbf{Relational operators:}
+\begin{itemize}
+    \item $==$
+    \item $!=$
+    \item $>$
+    \item $<$
+    \item $>=$
+    \item $<=$
+\end{itemize}
+\subsection{Logical operators}
+\begin{itemize}
+    \item \verb|and|
+    \item \verb|or|
+    \item \verb|not|
+\end{itemize}
+The \verb|not| operator negates a boolean expression, so
+\verb|not (x > y)| is true if \verb|x > y| is false, that is, if
+\verb|x| is less than or equal to \verb|y|.
+
+Strictly speaking, the operands of the logical operators should be
+boolean expressions, but Python is not very strict. Any nonzero number
+is interpreted as ``true.''
+\begin{verbatim}
+>>> 17 and True
+True
+\end{verbatim}
+This flexibility can be useful, but there are some subtleties to it
+that might be confusing. You might want to avoid it (unless you know
+what you are doing).
+\subsection{Conditional execution}
+The \textbf{\texttt{if} statment:}
+\begin{verbatim}
+if x > 0:
+    print 'x is positive'
+\end{verbatim}
+The boolean expression after \verb|if| is called the \textbf{condition}.
+If it is true, then the indented statement gets executed. If not, nothing
+happens.
+\verb|if| statements have the same structure as function definitions: a
+header followed by an indented body. Statements like this are called
+\textbf{compound statements}.
+
+There is no limit on the number of statements that can appear in the
+body, but there has to be at least one. Occasionally, it is useful to
+have a body with no statements (usually as a place keeper for code you
+haven’t written yet). In that case, you can use the \verb|pass| statement,
+which does nothing.
+\begin{verbatim}
+if x < 0:
+    pass    # Need to handle negative values
+\end{verbatim}
+
+\subsection{Alternative execution}
+\begin{verbatim}
+\end{verbatim}
+\subsection{}
+
+% Chapter 6
 \section{Fruitful functions}
+% Chapter 7
 \section{Iteration}
 \newpage%-------------------------------------------------------------------%
+% Chapter 8
 \section{Strings}
 \subsection{A string is a sequence}
 \subsection{\texttt{len}}
@@ -2074,36 +2233,39 @@ The first argument can be any object; the second argument is a
 \item [void function] A function that doesn't return a value.
 \end{description}
 
-\newpage\section{Quick reference}
-Resources: astropy.org, rgex
 
+\newpage
+\begin{multicols}{2}
+\section{Quick reference}
+\setcounter{secnumdepth}{0}
+\subsection{Execution}
 \begin{verbatim}
-export PYTHONPATH="${PYTHONPATH}:/new/path"
+cl> export PYTHONPATH="${PYTHONPATH}:/new/path"
 \end{verbatim}
-not compiled, execute with \verb|cl> python program_name.py|
-or \verb|cl> ./program_name.py| IF you have the top line in your program
-(must be the first line, literally). \textcolor{red}{Including the
-\# sign?}
+\begin{lstlisting}
+>>> import sys
+>>> sys.path
 
-\begin{verbatim}
-import sys
-sys.path
-\end{verbatim}
+cl> python program_name.py
+
+#!/bin/bash
+...
+cl> ./program_name.py
+\end{lstlisting}
 
 \subsection{Debugging}
-\begin{verbatim}
+\begin{lstlisting}
 import pdb
 pdb.set_trace() #equivalent of 'STOP' in IDL
 cl> python code.py
 ...
 (Pdb) continue
-\end{verbatim}
+\end{lstlisting}
 Type `continue' at the end to keep going. Type `q' to quit.
 Can also print variables, types, etc.\ in this mode.
 
 \subsection{Strings}
-
-\begin{verbatim}
+\begin{lstlisting}
 >>> s1 = "/home/users/laurel/"
 >>> s2 = "file.dat"
 >>> s1 + s2
@@ -2116,81 +2278,175 @@ Can also print variables, types, etc.\ in this mode.
   'e.dat'
 >>> len(s2)
   8
-\end{verbatim}
+\end{lstlisting}
 
-\subsection{Maths}
-\url{http://docs.scipy.org/doc/numpy/reference/routines.math.html}
-
-\begin{verbatim}
-# operators (add, subtract, multiply, divide, exponent)
+\subsection{Mathematical operators}
+\begin{lstlisting}
 +,-,*,/,**,+=,-=,*=,/=,++,--
-bitwise operators (and, or, xor, not):
-&,|,^,!
-# string operators
-+, str[i1:i2] (string slice, but string is immutable)
-\end{verbatim}
+\end{lstlisting}
 
-\begin{verbatim}
+\subsection{bitwise operators}
+\begin{lstlisting}
+&  # and
+|  # or
+^  # xor
+!  # not
+\end{lstlisting}
+
+\subsection{logical operators}
+\subsubsection{relational}
+\begin{lstlisting}
+==, !=, >, >=, <, <=
+\end{lstlisting}
+\subsubsection{boolean}
+\begin{lstlisting}
+and, or, not
+\end{lstlisting}
+
+\subsection{conditionals}
+\begin{lstlisting}
+if (condition):
+    statements
+elif (condition):
+    statements
+else:
+    statements
+    pass # need to have 'something' here. ???
+if (condition):
+    break
+else:
+    continue
+\end{lstlisting}
+
+\subsection{Looping}
+\textcolor{red}{Python is not inclusive!}
+
+\begin{lstlisting}
+for i in list:
+for i in range(len(list)):
+for i in range(0, 10, 0.1)
+
+for i in range([start,]stop[, step])
+\end{lstlisting}
+(by default, start = 0 and step = 1)
+\begin{lstlisting}
+>>> root = "output."
+>>> for i in range(1,101):
+    ... outfile = root + repr(i).zfill(3) + '.txt'
+    ... print outfile
+
+output.001.txt
+...
+output.100.txt
+\end{lstlisting}
+repr(i) returns a string and zfill(3) pads with leading zeros.
+\begin{lstlisting}
+while (condition):
+    statements
+\end{lstlisting}
+
+\subsection{I/O}
+Simple output:
+\begin{lstlisting}
+print 'characters', string, variable
+\end{lstlisting}
+
+Simple reading from terminal and file:
+\begin{lstlisting}
+terminal:
+s = raw_input('prompt')
+\end{lstlisting}
+
+Higher level file reading routines:
+\begin{lstlisting}
+data = numpy.loadtxt(file,
+dtype=[('name','a12'),('ra',f4),('dec','f4')])
+data = astropy.io.ascii(file)
+\end{lstlisting}
+
+\subsection{Type changes}
+\begin{lstlisting}
+str(x)     # num to string
+abs(x)     # absolute value
+int(x)     # float to integer (truncated)
+long(x)    # long data type
+float(x)   # takes string or int, NOT array
+\end{lstlisting}
+
+\subsection{Math}
+\begin{lstlisting}
 import math
-math.sqrt(x)
-math.pow(x,y)   # x^y
-math.log(x)
-math.log10(x)
-math.exp(x)
-math.fabs(x)    # absolute value of x
-math.acos(x)    # arccosine in radians
-  cos, sin, tan, atan, asin
-math.radians(x) # converts from degrees to radians
-math.degrees(x) # converts from radians to degrees
-\end{verbatim}
+# Use the following as math.funcname(x), unless specified otherwise
+pow(x,y)   # x^y
+sqrt
+log
+log10
+exp
+fabs
+sin, cos, tan, asin, acos, atan
+atan2(y,x)  # vector to (x,y) makes this angle with the positive x-axis. Returns values between -pi and +pi
+radians(x) # degrees --> radians
+degrees(x) # radians --> degrees
 
-Interpolation:
-\begin{verbatim}
 from scipy.interpolate import interp1d
-  # interp1d(x, y, 'cubic')
-  # x is data, y = f(x)
+interp1d(x, y, 'cubic')  # x is data, y = f(x)
 from scipy.interpolate import interp2d
-  # interp2d(x, y, z, 'cubic')
-  # x and y are data, z = f(x,y)
-\end{verbatim}
+interp2d(x, y, z, 'cubic')  # x and y are data, z = f(x,y)
+\end{lstlisting}
 
 \subsection{Lists}
-\begin{verbatim}
-x = [0,1,2,3,4]
-x = range(5) # Same as above
-x.append(newValue)
+\begin{lstlisting}
+>>> x = range(5)
+    [0,1,2,3,4]
+>>> len(x)
+    5
+>>> x.append(5)
+    [0,1,2,3,4,5]
 
 >>> A = [1,2,3]
   [1,2,3]
->>> A*2
+>>> A*2  # Get A back twice
   [1,2,3,1,2,3]
-\end{verbatim}
+\end{lstlisting}
 
 \subsection{numpy arrays}
 Compare to list example above:
-\begin{verbatim}
+\begin{lstlisting}
+import numpy as np
 >>> B = np.array([1,2,3])
   [1 2 3]
+>>> B+2  # Element by element
+  [3 4 5]
 >>> B*2
   [2 4 6]
 
-import numpy as np
-np.zeros(n,m)
-np.array(n) # creates an array that consists of n, NOT LENGTH n
-np.array([[a,b,c,d][e,f,g]])
-np.arange(n) # [0,1,2,...,n-1]
+A.shape      # (rows, columns)
+A.ndim       # Number of dimensions
+A.size       # Number of elements
+A.astype(float)  # Change to type float
+
+np.log(A)    # Natural log
+np.log10(A)  # log base 10
+np.atan2(A)  # array of angles between -pi and +pi
+
+np.array(object, dtype=None)
 np.arange([start,] stop, [step,] dtype=None)
+np.arange(n) # [0,1,2,...,n-1]; if n is a float, A will be a float
+np.zeros([n,m])  # n=rows, m=columns
+np.linspace([start,] stop, [step,] dtype=None)  # num_steps = 50 by default
+np.logspace
 np.ndarray(...) # two-dimensional array
 np.argmax(x) # returns INDEX of max value of x array
-np.append(array,what_to_append)
-np.linspace(0,9,100) #0-9 with 100 increments
-np.logspace
-np.sum(array)
+np.append(A, values, axis=None)
 np.roll(x,2) # (~IDL's SHIFT); shifts array elements 2 to the right
   --> [3,4,0,1,2] # note x is still the same, unless do x = np.roll(...)
 np.where(condition) --> array
-np.max/min(array)
-np.median(A, axis=#)
+
+# np.funcname(array, axis=None, dtype=None) ~ A.funcname(...)
+sum, max, min, mean, std
+np.std(A, axis=None); A.std()
+A.var()  # Normalized with N (not N-1)
+np.median(A, axis=None)
     axis - along which median is computed. Get array back, or if no
     axis is specified, get a single number back.
 
@@ -2203,57 +2459,65 @@ np.median(A, axis=#)
     np.median(A, axis=1) --> [2 5 8]
     np.median(A, axis=2) --> Error
 
-a.min(axis=0)
-a.max(axis=1)
-a.std()     # standard deviation
-a.var()     # Normalized with N (not N-1)
-a.sum()
-\end{verbatim}
+A = complex(3.2, 5.4)
+A = (3.2 + 5.4j)  # (equivalent)
+A.imag --> 5.4
+A.real --> 3.2  # return value is same type as input. If input is complex, returns a float
 
-\verb|array.mean()| vs.\ \verb|np.mean(array)| \ldots?
+np.roll(A, n, axis=None)  # By default (no axis specified), array is flattened, shifted, then restored
+np.reshape(A, shape)
+np.stack
+np.broadcast_to(array, shape)
+np.repeat(array, num_repeats, axis=...)
+A.reshape(shape)
+A.flatten()  # Returns 1D array
 
-\begin{verbatim}
->>> a = np.array(6)
-  array([0,1,2,3,4,5])
->>> a = a.reshape(2,3)
-  array([[0,1,2],
-         [3,4,5]])
->>> a.shape
-  (2,3)
->>> a.ndim
-  2
->>> a.size
-  6
+# Matrices
+A = np.matrix(A)
+B = (np.matrix(B)).reshape(3,1)
+B*A  # Matrix multiplication
 
+# Fourier transform
+f = np.fft.fft(A, n=None, axis=-1, norm=None)
+\end{lstlisting}
 
-np.log
-np.log10
+\subsection{Functions}
+\begin{lstlisting}
+def lag(m, *v):     # v is a parameter
+var = lag(m, "hi")
 
+def lag(m, v=None): # v is a keyword
+var = lag(m, v="hi")
 
->>>>>>> e65b08cb7892365af863d0202be5fe03115aa38c
+if v: ...
+if not v: ...
+\end{lstlisting}
 
->>> A = np.array([1,2,3])
->>> A + 1
-    [2,3,4]
+\subsection{FITS files}
+\begin{lstlisting}
+import glob
+fls = glob.glob('*.fits')  # list of filenames
 
-str(number) --> num to string
-abs(number) --> abslute value
-int(number) --> float to integer
+from astropy.io import fits
+hdu = fits.open('name.fits')  # Create list object.
+hdu.info()
+info = hdu[0].header
+image = hdu[0].data  # type(image) --> numpy.ndarray
+image.shape  # shape (dimensions) of numpy.ndarray
+hdu.close()  # Always do this
+\end{lstlisting}
 
-num_elements = len(Array)
-
-# dynamic memory allocation
-
-# structures
-(dictionaries, see also lists)
+\subsection{Dynamic memory allocation}
+\begin{lstlisting}
+# structures (dictionaries)
 var={'name':'test', ra:1.}
 print var['name'], var['test']
 dicname = { 'A':[1,2,3], 'B':[2,4,6], 'C':[3,9,15] }
 print dicname
-# dictionaries are indexed by keys, rather than numbers.
+# dictionaries are indexed by keys (A, B, C), rather than numbers.
 # Keys can be any immutable type. Can't use lists, since they can be modified.
 profile = {'density':rho_r, 'mass':mass, ...}
-density = np.array(profile['density'])
+my_density = np.array(profile['density'])
 
 # structure arrays
 sarray = np.zeros(nelem,
@@ -2261,110 +2525,28 @@ sarray = np.zeros(nelem,
 sarray=np.zeros(nelem,
  dtype={'names': ('name', 'ra', 'dec'),
   'formats': ('S12','f4','f4')})
-\end{verbatim}
+\end{lstlisting}
 
-
-\subsection{logical operators}
-\begin{verbatim}
-==, !=, >, >=, <, <=, and, or, not
-\end{verbatim}
-
-\subsection{conditionals}
-\begin{verbatim}
-if (condition):
-    statements
-elif (condition):
-    statements
-else:
-    statements
-    pass # need to have 'something' here. ???
-if (condition):
-    break
-else:
-    continue
-\end{verbatim}
-
-
-\subsection{Looping}
-\textcolor{red}{PYTHON IS NOT INCLUSIVE!}
-
-Basic syntax (by default, start = 0 and step = 1)
-\begin{verbatim}
-for i in range([start,]stop[, step])
-
-for i in (list):
-for i in range(0, 10, 0.1)
-for i in range(len(list)):
-
->>> root = "output."
->>> for i in range(1,101):
-    ... outfile = root + repr(i).zfill(3) + '.txt'
-    ... print outfile
-
-output.001.txt
-...
-output.100.txt
-\end{verbatim}
-repr(i) returns a string and zfill(3) pads with leading zeros.
-
-\begin{verbatim}
-
-while (condition):
-    statements
-
-\end{verbatim}
-
-\subsection{I/O}
-Simple output:
-\begin{verbatim}
-print 'characters', string, variable
-\end{verbatim}
-
-Simple reading from terminal and file:
-\begin{verbatim}
-terminal:
-s = raw_input('prompt')
-\end{verbatim}
-
-Higher level file reading routines:
-\begin{verbatim}
-data = numpy.loadtxt(file,
-dtype=[('name','a12'),('ra',f4),('dec','f4')])
-data = astropy.io.ascii(file)
-\end{verbatim}
-
-
-\subsection{FITS files}
-\begin{verbatim}%-------------
-import glob
-fls = glob.glob(`*.fits')  # list of filenames
-
-from astropy.io import fits
-hdu = fits.open(`name.fits')  # Create list object.
-hdu.info()
-info = hdu[0].header
-image = hdu[0].data  # type(image) --> numpy.ndarray
-image.shape  # shape (dimensions) of numpy.ndarray
-hdu.close()  # Always do this
-\end{verbatim}%---------------
-
-\subsection{Classes (maybe)}
-\begin{verbatim}
+\subsection{Classes}
+\begin{lstlisting}
 # To allow import:
 def main():
     # program statements
     print "hello world."
 if __name__=="__main__":  # flexible way of running routines
     main()
-\end{verbatim}
+\end{lstlisting}
 
 \subsection{Plotting}
-\url{http://latexcolor.com/}
-\url{http://matplotlib.org/api/axes_api.html}
+\begin{itemize}
+    \item \url{http://latexcolor.com/}
+    \item \url{http://matplotlib.org/api/axes_api.html}
+\end{itemize}
 
-\verb|ax.streamplot()| Draw streamlines of a vector flow!
+\begin{lstlisting}
+# Draw streamlines of a vector flow!
+ax.streamplot()
 
-\begin{verbatim}
 import matplotlib.pyplot as plt
 fig = plt.figure()
 fig.set_size_inches(width, height)
@@ -2373,7 +2555,6 @@ fig.suptitle(
     fontsize = 14, fontweight='bold'
     )
 plt.xlabel('labelname',fontsize=14,color='red'
-    color='#eeefff') # Color???
 plt.xlabel('xlabel')
 
 plt.tight_layout()
@@ -2381,12 +2562,13 @@ plt.axis('tight')
   # difference?
 
 plt.colorbar()
-\end{verbatim}
+\end{lstlisting}
 
 Individual axes:
-\begin{verbatim}
+\begin{lstlisting}
 ax.set_xlabel(`labelname',
     fontsize = 14,
+    color='#eeefff')  # Maybe...
     )
 ax.set_xticklabels(
     columnlabels,  # ?
@@ -2397,23 +2579,23 @@ ax.set_xticklabels(
 ax.set_xticks(
     np.arange(start,stop,step)
     )
-ax.tick_params(  # things that apply to x and y?
+ax.tick_params(
     axis=['x'|'y'|'both'],
     labelsize='large'  # dif. bet. this and ax.set_xticklabel?
     )
 ax.set_yscale('log')
 ax.axis('tight')
-\end{verbatim}
+\end{lstlisting}
 
 Loop to get indefinite number of plots in one figure:
-\begin{verbatim}
+\begin{lstlisting}
 for i in range(0,some_number):
     ax = fig.add_subplot(n,m,i+1)
     # n - vertical; m - horizontal; i+1 - plot being defined as 'ax'
-\end{verbatim}
+\end{lstlisting}
 
 Put two plots on the same axes:
-\begin{verbatim}
+\begin{lstlisting}
 ax1.plot(x, y1, 'r')
 ax2 = ax1.twinx()
 ax2.plot(x, y2, 'g')
@@ -2422,11 +2604,11 @@ for tl in ax2.get_yticklabels():
 ax.tick_params(labelsize = "small") # size of numbers on each tick mark,
                                         not axis titles
 savefig('fig.png', bbox_inches = 'tight')
-\end{verbatim}
+\end{lstlisting}
 x and y limits: order matters! Put after set x ticks.
 
 No idea what this stuff is doing:
-\begin{verbatim}
+\begin{lstlisting}
 ------
 set_data_interval()
 subplots_adjust
@@ -2437,37 +2619,29 @@ plt.figure(figsize = (20, 10))
 fig, ax = plt.subplots(figsize=(20, 10))
 plt.savefig("im.png", bbox_inches = 'tight', dpi = 100)
 ------
-\end{verbatim}
+\end{lstlisting}
 
 \subsubsection{Imaging}
-\begin{verbatim}
+\begin{lstlisting}
 ax.imshow(hdu.data, cmap='gray')
 cube = np.array([im1, im2, im3])
 np.power(image, 0.1)
-\end{verbatim}
-Use same axis options as plotting to set tick marks, etc.
+\end{lstlisting}
 
 \subsubsection{Legend}
-\begin{minipage}{0.45\textwidth}
-\begin{verbatim}
+\begin{lstlisting}
 ax.plot(x,y1, `k--', label=`line 1')
 ax.plot(x,y2, `k:', label=`line 2')
 ax.plot(x,y3, `k', label=`line 3')
 legend = ax.legend(loc=`upper center',
                       = `lower left',
                shadow = True)
-\end{verbatim}
-\end{minipage}%
-\begin{minipage}[t]{0.45\textwidth}
-    \vspace{0pt}
-
-    \par `k' is black.
-\end{minipage}
+\end{lstlisting}
 
 \subsubsection{Save figures}
-\begin{verbatim}
+\begin{lstlisting}
 pyplot.show()
 pyplot.savefig('tmp.pdf') # rewritten each time!
-\end{verbatim}
-
+\end{lstlisting}
+\end{multicols}
 \end{document}

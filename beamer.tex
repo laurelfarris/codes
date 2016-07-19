@@ -17,15 +17,14 @@
 \definecolor{ver}{rgb}{0.94,0.92,0.84}
 \definecolor{cal}{rgb}{0.12, 0.3, 0.17}
 
-%\setbeamercolor{normal text}{fg=black, bg=white}
+\setbeamercolor{normal text}{fg=black, bg=white}
 \setbeamercolor{title}{fg=blue}
 \setbeamercolor{frametitle}{fg=cal}
 \setbeamercolor{framesubtitle}{fg=gsa}
 \setbeamercolor{block title}{fg=aqua}
 \setbeamercolor{itemize item}{fg=amethyst}
 \setbeamercolor{enumerate item}{fg=amethyst}
-%\setbeamercolor{block title}{fg=green}
-
+\setbeamercolor{block title}{fg=green}
 
 % Make all 'verbatim' text a different color!
 %\makeatletter
@@ -38,27 +37,13 @@
 \date{{\bf Spring 2016}}
 \author{\textbf{Laurel Farris}}
 
+\usepackage{href}
+
 \begin{document}
 
 %------------------------------------------------------------------------%
-\begin{frame}[fragile=singleslide]{Getting started}
-    \begin{verbatim}
-\documentclass{beamer}
-\documentclass[17pt]{beamer} % change overall font size
-\usepackage{graphicx} % Always use this for images
-
-\title{Pluto}
-\author{Laurel Farris}
-\date{11/30/2015}
-
-\begin{document}
-\maketitle
-\begin{frame}{frame title here}{frame subtitle here}
-    text text text
-\end{frame}
-
-or \frame{title}{subtitle}
-    \end{verbatim}
+\begin{frame}[fragile=singleslide]{Resources}
+    \url{https://kbroman.wordpress.com/2013/10/07/better-looking-latexbeamer-slides/}
 \end{frame}%-------------------------------------------------------------%
 \begin{frame}[fragile=singleslide]{Fonts}
     \begin{verbatim}
@@ -126,7 +111,7 @@ The \verb|[c]| option centers \emph{vertically}
     \setbeamercolor{block title}{fg=brown}
     \begin{block}{\centering block_title}
     \end{verbatim}
-    
+
 \end{frame}%-------------------------------------------------------------%
 \begin{frame}[fragile=singleslide]{Text blocks}
 \begin{verbatim}

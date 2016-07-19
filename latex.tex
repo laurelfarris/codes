@@ -1,5 +1,5 @@
 \documentclass{article}
-\usepackage[margin=1.75in]{geometry}
+\usepackage[margin=1in]{geometry}
 \setlength{\parindent}{0em}
 \setlength{\parskip}{0.75ex}
 \usepackage{graphicx}
@@ -7,26 +7,28 @@
 \usepackage{enumitem}
 \usepackage{amsmath}
 \usepackage{mdwlist}
-\usepackage{color} % Don't need this with xcolor?
+%\usepackage{color} % Don't need this with xcolor?
 \usepackage{xcolor}
 \usepackage{ragged2e}
-
-\usepackage{setspace} % spacing between toc items
 
 \usepackage{titlesec}
 \titleformat*{\section}{\LARGE\bfseries}
 \titleformat*{\subsection}{\Large\bfseries}
 \titleformat*{\subsubsection}{\large\bfseries}
 
+\usepackage{sectsty}
+%\titlespacing*{⟨command⟩}{⟨left⟩}{⟨before-sep⟩}{⟨after-sep⟩}[⟨right-sep⟩]
+\titlespacing*{\section}{-0.5in}{0ex}{0ex}
+\titlespacing*{\subsection}{0pt}{0.5ex}{-10ex}
+
+\setcounter{secnumdepth}{0}
+
 \definecolor{cadmiumorange}{rgb}{0.93, 0.53, 0.18}
 \definecolor{cadmiumgreen}{rgb}{0.0, 0.42, 0.24}
 \definecolor{darklavender}{rgb}{0.45, 0.31, 0.59}
-
-\usepackage{sectsty}
 \sectionfont{\color{cadmiumorange}}
 \subsectionfont{\color{cadmiumgreen}}
 \subsubsectionfont{\color{darklavender}}
-\definecolor{darkpowderblue}{rgb}{0.0, 0.2, 0.6}
 
 \setlist[itemize]{%
     itemsep=-1ex}
@@ -34,17 +36,35 @@
     itemsep=0ex,
     align=right,}
 
+\renewcommand{\labelitemi}{$\vcenter{\hbox{\tiny$\bullet$}}$}
+%\renewcommand{\labelitemi}{{\tiny$\bullet$}}
+
 \definecolor{cadet}{rgb}{0.33, 0.41, 0.47}
 \renewcommand{\descriptionlabel}[1]{%
     \ttfamily\textcolor{cadet}{#1}}
 
-\newenvironment{myglossary}{%
-    \begin{list}{*}{}
-}{%
-    \end{list}
-}
+\usepackage{fancyvrb}  % framebox around verbatim text
+\makeatletter
+\renewcommand\verbatim@font{\normalfont\small\ttfamily}
+\makeatother
+
+\usepackage{listings}
+\lstset{% general command to set parameter(s)
+    basicstyle=\small, % print whole listing small
+    keywordstyle=\color{black}\bfseries\underbar,% underlined bold black keywords % nothing happens
+    identifierstyle=,
+    commentstyle=\color{white},
+    stringstyle=\ttfamily,
+    showstringspaces=false % no special string spaces
+    }
+
+\usepackage{setspace} % spacing between toc items
+\usepackage[toc]{multitoc}
+\renewcommand*{\multicolumntoc}{2}
+%\setlength{\columnseprule}{0.5pt}
 
 \usepackage{hyperref}
+\definecolor{darkpowderblue}{rgb}{0.0, 0.2, 0.6}
 \hypersetup{colorlinks=true,
     urlcolor=darkpowderblue,
     linkcolor=black % This may be what links the contents in the first place!
@@ -64,11 +84,16 @@
     \item \url{http://texdoc.net/texmf-dist/doc/latex/titlesec/titlesec.pdf}
 \end{itemize}
 \addtocontents{toc}{\protect\setstretch{0.1}}
-\tableofcontents
-%---------------------------------------------------------------------------%
+\tableofcontents\newpage
+
+\section{Types of documents}
+\begin{verbatim}
+\documentclass{article}
+\documentclass[twoside]{article}  % two-sided document (affects page-numbers)
+\end{verbatim}
 
 \section{Units}
-\begin{description}
+\begin{description}[itemsep=-1ex]
     \item [px] pixels, depends on browser, use for electronic media
     \item [pt] points, use in print media
     \item [em] \emph{Horizontal} size, 1em is equal to the font size of
@@ -77,7 +102,10 @@
         letter `x' in the relevant font (usually).
 \end{description}
 
-\section{Margins}
+\section{Spacing}
+\url{http://www.terminally-incoherent.com/blog/2007/09/19/latex-squeezing-the-vertical-white-space/}
+
+\subsection{Margins}
 \begin{enumerate}
     \item Sides (odd- and even-numbered pages):
 \begin{verbatim}
@@ -98,23 +126,62 @@ can customize the second a little more):
     \item \verb|\usepackage[margin=1in]{geometry}|
 \end{itemize}
 
-\section{Line spacing and indentation}
-\url{http://www.terminally-incoherent.com/blog/2007/09/19/latex-squeezing-the-vertical-white-space/}
+\begin{verbatim}
+\geometry{paperwidth=140mm, paperheight=105mm}
+\end{verbatim}
 
-In preamble:
+\begin{verbatim}
+\usepackage{changepage}
+\begin{document}
+\begin{adjustwidth}{<left>}{<right>}
+    ...
+\end{adjustwidth}
+\end{verbatim}
 
-\verb|\setlength{\parindent}{0m}| Set indent for new paragraphs\par
-\verb|\setlength{\parskip}{0.5em}| Set spacing between paragraphs
+\begin{verbatim}
+\newenvironment{changemargin}[2]{%
+ \begin{list}{}{%
+  \setlength{\topsep}{0pt}%
+  \setlength{\leftmargin}{#1}%
+  \setlength{\rightmargin}{#2}%
+  \setlength{\listparindent}{\parindent}%
+  \setlength{\itemindent}{\parindent}%
+  \setlength{\parsep}{\parskip}%
+ }%
+\item[]}{\end{list}}
+\end{verbatim}
+This environment will indent the left and right margins by the values given.
 
-In body:
+\textcolor{red}{Leave sections and headers alone, and reduce the margins of
+regular text? Increase subsection margins halfway.}
+
+\subsection{Horizontal space}
 \begin{itemize}
-    \item \verb|\newpage| Jump to a new page after previous section
-    \item \verb|\\| Force line break
+    \item \verb|\setlength{\parindent}{0m}| Set indent for new paragraphs
     \item \verb|\hspace| horizontal space
     \item \verb|\hspace{20 mm}| horizontal blank space equal to 20 mm
     \item \verb|\hfill| Pad with horizontal space to end of line
-    \item \verb|\vspace| vertical space
     \item \verb|\noindent| self-explanatory
+\end{itemize}
+
+\subsection{Vertical space}
+\begin{itemize}
+    \item \verb|\setlength{\parskip}{0.5ex}| Set spacing between paragraphs
+    \item \verb|\vspace{}| vertical space
+    \item \verb|\renewcommand{\baselinestretch}{1.5}|\\
+        This changes the spacing for everything in the document,
+        including footnotes and tables.
+    \item \verb|\usepackage{setspace}...\setstretch{1.5}|\\
+        Can apply this to only part of text?
+    \item \verb|\usepackage[doublespacing]{setspace}|
+        Same as previous option?
+\end{itemize}
+
+\section{Breaking up text (or preventing it)}
+\begin{itemize}
+    \item \verb|\\| Force line break
+    \item \verb|\newpage| Jump to a new page after previous section
+    \item \verb|\clearpage|  ?
     \item \verb|\begin{samepage}... \end{samepage}| Keep something from
         being split by a page break.
 \end{itemize}
@@ -138,67 +205,71 @@ header and the top edge of the paper. Value has to be greater than
 13.6, otherwise will get an error message. Document still
 compiles, but better safe than sorry.
 
+To change location of page numbers:
+\begin{verbatim}
+\fancyhf{}  % Clear all headers and footers (including default page number).
+\renewcommand{\headrulewidth}{0pt} % remove the header rule
+\rfoot{\thepage}
+\lfoot{\thepage}
+\end{verbatim}
+
 \section{Text alignment}
 \subsection{Horizontal alignment}
 \verb|\usepackage{ragged2e}|
-\begin{itemize*}
+\begin{itemize}
     \item \verb|\begin{flushright}...\end{flushright}|
     \item \verb|\begin{center} ... \end{center}|
     \item \verb|\begin{justify} ... \end{justify}|
-\end{itemize*}
+    \item \verb|\centering|
+\end{itemize}
 
-\begin{verbatim}
-\begin{center}
-    ...
-\end{center}
-\end{verbatim}
-vs.
-\begin{verbatim}
-\centering
-\end{verbatim}
-
-Using \verb|begin/end| will pad above and
-below with white space (like bulleted lists). Don't use it inside the figure
-environment. \verb|centering| will not pad with white space.
-Use braces: \verb|{\centering text I want centered.}|
+The last bullet can be used inside the figure environment, whereas
+begin/end center is its own environment, and can't be.
 \verb|\center| is not a thing.
 
 \subsection{Vertical alignment}
 \verb|[ctb]| Options like this will center at top, center, bottom, etc.
+Actually this usually doesn't work.
 
-\section{Font}
+\section{Fonts}
+\begin{itemize}
+    \item \url{https://www.tug.org/pracjourn/2006-1/schmidt/schmidt.pdf}
+    \item \url{https://en.wikibooks.org/wiki/LaTeX/Fonts}
+\end{itemize}
 
-\url{https://www.tug.org/pracjourn/2006-1/schmidt/schmidt.pdf}
+\begin{minipage}[t]{0.5\textwidth}
+    \begin{verbatim}
+\usepackage{lmodern}
+\renewcommand*\familydefault{\sfdefault} % Only if the base font of the document is to be sans serif
+\usepackage[T1]{fontenc}
+    \end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+    Font that applies to entire doc.
+\end{minipage}
+
+\subsection{Font size}
+\begin{minipage}[t]{0.5\textwidth}
 \begin{verbatim}
 \documentclass[12pt]{article}
 \documentclass[11pt]{article}
 \documentclass[10pt]{article}
 \end{verbatim}
-(10pt is the default font size)
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+10pt is the default font size.
+\end{minipage}
 
-\subsection{Font style}
+\begin{minipage}[t]{0.5\textwidth}
 \begin{verbatim}
-\textbf{This text is bold}
-{\bf this text is also bold}
-\textit{This text is in italics, for quotes or titles}
-{\it This text is also in italics, for quotes or titles}
-\emph{This text is also in italics, for emphasis}
-\underline{This text is underlined}
-\texttt{This text is computer style}
-\textsf{sans serif}
-\textsl{slanted (slightly different from italics}
-\textsc{Small caps}
+\fontsize{<font size>}{<line size>}
 \end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+    Not entirely sure how this works yet.
+\end{minipage}
 
-\subsection{Font size inside text}
-\begin{verbatim}
-{\Large I want this text to be big.}
-\end{verbatim}
-{\Large I want this text to be big.}
-
-(enclosing entire thing in \verb|{}|s keeps from having to use
-\verb|\normalsize| at the end).
-
+\begin{minipage}[t]{0.5\textwidth}
 \begin{verbatim}
 \Huge
 \huge
@@ -210,11 +281,66 @@ Use braces: \verb|{\centering text I want centered.}|
 \scriptsize
 \tiny
 \end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+    Example:
+\begin{verbatim}
+{\Large I want this text to be big.}
+\end{verbatim}
+    \vspace{-2ex}{\Large I want this text to be big.}\\
+(enclosing entire thing in \verb|{}|s keeps from having to use
+\verb|\normalsize| at the end).
+\end{minipage}
 
-%---------------------------------------------------------------------------%
+\subsection{Font style}
+\subsubsection{Modal}
+\begin{minipage}[t]{0.5\textwidth}
+\begin{verbatim}
+\mdseries
+\bfseries
+\upshape
+\itshape
+\scshape
+\slshape
+\rmfamily
+\sffamily
+\ttfamily
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+    These don't read text as an argument, and can somehow be
+    used in the verbatim environment?
+\end{minipage}
+
+\subsubsection{Textblock}
+\begin{minipage}[t]{0.5\textwidth}
+\begin{verbatim}
+\textbf{bold}
+\textit{italics, for quotes or titles}
+\texttt{computer style}
+\textsf{sans serif}
+\textsl{slanted}
+\textsc{Small caps}
+\emph{This text is also in italics, for emphasis}
+\underline{This text is underlined}
+\end{verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
+\textbf{bold}\\
+\textit{italics, for quotes or titles}\\
+\texttt{computer style}\\
+\textsf{sans serif}\\
+\textsl{slanted}\\
+\textsc{Small caps}\\
+\emph{This text is also in italics, for emphasis}\\
+\underline{This text is underlined}
+\end{minipage}
+
+
 \section{Sections}
 \url{https://www.sharelatex.com/learn/Sections_and_chapters#Numbered_and_unnumbered_sections}
-\subsection{Nested section options}
+
+\begin{minipage}[t]{0.5\textwidth}
 \begin{verbatim}
 \section{My First Section}
 \subsection{My Subsection}
@@ -222,41 +348,47 @@ Use braces: \verb|{\centering text I want centered.}|
 \paragraph{text}
 \subparagraph{text}
 \end{verbatim}
-(not sure what the subparagraph is.)
+\end{minipage}
+\begin{minipage}[t]{0.5\textwidth}
 Paragraphs are not numbered or followed by a line break.
-There appears to be no difference between \verb|\paragraph{}|
-and \verb|\textbf{}| except for some extra space after the paragraph.
 Note that \verb|\paragraph{}| and \verb|\par| are not the same thing.
-\verb|\par| does the same thing as a blank line; useful if you don't
-want unnecessary blank space.
+\verb|\par| does the same thing as a blank line.
+\end{minipage}
 
-\subsection{Customize sectioning in the preamble}
+\subsection{Space around section titles}
+\begin{minipage}[t]{\textwidth}
+\begin{verbatim}
+\titlespacing*{⟨command⟩}{⟨left⟩}{⟨before-sep⟩}{⟨after-sep⟩}[⟨right-sep⟩]
+\titlespacing*{\section}{-0.50in}{0pt}{0pt}
+\titlespacing*{\subsection}{-0.25in}{0pt}{0pt}
+\end{verbatim}
+\end{minipage}
 
-(See \S{}~\ref{color} for adding color to section names).
-\textcolor{red}{Need to move coloring for sections here. Organize
-things by the item itself (sections, lists, etc.),
-not by what is being done (coloring, sizing, etc.)}
-\paragraph{Change font size, make font bold, etc.}
+\subsection{Font size and style}
+Here is some text.
 \begin{verbatim}
 \usepackage{titlesec}
 \titleformat*{\section}{\LARGE\bfseries}
-\end{verbatim}
-Do this with any of the nested sections.
-
-\paragraph{Add word (s) in front of section number}
-\begin{verbatim}
-\renewcommand{\thesection}{Text \arabic{section}}
+\titleformat*{\subsection}{\Large\bfseries}
+\titleformat*{\subsubsection}{\large\bfseries}
 \end{verbatim}
 
-\paragraph{Use roman numerals instead of regular numbers}
+\subsection{Color}
 \begin{verbatim}
-\renewcommand{\thesection}{\Roman{section}}
+\usepackage{sectsty}
+\sectionfont{\color{blue}}
+\subsectionfont{\color{blue}}
+\subsubsectionfont{\color{blue}}
 \end{verbatim}
 
-\paragraph{Other}
+\subsection{Labels}
 \begin{verbatim}
-\setcounter{secnumdepth}{0}
+\renewcommand{\thesection}{Text \arabic{section}}   % Text in front of label
+\renewcommand{\thesection}{\Roman{section}}         % Roman numerals
+\setcounter{secnumdepth}{0}                         % Depth to be labelled
 \end{verbatim}
+Setting this to 1 would number sections only, setting it to 2 would
+number sections and subsections, but not subsubsections, etc.
 
 \subsection{Referring to sections in text using section labels}
 \begin{verbatim}
@@ -265,10 +397,12 @@ See section $\S$\ref{data} for the data description.
 \subsection{The Data}\label{data}
 ...
 \end{verbatim}
+May need to run \texttt{pdflatex} twice for this to take effect.
 
+%---------------------------------------------------------------------------%
 \section{Table of contents}
 \verb|\tableofcontents| wherever you want it to go.
-You will have to run {\tt pdflatex} twice.
+You will have to run \texttt{pdflatex} twice.
 
 In preamble:
 \verb|\setcounter{tocdepth}{n}| where \verb|n| is the number of levels deep
@@ -286,7 +420,7 @@ To change space between items in toc:
 \addtocontents{toc}{\protect\setstretch{n}}
 \end{verbatim}
 \textcolor{red}{where n is between 0 and 1? Set to fraction of default?
-What does ``protect'' do?}
+``protect'' has something to do with ``fragile'' things.}
 
 Include figures and tables:
 \begin{verbatim}
@@ -302,9 +436,8 @@ Two columns:
 \setlength{\columnseprule}{0.5pt}
 \end{verbatim}
 
-
+%---------------------------------------------------------------------------%
 \section{Lists}
-
 \begin{itemize}
     \item \url{ftp://ftp.nsu.ru/mirrors/ftp.dante.de/tex-archive/macros/latex/contrib/enumitem/enumitem.pdf}
     \item \url{https://www.ntg.nl/maps/11/33.pdf}
@@ -313,13 +446,22 @@ Two columns:
     \item \url{http://www.troubleshooters.com/linux/lyx/ownlists.htm}
 \end{itemize}
 
-New stuff:
+New (unorganized) stuff:
+``Label'' refers to the bullet, number, or description item.
 \begin{verbatim}
 \setlist[enumerate]{font={\bfseries}}% global settings, for all lists
 \setlist[enumerate,1]{label={(\arabic*)}}
 \setlist[enumerate,1]{label={(\roman*)}}
-\end{verbatim}
 
+% Change bullet size. Not sure what the difference is between the two.
+\renewcommand{\labelitemi}{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand{\labelitemi}{{\tiny$\bullet$}}
+
+% Make your own list
+\begin{list}{default_label}{decls}
+    default label: Text to be used as a label (leave blank if none desired)
+    decls: geometrical parameters
+\end{verbatim}
 
 In preamble:
 \begin{verbatim}
@@ -331,10 +473,15 @@ In preamble:
 
 \paragraph{Horizontal spacing}
 \begin{description}[labelindent=2cm, leftmargin=\labelindent]
+    \item [labelindent] Used, but not described\ldots
     \item [rightmargin] Change right margin of description text.
     \item [leftmargin] Distance from the left edge of the current
-        environment to the left margin of the item label. Remember,
-        environments can nest. Defaults to 0.
+        environment (leftmost edge of labelwidth) to the left margin of the
+        item label (not text?). Remember, environments can nest. Defaults to 0.
+        Can only make this so big, eventually text doesn't move anymore.
+        Need to figure out exactly what all this is doing.
+        Pretty sure this only affects multi-line descriptions
+        (the text NOT on the same line as the label).
     \item [listparindent] The indent of the first line of each
         paragraph in an item, except for the first paragraph of an
         item. If you're pressed for vertical space and want to
@@ -414,9 +561,9 @@ Alternative way to get red of the space between items
 ...
 \begin{document}
 ...
-\begin{itemize*}
+\begin{itemize}
     \item ...
-\end{itemize*}
+\end{itemize}
 \end{verbatim}
 
 \begin{verbatim}
@@ -474,15 +621,8 @@ pre-defined colors (white, black, red, green, blue, cyan, magenta, yellow)
 \verb|\usepackage{xcolors}|
 is needed to define new colors (see \SS{}~\ref{definecolors}).
 
-\subsection{Color section names}
-In Preamble:
-\begin{verbatim}
-\usepackage{sectsty}
-\sectionfont{\color{blue}}
-\subsectionfont{\color{blue}}
-\subsubsectionfont{\color{blue}}
-\end{verbatim}
 
+\begin{minipage}{0.5\textwidth}
 \subsection{Color background }
 \begin{verbatim}
 \usepackage{xcolor}
@@ -495,7 +635,8 @@ In Preamble:
 ...
 \textcolor{red}{I want the text in the brackets to be red.}
 \end{verbatim}
-
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
 \subsection{Define your own colors}\label{ssec:definecolors}
 \url{http://latexcolor.com}
 \begin{verbatim}
@@ -507,37 +648,27 @@ In Preamble:
  \definecolor{mygray}{gray}{0.6}
 \textcolor{mygray}{text I want to be gray}.
 \end{verbatim}
+\end{minipage}
 
 \section{Hyperlinks}
-
 In preamble:
 \begin{verbatim}
 \usepackage{hyperref}
 \hypersetup{colorlinks=true,
-    urlcolor=darkpowderblue,
+    urlcolor=blue,
     linkcolor=black
 }
 \urlstyle{same}
 \end{verbatim}
-This globally sets the color of urls and links (such as the table of contents),
-and makes the font of urls the same as that of the rest of the text.
 
-Insert hyperlink:
+Insert hyperlink in text:
 \begin{verbatim}
 \url{http://google.com}
 \href{http://google.com}{link text}
 \href{http://google.com}{\textcolor{blue}{link text}}
 \end{verbatim}
-to manually change the color of one url.
-
-\begin{verbatim}
-For more information, visit \href{http://google.com}{\textcolor{blue}{this link}}.
-\end{verbatim}
-For more information, visit \href{http://google.com}
-{\textcolor{blue}{this link}}.
 
 \section{Putting text in a box}
-
 \begin{verbatim}
 \usepackage{xcolor}
 \usepackage{lipsum}
@@ -555,13 +686,9 @@ For more information, visit \href{http://google.com}
 \medskip
 \lipsum[4]
 
-
 \colorbox{hl}{\parbox{0.9\textwidth}
 text to go in box}
 \end{verbatim}
-For last example, `hl' is the highlight color, or background color of
-the box. The parbox is the box that contains the text itself, here set
-to be not quite as wide as the body text.
 
 Notes:
 You can adjust the thickness of border and padding of
@@ -576,15 +703,7 @@ options to align the base line of the most top row,
 the center row and the most bottom row with the surrounding baseline.
 
 \section{Columns}
-
 \begin{verbatim}
-\begin{columns}
-    \column{0.5\textwidth}
-    content goes here
-    \column{0.5\textwidth}
-    more content here
-\end{columns}
-
 \begin{minipage}[t]{0.2\textwidth}
     stuff
 \end{minipage}
@@ -595,8 +714,110 @@ the center row and the most bottom row with the surrounding baseline.
 
 \verb|\addtolength{\columnsep}{5mm}| add space between columns.
 
-Not sure what the difference is between columns and minipages.
 
+\section{Symbols}
+\begin{verbatim}
+\AA{}   % Angstrom (does not go in between $s)
+\infty  % infinity
+\sim    % '~'
+\approx % 'double ~'
+\propto % proportionality symbol (like alpha)
+\equiv  % like '=', but with three lines.
+\& \%   % include these symbols in document
+        % (also precede a space with '\' when in math mode).
+\pm     % plus or minus (\mp for minus or plus)
+\textbackslash  % \
+\textgreater    % >
+\textless       % <
+\end{verbatim}
+
+$\textrm{some\ text}$    %   Roman style (removes italics),
+                         %   and '\' puts space between words
+
+\section{Writing code into a Latex document}
+A nicer alternative to verbatim.
+\begin{verbatim}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\lstset{ %
+  backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+  basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\color{mygreen},    % comment style
+  deletekeywords={...},            % if you want to delete keywords from the given language
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  frame=single,	                   % adds a frame around the code
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\color{blue},       % keyword style
+  language=Octave,                 % the language of the code
+  otherkeywords={*,...},           % if you want to add more keywords to the set
+  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+  stringstyle=\color{mymauve},     % string literal style
+  tabsize=2,	                   % sets default tabsize to 2 spaces
+  title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+...
+\begin{lstlisting}
+    code code code
+\end{lstlisting}
+\end{verbatim}
+
+
+\section{New and renewed commands and environments}
+\subsection{Commands}
+Syntax: \verb|\newcommand{<cmd>}[<n>][<opt>]{<stuff>}|
+\begin{description}
+    %\item [\verb|n|] Number of arguments
+    %\item [\verb|opt|] Options
+    %\item [\verb|stuff|] stuff
+    \item [n] Number of arguments
+    \item [opt] Options
+    \item [stuff] stuff
+\end{description}
+Existing environments (list, adjustwidth, etc.) can be used inside new
+commands!
+
+\subsection{Environments}
+\begin{verbatim}
+\renewenvironment{name}{%
+    ...}
+
+\newenvironment{name}[#]{%
+    {<initialization code> (before text)}
+    {<finalization code> (after text)}
+}
+\end{verbatim}
+
+
+\section{Verbatim}
+\texttt{verb} is used ``in line'', while \texttt{verbatim} is a separate
+environment:
+\begin{lstlisting}
+\begin{verbatim}
+... text ...
+\end{verbatim}
+\end{lstlisting}
+
+\begin{verbatim}
+\verb|\documentclass{article}|
+\end{verbatim}
+\textcolor{red}{How to make the begin verbatim text a different color
+in vi? E.g. a dark gray, but the enclosed text is lighter.}
 
 \section{Figures}
 \begin{verbatim}
@@ -631,7 +852,6 @@ $n$ & $\xi_1$ & $\rho_c/\rho$ & $N_{n}$ & $W_n$ & $\Theta_n$
 For the \verb|tabular| line, \verb|c| stands for center-justified;
 use \verb|l| and \verb|r| for left and right justified.
 
-%---------------------------------------------------------------------------%
 \section{Bibliographies}
 \begin{verbatim}
 \bibliographystyle{plain}
@@ -787,90 +1007,39 @@ $$ P\left(D|M\right) \propto \prod^{N-1}_{i=0}\left\{\exp
 {\sigma}\right]^2\right]\Delta y \right\} $$
 
 
-\newpage
-\section{Symbols}
+\section{Beamer}
+Read in beamer template here at some point.
 \begin{verbatim}
-\AA{}   % Angstrom (does not go in between $s)
-\infty  % infinity
-\sim    % '~'
-\approx % 'double ~'
-\propto % proportionality symbol (like alpha)
-\equiv  % like '=', but with three lines.
-\& \%   % include these symbols in document
-        % (also precede a space with '\' when in math mode).
-\pm     % plus or minus (\mp for minus or plus)
-\end{verbatim}
-
-$\textrm{some\ text}$ % Remove italics, and '\' puts space between words
-
-
-
-\section{Misc}
-\subsection{Tips}
-To squelch that stupid warning about ``possible unwanted white space'',
-add a \verb|\%| sign after the opening bracket:
-\begin{verbatim}
-{%
-    blah blah blah
+\setbeamerfont{frametitle}{%
+    font=\fontsize{16pt}{16pt}\itshape
+    vs.
+    size=\fontsize{}{},
+    family=\rmfamily,
+    shape=scshape,
+    series=...
 }
+
+\setbeamertemplate{<elementname>}[<predefinedoptions>]<args>
+\addtobeamertemplate{<elementname>}{<pre-text>}{<post-text>}
 \end{verbatim}
+Use the first to change something (bullet symbol). Use the second
+to add something (vertical space).
 
-\subsection{Create your own command!}
-Syntax: \verb|\newcommand{<cmd>}[<n>][<opt>]{<stuff>}|
-\begin{description}
-    %\item [\verb|n|] Number of arguments
-    %\item [\verb|opt|] Options
-    %\item [\verb|stuff|] stuff
-    \item [n] Number of arguments
-    \item [opt] Options
-    \item [stuff] stuff
-\end{description}
-
-
-
-\subsection{Verbatim}
-\texttt{verb} is used ``in line'', while \texttt{verbatim} makes a display.
-E.g.\
 \begin{verbatim}
-\begin{verbatim}
-cl> git status
-cl> git add -A
-cl> git commit -m "commit message"
-end{verbatim}
+\begin{columns}
+    \column{0.5\textwidth}
+    content goes here
+    \column{0.5\textwidth}
+    more content here
+\end{columns}
 \end{verbatim}
-(\texttt{``end{verbatim}''} is also preceded with a backslash, but there were
-difficulties in printing it out in this document).
-\begin{verbatim}
-cl> git status
-cl> git add -A
-cl> git commit -m "commit message"
-\end{verbatim}
-
-
-Or do:
-\begin{verbatim}
-Define a document class like this: \verb|\documentclass{article}|
-\end{verbatim}
-Define a document class like this: \verb|\documentclass{article}|
-
 
 \section{Questions and things to be added}
-This may be required for a dissertation :(
-\begin{verbatim}
-\usepackage[doublespacing]{setspace}
-\end{verbatim}
 
 Could make a new environment using \verb|\tt| for stuff that doesn't apply
 to latex itself\ldots
 
-In {\tt think\_python.tex}, add part for using straight single quotes
+In \texttt{think\_python.tex}, add part for using straight single quotes
 in verbatim environment.
-
-What's the difference between \verb|\clearpage| and \verb|\newpage|?
-
-What does the `*' do in the titleformat part of preamble?
-
-How to condense the toc, make singlespaced, not bold, keep
-multiple columns from overlapping, etc.
 
 \end{document}
