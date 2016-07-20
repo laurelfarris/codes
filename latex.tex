@@ -21,7 +21,7 @@
 \titlespacing*{\section}{-0.5in}{0ex}{0ex}
 \titlespacing*{\subsection}{0pt}{0.5ex}{-10ex}
 
-\setcounter{secnumdepth}{0}
+\setcounter{secnumdepth}{1}
 
 \definecolor{cadmiumorange}{rgb}{0.93, 0.53, 0.18}
 \definecolor{cadmiumgreen}{rgb}{0.0, 0.42, 0.24}
@@ -30,19 +30,19 @@
 \subsectionfont{\color{cadmiumgreen}}
 \subsubsectionfont{\color{darklavender}}
 
+% Lists
 \setlist[itemize]{%
     itemsep=-1ex}
 \setlist[description]{%
     itemsep=0ex,
     align=right,}
-
 \renewcommand{\labelitemi}{$\vcenter{\hbox{\tiny$\bullet$}}$}
 %\renewcommand{\labelitemi}{{\tiny$\bullet$}}
-
 \definecolor{cadet}{rgb}{0.33, 0.41, 0.47}
 \renewcommand{\descriptionlabel}[1]{%
-    \ttfamily\textcolor{cadet}{#1}}
-
+    \ttfamily\textcolor{cadet}{#1}
+}
+% Verbatim
 \usepackage{fancyvrb}  % framebox around verbatim text
 \makeatletter
 \renewcommand\verbatim@font{\normalfont\small\ttfamily}
@@ -186,7 +186,7 @@ regular text? Increase subsection margins halfway.}
         being split by a page break.
 \end{itemize}
 
-\section{Headers and footers}
+\section{Headers and footers}\label{headfoot}
 In preamble:
 \begin{verbatim}
 \usepackage{fancyhdr}
@@ -363,6 +363,11 @@ Note that \verb|\paragraph{}| and \verb|\par| are not the same thing.
 \titlespacing*{\subsection}{-0.25in}{0pt}{0pt}
 \end{verbatim}
 \end{minipage}
+\begin{minipage}[t]{\textwidth}
+    Left margin adds or subtracts from what is already there. The ``-sep'' values
+    are absolute, so negative makes no sense (I think). Setting these to 0pt
+    reduces the default spacing a little.
+\end{minipage}
 
 \subsection{Font size and style}
 Here is some text.
@@ -398,11 +403,14 @@ See section $\S$\ref{data} for the data description.
 ...
 \end{verbatim}
 May need to run \texttt{pdflatex} twice for this to take effect.
+Obviously won't have anything to refer to if the sections aren't numbered.
 
 %---------------------------------------------------------------------------%
 \section{Table of contents}
 \verb|\tableofcontents| wherever you want it to go.
 You will have to run \texttt{pdflatex} twice.
+It appears that creating a toc puts headers on all pages, which may
+not be desired. See \S{}\ref{headfoot} for getting rid of them.
 
 In preamble:
 \verb|\setcounter{tocdepth}{n}| where \verb|n| is the number of levels deep
