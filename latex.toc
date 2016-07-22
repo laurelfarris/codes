@@ -36,7 +36,7 @@
 \contentsline {section}{\numberline {15}Symbols}{11}{section.15}
 \contentsline {section}{\numberline {16}Writing code into a Latex document}{12}{section.16}
 \contentsline {section}{\numberline {17}New and renewed commands and environments}{12}{section.17}
-\contentsline {subsection}{Commands}{12}{section*.22}
+\contentsline {subsection}{Commands}{13}{section*.22}
 \contentsline {subsection}{Environments}{13}{section*.23}
 \contentsline {section}{\numberline {18}Verbatim}{13}{section.18}
 \contentsline {section}{\numberline {19}Figures}{13}{section.19}
@@ -45,8 +45,8 @@
 \contentsline {subsection}{Creating and using a makefile}{14}{section*.24}
 \contentsline {section}{\numberline {22}Maths!}{14}{section.22}
 \contentsline {subsection}{Inside text}{14}{section*.25}
-\contentsline {subsection}{Equations}{14}{section*.26}
-\contentsline {subsubsection}{Numbered equations}{14}{section*.27}
+\contentsline {subsection}{Equations}{15}{section*.26}
+\contentsline {subsubsection}{Numbered equations}{15}{section*.27}
 \contentsline {subsubsection}{Equations without numbering}{15}{section*.28}
 \contentsline {subsubsection}{Aligning equations}{15}{section*.29}
 \contentsline {subsection}{Size of brackets, parentheses, etc.}{16}{section*.30}

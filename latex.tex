@@ -718,9 +718,17 @@ the center row and the most bottom row with the surrounding baseline.
 \begin{minipage}[t]{0.8\textwidth}
     longer stuff
 \end{minipage}
+
+\begin{multicols}{2}    % Start 2-columns
+\begin{multicols*}{2}   % No forcing cols to equal heights
+\raggedcolumns          % No forcing cols to fill vertical space
+
+\vfill                  % No forcing cols to fill vertical space (not working)
+\columnbreak            % Start at top of next column
 \end{verbatim}
 
 \verb|\addtolength{\columnsep}{5mm}| add space between columns.
+Verbatim text will continue into second column.
 
 
 \section{Symbols}
