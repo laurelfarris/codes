@@ -1,55 +1,55 @@
 \BOOKMARK [1][-]{section.1}{Types of documents}{}% 1
 \BOOKMARK [1][-]{section.2}{Units}{}% 2
 \BOOKMARK [1][-]{section.3}{Spacing}{}% 3
-\BOOKMARK [2][-]{section*.2}{Margins}{section.3}% 4
-\BOOKMARK [2][-]{section*.3}{Horizontal space}{section.3}% 5
-\BOOKMARK [2][-]{section*.4}{Vertical space}{section.3}% 6
+\BOOKMARK [2][-]{subsection*.1}{Margins}{section.3}% 4
+\BOOKMARK [2][-]{subsection*.2}{Horizontal space}{section.3}% 5
+\BOOKMARK [2][-]{subsection*.3}{Vertical space}{section.3}% 6
 \BOOKMARK [1][-]{section.4}{Breaking up text \(or preventing it\)}{}% 7
 \BOOKMARK [1][-]{section.5}{Headers and footers}{}% 8
 \BOOKMARK [1][-]{section.6}{Text alignment}{}% 9
-\BOOKMARK [2][-]{section*.5}{Horizontal alignment}{section.6}% 10
-\BOOKMARK [2][-]{section*.6}{Vertical alignment}{section.6}% 11
+\BOOKMARK [2][-]{subsection*.4}{Horizontal alignment}{section.6}% 10
+\BOOKMARK [2][-]{subsection*.5}{Vertical alignment}{section.6}% 11
 \BOOKMARK [1][-]{section.7}{Fonts}{}% 12
-\BOOKMARK [2][-]{section*.7}{Font size}{section.7}% 13
-\BOOKMARK [2][-]{section*.8}{Font style}{section.7}% 14
-\BOOKMARK [3][-]{section*.9}{Modal}{section*.8}% 15
-\BOOKMARK [3][-]{section*.10}{Textblock}{section*.8}% 16
+\BOOKMARK [2][-]{subsection*.6}{Font size}{section.7}% 13
+\BOOKMARK [2][-]{subsection*.7}{Font style}{section.7}% 14
+\BOOKMARK [3][-]{subsubsection*.8}{Modal}{subsection*.7}% 15
+\BOOKMARK [3][-]{subsubsection*.9}{Textblock}{subsection*.7}% 16
 \BOOKMARK [1][-]{section.8}{Sections}{}% 17
-\BOOKMARK [2][-]{section*.11}{Space around section titles}{section.8}% 18
-\BOOKMARK [2][-]{section*.12}{Font size and style}{section.8}% 19
-\BOOKMARK [2][-]{section*.13}{Color}{section.8}% 20
-\BOOKMARK [2][-]{section*.14}{Labels}{section.8}% 21
-\BOOKMARK [2][-]{section*.15}{Referring to sections in text using section labels}{section.8}% 22
+\BOOKMARK [2][-]{subsection*.10}{Space around section titles}{section.8}% 18
+\BOOKMARK [2][-]{subsection*.11}{Font size and style}{section.8}% 19
+\BOOKMARK [2][-]{subsection*.12}{Color}{section.8}% 20
+\BOOKMARK [2][-]{subsection*.13}{Labels}{section.8}% 21
+\BOOKMARK [2][-]{subsection*.14}{Referring to sections in text using section labels}{section.8}% 22
 \BOOKMARK [1][-]{section.9}{Table of contents}{}% 23
 \BOOKMARK [1][-]{section.10}{Lists}{}% 24
-\BOOKMARK [2][-]{section*.18}{Numbering}{section.10}% 25
+\BOOKMARK [2][-]{subsection*.17}{Numbering}{section.10}% 25
 \BOOKMARK [1][-]{section.11}{Color}{}% 26
-\BOOKMARK [2][-]{section*.19}{Color background }{section.11}% 27
-\BOOKMARK [2][-]{section*.20}{Color text}{section.11}% 28
-\BOOKMARK [2][-]{section*.21}{Define your own colors}{section.11}% 29
+\BOOKMARK [2][-]{subsection*.18}{Color background }{section.11}% 27
+\BOOKMARK [2][-]{subsection*.19}{Color text}{section.11}% 28
+\BOOKMARK [2][-]{subsection*.20}{Define your own colors}{section.11}% 29
 \BOOKMARK [1][-]{section.12}{Hyperlinks}{}% 30
 \BOOKMARK [1][-]{section.13}{Putting text in a box}{}% 31
 \BOOKMARK [1][-]{section.14}{Columns}{}% 32
 \BOOKMARK [1][-]{section.15}{Symbols}{}% 33
 \BOOKMARK [1][-]{section.16}{Writing code into a Latex document}{}% 34
 \BOOKMARK [1][-]{section.17}{New and renewed commands and environments}{}% 35
-\BOOKMARK [2][-]{section*.22}{Commands}{section.17}% 36
-\BOOKMARK [2][-]{section*.23}{Environments}{section.17}% 37
+\BOOKMARK [2][-]{subsection*.21}{Commands}{section.17}% 36
+\BOOKMARK [2][-]{subsection*.22}{Environments}{section.17}% 37
 \BOOKMARK [1][-]{section.18}{Verbatim}{}% 38
 \BOOKMARK [1][-]{section.19}{Figures}{}% 39
 \BOOKMARK [1][-]{section.20}{Tables}{}% 40
 \BOOKMARK [1][-]{section.21}{Bibliographies}{}% 41
-\BOOKMARK [2][-]{section*.24}{Creating and using a makefile}{section.21}% 42
+\BOOKMARK [2][-]{subsection*.23}{Creating and using a makefile}{section.21}% 42
 \BOOKMARK [1][-]{section.22}{Maths!}{}% 43
-\BOOKMARK [2][-]{section*.25}{Inside text}{section.22}% 44
-\BOOKMARK [2][-]{section*.26}{Equations}{section.22}% 45
-\BOOKMARK [3][-]{section*.27}{Numbered equations}{section*.26}% 46
-\BOOKMARK [3][-]{section*.28}{Equations without numbering}{section*.26}% 47
-\BOOKMARK [3][-]{section*.29}{Aligning equations}{section*.26}% 48
-\BOOKMARK [2][-]{section*.30}{Size of brackets, parentheses, etc.}{section.22}% 49
-\BOOKMARK [2][-]{section*.31}{Operations}{section.22}% 50
-\BOOKMARK [3][-]{section*.32}{Integrals}{section*.31}% 51
-\BOOKMARK [3][-]{section*.33}{Square root}{section*.31}% 52
-\BOOKMARK [3][-]{section*.34}{Summation \(and the multiplication version\)}{section*.31}% 53
+\BOOKMARK [2][-]{subsection*.24}{Inside text}{section.22}% 44
+\BOOKMARK [2][-]{subsection*.25}{Equations}{section.22}% 45
+\BOOKMARK [3][-]{subsubsection*.26}{Numbered equations}{subsection*.25}% 46
+\BOOKMARK [3][-]{subsubsection*.27}{Equations without numbering}{subsection*.25}% 47
+\BOOKMARK [3][-]{subsubsection*.28}{Aligning equations}{subsection*.25}% 48
+\BOOKMARK [2][-]{subsection*.29}{Size of brackets, parentheses, etc.}{section.22}% 49
+\BOOKMARK [2][-]{subsection*.30}{Operations}{section.22}% 50
+\BOOKMARK [3][-]{subsubsection*.31}{Integrals}{subsection*.30}% 51
+\BOOKMARK [3][-]{subsubsection*.32}{Square root}{subsection*.30}% 52
+\BOOKMARK [3][-]{subsubsection*.33}{Summation \(and the multiplication version\)}{subsection*.30}% 53
 \BOOKMARK [1][-]{section.23}{Beamer}{}% 54
 \BOOKMARK [1][-]{section.24}{Questions and things to be added}{}% 55

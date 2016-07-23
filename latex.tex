@@ -11,24 +11,27 @@
 \usepackage{xcolor}
 \usepackage{ragged2e}
 
-\usepackage{titlesec}
-\titleformat*{\section}{\LARGE\bfseries}
-\titleformat*{\subsection}{\Large\bfseries}
-\titleformat*{\subsubsection}{\large\bfseries}
-
-\usepackage{sectsty}
-%\titlespacing*{⟨command⟩}{⟨left⟩}{⟨before-sep⟩}{⟨after-sep⟩}[⟨right-sep⟩]
-\titlespacing*{\section}{-0.5in}{0ex}{0ex}
-\titlespacing*{\subsection}{0pt}{0.5ex}{-10ex}
-
-\setcounter{secnumdepth}{1}
-
 \definecolor{cadmiumorange}{rgb}{0.93, 0.53, 0.18}
 \definecolor{cadmiumgreen}{rgb}{0.0, 0.42, 0.24}
 \definecolor{darklavender}{rgb}{0.45, 0.31, 0.59}
-\sectionfont{\color{cadmiumorange}}
-\subsectionfont{\color{cadmiumgreen}}
-\subsubsectionfont{\color{darklavender}}
+
+\usepackage{titlesec}
+\titleformat{\section}{%{<command>} %[<shape>]
+    %\filcenter
+    \bfseries\sffamily\Large\color{cadmiumorange}}
+    {\thesection} %{<label>}
+    {1em} %{<sep>}
+    {} %{<before-code>}
+    %[<after-code>]
+\titleformat{\subsection}{\color{cadmiumgreen}}
+\titleformat{\subsubsection}{\color{darklavender}}
+
+%\titlespacing*{⟨command⟩}{⟨left⟩}{⟨before-sep⟩}{⟨after-sep⟩}[⟨right-sep⟩]
+%\titlespacing*{\section}{-0.5in}{0ex}{0ex}
+%\titlespacing*{\subsection}{0pt}{0.5ex}{-10ex}
+
+\setcounter{secnumdepth}{1}
+
 
 % Lists
 \setlist[itemize]{%
@@ -341,13 +344,13 @@ Actually this usually doesn't work.
 \url{https://www.sharelatex.com/learn/Sections_and_chapters#Numbered_and_unnumbered_sections}
 
 \begin{minipage}[t]{0.5\textwidth}
-\begin{verbatim}
+\begin{lstlisting}
 \section{My First Section}
 \subsection{My Subsection}
 \subsubsection{A subsubsection}
 \paragraph{text}
 \subparagraph{text}
-\end{verbatim}
+\end{lstlisting}
 \end{minipage}
 \begin{minipage}[t]{0.5\textwidth}
 Paragraphs are not numbered or followed by a line break.
@@ -358,6 +361,7 @@ Note that \verb|\paragraph{}| and \verb|\par| are not the same thing.
 \subsection{Space around section titles}
 \begin{minipage}[t]{\textwidth}
 \begin{verbatim}
+\usepackage{titlesec}
 \titlespacing*{⟨command⟩}{⟨left⟩}{⟨before-sep⟩}{⟨after-sep⟩}[⟨right-sep⟩]
 \titlespacing*{\section}{-0.50in}{0pt}{0pt}
 \titlespacing*{\subsection}{-0.25in}{0pt}{0pt}
@@ -366,7 +370,9 @@ Note that \verb|\paragraph{}| and \verb|\par| are not the same thing.
 \begin{minipage}[t]{\textwidth}
     Left margin adds or subtracts from what is already there. The ``-sep'' values
     are absolute, so negative makes no sense (I think). Setting these to 0pt
-    reduces the default spacing a little.
+    reduces the default spacing a little. The asterisk removes paragraph
+    indentation following the section title (doesn't do anything if there
+    is no indentation anyway).
 \end{minipage}
 
 \subsection{Font size and style}
