@@ -2480,11 +2480,14 @@ np.reshape(A, shape)
 np.stack
 np.broadcast_to(array, shape)
 np.repeat(array, num_repeats, axis=...)
-A.reshape(shape)
+A.reshape( (rows, cols) )  # ONE argument!
 A.flatten()  # Returns 1D array
 
-# Matrices
+np.cross(x,y)
+np.dot(x,y)
+
 A = np.matrix(A)
+A = np.mat(A)  # Difference?
 B = (np.matrix(B)).reshape(3,1)
 B*A  # Matrix multiplication
 

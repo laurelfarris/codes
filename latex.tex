@@ -124,21 +124,19 @@
         letter `x' in the relevant font (usually).
 \end{description}
 
-\section{Spacing}
 \section{Margins}
-
 \begin{enumerate}
     \item Sides (odd- and even-numbered pages):
-\begin{verbatim}
+\begin{lstlisting}
 \addtolength{\oddsidemargin}{-0.875in}
 \addtolength{\evensidemargin}{-0.875in}
 \addtolength{\textwidth}{1.75in}
-\end{verbatim}
+\end{lstlisting}
     \item Top/bottom:
-\begin{verbatim}
+\begin{lstlisting}
 \addtolength{\topmargin}{-0.875in}
 \addtolength{\textheight}{1.75in}
-\end{verbatim}
+\end{lstlisting}
 \end{enumerate}
 A better way (both do the same thing;
 can customize the second a little more):
@@ -147,19 +145,19 @@ can customize the second a little more):
     \item \verb|\usepackage[margin=1in]{geometry}|
 \end{itemize}
 
-\begin{verbatim}
+\begin{lstlisting}
 \geometry{paperwidth=140mm, paperheight=105mm}
-\end{verbatim}
+\end{lstlisting}
 
-\begin{verbatim}
+\begin{lstlisting}
 \usepackage{changepage}
 \begin{document}
 \begin{adjustwidth}{<left>}{<right>}
     ...
 \end{adjustwidth}
-\end{verbatim}
+\end{lstlisting}
 
-\begin{verbatim}
+\begin{lstlisting}
 \newenvironment{changemargin}[2]{%
  \begin{list}{}{%
   \setlength{\topsep}{0pt}%
@@ -170,11 +168,35 @@ can customize the second a little more):
   \setlength{\parsep}{\parskip}%
  }%
 \item[]}{\end{list}}
-\end{verbatim}
+\end{lstlisting}
 This environment will indent the left and right margins by the values given.
 
 \textcolor{red}{Leave sections and headers alone, and reduce the margins of
 regular text? Increase subsection margins halfway.}
+
+Add notes to margins:
+\begin{lstlisting}
+\usepackage{marginnote}
+\usepackage{showframe,marginnote}  % box around margins
+
+\marginnotetextwidth{}:  % Don't actually use this
+% \xdef\marginnotetextwidth{1.5in}   WRONG!
+
+\renewcommand*{\raggedleftmarginnote}{}
+\renewcommand*{\raggedrightmarginnote}{\centering}
+
+\marginfont{}:  % Don't actually use this
+\renewcommand*{\marginfont}{\color{red}\sffamily}
+
+
+\begin{document}
+\marginnote{<right>} % aligned left
+\marginpar{<right>} % aligned left
+\reversemarginpar  % Switch to left side margins
+\marginnote{<left>} % aligned right
+\marginpar{<left>}  % aligned left
+\normalmarginpar  % switch back
+\end{lstlisting}
 
 \section{Horizontal spacing and alignment}
 \begin{itemize}
@@ -392,7 +414,7 @@ Shape:
 
 \begin{lstlisting}
 \titleformat{\subsubsection}{%
-  \filcenter\bfseries\large\color{cadmiumorange}}
+  \filcenter\bfseries\fontsize{16}{14}\selectfont\color{cadmiumorange}}
   {\arabic{subsection}.\arabic{subsubsection}\;}
   {1em}{}
 \end{lstlisting}
@@ -605,36 +627,19 @@ Change bullet size/style. Not sure what the difference is between the two.
     label={\arabic{section}.\arabic*} }
 \setlist[enumerate,2]{%
     label={\arabic{section}.\arabic{enumi}.\arabic*} }
-...
+\end{lstlisting}
+Or use the \texttt{enumerate} package:
+\begin{lstlisting}
+\usepackage{enumerate}
 \begin{document}
-...
 \begin{enumerate}[label*=\arabic*.] % ???
 \begin{enumerate}[I]
 \begin{enumerate}[I.]
 \begin{enumerate}[(a)]
 \end{lstlisting}
 
-To go from section numbering 0.0.1 to just 1, put this in the preamble:
-\begin{lstlisting}
-\usepackage{titlesec}
-\titleformat{\section}%
-  [hang]% <shape>
-  {\normalfont\bfseries\Large}% <format>
-  {}% <label>
-  {0pt}% <sep>
-  {}% <before code>
-  \renewcommand{\thesection}{}% Remove section references...
-  \renewcommand{\thesubsection}{\arabic{subsection}}%...from subsections
-  \renewcommand{\thesubsubsection}{\arabic{subsubsection}}%...from subsections
-\begin{document}
-...
-\end{lstlisting}
-This reference may have been for numbering subsections when sections have
-no number\ldots don't remember.
-
 \subsection{description}
-To customize the description labels (the items inside the square
-brackets), in the preamble:
+To customize the description labels (the items inside the brackets), in the preamble:
 \begin{lstlisting}
 \renewcommand{\descriptionlabel}[1]{%
     \hspace{\labelsep}
@@ -661,9 +666,9 @@ Alternative way to get red of the space between items
 ...
 \begin{document}
 ...
-\begin{itemize}
+\begin{itemize*}
     \item ...
-\end{itemize}
+\end{itemize*}
 \end{verbatim}
 
 \begin{verbatim}
