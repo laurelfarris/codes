@@ -1,36 +1,55 @@
 \documentclass{article}
-\usepackage[margin=1in]{geometry}
+%\usepackage[margin=1in]{geometry}
+\usepackage[left=1in, right=1in, top=1in, bottom=1in]{geometry}
 \setlength{\parindent}{0em}
 \setlength{\parskip}{0.75ex}
 \usepackage{graphicx}
-\usepackage{enumerate}
+\usepackage{lipsum}
+%\usepackage{enumerate}
 \usepackage{enumitem}
 \usepackage{amsmath}
-\usepackage{mdwlist}
-%\usepackage{color} % Don't need this with xcolor?
+%\usepackage{mdwlist}
+%\usepackage{color}
 \usepackage{xcolor}
 \usepackage{ragged2e}
 
 \definecolor{cadmiumorange}{rgb}{0.93, 0.53, 0.18}
+\definecolor{darkcyan}{rgb}{0.0, 0.55, 0.55}
 \definecolor{cadmiumgreen}{rgb}{0.0, 0.42, 0.24}
-\definecolor{darklavender}{rgb}{0.45, 0.31, 0.59}
+\definecolor{halayaube}{rgb}{0.4, 0.22, 0.33}
 
+% Sections
 \usepackage{titlesec}
-\titleformat{\section}{%{<command>} %[<shape>]
-    %\filcenter
-    \bfseries\sffamily\Large\color{cadmiumorange}}
-    {\thesection} %{<label>}
-    {1em} %{<sep>}
-    {} %{<before-code>}
-    %[<after-code>]
-\titleformat{\subsection}{\color{cadmiumgreen}}
-\titleformat{\subsubsection}{\color{darklavender}}
+%\usepackage{sectsty}
+%\titleformat{<command>}
+%   [<shape>]{<format>}{<label>}{<sep>}{<before-code>}{<after-code>}
+\titleformat{\section}%
+    [hang]
+  {\LARGE\bfseries\color{cadmiumgreen}} %\filcenter\bfseries\LARGE
+  {}        % label%    {\thesection} %{<label>}
+  {0pt}     % sep
+  {}        % before code
+\titleformat{\subsection}%
+  {\Large\bfseries\color{darkcyan}} %\filcenter\bfseries\LARGE
+  {\arabic{subsection}.\;} % label%    {\thesection} %{<label>}
+  {0pt}     % sep
+  {}        % before code
+\titleformat{\subsubsection}%
+  {\large\bfseries\color{halayaube}} %\filcenter\bfseries\LARGE
+  {\arabic{subsection}.\arabic{subsubsection}\;}        % label%    {\thesection} %{<label>}
+  {0pt}     % sep
+  {}        % before code
 
 %\titlespacing*{⟨command⟩}{⟨left⟩}{⟨before-sep⟩}{⟨after-sep⟩}[⟨right-sep⟩]
 %\titlespacing*{\section}{-0.5in}{0ex}{0ex}
 %\titlespacing*{\subsection}{0pt}{0.5ex}{-10ex}
 
-\setcounter{secnumdepth}{1}
+% Section references
+%\renewcommand{\thesection}{}
+%\renewcommand{\thesubsection}{\arabic{subsection}}
+%\renewcommand{\thesubsubsection}{\arabic{subsubsection}}
+
+%\setcounter{secnumdepth}{1}
 
 
 % Lists
@@ -106,9 +125,8 @@
 \end{description}
 
 \section{Spacing}
-\url{http://www.terminally-incoherent.com/blog/2007/09/19/latex-squeezing-the-vertical-white-space/}
+\section{Margins}
 
-\subsection{Margins}
 \begin{enumerate}
     \item Sides (odd- and even-numbered pages):
 \begin{verbatim}
@@ -158,7 +176,7 @@ This environment will indent the left and right margins by the values given.
 \textcolor{red}{Leave sections and headers alone, and reduce the margins of
 regular text? Increase subsection margins halfway.}
 
-\subsection{Horizontal space}
+\section{Horizontal spacing and alignment}
 \begin{itemize}
     \item \verb|\setlength{\parindent}{0m}| Set indent for new paragraphs
     \item \verb|\hspace| horizontal space
@@ -167,7 +185,17 @@ regular text? Increase subsection margins halfway.}
     \item \verb|\noindent| self-explanatory
 \end{itemize}
 
-\subsection{Vertical space}
+\verb|\usepackage{ragged2e}|
+\begin{itemize}
+    \item \verb|\begin{flushright}...\end{flushright}|
+    \item \verb|\begin{center} ... \end{center}|
+    \item \verb|\begin{justify} ... \end{justify}|
+    \item \verb|\centering|
+    \item \verb|\center| is not a thing.
+\end{itemize}
+
+\section{Vertical spacing and alignment}
+\url{http://www.terminally-incoherent.com/blog/2007/09/19/latex-squeezing-the-vertical-white-space/}
 \begin{itemize}
     \item \verb|\setlength{\parskip}{0.5ex}| Set spacing between paragraphs
     \item \verb|\vspace{}| vertical space
@@ -179,10 +207,13 @@ regular text? Increase subsection margins halfway.}
     \item \verb|\usepackage[doublespacing]{setspace}|
         Same as previous option?
 \end{itemize}
+\verb|[ctb]| Options like this will center at top, center, bottom, etc.
+Actually this usually doesn't work.
 
 \section{Breaking up text (or preventing it)}
 \begin{itemize}
     \item \verb|\\| Force line break
+    \item \verb|\newline| ?
     \item \verb|\newpage| Jump to a new page after previous section
     \item \verb|\clearpage|  ?
     \item \verb|\begin{samepage}... \end{samepage}| Keep something from
@@ -215,24 +246,6 @@ To change location of page numbers:
 \rfoot{\thepage}
 \lfoot{\thepage}
 \end{verbatim}
-
-\section{Text alignment}
-\subsection{Horizontal alignment}
-\verb|\usepackage{ragged2e}|
-\begin{itemize}
-    \item \verb|\begin{flushright}...\end{flushright}|
-    \item \verb|\begin{center} ... \end{center}|
-    \item \verb|\begin{justify} ... \end{justify}|
-    \item \verb|\centering|
-\end{itemize}
-
-The last bullet can be used inside the figure environment, whereas
-begin/end center is its own environment, and can't be.
-\verb|\center| is not a thing.
-
-\subsection{Vertical alignment}
-\verb|[ctb]| Options like this will center at top, center, bottom, etc.
-Actually this usually doesn't work.
 
 \section{Fonts}
 \begin{itemize}
@@ -339,10 +352,16 @@ Actually this usually doesn't work.
 \underline{This text is underlined}
 \end{minipage}
 
-
+\newpage
 \section{Sections}
 \url{https://www.sharelatex.com/learn/Sections_and_chapters#Numbered_and_unnumbered_sections}
+\lipsum[1]
+\subsection{Example of nested section settings}
+\lipsum[2]
+\subsubsection{My subsubsection title}
+\lipsum[3]
 
+\subsection{Nested section options}
 \begin{minipage}[t]{0.5\textwidth}
 \begin{lstlisting}
 \section{My First Section}
@@ -357,6 +376,29 @@ Paragraphs are not numbered or followed by a line break.
 Note that \verb|\paragraph{}| and \verb|\par| are not the same thing.
 \verb|\par| does the same thing as a blank line.
 \end{minipage}
+
+\begin{lstlisting}
+\usepackage{titlesec}
+\titleformat{<command>}
+    [<shape>]{<format>}{<label>}{<sep>}{<before-code>}{<after-code>}
+\end{lstlisting}
+
+Shape:
+\begin{description}
+    \item [hang] (default)
+    \item [rightmargin, leftmargin] Titles are in the margins, rather than
+        body of page.
+\end{description}
+
+\begin{lstlisting}
+\titleformat{\subsubsection}{%
+  \filcenter\bfseries\large\color{cadmiumorange}}
+  {\arabic{subsection}.\arabic{subsubsection}\;}
+  {1em}{}
+\end{lstlisting}
+Centers title horizontally, length of 1em between section number
+and text in title. Also customized how the titles should be labelled
+(\#.\#)
 
 \subsection{Space around section titles}
 \begin{minipage}[t]{\textwidth}
@@ -375,16 +417,17 @@ Note that \verb|\paragraph{}| and \verb|\par| are not the same thing.
     is no indentation anyway).
 \end{minipage}
 
-\subsection{Font size and style}
-Here is some text.
-\begin{verbatim}
+\subsection{Simpler way to change only size/style}
+\begin{lstlisting}
 \usepackage{titlesec}
 \titleformat*{\section}{\LARGE\bfseries}
 \titleformat*{\subsection}{\Large\bfseries}
 \titleformat*{\subsubsection}{\large\bfseries}
-\end{verbatim}
+\end{lstlisting}
 
 \subsection{Color}
+This actually overrides the titlesec package, which can also be used
+to set section title colors. Probably better to use that one.
 \begin{verbatim}
 \usepackage{sectsty}
 \sectionfont{\color{blue}}
@@ -410,8 +453,8 @@ See section $\S$\ref{data} for the data description.
 \end{verbatim}
 May need to run \texttt{pdflatex} twice for this to take effect.
 Obviously won't have anything to refer to if the sections aren't numbered.
-
 %---------------------------------------------------------------------------%
+\begin{samepage}
 \section{Table of contents}
 \verb|\tableofcontents| wherever you want it to go.
 You will have to run \texttt{pdflatex} twice.
@@ -449,6 +492,7 @@ Two columns:
 \renewcommand*{\multicolumntoc}{2} # but 2 is the default...?
 \setlength{\columnseprule}{0.5pt}
 \end{verbatim}
+\end{samepage}
 
 %---------------------------------------------------------------------------%
 \section{Lists}
@@ -462,20 +506,6 @@ Two columns:
 
 New (unorganized) stuff:
 ``Label'' refers to the bullet, number, or description item.
-\begin{verbatim}
-\setlist[enumerate]{font={\bfseries}}% global settings, for all lists
-\setlist[enumerate,1]{label={(\arabic*)}}
-\setlist[enumerate,1]{label={(\roman*)}}
-
-% Change bullet size. Not sure what the difference is between the two.
-\renewcommand{\labelitemi}{$\vcenter{\hbox{\tiny$\bullet$}}$}
-\renewcommand{\labelitemi}{{\tiny$\bullet$}}
-
-% Make your own list
-\begin{list}{default_label}{decls}
-    default label: Text to be used as a label (leave blank if none desired)
-    decls: geometrical parameters
-\end{verbatim}
 
 In preamble:
 \begin{verbatim}
@@ -554,19 +584,75 @@ style=nextline      % For when text is too long?
 style=multiline     % ???
 \end{verbatim}
 
+\subsection{itemize}
+Change bullet size/style. Not sure what the difference is between the two.
+\begin{lstlisting}
+\renewcommand{\labelitemi}{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand{\labelitemi}{{\tiny$\bullet$}}
+\end{lstlisting}
+
+\subsection{enumerate}
+\begin{lstlisting}
+\setlist[enumerate]{font={\bfseries}}% global settings, for all lists
+\setlist[enumerate,1]{label={(\arabic*)}}
+\setlist[enumerate,1]{label={(\roman*)}}
+\end{lstlisting}
+
+1.1, 1.2 $\rightarrow$ 1.2.1,1.2.2, etc
+\begin{lstlisting}
+\usepackage{enumitem}
+\setlist[enumerate,1]{%
+    label={\arabic{section}.\arabic*} }
+\setlist[enumerate,2]{%
+    label={\arabic{section}.\arabic{enumi}.\arabic*} }
+...
+\begin{document}
+...
+\begin{enumerate}[label*=\arabic*.] % ???
+\begin{enumerate}[I]
+\begin{enumerate}[I.]
+\begin{enumerate}[(a)]
+\end{lstlisting}
+
+To go from section numbering 0.0.1 to just 1, put this in the preamble:
+\begin{lstlisting}
+\usepackage{titlesec}
+\titleformat{\section}%
+  [hang]% <shape>
+  {\normalfont\bfseries\Large}% <format>
+  {}% <label>
+  {0pt}% <sep>
+  {}% <before code>
+  \renewcommand{\thesection}{}% Remove section references...
+  \renewcommand{\thesubsection}{\arabic{subsection}}%...from subsections
+  \renewcommand{\thesubsubsection}{\arabic{subsubsection}}%...from subsections
+\begin{document}
+...
+\end{lstlisting}
+This reference may have been for numbering subsections when sections have
+no number\ldots don't remember.
+
+\subsection{description}
 To customize the description labels (the items inside the square
 brackets), in the preamble:
-\begin{verbatim}
+\begin{lstlisting}
 \renewcommand{\descriptionlabel}[1]{%
     \hspace{\labelsep}
     \ttfamily
     \textcolor{red}{#1}
 }
-\end{verbatim}
+\end{lstlisting}
 This puts the labels in typewriter font in a different color.
 By default, description labels start a distance equal to
 \texttt{hspace} to the \emph{left} of the text, so adding that line
 causes them to line up with the left edge of the text instead.
+
+\subsection{Make your own list}
+\begin{lstlisting}
+\begin{list}{default_label}{decls}
+    default label: Text to be used as a label (leave blank if none desired)
+    decls: geometrical parameters
+\end{lstlisting}
 
 Alternative way to get red of the space between items
 (without \texttt{enumitem} package):
@@ -598,43 +684,25 @@ These will be listed horizontally, rather than vertically.
 Brackets by list will set the style; leave this empty for no symbols
 
 
-\subsection{Numbering}
-1.1, 1.2 $\rightarrow$ 1.2.1,1.2.2, etc
-\begin{verbatim}
-\usepackage{enumitem}
-...
-\begin{enumerate}[label*=\arabic*.] % ???
-\begin{enumerate}[I] % roman numerals
-\begin{enumerate}[I.] % roman numberals followed by a period
-\begin{enumerate}[(a)] % you get the idea...
-\end{verbatim}
-
-To go from section numbering 0.0.1 to just 1,
-put this in the preamble
-(copied from internet, but not actually sure how this works).
-\begin{verbatim}
-\usepackage{titlesec}
-\titleformat{\section}%
-  [hang]% <shape>
-  {\normalfont\bfseries\Large}% <format>
-  {}% <label>
-  {0pt}% <sep>
-  {}% <before code>
-  \renewcommand{\thesection}{}% Remove section references...
-  \renewcommand{\thesubsection}{\arabic{subsection}}%...from subsections
-  \renewcommand{\thesubsubsection}{\arabic{subsubsection}}%...from subsections
-\begin{document}
-...
-\end{verbatim}
-
 \section{Color}\label{color}
+\begin{minipage}{0.5\textwidth}
+\begin{verbatim}
+\usepackage{color}
+\usepackage{xcolor}
 
-\verb|\usepackage{color}| is required for
-pre-defined colors (white, black, red, green, blue, cyan, magenta, yellow)
-
-\verb|\usepackage{xcolors}|
-is needed to define new colors (see \SS{}~\ref{definecolors}).
-
+\colorlet{<new color name>}{<old color name>}
+\color{blue!30!green}
+\end{verbatim}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\texttt{color} is required for pre-defined colors (white, black, red, green,
+blue, cyan, magenta, yellow) \texttt{xcolors} is needed to define new
+colors (see \S{}~\ref{definecolors}).  The use of colour mixtures is a big
+addition brought along by xcolor. If
+you don't need the additional features of xcolor you can simply stick with
+color; even though there appears to be no disadvantage in using xcolor all
+the time.
+\end{minipage}
 
 \begin{minipage}{0.5\textwidth}
 \subsection{Color background }
@@ -651,7 +719,7 @@ is needed to define new colors (see \SS{}~\ref{definecolors}).
 \end{verbatim}
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
-\subsection{Define your own colors}\label{ssec:definecolors}
+\subsection{Define your own colors}\label{definecolors}
 \url{http://latexcolor.com}
 \begin{verbatim}
 \usepackage[usenames, dvipsnames]{color}
@@ -736,10 +804,10 @@ the center row and the most bottom row with the surrounding baseline.
 \verb|\addtolength{\columnsep}{5mm}| add space between columns.
 Verbatim text will continue into second column.
 
-
+\begin{samepage}
 \section{Symbols}
 \begin{verbatim}
-\AA{}   % Angstrom (does not go in between $s)
+\AA{}   % Angstrom (does not go between $s)
 \infty  % infinity
 \sim    % '~'
 \approx % 'double ~'
@@ -755,6 +823,7 @@ Verbatim text will continue into second column.
 
 $\textrm{some\ text}$    %   Roman style (removes italics),
                          %   and '\' puts space between words
+\end{samepage}
 
 \section{Writing code into a Latex document}
 A nicer alternative to verbatim.
@@ -776,7 +845,7 @@ A nicer alternative to verbatim.
   deletekeywords={...},            % if you want to delete keywords from the given language
   escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
   extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
-  frame=single,	                   % adds a frame around the code
+  frame=single,                    % adds a frame around the code
   keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
   keywordstyle=\color{blue},       % keyword style
   language=Octave,                 % the language of the code
@@ -790,7 +859,7 @@ A nicer alternative to verbatim.
   showtabs=false,                  % show tabs within strings adding particular underscores
   stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
   stringstyle=\color{mymauve},     % string literal style
-  tabsize=2,	                   % sets default tabsize to 2 spaces
+  tabsize=2,                       % sets default tabsize to 2 spaces
   title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
 }
 ...
