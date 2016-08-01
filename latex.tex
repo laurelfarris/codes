@@ -4,14 +4,27 @@
 \setlength{\parindent}{0em}
 \setlength{\parskip}{0.75ex}
 \usepackage{graphicx}
+\usepackage{tcolorbox}
+\usepackage{tcolorbox}
 \usepackage{lipsum}
-%\usepackage{enumerate}
 \usepackage{enumitem}
 \usepackage{amsmath}
-%\usepackage{mdwlist}
-%\usepackage{color}
 \usepackage{xcolor}
 \usepackage{ragged2e}
+%\usepackage{enumerate}
+%\usepackage{mdwlist}
+%\usepackage{color}
+
+%\usepackage{fancyhdr}
+%\pagestyle{fancy}
+%\fancyhf{}  % Clear all headers and footers (including default page number).
+
+%\setlength{\headheight}{15pt}
+%\renewcommand{\headrulewidth}{0pt} % remove the header rule
+%\lhead{text} % Top left
+%\rhead{text} % Top right
+%\cfoot{text} % Top center
+%\rfoot{\thepage} % Page numbers on bottom right corner
 
 \definecolor{cadmiumorange}{rgb}{0.93, 0.53, 0.18}
 \definecolor{darkcyan}{rgb}{0.0, 0.55, 0.55}
@@ -108,6 +121,10 @@
 \addtocontents{toc}{\protect\setstretch{0.1}}
 \tableofcontents\newpage
 
+Check \texttt{filename.log} for version of packages used. May need to add
+\verb|\listfiles| in the preamble first.
+
+
 \section{Types of documents}
 \begin{verbatim}
 \documentclass{article}
@@ -174,20 +191,18 @@ This environment will indent the left and right margins by the values given.
 \textcolor{red}{Leave sections and headers alone, and reduce the margins of
 regular text? Increase subsection margins halfway.}
 
-Add notes to margins:
+Add notes to margins: can use marginnote (with package) or marginpar
+(no package needed). Not sure which is better yet.
 \begin{lstlisting}
 \usepackage{marginnote}
 \usepackage{showframe,marginnote}  % box around margins
-
-\marginnotetextwidth{}:  % Don't actually use this
-% \xdef\marginnotetextwidth{1.5in}   WRONG!
+\setlength{\marginparwidth}{1in}
 
 \renewcommand*{\raggedleftmarginnote}{}
 \renewcommand*{\raggedrightmarginnote}{\centering}
 
 \marginfont{}:  % Don't actually use this
 \renewcommand*{\marginfont}{\color{red}\sffamily}
-
 
 \begin{document}
 \marginnote{<right>} % aligned left
@@ -244,9 +259,9 @@ Actually this usually doesn't work.
 
 \section{Headers and footers}\label{headfoot}
 In preamble:
-\begin{verbatim}
+\begin{lstlisting}
 \usepackage{fancyhdr}
-\pagestyle{fancy}
+\pagestyle{fancy}   % Automatically generates a header with section name
 \setlength{\headheight}{15pt}
 \lhead{text} % Top left
 \rhead{text} % Top right
@@ -254,21 +269,53 @@ In preamble:
 \lfoot{text} % Bottom left
 \rfoot{text} % Bottom right
 \cfoot{text} % Bottom center
-\end{verbatim}
+\end{lstlisting}
 
 The \verb|\headheight| option sets the amount of space between the
 header and the top edge of the paper. Value has to be greater than
 13.6, otherwise will get an error message. Document still
-compiles, but better safe than sorry.
+compiles, but better safe than sorry. Setting the left, center, and/or
+right headers overwrites the one generated automatically.
 
-To change location of page numbers:
-\begin{verbatim}
+\subsection{Page numbers}
+\begin{lstlisting}
 \fancyhf{}  % Clear all headers and footers (including default page number).
 \renewcommand{\headrulewidth}{0pt} % remove the header rule
 \rfoot{\thepage}
 \lfoot{\thepage}
-\end{verbatim}
+\end{lstlisting}
 
+\subsection{Footnotes}
+\begin{lstlisting}
+\usepackage[symbol]{footmisc}   % Use symbols instead of numbers
+
+\usepackage{perpage}
+\MakePerPage{footnote}          % Markers re-start after each page
+...
+\begin{document}
+...
+Here is some relevant information\footnote{See Guy et al. for additional
+information.}
+\end{lstlisting}
+Here is some relevant information\footnote{See Guy et al. for additional
+information.}
+
+\begin{lstlisting}
+\renewcommand{\footnoterule}{%
+  \kern -3pt
+  \hrule width \textwidth height 1pt
+  \kern 2pt
+}
+\end{lstlisting}
+or
+\begin{lstlisting}
+\renewcommand\footnoterule{\rule{\linewidth}{5pt}}
+\end{lstlisting}
+
+
+
+
+\newpage
 \section{Fonts}
 \begin{itemize}
     \item \url{https://www.tug.org/pracjourn/2006-1/schmidt/schmidt.pdf}
@@ -478,6 +525,7 @@ Obviously won't have anything to refer to if the sections aren't numbered.
 %---------------------------------------------------------------------------%
 \begin{samepage}
 \section{Table of contents}
+\url{http://texblog.org/2011/09/09/10-ways-to-customize-tocloflot/}
 \verb|\tableofcontents| wherever you want it to go.
 You will have to run \texttt{pdflatex} twice.
 It appears that creating a toc puts headers on all pages, which may
@@ -618,6 +666,8 @@ Change bullet size/style. Not sure what the difference is between the two.
 \setlist[enumerate]{font={\bfseries}}% global settings, for all lists
 \setlist[enumerate,1]{label={(\arabic*)}}
 \setlist[enumerate,1]{label={(\roman*)}}
+
+\setenumerate[0]{label=(\Alph*)}  % Different package?
 \end{lstlisting}
 
 1.1, 1.2 $\rightarrow$ 1.2.1,1.2.2, etc
@@ -788,6 +838,25 @@ For example: \verb|\fboxrule=1pt and \fboxsep=5pt|. Use
 \textrm{t}, \textrm{c}, \textrm{b}
 options to align the base line of the most top row,
 the center row and the most bottom row with the surrounding baseline.
+
+\begin{lstlisting}
+\usepackage{tcolorbox}
+\begin{tcolorbox}[<options>]
+    ...
+\end{tcolorbox}
+\end{lstlisting}
+
+Example:
+\begin{lstlisting}
+\usepackage{tcolorbox}
+\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,title=My nice heading]
+    My awesome color box.
+\end{tcolorbox}
+\end{lstlisting}
+\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,title=My nice heading]
+    My awesome color box.
+\end{tcolorbox}
+
 
 \section{Columns}
 \begin{verbatim}
@@ -1019,11 +1088,19 @@ in boxes, but are not necessary for writing equations.
 \end{equation*}
 
 Or simply put double \verb|$|s on each side of equation:
-\begin{verbatim}
-$$  P_{\textrm{mag}} = \frac{B^2}{\sqrt{4\pi\rho_o}} $$
-\end{verbatim}
+\begin{lstlisting}
+$${
+    P_{\textrm{mag}} = \frac{B^2}{\sqrt{4\pi\rho_o}}
+}$$
+\end{lstlisting}
 $$  P_{\textrm{mag}} = \frac{B^2}{\sqrt{4\pi\rho_o}} $$
 This may not work for more complicated math, such as matrices.
+Apparently it is now best to use brackets rather than \$\$s:
+\begin{lstlisting}
+\[
+    P_{\textrm{mag}} = \frac{B^2}{\sqrt{4\pi\rho_o}}
+\]
+\end{lstlisting}
 
 \subsubsection{Aligning equations}
 \begin{verbatim}
@@ -1076,6 +1153,43 @@ Increase size of fraction inside text:
 There are $\frac{1}{2}$ as many as there were.\par
 There are $\cfrac{1}{2}$ as many as there were.
 
+\subsection{Refering to parts of equation}
+\begin{lstlisting}
+\usepackage{amsmath}
+...
+\begin{document}
+...
+\<command>[<width>][<depth>]{<stuff>}
+\end{lstlisting}
+Possible commands:
+\begin{itemize}[label={}]
+    \item underbrace
+    \item overbrace
+    \item underbracket
+    \item overbracket
+\end{itemize}
+
+\begin{lstlisting}
+\usepackage{mathtools}
+\usepackage{ragged2e}
+\newlength\ubwidth
+\newcommand\parunderbrace[2]{%
+    \settowidth\ubwidth{$#1$}
+    \underbrace{#1}_{\parbox{\ubwidth}{\scriptsize\RaggedRight#2}}}
+\end{lstlisting}
+
+Example:
+\begin{lstlisting}
+$\underbrace{P(X \mid O)}_{p_1} \propto \overbrace{P(X)P(O \mid X)}^{p_2}$\\
+$\underbrace{P(X \mid O)}_{\text{This explains this part}}
+\propto \overbrace{P(X)P(O \mid X)}^{\text{And this explains the other part}}$
+\end{lstlisting}
+\begin{tcolorbox}
+$\underbrace{P(X \mid O)}_{p_1} \propto \overbrace{P(X)P(O \mid X)}^{p_2}$\\
+$\underbrace{P(X \mid O)}_{\text{This explains this part}}
+\propto \overbrace{P(X)P(O \mid X)}^{\text{And this explains the other part}}$
+\end{tcolorbox}
+
 
 \subsection{Operations}
 \subsubsection{Integrals}
@@ -1101,6 +1215,7 @@ $$ P(D|M) \propto \prod^{N-1}_{i=0}\left\{\exp
 $$ P\left(D|M\right) \propto \prod^{N-1}_{i=0}\left\{\exp
     \left[-\frac{1}{2}\left[\frac{y_i-y\left(x_i|a_j\right)}
 {\sigma}\right]^2\right]\Delta y \right\} $$
+
 
 
 \section{Beamer}
