@@ -2561,27 +2561,33 @@ if __name__=="__main__":  # flexible way of running routines
 \end{itemize}
 
 \begin{lstlisting}
-# Draw streamlines of a vector flow!
-ax.streamplot()
-
 import matplotlib.pyplot as plt
-fig = plt.figure()
-fig.set_size_inches(width, height)
+fig = plt.figure(figsize=(20,10))  # Inches
+for i in range(r*c):
+    ax = fig.add_subplot(r,c,i+1)
+
+fig, ax = plt.subplots()  # or
+fig,((ax1,ax2),(ax3,ax4)) = plt.subplots(2,2)
+axes = (ax1,ax1,ax1,ax1)
+for ax in axes:
+    ax.plot(...)
+
 fig.suptitle(
-    'bold figure suptitle',
-    fontsize = 14, fontweight='bold'
-    )
-plt.xlabel('labelname',fontsize=14,color='red'
-plt.xlabel('xlabel')
-
-plt.tight_layout()
-plt.axis('tight')
-  # difference?
-
-plt.colorbar()
+    'title',fontsize=14,fontweight='bold')
+plt.xlabel('labelname',fontsize=14,color='red')
 \end{lstlisting}
 
-Individual axes:
+\subsubsection{Adjust things}
+\begin{lstlisting}
+fig.set_size_inches(width,height)
+plt.tight_layout()
+fig.tight_layout()
+fig.subplots_adjust()
+plt.axis('tight')  # ?
+plt.savefig("im.png", bbox_inches="tight", dpi=300)  # rewritten each time!
+\end{lstlisting}
+
+\subsubsection{Individual axes}
 \begin{lstlisting}
 ax.set_xlabel(`labelname',
     fontsize = 14,
@@ -2604,45 +2610,27 @@ ax.set_yscale('log')
 ax.axis('tight')
 \end{lstlisting}
 
-Loop to get indefinite number of plots in one figure:
+\subsubsection{Put two plots on the same axes}
 \begin{lstlisting}
-for i in range(0,some_number):
-    ax = fig.add_subplot(n,m,i+1)
-    # n - vertical; m - horizontal; i+1 - plot being defined as 'ax'
-\end{lstlisting}
-
-Put two plots on the same axes:
-\begin{lstlisting}
-ax1.plot(x, y1, 'r')
+ax1.plot(x,y1,'r')
 ax2 = ax1.twinx()
-ax2.plot(x, y2, 'g')
+ax2.plot(x,y2,'g')
 for tl in ax2.get_yticklabels():
     tl.set_color('g')
-ax.tick_params(labelsize = "small") # size of numbers on each tick mark,
-                                        not axis titles
-savefig('fig.png', bbox_inches = 'tight')
+ax.tick_params(labelsize="small") # size of numbers on each tick mark, not axis titles
 \end{lstlisting}
 x and y limits: order matters! Put after set x ticks.
-
-No idea what this stuff is doing:
-\begin{lstlisting}
-------
-set_data_interval()
-subplots_adjust
-set_ylim(min, max)
-fig, ax = plt.subplots()  # Simpler?
-
-plt.figure(figsize = (20, 10))
-fig, ax = plt.subplots(figsize=(20, 10))
-plt.savefig("im.png", bbox_inches = 'tight', dpi = 100)
-------
-\end{lstlisting}
 
 \subsubsection{Imaging}
 \begin{lstlisting}
 ax.imshow(hdu.data, cmap='gray')
-cube = np.array([im1, im2, im3])
+cube = np.stack([im1, im2, im3], axis=2)
 np.power(image, 0.1)
+\end{lstlisting}
+
+\subsubsection{Color bar}
+\begin{lstlisting}
+plt.colorbar()
 \end{lstlisting}
 
 \subsubsection{Legend}
@@ -2655,10 +2643,10 @@ legend = ax.legend(loc=`upper center',
                shadow = True)
 \end{lstlisting}
 
-\subsubsection{Save figures}
+\subsubsection{Misc}
 \begin{lstlisting}
-pyplot.show()
-pyplot.savefig('tmp.pdf') # rewritten each time!
+ax.streamplot()  # Draw streamlines of a vector flow!
 \end{lstlisting}
 \end{multicols}
+
 \end{document}

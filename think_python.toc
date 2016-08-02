@@ -132,6 +132,10 @@
 \contentsline {subsection}{Dynamic memory allocation}{43}{section*.20}
 \contentsline {subsection}{Classes}{43}{section*.21}
 \contentsline {subsection}{Plotting}{44}{section*.22}
-\contentsline {subsubsection}{Imaging}{44}{section*.23}
-\contentsline {subsubsection}{Legend}{44}{section*.24}
-\contentsline {subsubsection}{Save figures}{44}{section*.25}
+\contentsline {subsubsection}{Adjust things}{44}{section*.23}
+\contentsline {subsubsection}{Individual axes}{44}{section*.24}
+\contentsline {subsubsection}{Put two plots on the same axes}{44}{section*.25}
+\contentsline {subsubsection}{Imaging}{44}{section*.26}
+\contentsline {subsubsection}{Color bar}{44}{section*.27}
+\contentsline {subsubsection}{Legend}{44}{section*.28}
+\contentsline {subsubsection}{Misc}{44}{section*.29}

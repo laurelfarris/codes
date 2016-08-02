@@ -132,6 +132,10 @@
 \BOOKMARK [2][-]{section*.20}{Dynamic memory allocation}{section.23}% 132
 \BOOKMARK [2][-]{section*.21}{Classes}{section.23}% 133
 \BOOKMARK [2][-]{section*.22}{Plotting}{section.23}% 134
-\BOOKMARK [3][-]{section*.23}{Imaging}{section*.22}% 135
-\BOOKMARK [3][-]{section*.24}{Legend}{section*.22}% 136
-\BOOKMARK [3][-]{section*.25}{Save figures}{section*.22}% 137
+\BOOKMARK [3][-]{section*.23}{Adjust things}{section*.22}% 135
+\BOOKMARK [3][-]{section*.24}{Individual axes}{section*.22}% 136
+\BOOKMARK [3][-]{section*.25}{Put two plots on the same axes}{section*.22}% 137
+\BOOKMARK [3][-]{section*.26}{Imaging}{section*.22}% 138
+\BOOKMARK [3][-]{section*.27}{Color bar}{section*.22}% 139
+\BOOKMARK [3][-]{section*.28}{Legend}{section*.22}% 140
+\BOOKMARK [3][-]{section*.29}{Misc}{section*.22}% 141
