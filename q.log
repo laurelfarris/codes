@@ -1,22 +1,22 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  23 JUL 2016 13:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  4 AUG 2016 13:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**latex.tex
+**notes.tex
 (/usr/local/texlive/2015/texmf-dist/tex/latex/tools/q.tex
 LaTeX2e <2015/01/01>
 Babel <3.9l> and hyphenation patterns for 79 languages loaded.
 File ignored
 )
 ! Emergency stop.
-<*> latex.tex
+<*> notes.tex
              
 *** (job aborted, no legal \end found)
 
  
 Here is how much of TeX's memory you used:
- 6 strings out of 493089
- 254 string characters out of 6134842
+ 7 strings out of 493089
+ 259 string characters out of 6134842
  53199 words of memory out of 5000000
  3590 multiletter control sequences out of 15000+600000
  3640 words of font info for 14 fonts, out of 8000000 for 9000

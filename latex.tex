@@ -1,8 +1,13 @@
 \documentclass{article}
-%\usepackage[margin=1in]{geometry}
-\usepackage[left=1in, right=1in, top=1in, bottom=1in]{geometry}
+\usepackage[margin=1.5in]{geometry}
+%\usepackage[left=1in, right=1in, top=1in, bottom=1in]{geometry}
 \setlength{\parindent}{0em}
 \setlength{\parskip}{0.75ex}
+% \setlength{\headsep}{0pt}
+% \setlength{\topskip}{0pt}
+% \setlength{\topmargin}{0pt}
+% \setlength{\topsep}{0pt}
+% \setlength{\partopsep}{0pt}
 \usepackage{graphicx}
 \usepackage{tcolorbox}
 \usepackage{tcolorbox}
@@ -15,7 +20,11 @@
 %\usepackage{mdwlist}
 %\usepackage{color}
 
+%\usepackage{mathptmx}  % Don't remember what these were for... Big fonts?
+%\usepackage{mathpazo}
+
 %\usepackage{fancyhdr}
+%\pagestyle{headings}  % Put section name in top left, page number in top right
 %\pagestyle{fancy}
 %\fancyhf{}  % Clear all headers and footers (including default page number).
 
@@ -26,12 +35,17 @@
 %\cfoot{text} % Top center
 %\rfoot{\thepage} % Page numbers on bottom right corner
 
+\definecolor{mygray}{rgb}{0.52, 0.52, 0.51}
 \definecolor{cadmiumorange}{rgb}{0.93, 0.53, 0.18}
 \definecolor{darkcyan}{rgb}{0.0, 0.55, 0.55}
 \definecolor{cadmiumgreen}{rgb}{0.0, 0.42, 0.24}
 \definecolor{halayaube}{rgb}{0.4, 0.22, 0.33}
 
-% Sections
+%\newcommand{\mynotes}[1]{\textcolor{cadmiumorange}{#1}}
+%\usepackage{tikz}\usetikzlibrary{backgrounds, shapes.misc}
+%\newcommand*\circled[1]{\tikz[baseline=(char.base)]
+%            \node[draw=black,shape=rounded rectangle,draw,inner sep=10pt] (char) {#1};}
+
 \usepackage{titlesec}
 %\usepackage{sectsty}
 %\titleformat{<command>}
@@ -70,9 +84,15 @@
     itemsep=-1ex}
 \setlist[description]{%
     itemsep=0ex,
-    align=right,}
+    align=right,
+%    labelindent=,
+%    labelwidth=,
+%    labelsep=,
+%    leftmargin=,
+}
 \renewcommand{\labelitemi}{$\vcenter{\hbox{\tiny$\bullet$}}$}
 %\renewcommand{\labelitemi}{{\tiny$\bullet$}}
+%   could just add this to \setlist[itemize]{label=...}
 \definecolor{cadet}{rgb}{0.33, 0.41, 0.47}
 \renewcommand{\descriptionlabel}[1]{%
     \ttfamily\textcolor{cadet}{#1}
@@ -85,17 +105,39 @@
 
 \usepackage{listings}
 \lstset{% general command to set parameter(s)
-    basicstyle=\small, % print whole listing small
-    keywordstyle=\color{black}\bfseries\underbar,% underlined bold black keywords % nothing happens
-    identifierstyle=,
-    commentstyle=\color{white},
-    stringstyle=\ttfamily,
-    showstringspaces=false % no special string spaces
+  basicstyle=\footnotesize,%\ttfamily, % print whole listing small
+  keywordstyle=\color{halayaube}\bfseries%\underbar,% underlined bold black keywords % nothing happens
+  %identifierstyle=,
+  commentstyle=\color{mygray},
+  %stringstyle=\ttfamily,
+  %showstringspaces=false % no special string spaces
+  %backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+  %breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  %breaklines=true,                 % sets automatic line breaking
+  %captionpos=b,                    % sets the caption-position to bottom
+  %deletekeywords={...},            % if you want to delete keywords from the given language
+  %escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  %extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  %frame=single,                    % adds a frame around the code
+  %keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  %language=Octave,                 % the language of the code
+  %otherkeywords={*,...},           % if you want to add more keywords to the set
+  %numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  %numbersep=5pt,                   % how far the line-numbers are from the code
+  %numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+  %rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  %showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  %showstringspaces=false,          % underline spaces within strings only
+  %showtabs=false,                  % show tabs within strings adding particular underscores
+  %stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+  %stringstyle=\color{mymauve},     % string literal style
+  %tabsize=2,                       % sets default tabsize to 2 spaces
+  %title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
     }
 
 \usepackage{setspace} % spacing between toc items
-\usepackage[toc]{multitoc}
-\renewcommand*{\multicolumntoc}{2}
+%\usepackage[toc]{multitoc}
+%\renewcommand*{\multicolumntoc}{2}
 %\setlength{\columnseprule}{0.5pt}
 
 \usepackage{hyperref}
@@ -279,6 +321,10 @@ right headers overwrites the one generated automatically.
 
 \subsection{Page numbers}
 \begin{lstlisting}
+\pagenumbering{gobble}
+\pagestyle{empty}
+% Difference?
+
 \fancyhf{}  % Clear all headers and footers (including default page number).
 \renewcommand{\headrulewidth}{0pt} % remove the header rule
 \rfoot{\thepage}
@@ -288,7 +334,6 @@ right headers overwrites the one generated automatically.
 \subsection{Footnotes}
 \begin{lstlisting}
 \usepackage[symbol]{footmisc}   % Use symbols instead of numbers
-
 \usepackage{perpage}
 \MakePerPage{footnote}          % Markers re-start after each page
 ...
@@ -312,9 +357,6 @@ or
 \renewcommand\footnoterule{\rule{\linewidth}{5pt}}
 \end{lstlisting}
 
-
-
-
 \newpage
 \section{Fonts}
 \begin{itemize}
@@ -323,11 +365,12 @@ or
 \end{itemize}
 
 \begin{minipage}[t]{0.5\textwidth}
-    \begin{verbatim}
+    \begin{lstlisting}
 \usepackage{lmodern}
-\renewcommand*\familydefault{\sfdefault} % Only if the base font of the document is to be sans serif
+\renewcommand\familydefault{\sfdefault} % base font of the document
+\renewcommand*\familydefault{\sfdefault} % Difference from above??
 \usepackage[T1]{fontenc}
-    \end{verbatim}
+    \end{lstlisting}
 \end{minipage}
 \begin{minipage}[t]{0.5\textwidth}
     Font that applies to entire doc.
@@ -335,11 +378,11 @@ or
 
 \subsection{Font size}
 \begin{minipage}[t]{0.5\textwidth}
-\begin{verbatim}
+\begin{lstlisting}
 \documentclass[12pt]{article}
 \documentclass[11pt]{article}
 \documentclass[10pt]{article}
-\end{verbatim}
+\end{lstlisting}
 \end{minipage}
 \begin{minipage}[t]{0.5\textwidth}
 10pt is the default font size.
@@ -423,7 +466,10 @@ or
 
 \newpage
 \section{Sections}
+\begin{minipage}{\textwidth}
 \url{https://www.sharelatex.com/learn/Sections_and_chapters#Numbered_and_unnumbered_sections}
+\end{minipage}
+
 \lipsum[1]
 \subsection{Example of nested section settings}
 \lipsum[2]
@@ -459,24 +505,50 @@ Shape:
         body of page.
 \end{description}
 
-\begin{lstlisting}
-\titleformat{\subsubsection}{%
-  \filcenter\bfseries\fontsize{16}{14}\selectfont\color{cadmiumorange}}
-  {\arabic{subsection}.\arabic{subsubsection}\;}
-  {1em}{}
-\end{lstlisting}
 Centers title horizontally, length of 1em between section number
 and text in title. Also customized how the titles should be labelled
 (\#.\#)
 
+Labels:
+\begin{lstlisting}
+\arabic (1, 2, 3, ...)
+\alph (a, b, c, ...)
+\Alph (A, B, C, ...)
+\roman (i, ii, iii, ...)
+\Roman (I, II, III, ...)
+\fnsymbol (∗, †, ‡, §, ¶, ...)
+\end{lstlisting}
+Examples:
+\begin{lstlisting}
+\titleformat{\section}%
+  {\fontsize{16}{18}\selectfont\bfseries\color{myblue}}
+  {\fontsize{46}{50}\selectfont\color{mypur}\arabic{section}\color{black}$\vert$}
+  {0em}{}
+\titleformat{\subsection}%
+  {\fontsize{14}{16}\selectfont\bfseries\color{mypur}}
+  {\color{myblue}\circled{\arabic{section}.\arabic{subsection}}}
+  {0.5em}{}
+  [\vspace{-2.5pt}{\color{mygray}\titlerule[5pt]}]
+  %[\vspace{-20pt}\colorbox{mygray}{% \begin{minipage}{\textwidth}% %\vspace*{2pt}%Space before \hfill %\vspace*{2pt}%Space after \end{minipage}}]
+\titleformat{\subsubsection}%
+  {\fontsize{13}{14}\selectfont\bfseries\color{mypur}}
+  {\color{myblue}\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
+  {1em}{}
+  [\vspace{-2.5pt}{\color{mygray}\titlerule[3pt]}]
+\titleformat{\paragraph}%
+  {\fontsize{12}{13}\selectfont\bfseries\color{myblue}}
+  {}
+  {0.5em}{}
+\end{lstlisting}
+
 \subsection{Space around section titles}
 \begin{minipage}[t]{\textwidth}
-\begin{verbatim}
+\begin{lstlisting}
 \usepackage{titlesec}
 \titlespacing*{⟨command⟩}{⟨left⟩}{⟨before-sep⟩}{⟨after-sep⟩}[⟨right-sep⟩]
 \titlespacing*{\section}{-0.50in}{0pt}{0pt}
 \titlespacing*{\subsection}{-0.25in}{0pt}{0pt}
-\end{verbatim}
+\end{lstlisting}
 \end{minipage}
 \begin{minipage}[t]{\textwidth}
     Left margin adds or subtracts from what is already there. The ``-sep'' values
@@ -497,19 +569,19 @@ and text in title. Also customized how the titles should be labelled
 \subsection{Color}
 This actually overrides the titlesec package, which can also be used
 to set section title colors. Probably better to use that one.
-\begin{verbatim}
+\begin{lstlisting}
 \usepackage{sectsty}
 \sectionfont{\color{blue}}
 \subsectionfont{\color{blue}}
 \subsubsectionfont{\color{blue}}
-\end{verbatim}
+\end{lstlisting}
 
 \subsection{Labels}
-\begin{verbatim}
+\begin{lstlisting}
 \renewcommand{\thesection}{Text \arabic{section}}   % Text in front of label
 \renewcommand{\thesection}{\Roman{section}}         % Roman numerals
 \setcounter{secnumdepth}{0}                         % Depth to be labelled
-\end{verbatim}
+\end{lstlisting}
 Setting this to 1 would number sections only, setting it to 2 would
 number sections and subsections, but not subsubsections, etc.
 
@@ -522,10 +594,12 @@ See section $\S$\ref{data} for the data description.
 \end{verbatim}
 May need to run \texttt{pdflatex} twice for this to take effect.
 Obviously won't have anything to refer to if the sections aren't numbered.
-%---------------------------------------------------------------------------%
+
 \begin{samepage}
 \section{Table of contents}
 \url{http://texblog.org/2011/09/09/10-ways-to-customize-tocloflot/}
+\url{http://tex.stackexchange.com/questions/37940/table-of-contents-with-roman-arabic-and-no-page-numbers}
+
 \verb|\tableofcontents| wherever you want it to go.
 You will have to run \texttt{pdflatex} twice.
 It appears that creating a toc puts headers on all pages, which may
@@ -540,28 +614,35 @@ Syntax: \verb|\addcontentsline{type}{section_level}{entry}|
 Example: \verb|\addcontentsline{toc}{section}{Preface}|
 
 To change space between items in toc:
-\begin{verbatim}
+\begin{lstlisting}
 \usepackage{setspace}
 ...
 \begin{document}
 \addtocontents{toc}{\protect\setstretch{n}}
-\end{verbatim}
+\end{lstlisting}
 \textcolor{red}{where n is between 0 and 1? Set to fraction of default?
 ``protect'' has something to do with ``fragile'' things.}
+The value of \verb|parskip| affects the space between items as well.
+\begin{lstlisting}
+\begin{document}
+\setlength{\parskip}{0pt}
+\tableofcontents
+\setlength{\parskip}{10pt}  % Or whatever you want for the document
+\end{lstlisting}
 
 Include figures and tables:
-\begin{verbatim}
+\begin{lstlisting}
 \listoffigures
 \listoftables
-\end{verbatim}
+\end{lstlisting}
 Note that the figure and table environments need to be used.
 
 Two columns:
-\begin{verbatim}
+\begin{lstlisting}
 \usepackage[toc]{multitoc}
 \renewcommand*{\multicolumntoc}{2} # but 2 is the default...?
 \setlength{\columnseprule}{0.5pt}
-\end{verbatim}
+\end{lstlisting}
 \end{samepage}
 
 %---------------------------------------------------------------------------%
@@ -586,22 +667,12 @@ In preamble:
 \verb|n| is the nested level (1 for top level). Options are as follows:
 
 \paragraph{Horizontal spacing}
-\begin{description}[labelindent=2cm, leftmargin=\labelindent]
-    \item [labelindent] Used, but not described\ldots
-    \item [rightmargin] Change right margin of description text.
-    \item [leftmargin] Distance from the left edge of the current
-        environment (leftmost edge of labelwidth) to the left margin of the
-        item label (not text?). Remember, environments can nest. Defaults to 0.
-        Can only make this so big, eventually text doesn't move anymore.
-        Need to figure out exactly what all this is doing.
-        Pretty sure this only affects multi-line descriptions
-        (the text NOT on the same line as the label).
-    \item [listparindent] The indent of the first line of each
-        paragraph in an item, except for the first paragraph of an
-        item. If you're pressed for vertical space and want to
-        decrease interparagraph spacing within items while still
-        giving the user cues as where new paragraphs begin, this is
-        the way to do it.
+\begin{description}[labelindent=2cm, leftmargin=\labelindent,
+        %listparindent=1in
+        ]
+    \item [labelindent] Appears to be the width between edge of text
+        and left side of label. Default must be a negative number, since
+        setting this to 0in aligns the labels with the text.
     \item [labelwidth]
         Width allotted to the label. This should be equal to or
         greater than the longest \emph{expected} label.  Good for
@@ -619,6 +690,20 @@ In preamble:
         you set this you might need to add a corresponding amount to
         \texttt{leftmargin}, if you want your labels in a specific place.
         Space between label and following text
+    \item [leftmargin] Distance from the left edge of the current
+        environment (leftmost edge of labelwidth) to the left margin of the
+        item label (not text?). Remember, environments can nest. Defaults to 0.
+        Can only make this so big, eventually text doesn't move anymore.
+        Need to figure out exactly what all this is doing.
+        Pretty sure this only affects multi-line descriptions
+        (the text NOT on the same line as the label).
+    \item [rightmargin] Change right margin of description text.
+    \item [listparindent] The indent of the first line of each
+        paragraph in an item, except for the first paragraph of an
+        item. If you're pressed for vertical space and want to
+        decrease interparagraph spacing within items while still
+        giving the user cues as where new paragraphs begin, this is
+        the way to do it.
     \item [itemindent] Only indents the first line (with the label)
         This length is capable of causing some real ugliness -- leave
         it alone unless you have a really good reason not to. What
@@ -646,19 +731,35 @@ In preamble:
         or last item. \emph{Leave this alone unless blank lines become a
         problem}.
 \end{description}
-
-\begin{verbatim}
-leftmargin=*        % Align with main text
-font=\normalfont    % Not bold, which is the default
-style=nextline      % For when text is too long?
-style=multiline     % ???
-\end{verbatim}
+Adjusting inter-item spacing:
+\begin{itemize}
+    \item (without \texttt{enumitem} package):
+        \begin{lstlisting}
+        \usepackage{mdwlist}
+        ...
+        \begin{document}
+        ...
+        \begin{itemize*}
+            \item ...
+        \end{itemize*}
+        \end{lstlisting}
+    \item Even spacing in all lists and sub-lists:
+        \begin{lstlisting}
+        \setlist{%
+            noitemsep}
+            % or ...
+        \begin{document}
+        \begin{itemize}[noitemsep]
+        \end{lstlisting}
+\end{itemize}
 
 \subsection{itemize}
 Change bullet size/style. Not sure what the difference is between the two.
 \begin{lstlisting}
 \renewcommand{\labelitemi}{$\vcenter{\hbox{\tiny$\bullet$}}$}
 \renewcommand{\labelitemi}{{\tiny$\bullet$}}
+
+\begin{itemize}[label={}]  % No label
 \end{lstlisting}
 
 \subsection{enumerate}
@@ -702,52 +803,41 @@ By default, description labels start a distance equal to
 \texttt{hspace} to the \emph{left} of the text, so adding that line
 causes them to line up with the left edge of the text instead.
 
-\subsection{Make your own list}
+\begin{lstlisting}
+leftmargin=*        % Align with main text
+font=\normalfont    % Not bold, which is the default
+style=nextline      % For when text is too long?
+style=multiline     % ???
+\end{lstlisting}
+
+\subsection{list}
 \begin{lstlisting}
 \begin{list}{default_label}{decls}
     default label: Text to be used as a label (leave blank if none desired)
     decls: geometrical parameters
 \end{lstlisting}
 
-Alternative way to get red of the space between items
-(without \texttt{enumitem} package):
-\begin{verbatim}
-\usepackage{mdwlist}
-...
-\begin{document}
-...
-\begin{itemize*}
-    \item ...
-\end{itemize*}
-\end{verbatim}
-
-\begin{verbatim}
-\up{tasks} ???
+\subsection{tasks}
+\begin{lstlisting}
+\up{tasks}  % ???
 ...
 \begin{tasks}(4)
     \task one
     \tast two
 \end{tasks}
-\end{verbatim}
+\end{lstlisting}
 These will be listed horizontally, rather than vertically.
-
-\begin{verbatim}
-\begin{list}{}
-    ...
-\end{list}
-\end{verbatim}
-Brackets by list will set the style; leave this empty for no symbols
 
 
 \section{Color}\label{color}
 \begin{minipage}{0.5\textwidth}
-\begin{verbatim}
+\begin{lstlisting}
 \usepackage{color}
 \usepackage{xcolor}
 
 \colorlet{<new color name>}{<old color name>}
-\color{blue!30!green}
-\end{verbatim}
+\color{blue!30!green}  % ??? How does this work?
+\end{lstlisting}
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
 \texttt{color} is required for pre-defined colors (white, black, red, green,
@@ -839,6 +929,7 @@ For example: \verb|\fboxrule=1pt and \fboxsep=5pt|. Use
 options to align the base line of the most top row,
 the center row and the most bottom row with the surrounding baseline.
 
+\url{http://mirrors.ibiblio.org/CTAN/macros/latex/contrib/tcolorbox/tcolorbox.pdf}
 \begin{lstlisting}
 \usepackage{tcolorbox}
 \begin{tcolorbox}[<options>]
@@ -1044,6 +1135,7 @@ cl> make my_paper
 
 \section{Maths!}
 \url{http://www.math.harvard.edu/texman/node17.html}
+\url{http://www.math.illinois.edu/~ajh/tex/displays.html}
 \subsection{Inside text}
 Examples
 \begin{itemize}
@@ -1154,6 +1246,7 @@ There are $\frac{1}{2}$ as many as there were.\par
 There are $\cfrac{1}{2}$ as many as there were.
 
 \subsection{Refering to parts of equation}
+\url{http://tex.stackexchange.com/questions/261315/how-to-change-color-of-underbrace}
 \begin{lstlisting}
 \usepackage{amsmath}
 ...
