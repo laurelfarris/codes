@@ -1,5 +1,5 @@
 \documentclass{article}
-\usepackage[margin=1.25in]{geometry}
+\usepackage[margin=1in]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \renewcommand*\familydefault{\sfdefault} % Only if the base font of the document is to be sans serif
@@ -82,7 +82,6 @@
   deletekeywords={...},            % if you want to delete keywords from the given language
   escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
   extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
-  %frame=single,	                   % adds a frame around the code
   keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
   otherkeywords={*,...},           % if you want to add more keywords to the set
   showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
@@ -90,7 +89,6 @@
   showtabs=true,                  % show tabs within strings adding particular underscores
   tabsize=4,
   %title=\lstname % show the filename of files included with \lstinputlisting; also try caption instead of title
-  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
   backgroundcolor=\color{white},
   commentstyle=\color{mygray},    % comment style
   keywordstyle=\color{darkcyan},       % keyword style
@@ -2157,6 +2155,52 @@ The first argument can be any object; the second argument is a
 % Chapter 22
 \section{Lumpy}
 
+\section{Plotting}
+\begin{verbatim}
+-------------------------------------------------------------------------
+tight_layout(pad=1.08, h_pad=None, w_pad=None, rect=None)
+'''
+Automatically adjust subplot parameters to give specified padding.
+
+Parameters:
+
+  pad : float
+  padding bet FIGURE edge and the edges of SUBPLOTS,
+  as a fraction of the font-size.
+  h_pad, w_pad : float
+  padding (height/width) between edges of adjacent subplots.
+    Defaults to pad_inches.
+  rect : if rect is given, it is interpreted as a rectangle
+  (left, bottom, right, top) in the normalized figure coordinate
+  that the whole subplots area (including labels) will fit into.
+  Default is (0, 0, 1, 1).
+'''
+
+-------------------------------------------------------------------------
+matplotlib.pyplot.subplots_adjust(*args, **kwargs)¶
+'''
+Tune the subplot layout.
+call signature::
+
+  subplots_adjust(left=None, bottom=None, right=None, top=None,
+                  wspace=None, hspace=None)
+
+Tune the subplot layout via the
+:class:`matplotlib.figure.SubplotParams` mechanism.
+The parameter meanings (and suggested defaults) are::
+
+  left  = 0.125  #  left side of the subplots
+  right = 0.9    #  right side of the subplots
+  bottom = 0.1   #  bottom of the subplots
+  top = 0.9      #  top of the subplots
+  wspace = 0.2   #  width reserved for blank space between subplots
+  hspace = 0.2   #  height reserved for white space between subplots
+
+The actual defaults are controlled by the rc file
+'''
+-------------------------------------------------------------------------
+\end{verbatim}
+
 \section*{Glossary}
 \addcontentsline{toc}{section}{Glossary}
 \begin{description}
@@ -2242,15 +2286,18 @@ The first argument can be any object; the second argument is a
 
 
 \newpage
+
+\newgeometry{top=0.5in, bottom=0.5in, left=0.5in,right=0.5in}
+
+
 \begin{multicols}{2}
 \raggedcolumns
 \section{Quick reference}
 \setcounter{secnumdepth}{0}
+
 \subsection{Execution}
 \begin{lstlisting}
 cl> export PYTHONPATH="${PYTHONPATH}:/new/path"
-\end{lstlisting}
-\begin{lstlisting}
 >>> import sys
 >>> sys.path
 
@@ -2555,59 +2602,96 @@ if __name__=="__main__":  # flexible way of running routines
 
 \newpage
 \subsection{Plotting}
-\begin{itemize}
-    \item \url{http://latexcolor.com/}
-    \item \url{http://matplotlib.org/api/axes_api.html}
-\end{itemize}
-
 \begin{lstlisting}
 import matplotlib.pyplot as plt
 fig = plt.figure(figsize=(20,10))  # Inches
+fig.suptitle(
+    'title',fontsize=14,fontweight='bold')
+plt.xlabel('labelname',fontsize=14,color='red')
 for i in range(r*c):
     ax = fig.add_subplot(r,c,i+1)
 
-fig, ax = plt.subplots()  # or
+fig, ax = plt.subplots()
 fig,((ax1,ax2),(ax3,ax4)) = plt.subplots(2,2)
 axes = (ax1,ax1,ax1,ax1)
 for ax in axes:
     ax.plot(...)
-
-fig.suptitle(
-    'title',fontsize=14,fontweight='bold')
-plt.xlabel('labelname',fontsize=14,color='red')
 \end{lstlisting}
 
-\subsubsection{Adjust things}
+\subsubsection{Adjust space between and around plots}
 \begin{lstlisting}
 fig.set_size_inches(width,height)
-plt.tight_layout()
-fig.tight_layout()
-fig.subplots_adjust()
-plt.axis('tight')  # ?
-plt.savefig("im.png", bbox_inches="tight", dpi=300)  # rewritten each time!
+
+# Units: fraction of fontsize
+plt|fig.tight_layout(pad=0.4, #around fig border
+    w_pad=0.5, h_pad=1.0  #between subplots
+    )
+#For saving figure to disk
+plt.savefig("im.png", bbox_inches="tight", dpi=300)
 \end{lstlisting}
 
 \subsubsection{Individual axes}
 \begin{lstlisting}
-ax.set_xlabel(`labelname',
-    fontsize = 14,
-    color='#eeefff')  # Maybe...
-    )
-ax.set_xticklabels(
-    columnlabels,  # ?
-    rotation=(45),
-    fontsize=10,
-    va=`bottom', ha=`left',
+ax.set_xlim(left=xmin,right=xmax)
+ax.set_ylim(bottom=ymin,top=ymax)
+ax.set_xscale('linear'|'log')
+ax.minorticks_on()
+ax.tick_params( # Formatting appearence
+    axis=['both'|'x'|'y'],
+    which=['major'|'minor'|'both'],
+    direction=['in'|'out'|'both'],
+    length=6, width=2, colors='r',
+    labelsize=12, labelcolor='k',
+    pad=5, # bet. label \& tick
+    bottom, top, left, right:[bool|'on'|'off'],
+    label[bottom|top|left|right]:['on'|'off']
     )
 ax.set_xticks(
-    np.arange(start,stop,step)
+    np.arange(start,stop,step),
+    minor=False #default
     )
-ax.tick_params(
+ax.set_xticklabels(
+    labels,
+    fontdict=None,
+    minor=False, #default
+    rotation=angle|'vertical'|'horizontal',
+    fontsize=10, #points
+    fontstyle='normal'|'italic'|'oblique',
+    ha=['center'|'right'|'left'],
+    va=['center'|'top'|'bottom'|'baseline']
+    )
+ax.ticklabel_format(
+    style=['scientific'|'plain'],
+    scilimits=(m,n), #integers
     axis=['x'|'y'|'both'],
-    labelsize='large'  # dif. bet. this and ax.set_xticklabel?
     )
-ax.set_yscale('log')
-ax.axis('tight')
+ax.set_xlabel(
+    'labelname',
+    fontsize = 14,
+    color='#eeefff',
+    labelpad=None, #[points] bet. label \& x-axis
+    )
+ax.axis(
+    'equal' # same numerical range for x and y
+    'scaled' # equal scaling by changing box dimensions
+    'square' # x1-x0 = y1-y0
+    'tight' # squeeze out extra blank space around data.
+)
+ax.fill(), ax.fill_between()
+ax.contour()
+ax.clabel(cs, v, **kwargs)
+# Label a contour plot
+# only label contours listed in v.
+\end{lstlisting}
+
+\subsubsection{Colorbar}
+\begin{lstlisting}
+fig, ax = plt.subplots()
+m = ax.scatter(data, ...)
+cax = fig.add_axes([left,bottom,width,height])
+plt|fig.colorbar(m, cax=cax,
+    orientation='horizontal' #color change/labels, not direction of bar itself
+    )
 \end{lstlisting}
 
 \subsubsection{Put two plots on the same axes}
@@ -2628,18 +2712,13 @@ cube = np.stack([im1, im2, im3], axis=2)
 np.power(image, 0.1)
 \end{lstlisting}
 
-\subsubsection{Color bar}
-\begin{lstlisting}
-plt.colorbar()
-\end{lstlisting}
-
 \subsubsection{Legend}
 \begin{lstlisting}
-ax.plot(x,y1, `k--', label=`line 1')
-ax.plot(x,y2, `k:', label=`line 2')
-ax.plot(x,y3, `k', label=`line 3')
-legend = ax.legend(loc=`upper center',
-                      = `lower left',
+ax.plot(x,y1, 'k--', label='line 1')
+ax.plot(x,y2, 'k:', label='line 2')
+ax.plot(x,y3, 'k', label='line 3')
+legend = ax.legend(loc='upper center',
+                      = 'lower left',
                shadow = True)
 \end{lstlisting}
 
@@ -2649,4 +2728,5 @@ ax.streamplot()  # Draw streamlines of a vector flow!
 \end{lstlisting}
 \end{multicols}
 
+\restoregeometry
 \end{document}

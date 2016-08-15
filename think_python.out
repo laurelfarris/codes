@@ -110,32 +110,33 @@
 \BOOKMARK [1][-]{section.20}{Debugging}{}% 110
 \BOOKMARK [1][-]{section.21}{Analysis of Algorithms}{}% 111
 \BOOKMARK [1][-]{section.22}{Lumpy}{}% 112
-\BOOKMARK [1][-]{section*.2}{Glossary}{}% 113
-\BOOKMARK [1][-]{section.23}{Quick reference}{}% 114
-\BOOKMARK [2][-]{section*.3}{Execution}{section.23}% 115
-\BOOKMARK [2][-]{section*.4}{Debugging}{section.23}% 116
-\BOOKMARK [2][-]{section*.5}{Strings}{section.23}% 117
-\BOOKMARK [2][-]{section*.6}{Mathematical operators}{section.23}% 118
-\BOOKMARK [2][-]{section*.7}{bitwise operators}{section.23}% 119
-\BOOKMARK [2][-]{section*.8}{logical operators}{section.23}% 120
-\BOOKMARK [3][-]{section*.9}{relational}{section*.8}% 121
-\BOOKMARK [3][-]{section*.10}{boolean}{section*.8}% 122
-\BOOKMARK [2][-]{section*.11}{conditionals}{section.23}% 123
-\BOOKMARK [2][-]{section*.12}{Looping}{section.23}% 124
-\BOOKMARK [2][-]{section*.13}{I/O}{section.23}% 125
-\BOOKMARK [2][-]{section*.14}{Type changes}{section.23}% 126
-\BOOKMARK [2][-]{section*.15}{Math}{section.23}% 127
-\BOOKMARK [2][-]{section*.16}{Lists}{section.23}% 128
-\BOOKMARK [2][-]{section*.17}{numpy arrays}{section.23}% 129
-\BOOKMARK [2][-]{section*.18}{Functions}{section.23}% 130
-\BOOKMARK [2][-]{section*.19}{FITS files}{section.23}% 131
-\BOOKMARK [2][-]{section*.20}{Dynamic memory allocation}{section.23}% 132
-\BOOKMARK [2][-]{section*.21}{Classes}{section.23}% 133
-\BOOKMARK [2][-]{section*.22}{Plotting}{section.23}% 134
-\BOOKMARK [3][-]{section*.23}{Adjust things}{section*.22}% 135
-\BOOKMARK [3][-]{section*.24}{Individual axes}{section*.22}% 136
-\BOOKMARK [3][-]{section*.25}{Put two plots on the same axes}{section*.22}% 137
-\BOOKMARK [3][-]{section*.26}{Imaging}{section*.22}% 138
-\BOOKMARK [3][-]{section*.27}{Color bar}{section*.22}% 139
-\BOOKMARK [3][-]{section*.28}{Legend}{section*.22}% 140
-\BOOKMARK [3][-]{section*.29}{Misc}{section*.22}% 141
+\BOOKMARK [1][-]{section.23}{Plotting}{}% 113
+\BOOKMARK [1][-]{section*.2}{Glossary}{}% 114
+\BOOKMARK [1][-]{section.24}{Quick reference}{}% 115
+\BOOKMARK [2][-]{section*.3}{Execution}{section.24}% 116
+\BOOKMARK [2][-]{section*.4}{Debugging}{section.24}% 117
+\BOOKMARK [2][-]{section*.5}{Strings}{section.24}% 118
+\BOOKMARK [2][-]{section*.6}{Mathematical operators}{section.24}% 119
+\BOOKMARK [2][-]{section*.7}{bitwise operators}{section.24}% 120
+\BOOKMARK [2][-]{section*.8}{logical operators}{section.24}% 121
+\BOOKMARK [3][-]{section*.9}{relational}{section*.8}% 122
+\BOOKMARK [3][-]{section*.10}{boolean}{section*.8}% 123
+\BOOKMARK [2][-]{section*.11}{conditionals}{section.24}% 124
+\BOOKMARK [2][-]{section*.12}{Looping}{section.24}% 125
+\BOOKMARK [2][-]{section*.13}{I/O}{section.24}% 126
+\BOOKMARK [2][-]{section*.14}{Type changes}{section.24}% 127
+\BOOKMARK [2][-]{section*.15}{Math}{section.24}% 128
+\BOOKMARK [2][-]{section*.16}{Lists}{section.24}% 129
+\BOOKMARK [2][-]{section*.17}{numpy arrays}{section.24}% 130
+\BOOKMARK [2][-]{section*.18}{Functions}{section.24}% 131
+\BOOKMARK [2][-]{section*.19}{FITS files}{section.24}% 132
+\BOOKMARK [2][-]{section*.20}{Dynamic memory allocation}{section.24}% 133
+\BOOKMARK [2][-]{section*.21}{Classes}{section.24}% 134
+\BOOKMARK [2][-]{section*.22}{Plotting}{section.24}% 135
+\BOOKMARK [3][-]{section*.23}{Adjust space between and around plots}{section*.22}% 136
+\BOOKMARK [3][-]{section*.24}{Individual axes}{section*.22}% 137
+\BOOKMARK [3][-]{section*.25}{Colorbar}{section*.22}% 138
+\BOOKMARK [3][-]{section*.26}{Put two plots on the same axes}{section*.22}% 139
+\BOOKMARK [3][-]{section*.27}{Imaging}{section*.22}% 140
+\BOOKMARK [3][-]{section*.28}{Legend}{section*.22}% 141
+\BOOKMARK [3][-]{section*.29}{Misc}{section*.22}% 142

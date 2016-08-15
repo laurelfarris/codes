@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  4 AUG 2016 13:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  14 AUG 2016 21:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -520,29 +520,29 @@ File: lstlang1.sty 2014/09/06 1.5e listings language file
 (./think_python.aux)
 \openout1 = `think_python.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 105.
-LaTeX Font Info:    ... okay on input line 105.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 105.
-LaTeX Font Info:    ... okay on input line 105.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 105.
-LaTeX Font Info:    ... okay on input line 105.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 105.
-LaTeX Font Info:    ... okay on input line 105.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 105.
-LaTeX Font Info:    ... okay on input line 105.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 105.
-LaTeX Font Info:    ... okay on input line 105.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 105.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 105.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 103.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 103.
 
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 105.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 105.
-LaTeX Font Info:    ... okay on input line 105.
-LaTeX Font Info:    Try loading font information for T1+lmss on input line 105.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Try loading font information for T1+lmss on input line 103.
 
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/lm/t1lmss.fd
@@ -556,15 +556,15 @@ File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(90.3375pt, 433.62001pt, 90.3375pt)
-* v-part:(T,H,B)=(90.3375pt, 614.295pt, 90.3375pt)
+* h-part:(L,W,R)=(72.26999pt, 469.75502pt, 72.26999pt)
+* v-part:(T,H,B)=(72.26999pt, 650.43001pt, 72.26999pt)
 * \paperwidth=614.295pt
 * \paperheight=794.96999pt
-* \textwidth=433.62001pt
-* \textheight=614.295pt
-* \oddsidemargin=18.0675pt
-* \evensidemargin=18.0675pt
-* \topmargin=-18.9325pt
+* \textwidth=469.75502pt
+* \textheight=650.43001pt
+* \oddsidemargin=0.0pt
+* \evensidemargin=0.0pt
+* \topmargin=-37.0pt
 * \headheight=15.0pt
 * \headsep=25.0pt
 * \topskip=10.0pt
@@ -611,7 +611,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \AtBeginShipoutBox=\box58
-Package hyperref Info: Link coloring ON on input line 105.
+Package hyperref Info: Link coloring ON on input line 103.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -621,117 +621,152 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count137
 )
-LaTeX Info: Redefining \ref on input line 105.
-LaTeX Info: Redefining \pageref on input line 105.
-LaTeX Info: Redefining \nameref on input line 105.
+LaTeX Info: Redefining \ref on input line 103.
+LaTeX Info: Redefining \pageref on input line 103.
+LaTeX Info: Redefining \nameref on input line 103.
 
 (./think_python.out) (./think_python.out)
 \@outlinefile=\write3
 \openout3 = `think_python.out'.
 
 \c@lstlisting=\count138
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 107.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 105.
 
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 107.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 105.
 
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 107
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 105
 .
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 107
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 105
 .
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 107.
+(Font)              <12> on input line 105.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 107.
+(Font)              <8> on input line 105.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 107.
+(Font)              <6> on input line 105.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 107.
+(Font)              <10> on input line 105.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 107.
+(Font)              <7> on input line 105.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 107.
+(Font)              <5> on input line 105.
 
-(./think_python.toc
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 26.
- (/usr/local/texlive/2015/texmf-dist/tex/latex/lm/t1lmtt.fd
-File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [1
-
-{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-[2])
+(./think_python.toc)
 \tf@toc=\write4
 \openout4 = `think_python.toc'.
 
- [3] [4]
-LaTeX Font Info:    Try loading font information for TS1+lmss on input line 178
+ [1
+
+{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 126.
+
+ (/usr/local/texlive/2015/texmf-dist/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+[2]
+LaTeX Font Info:    Try loading font information for TS1+lmss on input line 176
 .
  (/usr/local/texlive/2015/texmf-dist/tex/latex/lm/ts1lmss.fd
 File: ts1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 194.
-
-[5] [6] [7] [8] [9] [10]
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 192.
+ [3] [4]
+[5] [6] [7] [8]
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 586.
- [11] [12] [13]
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 584.
+ [9] [10] [11]
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 741.
- [14] [15] [16] [17] [18]
-Overfull \hbox (1.7862pt too wide) in paragraph at lines 938--939
-[]\T1/lmss/m/n/10 IMPORTANT: these are not math-e-mat-i-cal op-er-a-tions for l
-ists. Con-vert to numpy ar-rays:[] [][]\T1/lmtt/m/n/9 a = np.array(a)[] 
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 739.
+ [12] [13] [14] [15] [16] [17] [18] [19] [20]
+[21] [22] [23]
+Underfull \hbox (badness 10000) in paragraph at lines 1414--1415
+[][]$\T1/lmss/m/n/10 http : / / www . greenteapress . com / thinkpython / html 
+/
  []
 
-[19] [20] [21] [22] [23] [24] [25] [26]
-Underfull \hbox (badness 10000) in paragraph at lines 1416--1417
-[][]$\T1/lmss/m/n/10 http : / / www . greenteapress . com / thinkpython /
- []
+[24] [25] [26]
+Overfull \vbox (11.44702pt too high) has occurred while \output is active []
 
-[27] [28] [29] [30] [31] [32]
-Overfull \hbox (25.4462pt too wide) in paragraph at lines 1911--1917
-\T1/lmss/m/n/10 This syn-tax is sim-i-lar to the syn-tax for se-lect-ing a vari
--able from a mod-ule, such as [][]\T1/lmtt/m/n/9 math.pi[] \T1/lmss/m/n/10 or [
-][]\T1/lmtt/m/n/9 string.whitespace[]\T1/lmss/m/n/10 .
- []
 
-[33] [34] [35] [36] [37] [38] [39] [40] [41] [42] [43] [44] [45] [46] [47]
-[48] [49]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2652.
- [50]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2652.
+[27] [28] [29] [30] [31] [32] [33] [34] [35] [36] [37] [38] [39] [40]
+*geometry* verbose mode - [ newgeometry ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(36.135pt, 542.02501pt, 36.135pt)
+* v-part:(T,H,B)=(36.135pt, 722.7pt, 36.135pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=542.02501pt
+* \textheight=722.7pt
+* \oddsidemargin=-36.135pt
+* \evensidemargin=-36.135pt
+* \topmargin=-76.135pt
+* \headheight=15.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
+* \columnsep=24.22636pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+ [41
+
+]
+[42] [43] [44]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2737.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2737.
  (./think_python.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2652.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2652.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2737.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2737.
 
-Package rerunfilecheck Info: File `think_python.out' has not changed.
-(rerunfilecheck)             Checksum: 3C0C6563A9E3225AD6401E0AC789EE4C;8934.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2652.
+
+
+Package rerunfilecheck Warning: File `think_python.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `think_python.out':
+(rerunfilecheck)             Before: FBB86A9D316FDF6AB94E05C8ECF21206;5554
+(rerunfilecheck)             After:  F4D60264FA8F6CCA85B45AC27454F46C;9003.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2737.
  ) 
 Here is how much of TeX's memory you used:
- 10528 strings out of 493089
- 151234 string characters out of 6134842
- 780423 words of memory out of 5000000
- 13183 multiletter control sequences out of 15000+600000
+ 10532 strings out of 493089
+ 151325 string characters out of 6134842
+ 1168383 words of memory out of 5000000
+ 13156 multiletter control sequences out of 15000+600000
  56019 words of font info for 50 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 29i,12n,43p,245b,1870s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 29i,12n,43p,245b,1876s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local
 /texlive/2015/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2
 015/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2015/texmf-dist
@@ -748,10 +783,10 @@ msy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><
 /usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/local
 /texlive/2015/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2
 015/texmf-dist/fonts/type1/public/lm/lmtt9.pfb>
-Output written on think_python.pdf (50 pages, 383901 bytes).
+Output written on think_python.pdf (44 pages, 375047 bytes).
 PDF statistics:
- 1633 PDF objects out of 1728 (max. 8388607)
- 1552 compressed objects within 16 object streams
- 675 named destinations out of 1000 (max. 500000)
- 1129 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1338 PDF objects out of 1440 (max. 8388607)
+ 1266 compressed objects within 13 object streams
+ 706 named destinations out of 1000 (max. 500000)
+ 681 words of extra memory for PDF output out of 10000 (max. 10000000)
 
