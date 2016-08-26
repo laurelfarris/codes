@@ -1,13 +1,27 @@
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{tabular}
 
-Set your details
-git config --global user.name "John Doe"
-git config --global user.email "john@example.com"
-Use --global to set the configuration for all projects. If git config is used without --global and run inside a project directory, the settings are set for the specific project.
+\setlist[description]{noitemsep}
+\renewcommand{\descriptionlabel}[1]{\ttfamily{#1}}
 
-Make git ignore file modes
+\begin{document}
+All commands are preceded with `git' unless stated otherwise.
+
+\section{Configuration}
+Use --global to set the configuration for all projects.  If git config is used
+without --global and run inside a project directory, the settings are
+set for the specific project.
+\begin{description}
+    \item [config --global user.name "John Doe"]
+    \item [config --global user.email "john@example.com"]
+\end{description}
+
+\section{Make git ignore file modes}
 cd project/
 git config core.filemode false
-This option is useful if the file permissions are not important to us, for example when we are on Windows.
+This option is useful if the file permissions are not important to us, for
+example when we are on Windows.
 
 See your settings
 git config --list
@@ -224,3 +238,4 @@ Apply a patch not using git:
 patch < file.patch
 ‹ newer older ›
 « back to home
+\end{document}
