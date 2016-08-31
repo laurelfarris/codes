@@ -35,12 +35,12 @@
 \makeatother
 
 \setlist{itemsep=-1ex,}
-\setlist[description]{%
-    %itemsep=-1ex,
-    align=right, labelsep=1em,
-    leftmargin=*,
-    labelindent=3cm,
-    }
+%\setlist[description]{%
+%    %itemsep=-1ex,
+%    align=right, labelsep=1em,
+%    leftmargin=*,
+%    labelindent=3cm,
+%    }
 \renewcommand{\descriptionlabel}[1]{\ttfamily{#1}}
 
 \usepackage[toc]{multitoc}
@@ -2307,7 +2307,7 @@ The actual defaults are controlled by the rc file
 
 \newpage
 
-\newgeometry{top=0.5in, bottom=0.5in, left=0.5in,right=0.5in}
+\newgeometry{top=0.5in, bottom=0.5in, left=0.5in, right=0.5in}
 
 
 \begin{multicols}{2}
@@ -2617,6 +2617,8 @@ if __name__=="__main__":  # flexible way of running routines
 \end{lstlisting}
 
 \newpage
+
+\newpage
 \subsection{Plotting}
 \begin{lstlisting}
 import matplotlib.pyplot as plt
@@ -2700,6 +2702,7 @@ ax.clabel(cs, v, **kwargs)
 # only label contours listed in v.
 \end{lstlisting}
 
+\newpage
 \subsubsection{Colorbar}
 \begin{lstlisting}
 fig, ax = plt.subplots()

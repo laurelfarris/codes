@@ -128,15 +128,15 @@
 \contentsline {subsection}{Math}{44}{section*.15}
 \contentsline {subsection}{Lists}{44}{section*.16}
 \contentsline {subsection}{numpy arrays}{44}{section*.17}
-\contentsline {subsection}{Functions}{44}{section*.18}
-\contentsline {subsection}{FITS files}{45}{section*.19}
-\contentsline {subsection}{Dynamic memory allocation}{45}{section*.20}
-\contentsline {subsection}{Classes}{45}{section*.21}
-\contentsline {subsection}{Plotting}{46}{section*.22}
-\contentsline {subsubsection}{Adjust space between and around plots}{46}{section*.23}
-\contentsline {subsubsection}{Individual axes}{46}{section*.24}
-\contentsline {subsubsection}{Colorbar}{46}{section*.25}
-\contentsline {subsubsection}{Put two plots on the same axes}{46}{section*.26}
-\contentsline {subsubsection}{Imaging}{46}{section*.27}
-\contentsline {subsubsection}{Legend}{46}{section*.28}
-\contentsline {subsubsection}{Misc}{46}{section*.29}
+\contentsline {subsection}{Functions}{45}{section*.18}
+\contentsline {subsection}{FITS files}{46}{section*.19}
+\contentsline {subsection}{Dynamic memory allocation}{46}{section*.20}
+\contentsline {subsection}{Classes}{46}{section*.21}
+\contentsline {subsection}{Plotting}{47}{section*.22}
+\contentsline {subsubsection}{Adjust space between and around plots}{47}{section*.23}
+\contentsline {subsubsection}{Individual axes}{47}{section*.24}
+\contentsline {subsubsection}{Colorbar}{48}{section*.25}
+\contentsline {subsubsection}{Put two plots on the same axes}{48}{section*.26}
+\contentsline {subsubsection}{Imaging}{48}{section*.27}
+\contentsline {subsubsection}{Legend}{48}{section*.28}
+\contentsline {subsubsection}{Misc}{48}{section*.29}
