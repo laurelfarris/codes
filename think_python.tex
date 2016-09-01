@@ -34,13 +34,12 @@
   {\catcode`'=13 \gdef \verbatimplus{\catcode`'=13 \chardef '=13 }}
 \makeatother
 
-\setlist{itemsep=-1ex,}
-%\setlist[description]{%
-%    %itemsep=-1ex,
-%    align=right, labelsep=1em,
-%    leftmargin=*,
-%    labelindent=3cm,
-%    }
+\setlist{noitemsep}
+\setlist[description]{%
+    align=right, labelsep=1em,
+    leftmargin=*,
+    labelindent=3cm,
+    }
 \renewcommand{\descriptionlabel}[1]{\ttfamily{#1}}
 
 \usepackage[toc]{multitoc}
@@ -2623,9 +2622,11 @@ if __name__=="__main__":  # flexible way of running routines
 \begin{lstlisting}
 import matplotlib.pyplot as plt
 fig = plt.figure(figsize=(20,10))  # Inches
-fig.suptitle(
-    'title',fontsize=14,fontweight='bold')
-plt.xlabel('labelname',fontsize=14,color='red')
+fig.suptitle|xlabel|ylabel(
+    'string',
+    fontsize=14,
+    fontweight='bold',
+    color='red')
 for i in range(r*c):
     ax = fig.add_subplot(r,c,i+1)
 
@@ -2638,7 +2639,7 @@ for ax in axes:
 
 \subsubsection{Adjust space between and around plots}
 \begin{lstlisting}
-fig.set_size_inches(width,height)
+fig.set_size_inches(width,height)  # Not same as figsize...
 
 # Units: fraction of fontsize
 plt|fig.tight_layout(pad=0.4, #around fig border

@@ -112,22 +112,22 @@
 \contentsline {section}{\numberline {22}Lumpy}{41}{section.22}
 \contentsline {section}{\numberline {23}Plotting}{41}{section.23}
 \contentsline {section}{Glossary}{41}{section*.2}
-\contentsline {section}{\numberline {24}Quick reference}{43}{section.24}
-\contentsline {subsection}{Execution}{43}{section*.3}
-\contentsline {subsection}{Debugging}{43}{section*.4}
-\contentsline {subsection}{Strings}{43}{section*.5}
-\contentsline {subsection}{Mathematical operators}{43}{section*.6}
-\contentsline {subsection}{bitwise operators}{43}{section*.7}
-\contentsline {subsection}{logical operators}{43}{section*.8}
-\contentsline {subsubsection}{relational}{43}{section*.9}
-\contentsline {subsubsection}{boolean}{43}{section*.10}
-\contentsline {subsection}{conditionals}{43}{section*.11}
-\contentsline {subsection}{Looping}{43}{section*.12}
-\contentsline {subsection}{I/O}{43}{section*.13}
-\contentsline {subsection}{Type changes}{43}{section*.14}
-\contentsline {subsection}{Math}{44}{section*.15}
-\contentsline {subsection}{Lists}{44}{section*.16}
-\contentsline {subsection}{numpy arrays}{44}{section*.17}
+\contentsline {section}{\numberline {24}Quick reference}{44}{section.24}
+\contentsline {subsection}{Execution}{44}{section*.3}
+\contentsline {subsection}{Debugging}{44}{section*.4}
+\contentsline {subsection}{Strings}{44}{section*.5}
+\contentsline {subsection}{Mathematical operators}{44}{section*.6}
+\contentsline {subsection}{bitwise operators}{44}{section*.7}
+\contentsline {subsection}{logical operators}{44}{section*.8}
+\contentsline {subsubsection}{relational}{44}{section*.9}
+\contentsline {subsubsection}{boolean}{44}{section*.10}
+\contentsline {subsection}{conditionals}{44}{section*.11}
+\contentsline {subsection}{Looping}{44}{section*.12}
+\contentsline {subsection}{I/O}{44}{section*.13}
+\contentsline {subsection}{Type changes}{44}{section*.14}
+\contentsline {subsection}{Math}{45}{section*.15}
+\contentsline {subsection}{Lists}{45}{section*.16}
+\contentsline {subsection}{numpy arrays}{45}{section*.17}
 \contentsline {subsection}{Functions}{45}{section*.18}
 \contentsline {subsection}{FITS files}{46}{section*.19}
 \contentsline {subsection}{Dynamic memory allocation}{46}{section*.20}
