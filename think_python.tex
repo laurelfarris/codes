@@ -35,7 +35,8 @@
 \makeatother
 
 \setlist{noitemsep}
-\setlist[description]{%
+\setdescription{%
+%\setlist[description]{%
     align=right, labelsep=1em,
     leftmargin=*,
     labelindent=3cm,
@@ -66,6 +67,7 @@
  %\end{multicols}
 
 \usepackage{listings}
+\definecolor{bred}{rgb}{0.8, 0.0, 0.0}
 \definecolor{mygreen}{rgb}{0,0.6,0}
 \definecolor{mygray}{rgb}{0.5,0.5,0.5}
 \definecolor{cobalt}{rgb}{0.0, 0.28, 0.67}
@@ -680,14 +682,14 @@ func(var2, args)
 \subsection{Modulus operator}
 The \textbf{Modulus operator} works on integers and yields the remainder
 when the first operand is divided by the second.
-\begin{verbatim}
+\begin{lstlisting}
 >>> quotient = 7 / 3
 >>> print quotient
 2
 >>> remainder = 7 % 3
 >>> print remainder
 1
-\end{verbatim}
+\end{lstlisting}
 The modulus operator turns out to be surprisingly useful. For example,
 you can check whether one number is divisible by another—if x \% y is
 zero, then x is divisible by y.
@@ -695,15 +697,22 @@ zero, then x is divisible by y.
 Also, you can extract the right-most digit or digits from a number.
 For example, x \% 10 yields the right-most digit of x (in base 10).
 Similarly x \% 100 yields the last two digits.
+
 \subsection{Boolean expressions}
-\begin{verbatim}
+\begin{lstlisting}
 >>> 5 == 5
 True
 >>> 5 == 6
 False
-\end{verbatim}
+\end{lstlisting}
 True and False are special values that belong to the type
 \verb|bool|; they are not strings.
+\begin{lstlisting}
+>>> type(True)
+<type 'bool'>
+>>> type(False)
+<type 'bool'>
+\end{lstlisting}
 
 \textbf{Relational operators:}
 \begin{itemize}
@@ -714,6 +723,7 @@ True and False are special values that belong to the type
     \item $>=$
     \item $<=$
 \end{itemize}
+
 \subsection{Logical operators}
 \begin{itemize}
     \item \verb|and|
@@ -727,19 +737,20 @@ The \verb|not| operator negates a boolean expression, so
 Strictly speaking, the operands of the logical operators should be
 boolean expressions, but Python is not very strict. Any nonzero number
 is interpreted as ``true.''
-\begin{verbatim}
+\begin{lstlisting}
 >>> 17 and True
 True
-\end{verbatim}
+\end{lstlisting}
 This flexibility can be useful, but there are some subtleties to it
 that might be confusing. You might want to avoid it (unless you know
 what you are doing).
+
 \subsection{Conditional execution}
 The \textbf{\texttt{if} statment:}
-\begin{verbatim}
+\begin{lstlisting}
 if x > 0:
     print 'x is positive'
-\end{verbatim}
+\end{lstlisting}
 The boolean expression after \verb|if| is called the \textbf{condition}.
 If it is true, then the indented statement gets executed. If not, nothing
 happens.
@@ -752,22 +763,209 @@ body, but there has to be at least one. Occasionally, it is useful to
 have a body with no statements (usually as a place keeper for code you
 haven't written yet). In that case, you can use the \verb|pass| statement,
 which does nothing.
-\begin{verbatim}
+\begin{lstlisting}
 if x < 0:
     pass    # Need to handle negative values
-\end{verbatim}
+\end{lstlisting}
 
 \subsection{Alternative execution}
-\begin{verbatim}
-\end{verbatim}
-\subsection{}
+\begin{lstlisting}
+if x%2 == 0:
+    print 'x is even'
+else:
+    print 'x is odd'
+\end{lstlisting}
+Since the condition must be true or false, exactly one of the alternatives will
+be executed. The alternatives are called \textbf{branches}, because they are branches in
+the flow of execution.
 
-% Chapter 6
+\subsection{Chained conditionals}
+\begin{lstlisting}
+if x < y:
+    print 'x is less than y'
+elif x > y
+    print 'x is less than y'
+else:
+    print 'x and y are equal'
+\end{lstlisting}
+If there is an \verb|else| clause, it has to be at the end,
+but there doesn't have to be one.
+
+\subsection{Nested conditionals}
+Although the indentation of the statements makes the structure apparent, nested
+conditionals become difficult to read very quickly. In general, it is a good
+idea to avoid them when you can. \textit{Logical operators} often provide a way
+to simplify nested conditional statements.
+
+\subsection{Recursion}
+\textbf{Recursive} functions call themselves:
+\begin{lstlisting}
+def countdown(n):
+    if n <= 0:
+        print 'Blastoff!'
+    else:
+        print n
+        countdown(n-1)
+\end{lstlisting}
+Sometimes it's easier to write a recursive function than to use \verb|for| loops.
+
+\subsection{Stack diagrams}
+\subsection{Infinite recursion}
+\subsection{Keyboard input}
+Python 2 provides a built-in function called \verb|raw_input| that gets input from the
+keyboard. In Python 3, it is called \verb|input|. When this function is called, the
+program stops and waits for the user to type something. When the user presses
+Return or Enter, the program resumes and \verb|raw_input| returns what the user typed
+as a string. 
+\begin{lstlisting}
+>>> text = raw_input()
+Blah
+>>> print text
+Blah
+
+>>> name = raw_input('What... is your name?\n')
+What... is your name?
+Arthur, King of the Britons!
+>>> print name
+Arthur, King of the Britons!
+\end{lstlisting}
+\subsection{Debugging}
+
+\newpage  % Chapter 6
 \section{Fruitful functions}
 % Chapter 7
 \section{Iteration}
-\newpage%-------------------------------------------------------------------%
-% Chapter 8
+\subsection{Multiple assignment}
+\subsection{Updating variables}
+\subsection{The \texttt{while} statement}
+\begin{lstlisting}
+def countdown(n):
+    while n > 0:
+        print n
+        n = n-1
+    print 'Blastoff!'
+\end{lstlisting}
+
+\subsection{\texttt{break}}
+Suppose you want to take input from the user until they type \verb|done|.
+You could write:
+\begin{lstlisting}
+while True:
+    line = raw_input('> ')
+    if line == 'done':
+        break
+    print line
+
+print 'Done!'
+\end{lstlisting}
+This way of writing while loops is common because you can check the
+condition anywhere in the loop (not just at the top) and you can express
+the stop condition affirmatively (``stop when this happens'') rather than
+negatively (``keep going until that happens.'').
+
+\subsection{Square roots}
+Loops are often used in programs that compute numerical results by starting
+with an approximate answer and iteratively improving it.
+
+For example, one way of computing square roots is Newton’s method. Suppose
+that you want to know the square root of $a$. If you start with almost any
+estimate, $x$, you can compute a better estimate with the following formula:
+\[
+    y = \frac{x + a/x}{2}
+    \]
+For example, if $a$ is 4 and $x$ is 3:
+
+\begin{lstlisting}
+>>> a = 4.0
+>>> x = 3.0
+>>> y = (x + a/x) / 2
+>>> print y
+2.16666666667
+\end{lstlisting}
+Which is closer to the correct answer ($\sqrt{4} = 2$). If we repeat the
+process with the new estimate, it gets even closer.
+In general we don’t know ahead of time how many steps it takes to get to
+the right answer, but we know when we get there because the estimate stops
+changing (\textcolor{bred}{like my alignment codes!}).
+
+For most values of a this works fine, but in general it is dangerous to
+test \verb|float| equality. Floating-point values are only approximately right:
+most rational numbers, like 1/3, and irrational numbers, like $\sqrt{2}$, can’t be
+represented exactly with a \verb|float|.
+
+Rather than checking whether $x$ and $y$ are exactly equal, it is safer to use
+the built-in function \verb|abs| to compute the absolute value, or magnitude, of
+the difference between them:
+\begin{lstlisting}
+if abs(y-x) < epsilon:
+    break
+\end{lstlisting}
+where \verb|epsilon| has a value like 0.0001 that determines how close is
+close enough.
+
+\subsection{Algorithms}
+Newton’s method is an example of an \textbf{algorithm}: it is a mechanical process
+for solving a category of problems (in this case, computing square roots).
+
+It is not easy to define an algorithm. It might help to start with
+something that is not an algorithm. When you learned to multiply
+single-digit numbers, you probably memorized the multiplication table. In
+effect, you memorized 100 specific solutions. That kind of knowledge is not
+algorithmic.
+
+But if you were ``lazy,'' you probably cheated by learning a few tricks. For
+example, to find the product of n and 9, you can write n−1 as the first
+digit and 10−n as the second digit. This trick is a general solution for
+multiplying any single-digit number by 9. That’s an algorithm!
+
+Similarly, the techniques you learned for addition with carrying,
+subtraction with borrowing, and long division are all algorithms. One of
+the characteristics of algorithms is that they do not require any
+intelligence to carry out. They are mechanical processes in which each step
+follows from the last according to a simple set of rules.
+
+In my opinion, it is embarrassing that humans spend so much time in school
+learning to execute algorithms that, quite literally, require no
+intelligence.
+
+On the other hand, the process of designing algorithms is interesting,
+intellectually challenging, and a central part of what we call programming.
+
+Some of the things that people do naturally, without difficulty or
+conscious thought, are the hardest to express algorithmically.
+Understanding natural language is a good example. We all do it, but so far
+no one has been able to explain \emph{how} we do it, at least not in the form of
+an algorithm.
+
+\subsection{Debugging}
+As you start writing bigger programs, you might find yourself spending more
+time debugging. More code means more chances to make an error and more
+place for bugs to hide.
+
+One way to cut your debugging time is “debugging by bisection.” For
+example, if there are 100 lines in your program and you check them one at a
+time, it would take 100 steps.
+
+Instead, try to break the problem in half. Look at the middle of the
+program, or near it, for an intermediate value you can check. Add a print
+statement (or something else that has a verifiable effect) and run the
+program.
+
+If the mid-point check is incorrect, there must be a problem in the first
+half of the program. If it is correct, the problem is in the second half.
+
+Every time you perform a check like this, you halve the number of lines you
+have to search. After six steps (which is fewer than 100), you would be
+down to one or two lines of code, at least in theory.
+
+In practice it is not always clear what the “middle of the program” is and
+not always possible to check it. It doesn’t make sense to count lines and
+find the exact midpoint. Instead, think about places in the program where
+there might be errors and places where it is easy to put a check. Then
+choose a spot where you think the chances are about the same that the bug
+is before or after the check.
+
+\newpage  % Chapter 8
 \section{Strings}
 \subsection{A string is a sequence}
 \subsection{\texttt{len}}
@@ -783,12 +981,12 @@ value, but the syntax is different. For example, the method
 takes a string and returns a new string with all uppercase letters:
 \par Instead of the function syntax \verb|upper(word)|,
 it uses the method syntax \verb|word.upper()|.
-\begin{verbatim}
+\begin{lstlisting}
 >>> word = 'banana'
 >>> new_word = word.upper()
 >>> print new_word
 BANANA
-\end{verbatim}
+\end{lstlisting}
 \par This form of dot notation specifies the name of the method,
 \verb|upper|, and the name of the string to apply the method to,
 \verb|word|. The empty
@@ -798,31 +996,31 @@ in this case, we would say that
 we are invoking \verb|upper| on the \verb|word|.
 \par As it turns out, there is a string method named \verb|find| that is
 remarkably similar to the function we wrote:
-\begin{verbatim}
+\begin{lstlisting}
 >>> word = `banana'
 >>> index = word.find(`a')
 >>> print index
 1
-\end{verbatim}
+\end{lstlisting}
 \par In this example, we invoke \verb|find| on \verb|word|
 and pass the letter we are looking for as a parameter.
 \par Actually, the \verb|find| method is more general than our function; it can
 find substrings, not just characters:
-\begin{verbatim}
+\begin{lstlisting}
 >>> word.find('na')
 2
-\end{verbatim}
+\end{lstlisting}
 \par It can take as a second argument the index where it should start:
-\begin{verbatim}
+\begin{lstlisting}
 >>> word.find('na', 3)
 4
-\end{verbatim}
+\end{lstlisting}
 \par And as a third argument the index where it should stop:
-\begin{verbatim}
+\begin{lstlisting}
 >>> name = 'bob'
 >>> name.find('b', 1, 2)
 -1
-\end{verbatim}
+\end{lstlisting}
 \par This search fails because \verb|b| does not appear in the index range from
 \verb|1| to \verb|2| (not including \verb|2|).
 
@@ -830,8 +1028,10 @@ find substrings, not just characters:
 \subsection{String comparison}
 \subsection{Debugging}
 
-\newpage%-------------------------------------------------------------------%
+\newpage  % Chapter 9
 \section{Case study: word play}
+
+\newpage  % Chapter 10
 \section{Lists}
 \subsection{A list is a sequence}
 Like a string, a \textbf{list} is a sequence of values.
@@ -958,16 +1158,112 @@ The \verb|+| operator concatenates lists:
 \par The first example repeats \verb|[0]| four times. The second example
 repeats the list \verb|[1,2,3]| three times.
 \subsection{List slices}
+\begin{lstlisting}
+>>> t = ['a', 'b', 'c', 'd', 'e', 'f']
+>>> t[1:3]  # Print indices 1 and 2
+['b', 'c']
+>>> t[:4]  # Print indices 0 - 3
+['a', 'b', 'c', 'd']
+>>> t[3:]  # Print indices 3 - end
+['d', 'e', 'f']
+>>> t[:]  # Print entire list
+['a', 'b', 'c', 'd', 'e', 'f']
+
+>>> t = ['a', 'b', 'c', 'd', 'e', 'f']
+>>> t[1:3] = ['x', 'y']  # Update multiple elements!
+>>> print t
+['a', 'x', 'y', 'd', 'e', 'f']
+\end{lstlisting}
+Since lists are mutable, it is often useful to make a copy before performing
+operations that fold, spindle or mutilate lists.
+
 \subsection{List methods}
+\begin{lstlisting}
+list1.append('d')    # append element 'd' to the end of list1
+list1.extend(list2)  # append elements of list2 to end of list1
+list1.sort()         # arrange elments from low to high
+\end{lstlisting}
+Appending a list to another list (rather than using extend) will append
+a `sublist' instead of simply appending the individual elements to the end.
+
+List methods are all void; they modify the list and return \verb|None|. If you
+accidentally write \verb|t = t.sort()|, you will be disappointed with the result. 
+
 \subsection{Map, filter, and reduce}
+\begin{lstlisting}
+>>> t = [1,2,3]
+>>> sum(t)
+6
+\end{lstlisting}
+
+Sometimes you want to traverse one list while building another. For
+example, the following function takes a list of strings and returns a new
+list that contains capitalized strings:
+\begin{lstlisting}
+def capitalize_all(t):
+    res = []
+    for s in t:
+        res.append(s.capitalize())
+    return res
+\end{lstlisting}
+\verb|res| is initialized with an empty list; each time through the loop,
+the next element is appended. So \verb|res| is another kind of accumulator.
+
+An operation like \verb|capitalize_all| is sometimes called a \textbf{map}
+because it ``maps'' a function (in this case, the method \verb|capitalize|)
+onto each of the elements in a sequence.
+
+Another common operation is to select some of the elements from a list and
+return a sublist. For example, the following function takes a list of
+strings and returns a list that contains only the uppercase strings:
+\begin{lstlisting}
+def only_upper(t):
+    res = []
+    for s in t:
+        if s.isupper():
+            res.append(s)
+    return res
+\end{lstlisting}
+\verb|isupper| is a \textcolor{bred}{string method} that returns \verb|True| if the
+string contains only uppercase letters. An operation like \verb|only_upper| is
+called a \textbf{filter} because it selects some of the elements and filters out the
+others.
+
+Most common list operations can be expressed as a combination of map,
+filter and reduce. Because these operations are so common, Python provides
+language features to support them, including the built-in function \verb|map| and
+an operator called a ``list comprehension.'' 
+
 \subsection{Deleting elements}
+\begin{lstlisting}
+>>> t = ['a', 'b', 'c']
+>>> x = t.pop(1)
+>>> print t
+['a', 'c']
+>>> print x
+b
+\end{lstlisting}
+\verb|pop| modifies the list and returns the element that was removed. If you
+don’t provide an index, it deletes and returns the last element.
+
+If you don’t need the removed value, you can use the \verb|del| operator: 
+\begin{lstlisting}
+>>> t = ['a', 'b', 'c']
+>>> t.remove('b')
+>>> print t
+['a', 'c']
+\end{lstlisting}
+The return value from \verb|remove| is \verb|None|.
 \subsection{Lists and strings}
 \subsection{Objects and values}
 \subsection{Aliasing}
 \subsection{List arguments}
 \subsection{Debugging}
 
+\newpage  % Chapter 11
 \section{Dictionaries}
+A \textbf{dictionary} is like a list, but more general. In a list, the indices have
+to be integers; in a dictionary they can be (almost) any type.
 
 \section{Tuples}
 \subsection{Tuples are immutable}
@@ -1841,28 +2137,20 @@ another. You can find them (and read more about this issue) at
 one yourself.
 \end{multicols}
 
-
-\newpage%--------------------------------------------------------------%
-% Chapter 15
+\newpage  % Chapter 15
 \section{Classes and objects}
+\begin{multicols}{2}
 \subsection{User-defined types}
-We have used many of Python’s built-in types; now we are going to define a
-new type. As an example, we will create a type called \verb|Point| that
+As an example, we will create a type called \verb|Point| that
 represents a point in two-dimensional space.
-
-In mathematical notation, points are often written as (x,y).
+In mathematical notation, points are often written as $(x,y)$.
 There are several ways we might represent points in Python:
 \begin{itemize}
     \item We could store the coordinates separately in two variables, x and y.
     \item We could store the coordinates as elements in a list or tuple.
     \item We could create a new type to represent points as objects.
 \end{itemize}
-Creating a new type is (a little) more complicated than the other options,
-but it has advantages that will be apparent soon.
-
-A user-defined type is also called a \textbf{class}.
-A class definition looks like this:
-
+A \textbf{class} is a user-defined type. A class definition looks like this:
 \begin{lstlisting}
 class Point(object):
     """Represents a point in 2-D space."""
@@ -2133,10 +2421,13 @@ False
 \end{verbatim}
 The first argument can be any object; the second argument is a
 \emph{string} that contains the name of the attribute.
-\newpage%--------------------------------------------------------------%
-% Chapter 16
+\end{multicols}
+
+\newpage  % Chapter 16
 \section{Classes and functions}
-As another example of a user-defined type, we’ll define a class called Time
+\begin{multicols}{2}
+\subsection{Time}
+As another example of a user-defined type, we'll define a class called Time
 that records the time of day. The class definition looks like this:
 \begin{lstlisting}
 class Time(object):
@@ -2154,24 +2445,138 @@ time.minute = 59
 time.second = 30
 \end{lstlisting}
 
+\subsection{Pure functions}
+In the next few sections, we’ll write two functions that add time values. They
+demonstrate two kinds of functions: pure functions and modifiers. They also
+demonstrate a development plan I’ll call \textbf{prototype and patch}, which is a way of
+tackling a complex problem by starting with a simple prototype and
+incrementally dealing with the complications.
 
-\newpage%--------------------------------------------------------------%
-% Chapter 17
+Here is a simple prototype of \verb|add_time|:
+\begin{lstlisting}
+def add_time(t1, t2):
+    sum = Time()
+    sum.hour = t1.hour + t2.hour
+    sum.minute = t1.minute + t2.minute
+    sum.second = t1.second + t2.second
+    return sum
+\end{lstlisting}
+The function creates a new \verb|Time| object, initializes its attributes,
+and returns a reference to the new object. This is called a \textbf{pure
+function} because it does not modify any of the objects passed to it as
+arguments and it has no effect, like displaying a value or getting
+user input, other than returning a value.
+
+To test this function, I'll create two Time objects: \verb|start| contains
+the start time of a movie, like Monty Python and the Holy Grail, and
+\verb|duration| contains the run time of the movie, which is one hour 35
+minutes.
+
+\verb|add_time| figures out when the movie will be done.
+
+\begin{lstlisting}
+>>> start = Time()
+>>> start.hour = 9
+>>> start.minute = 45
+>>> start.second =  0
+
+>>> duration = Time()
+>>> duration.hour = 1
+>>> duration.minute = 35
+>>> duration.second = 0
+
+>>> done = add_time(start, duration)
+>>> print_time(done)
+10:80:00
+\end{lstlisting}
+
+The result, \verb|10:80:00| might not be what you were hoping for. The problem is that
+this function does not deal with cases where the number of seconds or minutes
+adds up to more than sixty. When that happens, we have to ``carry'' the extra
+seconds into the minute column or the extra minutes into the hour column.
+
+Here's an improved version:
+
+\begin{lstlisting}
+def add_time(t1, t2):
+    sum = Time()
+    sum.hour = t1.hour + t2.hour
+    sum.minute = t1.minute + t2.minute
+    sum.second = t1.second + t2.second
+
+    if sum.second >= 60:
+        sum.second -= 60
+        sum.minute += 1
+
+    if sum.minute >= 60:
+        sum.minute -= 60
+        sum.hour += 1
+
+    return sum
+\end{lstlisting}
+
+Although this function is correct, it is starting to get big.
+We will see a shorter alternative later.
+
+\subsection{Modifiers}
+Sometimes it is useful for a function to modify the objects it gets as
+parameters. In that case, the changes are visible to the caller.
+Functions that work this way are called \textbf{modifiers}
+
+\verb|increment|, which adds a given number of seconds to a Time object, can
+be written naturally as a modifier. Here is a rough draft:
+\begin{lstlisting}
+def increment(time, seconds):
+    time.second += seconds
+
+    if time.second >= 60:
+        time.second -= 60
+        time.minute += 1
+
+    if time.minute >= 60:
+        time.minute -= 60
+        time.hour += 1
+\end{lstlisting}
+The first line performs the basic operation; the remainder deals with
+the special cases we saw before.
+
+Is this function correct? What happens if the parameter \verb|seconds| is
+much greater than sixty?
+
+In that case, it is not enough to carry once; we have to keep doing it
+until \verb|time.second| is less than sixty. One solution is to replace the
+if statements with \verb|while| statements. That would make the function
+correct, but not very efficient.
+
+Anything that can be done with modifiers can also be done with pure
+functions. In fact, some programming languages only allow pure
+functions. There is some evidence that programs that use pure
+functions are faster to develop and less error-prone than programs
+that use modifiers. But modifiers are convenient at times, and
+functional programs tend to be less efficient.
+
+In general, I recommend that you write pure functions whenever it is
+reasonable and resort to modifiers only if there is a compelling
+advantage. This approach might be called a \textbf{functional programming
+style}. 
+
+\subsection{Prototyping versus planning}
+\subsection{Debugging}
+
+
+\end{multicols}
+
+\newpage  % Chapter 17
 \section{Classes and methods}
-\newpage%--------------------------------------------------------------%
-% Chapter 18
+\newpage  % Chapter 18
 \section{Inheritance}
-\newpage%--------------------------------------------------------------%
-% Chapter 19
+\newpage  % Chapter 19
 \section{Case study: Tkinter}
-\newpage%--------------------------------------------------------------%
-% Chapter 20
+\newpage  % Chapter 20
 \section{Debugging}
-\newpage%--------------------------------------------------------------%
-% Chapter 21
+\newpage  % Chapter 21
 \section{Analysis of Algorithms}
-\newpage%--------------------------------------------------------------%
-% Chapter 22
+\newpage  % Chapter 22
 \section{Lumpy}
 
 \section{Plotting}
@@ -2306,7 +2711,7 @@ The actual defaults are controlled by the rc file
 
 \newpage
 
-\newgeometry{top=0.5in, bottom=0.5in, left=0.5in, right=0.5in}
+%\newgeometry{top=0.5in, bottom=0.5in, left=0.5in, right=0.5in}
 
 
 \begin{multicols}{2}
@@ -2315,13 +2720,17 @@ The actual defaults are controlled by the rc file
 \setcounter{secnumdepth}{0}
 
 \subsection{Execution}
-\begin{verbatim}
 \begin{lstlisting}
+cl> python {options} [-c <command> | -m <module> | file - ] {arguments}
+    -h  # print fill list of options and summary help
+    -m  # specify module to run as main script
+
 cl> export PYTHONPATH="${PYTHONPATH}:/new/path"
 >>> import sys
 >>> sys.path
+$
 \end{lstlisting}
-\end{verbatim}
+(because lstlisting doesn't know what to do with dollar signs).
 
 \subsection{Debugging}
 \begin{lstlisting}
@@ -2748,5 +3157,5 @@ ax.streamplot()  # Draw streamlines of a vector flow!
 \end{lstlisting}
 \end{multicols}
 
-\restoregeometry
+%\restoregeometry
 \end{document}
