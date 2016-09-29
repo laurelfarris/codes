@@ -3113,6 +3113,15 @@ ax.clabel(cs, v, **kwargs)
 \end{lstlisting}
 
 \newpage
+\subsubsection{Scatter plots}
+p = ax.scatter(x, y,
+    c=3D_data_array, #colors
+    vmin=min(z), vmax=max(z),
+    s=1, #size
+    cmap=cm,
+    lw=0 #no linewidth (border)
+    )
+
 \subsubsection{Colorbar}
 \begin{lstlisting}
 fig, ax = plt.subplots()
