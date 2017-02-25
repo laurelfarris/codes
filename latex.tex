@@ -265,6 +265,20 @@ Add notes to margins: can use marginnote (with package) or marginpar
     \item \verb|\noindent| self-explanatory
 \end{itemize}
 
+\begin{verbatim}
+\,
+\thinspace
+\! negative thin space
+\: medium space
+\; large space
+\enspace
+\quad
+\qquad
+\hspace{n_units}
+\hfill
+\hspace*{\fill}
+\end{verbatim}
+
 \verb|\usepackage{ragged2e}|
 \begin{itemize}
     \item \verb|\begin{flushright}...\end{flushright}|
@@ -334,7 +348,9 @@ right headers overwrites the one generated automatically.
 
 \subsection{Footnotes}
 \begin{lstlisting}
-\usepackage[symbol]{footmisc}   % Use symbols instead of numbers
+\usepackage[stable,symbol]{footmisc}   % stable: put footnotes in section titles!
+                                       % symbol: Use symbols instead of numbers
+
 \usepackage{perpage}
 \MakePerPage{footnote}          % Markers re-start after each page
 ...
@@ -556,7 +572,8 @@ Examples:
     are absolute, so negative makes no sense (I think). Setting these to 0pt
     reduces the default spacing a little. The asterisk removes paragraph
     indentation following the section title (doesn't do anything if there
-    is no indentation anyway).
+    is no indentation anyway). It also appears to allow you to set only a few options
+    in titleformat without creating empty braces for every single argument.
 \end{minipage}
 
 \subsection{Simpler way to change only size/style}
@@ -568,8 +585,8 @@ Examples:
 \end{lstlisting}
 
 \subsection{Color}
-This actually overrides the titlesec package, which can also be used
-to set section title colors. Probably better to use that one.
+The \verb|sectsty| package overrides the \verb|titlesec| package, which can
+also be used to set section title colors. Probably better to use that one.
 \begin{lstlisting}
 \usepackage{sectsty}
 \sectionfont{\color{blue}}
@@ -675,9 +692,9 @@ In preamble:
         and left side of label. Default must be a negative number, since
         setting this to 0in aligns the labels with the text.
     \item [labelwidth]
-        Width allotted to the label. This should be equal to or
-        greater than the longest \emph{expected} label.  Good for
-        lining up text when labels are left-aligned.
+        Width allotted to the label. This should be equal to or greater than
+        the longest \emph{expected} label. Good for lining up text when labels
+        are left-aligned. This will override labelindent if order is switched!
     \item [labelsep]
         The distance between the rightmost part of the label (assuming
         you haven't changed the label from its default right
@@ -722,9 +739,9 @@ In preamble:
     \item [parskip] Space between paragraphs outside of a list, and part of
         the space between a non-list paragraph and a list item.
         \textcolor{red}{This is NOT a list property; it can be set
-        globally for entire documen (see \SS{} \texttt{ref\{\}}).}
+        globally for entire document (see \SS{} \texttt{ref\{\}}).}
     \item [topsep] Extra space added to \texttt{parskip} before the first
-        AND after the last item.
+        AND after the last item\ldots bit of a misnomer.
     \item [parsep] Paragraph separation within a single item.
     \item [itemsep] Extra inter-item spacing added to \texttt{parsep}
     \item [partopsep] This is added to the top and/or bottom of the list
@@ -805,9 +822,9 @@ By default, description labels start a distance equal to
 causes them to line up with the left edge of the text instead.
 
 \begin{lstlisting}
-leftmargin=*        % Align with main text
+leftmargin=*        % Align with main text... value affects text after the first line
 font=\normalfont    % Not bold, which is the default
-style=nextline      % For when text is too long?
+style=nextline      % Description starts on the next line
 style=multiline     % ???
 \end{lstlisting}
 
@@ -881,8 +898,9 @@ the time.
 \section{Hyperlinks}
 In preamble:
 \begin{verbatim}
-\usepackage{hyperref}
-\hypersetup{colorlinks=true,
+\usepackage[breaklinks=true]{hyperref}
+\hypersetup{
+    colorlinks=true,
     urlcolor=blue,
     linkcolor=black
 }
@@ -929,6 +947,8 @@ For example: \verb|\fboxrule=1pt and \fboxsep=5pt|. Use
 \textrm{t}, \textrm{c}, \textrm{b}
 options to align the base line of the most top row,
 the center row and the most bottom row with the surrounding baseline.
+
+colorbox doesn't support line breaks\ldots
 
 \url{http://mirrors.ibiblio.org/CTAN/macros/latex/contrib/tcolorbox/tcolorbox.pdf}
 \begin{lstlisting}
@@ -1108,6 +1128,16 @@ $n$ & $\xi_1$ & $\rho_c/\rho$ & $N_{n}$ & $W_n$ & $\Theta_n$
 \end{verbatim}
 For the \verb|tabular| line, \verb|c| stands for center-justified;
 use \verb|l| and \verb|r| for left and right justified.
+
+
+\begin{verbatim}
+\begin{tabular{r p{6in}}
+    one & two \newline more text
+\end{tabular}
+\end{verbatim}
+The \verb|p| option
+lets you set the width of the cell so that long text will wrap nicely,
+plus allows the use of \verb|\newline| in the tabular environment, if needed.
 
 \section{Bibliographies}
 \begin{verbatim}
