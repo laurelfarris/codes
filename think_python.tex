@@ -110,12 +110,9 @@
 % Chapter 1
 \section{The way of the program}
 
-The single most important skill for a computer scientist is
-\textbf{problem solving}.
-Problem solving means the ability to formulate problems,
-think creatively about solutions, and express a solution clearly and
-accurately. As it turns out, the process of learning to program is an
-excellent opportunity to practice problem-solving skills.
+The single most important skill for a computer scientist is \textbf{problem
+solving}: the ability to formulate problems, think creatively about solutions,
+and express a solution clearly and accurately.
 
 \ldots
 
@@ -124,14 +121,14 @@ excellent opportunity to practice problem-solving skills.
 \subsection{Values and types}
 If you are not sure what type a value has, the interpreter can tell
 you:
-\begin{verbatim}
+\begin{lstlisting}
 >>> type('Hello, World!')
 <type `str'>
 >>> type(17)
 <type `int'>
 >>> type(3.2)
 <type `float'>
-\end{verbatim}
+\end{lstlisting}
 \subsection{Variables}
 An \textbf{assignment statement} creates new variables and gives them values.
 \subsection{Variable names and keywords}
@@ -582,6 +579,8 @@ into functions. There are several reasons:
 \end{itemize*}
 
 % 3.13
+
+
 \subsection{Importing with \texttt{from}}
 Python provides two ways to import modules; we have already seen one:
 \begin{verbatim}
@@ -816,7 +815,7 @@ Python 2 provides a built-in function called \verb|raw_input| that gets input fr
 keyboard. In Python 3, it is called \verb|input|. When this function is called, the
 program stops and waits for the user to type something. When the user presses
 Return or Enter, the program resumes and \verb|raw_input| returns what the user typed
-as a string. 
+as a string.
 \begin{lstlisting}
 >>> text = raw_input()
 Blah
@@ -1187,7 +1186,7 @@ Appending a list to another list (rather than using extend) will append
 a `sublist' instead of simply appending the individual elements to the end.
 
 List methods are all void; they modify the list and return \verb|None|. If you
-accidentally write \verb|t = t.sort()|, you will be disappointed with the result. 
+accidentally write \verb|t = t.sort()|, you will be disappointed with the result.
 
 \subsection{Map, filter, and reduce}
 \begin{lstlisting}
@@ -1232,7 +1231,7 @@ others.
 Most common list operations can be expressed as a combination of map,
 filter and reduce. Because these operations are so common, Python provides
 language features to support them, including the built-in function \verb|map| and
-an operator called a ``list comprehension.'' 
+an operator called a ``list comprehension.''
 
 \subsection{Deleting elements}
 \begin{lstlisting}
@@ -1246,7 +1245,7 @@ b
 \verb|pop| modifies the list and returns the element that was removed. If you
 don’t provide an index, it deletes and returns the last element.
 
-If you don’t need the removed value, you can use the \verb|del| operator: 
+If you don’t need the removed value, you can use the \verb|del| operator:
 \begin{lstlisting}
 >>> t = ['a', 'b', 'c']
 >>> t.remove('b')
@@ -2558,7 +2557,7 @@ functional programs tend to be less efficient.
 In general, I recommend that you write pure functions whenever it is
 reasonable and resort to modifiers only if there is a compelling
 advantage. This approach might be called a \textbf{functional programming
-style}. 
+style}.
 
 \subsection{Prototyping versus planning}
 \subsection{Debugging}
@@ -2742,6 +2741,12 @@ cl> python code.py
 \end{lstlisting}
 Type `continue' at the end to keep going. Type `q' to quit.
 Can also print variables, types, etc.\ in this mode.
+
+\subsection{Modules}
+\begin{lstlisting}
+sys   #
+import sys.argv # variable with list of strings (script name + arguments)
+\end{lstlisting}
 
 \subsection{Strings}
 \begin{lstlisting}
