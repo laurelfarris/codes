@@ -37,27 +37,28 @@
 \BOOKMARK [1][-]{section.15}{Putting text in a box}{}% 37
 \BOOKMARK [1][-]{section.16}{Columns}{}% 38
 \BOOKMARK [1][-]{section.17}{Symbols}{}% 39
-\BOOKMARK [1][-]{section.18}{Writing code into a Latex document}{}% 40
-\BOOKMARK [1][-]{section.19}{New and renewed commands and environments}{}% 41
-\BOOKMARK [2][-]{subsection.19.1}{Commands}{section.19}% 42
-\BOOKMARK [2][-]{subsection.19.2}{Environments}{section.19}% 43
-\BOOKMARK [1][-]{section.20}{Verbatim}{}% 44
-\BOOKMARK [1][-]{section.21}{Figures}{}% 45
-\BOOKMARK [1][-]{section.22}{Tables}{}% 46
-\BOOKMARK [1][-]{section.23}{Bibliographies}{}% 47
-\BOOKMARK [2][-]{subsection.23.1}{Creating and using a makefile}{section.23}% 48
-\BOOKMARK [1][-]{section.24}{Maths!}{}% 49
-\BOOKMARK [2][-]{subsection.24.1}{Inside text}{section.24}% 50
-\BOOKMARK [2][-]{subsection.24.2}{Equations}{section.24}% 51
-\BOOKMARK [3][-]{subsubsection.24.2.1}{Numbered equations}{subsection.24.2}% 52
-\BOOKMARK [3][-]{subsubsection.24.2.2}{Equations without numbering}{subsection.24.2}% 53
-\BOOKMARK [3][-]{subsubsection.24.2.3}{Aligning equations}{subsection.24.2}% 54
-\BOOKMARK [2][-]{subsection.24.3}{Size of brackets, parentheses, etc.}{section.24}% 55
-\BOOKMARK [2][-]{subsection.24.4}{Arrays}{section.24}% 56
-\BOOKMARK [2][-]{subsection.24.5}{Superscripts, subscripts, and prescripts}{section.24}% 57
-\BOOKMARK [2][-]{subsection.24.6}{Referring to parts of equation}{section.24}% 58
-\BOOKMARK [2][-]{subsection.24.7}{Operations}{section.24}% 59
-\BOOKMARK [3][-]{subsubsection.24.7.1}{Integrals}{subsection.24.7}% 60
-\BOOKMARK [3][-]{subsubsection.24.7.2}{Square root}{subsection.24.7}% 61
-\BOOKMARK [3][-]{subsubsection.24.7.3}{Summation \(and the multiplication version\)}{subsection.24.7}% 62
-\BOOKMARK [1][-]{section.25}{Questions and things to be added}{}% 63
+\BOOKMARK [1][-]{section.18}{Lines}{}% 40
+\BOOKMARK [1][-]{section.19}{Writing code into a Latex document}{}% 41
+\BOOKMARK [1][-]{section.20}{New and renewed commands and environments}{}% 42
+\BOOKMARK [2][-]{subsection.20.1}{Commands}{section.20}% 43
+\BOOKMARK [2][-]{subsection.20.2}{Environments}{section.20}% 44
+\BOOKMARK [1][-]{section.21}{Verbatim}{}% 45
+\BOOKMARK [1][-]{section.22}{Figures}{}% 46
+\BOOKMARK [1][-]{section.23}{Tables}{}% 47
+\BOOKMARK [1][-]{section.24}{Bibliographies}{}% 48
+\BOOKMARK [1][-]{section.25}{Labels and cross-references}{}% 49
+\BOOKMARK [1][-]{section.26}{Maths!}{}% 50
+\BOOKMARK [2][-]{subsection.26.1}{Inside text}{section.26}% 51
+\BOOKMARK [2][-]{subsection.26.2}{Equations}{section.26}% 52
+\BOOKMARK [3][-]{subsubsection.26.2.1}{Numbered equations}{subsection.26.2}% 53
+\BOOKMARK [3][-]{subsubsection.26.2.2}{Equations without numbering}{subsection.26.2}% 54
+\BOOKMARK [3][-]{subsubsection.26.2.3}{Aligning equations}{subsection.26.2}% 55
+\BOOKMARK [2][-]{subsection.26.3}{Size of brackets, parentheses, etc.}{section.26}% 56
+\BOOKMARK [2][-]{subsection.26.4}{Arrays}{section.26}% 57
+\BOOKMARK [2][-]{subsection.26.5}{Superscripts, subscripts, and prescripts}{section.26}% 58
+\BOOKMARK [2][-]{subsection.26.6}{Referring to parts of equation}{section.26}% 59
+\BOOKMARK [2][-]{subsection.26.7}{Operations}{section.26}% 60
+\BOOKMARK [3][-]{subsubsection.26.7.1}{Integrals}{subsection.26.7}% 61
+\BOOKMARK [3][-]{subsubsection.26.7.2}{Square root}{subsection.26.7}% 62
+\BOOKMARK [3][-]{subsubsection.26.7.3}{Summation \(and the multiplication version\)}{subsection.26.7}% 63
+\BOOKMARK [1][-]{section.27}{Questions and things to be added}{}% 64

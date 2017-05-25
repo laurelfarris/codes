@@ -1,5 +1,5 @@
 \documentclass{article}
-\usepackage[margin=1in]{geometry}
+\usepackage[margin=0.75in]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \renewcommand*\familydefault{\sfdefault} % Only if the base font of the document is to be sans serif
@@ -2764,28 +2764,40 @@ import sys.argv # variable with list of strings (script name + arguments)
   8
 \end{lstlisting}
 
-\subsection{Mathematical operators}
+\subsection{Operators}
+\subsubsection{Mathematical}
 \begin{lstlisting}
 +,-,*,/,**,+=,-=,*=,/=,++,--
 \end{lstlisting}
+\subsubsection{Relational}
+\begin{lstlisting}
+==, !=, >, >=, <, <=
+>>> print 2 > 1
+True
+>>> print 2 > 10
+False
+\end{lstlisting}
+True = 1 and False = 0 for Boolean operations
 
-\subsection{bitwise operators}
+\subsubsection{Logical}
+Short-circuits
+\begin{lstlisting}
+and, or, not (?)
+\end{lstlisting}
+
+\subsubsection{Bitwise}
+Each side evaluated independently
+(should be used instead of logical in cases such as\ldots?)
 \begin{lstlisting}
 &  # and
 |  # or
 ^  # xor
 !  # not
+~  # ?
+>> # ?
+<< # ?
 \end{lstlisting}
 
-\subsection{logical operators}
-\subsubsection{relational}
-\begin{lstlisting}
-==, !=, >, >=, <, <=
-\end{lstlisting}
-\subsubsection{boolean}
-\begin{lstlisting}
-and, or, not
-\end{lstlisting}
 \columnbreak
 
 \subsection{conditionals}
@@ -2881,6 +2893,7 @@ from scipy.interpolate import interp2d
 interp2d(x, y, z, 'cubic')  # x and y are data, z = f(x,y)
 \end{lstlisting}
 
+\newpage
 \subsection{Lists}
 \begin{lstlisting}
 >>> x = range(5)
@@ -2907,7 +2920,7 @@ import numpy as np
 >>> B*2
   [2 4 6]
 
-A.shape      # (rows, columns)
+A.shape      # Dimensions (rows, columns)
 A.ndim       # Number of dimensions
 A.size       # Number of elements
 A.astype(float)  # Change to type float
@@ -2917,19 +2930,26 @@ np.log10(A)  # log base 10
 np.atan2(A)  # array of angles between -pi and +pi
 
 np.array(object, dtype=None)
-np.arange([start,] stop, [step,] dtype=None)
-np.arange(n) # [0,1,2,...,n-1]; if n is a float, A will be a float
 np.zeros([n,m])  # n=rows, m=columns
+np.arange([start,] stop, [step,] dtype=None)
 np.linspace([start,] stop, [step,] dtype=None)  # num_steps = 50 by default
 np.logspace
 np.ndarray(...) # two-dimensional array
 np.argmax(x) # returns INDEX of max value of x array
-np.append(A, values, axis=None)
-np.roll(x,2) # (~IDL's SHIFT); shifts array elements 2 to the right
-  --> [3,4,0,1,2] # note x is still the same, unless do x = np.roll(...)
 np.where(condition) --> array
+np.roll(A, n, axis=None)  # Default: A is flattened, shifted, then restored (~IDL's SHIFT)
+np.reshape(A, shape) # shape = int or (rows,cols)
+np.stack
+np.append(A, values, axis=None)
+np.broadcast_to(array, shape)
+np.repeat(array, num_repeats, axis=...)
+
+A.flatten()  # Returns 1D array
+
 
 # np.funcname(array, axis=None, dtype=None) ~ A.funcname(...)
+
+# Statistics
 sum, max, min, mean, std
 np.std(A, axis=None); A.std()
 A.var()  # Normalized with N (not N-1)
@@ -2951,14 +2971,6 @@ A = (3.2 + 5.4j)  # (equivalent)
 A.imag --> 5.4
 A.real --> 3.2  # return value is same type as input. If input is complex, returns a float
 
-np.roll(A, n, axis=None)  # By default (no axis specified), array is flattened, shifted, then restored
-np.reshape(A, shape)
-np.stack
-np.broadcast_to(array, shape)
-np.repeat(array, num_repeats, axis=...)
-A.reshape( (rows, cols) )  # ONE argument!
-A.flatten()  # Returns 1D array
-
 np.cross(x,y)
 np.dot(x,y)
 
@@ -2971,6 +2983,7 @@ B*A  # Matrix multiplication
 f = np.fft.fft(A, n=None, axis=-1, norm=None)
 \end{lstlisting}
 
+\newpage
 \subsection{Functions}
 \begin{lstlisting}
 def lag(m, *v):     # v is a parameter
@@ -3119,6 +3132,7 @@ ax.clabel(cs, v, **kwargs)
 
 \newpage
 \subsubsection{Scatter plots}
+\begin{lstlisting}
 p = ax.scatter(x, y,
     c=3D_data_array, #colors
     vmin=min(z), vmax=max(z),
@@ -3126,6 +3140,7 @@ p = ax.scatter(x, y,
     cmap=cm,
     lw=0 #no linewidth (border)
     )
+\end{lstlisting}
 
 \subsubsection{Colorbar}
 \begin{lstlisting}

@@ -1,5 +1,6 @@
 \documentclass{article}
-\usepackage[margin=1.5in]{geometry}
+%blah
+\usepackage[margin=1.0in]{geometry}
 %\renewcommand\familydefault{\sfdefault}
 %\usepackage[left=1in, right=1in, top=1in, bottom=1in]{geometry}
 \setlength{\parindent}{0em} % default is 15 pt.
@@ -17,15 +18,11 @@
 \usepackage{amsmath}
 \usepackage{xcolor}
 \usepackage{ragged2e}
-%\usepackage{enumerate}
-%\usepackage{mdwlist}
-%\usepackage{color}
 
 \usepackage{mathtools} % for "mathclap" in summation
 \usepackage{mathptmx}  % \fontsize{12}{14}\selectfont
                             % times (including math)
 \usepackage{mathpazo}  % palatino, including math
-%\usepackage{helvet}  % helvetica (default?)
 
 %\usepackage{fancyhdr}
 %\pagestyle{headings}  % Put section name in top left, page number in top right
@@ -948,7 +945,7 @@ the time.
 
 \section{Hyperlinks}
 In preamble:
-\begin{verbatim}
+\begin{lstlisting}
 \usepackage[breaklinks=true]{hyperref}
 \hypersetup{
     colorlinks=true,
@@ -956,17 +953,24 @@ In preamble:
     linkcolor=black
 }
 \urlstyle{same}
-\end{verbatim}
+\end{lstlisting}
 
 Insert hyperlink in text:
-\begin{verbatim}
+\begin{lstlisting}
 \url{http://google.com}
 \href{http://google.com}{link text}
 \href{http://google.com}{\textcolor{blue}{link text}}
-\end{verbatim}
+\end{lstlisting}
+
+Link one word to another word
+\begin{lstlisting}
+\hypertarget{word1_label}{\hyperlink{word2_label}{Word1}
+...
+\hypertarget{word2_label}{\hyperlink{word1_label}{Word2}
+\end{lstlisting}
 
 \section{Putting text in a box}
-\begin{verbatim}
+\begin{lstlisting}
 \usepackage{xcolor}
 \usepackage{lipsum}
 \begin{document}
@@ -986,7 +990,7 @@ Insert hyperlink in text:
 \colorbox{hl}{\parbox{0.9\textwidth}
 text to go in box}
 
-\end{verbatim}
+\end{lstlisting}
 
 Simpler:
 \begin{verbatim}
@@ -1032,28 +1036,38 @@ Example:
 
 
 \section{Columns}
-\begin{verbatim}
+Use minipages:
+\begin{lstlisting}
 \begin{minipage}[t]{0.2\textwidth}
     stuff
 \end{minipage}
 \begin{minipage}[t]{0.8\textwidth}
     longer stuff
 \end{minipage}
+\end{lstlisting}
 
+Use multicol package
+\begin{lstlisting}
 \begin{multicols}{2}    % Start 2-columns
 \begin{multicols*}{2}   % No forcing cols to equal heights
 \raggedcolumns          % No forcing cols to fill vertical space
 
+    [
+        \section{First section}
+        Text that is not confined to declared columns. Not sure why you wouldn't
+        just put this before starting the columns, but whatev.
+    ]
+
 \vfill                  % No forcing cols to fill vertical space (not working)
 \columnbreak            % Start at top of next column
-\end{verbatim}
+\end{lstlisting}
 
 \verb|\addtolength{\columnsep}{5mm}| add space between columns.
 Verbatim text will continue into second column.
 
 \begin{samepage}
 \section{Symbols}
-\begin{verbatim}
+\begin{lstlisting}
 \AA{}   % Angstrom (does not go between $s)
 \infty  % infinity
 \sim    % '~'
@@ -1066,7 +1080,7 @@ Verbatim text will continue into second column.
 \textbackslash  % \
 \textgreater    % >
 \textless       % <
-\end{verbatim}
+\end{lstlisting}
 
 $\textrm{some\ text}$    %   Roman style (removes italics),
                          %   and '\' puts space between words

@@ -1,160 +1,161 @@
-\BOOKMARK [1][-]{section.1}{The way of the program}{}
-\BOOKMARK [1][-]{section.2}{Variables, expressions, and statements}{}
-\BOOKMARK [2][-]{subsection.2.1}{Values and types}{section.2}
-\BOOKMARK [2][-]{subsection.2.2}{Variables}{section.2}
-\BOOKMARK [2][-]{subsection.2.3}{Variable names and keywords}{section.2}
-\BOOKMARK [2][-]{subsection.2.4}{Operators and operands}{section.2}
-\BOOKMARK [2][-]{subsection.2.5}{Expressions and statements}{section.2}
-\BOOKMARK [2][-]{subsection.2.6}{Interactive mode and script mode}{section.2}
-\BOOKMARK [2][-]{subsection.2.7}{Order of operations}{section.2}
-\BOOKMARK [2][-]{subsection.2.8}{String operations}{section.2}
-\BOOKMARK [2][-]{subsection.2.9}{Comments}{section.2}
-\BOOKMARK [2][-]{subsection.2.10}{Debugging}{section.2}
-\BOOKMARK [1][-]{section.3}{Functions}{}
-\BOOKMARK [2][-]{subsection.3.1}{Function calls}{section.3}
-\BOOKMARK [2][-]{subsection.3.2}{Type conversion functions}{section.3}
-\BOOKMARK [2][-]{subsection.3.3}{Math functions}{section.3}
-\BOOKMARK [2][-]{subsection.3.4}{Composition}{section.3}
-\BOOKMARK [2][-]{subsection.3.5}{Adding new functions}{section.3}
-\BOOKMARK [2][-]{subsection.3.6}{Definitions and uses}{section.3}
-\BOOKMARK [2][-]{subsection.3.7}{Flow of execution}{section.3}
-\BOOKMARK [2][-]{subsection.3.8}{Parameters and arguments}{section.3}
-\BOOKMARK [2][-]{subsection.3.9}{Variables and parameters are local}{section.3}
-\BOOKMARK [2][-]{subsection.3.10}{Stack diagrams}{section.3}
-\BOOKMARK [2][-]{subsection.3.11}{Fruitful functions and void functions}{section.3}
-\BOOKMARK [2][-]{subsection.3.12}{Why functions?}{section.3}
-\BOOKMARK [2][-]{subsection.3.13}{Importing with from}{section.3}
-\BOOKMARK [2][-]{subsection.3.14}{Debugging}{section.3}
-\BOOKMARK [1][-]{section.4}{Case study: interface design}{}
-\BOOKMARK [2][-]{subsection.4.1}{TurtleWorld}{section.4}
-\BOOKMARK [2][-]{subsection.4.2}{Simple repetition}{section.4}
-\BOOKMARK [2][-]{subsection.4.3}{Exercises}{section.4}
-\BOOKMARK [2][-]{subsection.4.4}{Encapsulation}{section.4}
-\BOOKMARK [2][-]{subsection.4.5}{Generalization}{section.4}
-\BOOKMARK [2][-]{subsection.4.6}{Interface design}{section.4}
-\BOOKMARK [2][-]{subsection.4.7}{Refactoring}{section.4}
-\BOOKMARK [2][-]{subsection.4.8}{A development plan}{section.4}
-\BOOKMARK [2][-]{subsection.4.9}{docstring}{section.4}
-\BOOKMARK [2][-]{subsection.4.10}{Debugging}{section.4}
-\BOOKMARK [1][-]{section.5}{Conditionals and recursion}{}
-\BOOKMARK [2][-]{subsection.5.1}{Modulus operator}{section.5}
-\BOOKMARK [2][-]{subsection.5.2}{Boolean expressions}{section.5}
-\BOOKMARK [2][-]{subsection.5.3}{Logical operators}{section.5}
-\BOOKMARK [2][-]{subsection.5.4}{Conditional execution}{section.5}
-\BOOKMARK [2][-]{subsection.5.5}{Alternative execution}{section.5}
-\BOOKMARK [2][-]{subsection.5.6}{Chained conditionals}{section.5}
-\BOOKMARK [2][-]{subsection.5.7}{Nested conditionals}{section.5}
-\BOOKMARK [2][-]{subsection.5.8}{Recursion}{section.5}
-\BOOKMARK [2][-]{subsection.5.9}{Stack diagrams}{section.5}
-\BOOKMARK [2][-]{subsection.5.10}{Infinite recursion}{section.5}
-\BOOKMARK [2][-]{subsection.5.11}{Keyboard input}{section.5}
-\BOOKMARK [2][-]{subsection.5.12}{Debugging}{section.5}
-\BOOKMARK [1][-]{section.6}{Fruitful functions}{}
-\BOOKMARK [1][-]{section.7}{Iteration}{}
-\BOOKMARK [2][-]{subsection.7.1}{Multiple assignment}{section.7}
-\BOOKMARK [2][-]{subsection.7.2}{Updating variables}{section.7}
-\BOOKMARK [2][-]{subsection.7.3}{The while statement}{section.7}
-\BOOKMARK [2][-]{subsection.7.4}{break}{section.7}
-\BOOKMARK [2][-]{subsection.7.5}{Square roots}{section.7}
-\BOOKMARK [2][-]{subsection.7.6}{Algorithms}{section.7}
-\BOOKMARK [2][-]{subsection.7.7}{Debugging}{section.7}
-\BOOKMARK [1][-]{section.8}{Strings}{}
-\BOOKMARK [2][-]{subsection.8.1}{A string is a sequence}{section.8}
-\BOOKMARK [2][-]{subsection.8.2}{len}{section.8}
-\BOOKMARK [2][-]{subsection.8.3}{Traversal with a for loop}{section.8}
-\BOOKMARK [2][-]{subsection.8.4}{String slices}{section.8}
-\BOOKMARK [2][-]{subsection.8.5}{Strings are immutable}{section.8}
-\BOOKMARK [2][-]{subsection.8.6}{Searching}{section.8}
-\BOOKMARK [2][-]{subsection.8.7}{Looping and counting}{section.8}
-\BOOKMARK [2][-]{subsection.8.8}{String methods}{section.8}
-\BOOKMARK [2][-]{subsection.8.9}{The in operator}{section.8}
-\BOOKMARK [2][-]{subsection.8.10}{String comparison}{section.8}
-\BOOKMARK [2][-]{subsection.8.11}{Debugging}{section.8}
-\BOOKMARK [1][-]{section.9}{Case study: word play}{}
-\BOOKMARK [1][-]{section.10}{Lists}{}
-\BOOKMARK [2][-]{subsection.10.1}{A list is a sequence}{section.10}
-\BOOKMARK [2][-]{subsection.10.2}{Lists are mutable}{section.10}
-\BOOKMARK [2][-]{subsection.10.3}{Traversing a list}{section.10}
-\BOOKMARK [2][-]{subsection.10.4}{List operations}{section.10}
-\BOOKMARK [2][-]{subsection.10.5}{List slices}{section.10}
-\BOOKMARK [2][-]{subsection.10.6}{List methods}{section.10}
-\BOOKMARK [2][-]{subsection.10.7}{Map, filter, and reduce}{section.10}
-\BOOKMARK [2][-]{subsection.10.8}{Deleting elements}{section.10}
-\BOOKMARK [2][-]{subsection.10.9}{Lists and strings}{section.10}
-\BOOKMARK [2][-]{subsection.10.10}{Objects and values}{section.10}
-\BOOKMARK [2][-]{subsection.10.11}{Aliasing}{section.10}
-\BOOKMARK [2][-]{subsection.10.12}{List arguments}{section.10}
-\BOOKMARK [2][-]{subsection.10.13}{Debugging}{section.10}
-\BOOKMARK [1][-]{section.11}{Dictionaries}{}
-\BOOKMARK [1][-]{section.12}{Tuples}{}
-\BOOKMARK [2][-]{subsection.12.1}{Tuples are immutable}{section.12}
-\BOOKMARK [2][-]{subsection.12.2}{Tuple assignment}{section.12}
-\BOOKMARK [2][-]{subsection.12.3}{Tuples as return values}{section.12}
-\BOOKMARK [2][-]{subsection.12.4}{Variable-length argument tuples}{section.12}
-\BOOKMARK [2][-]{subsection.12.5}{Lists and tuples}{section.12}
-\BOOKMARK [2][-]{subsection.12.6}{Dictionaries and tuples}{section.12}
-\BOOKMARK [2][-]{subsection.12.7}{Comparing tuples}{section.12}
-\BOOKMARK [2][-]{subsection.12.8}{Sequences of sequences}{section.12}
-\BOOKMARK [2][-]{subsection.12.9}{Debugging}{section.12}
-\BOOKMARK [1][-]{section.13}{Case study: data structure selection}{}
-\BOOKMARK [1][-]{section.14}{Files}{}
-\BOOKMARK [2][-]{subsection.14.1}{Persistence}{section.14}
-\BOOKMARK [2][-]{subsection.14.2}{Reading and writing}{section.14}
-\BOOKMARK [2][-]{subsection.14.3}{Format operator}{section.14}
-\BOOKMARK [2][-]{subsection.14.4}{Filenames and paths}{section.14}
-\BOOKMARK [2][-]{subsection.14.5}{Catching exceptions}{section.14}
-\BOOKMARK [2][-]{subsection.14.6}{Databases}{section.14}
-\BOOKMARK [2][-]{subsection.14.7}{Pickling}{section.14}
-\BOOKMARK [2][-]{subsection.14.8}{Pipes}{section.14}
-\BOOKMARK [2][-]{subsection.14.9}{Writing modules}{section.14}
-\BOOKMARK [2][-]{subsection.14.10}{Debugging}{section.14}
-\BOOKMARK [1][-]{section.15}{Classes and objects}{}
-\BOOKMARK [2][-]{subsection.15.1}{User-defined types}{section.15}
-\BOOKMARK [2][-]{subsection.15.2}{Attributes}{section.15}
-\BOOKMARK [2][-]{subsection.15.3}{Rectangles}{section.15}
-\BOOKMARK [2][-]{subsection.15.4}{Instances as return values}{section.15}
-\BOOKMARK [2][-]{subsection.15.5}{Objects are mutable}{section.15}
-\BOOKMARK [2][-]{subsection.15.6}{Copying}{section.15}
-\BOOKMARK [2][-]{subsection.15.7}{Debugging}{section.15}
-\BOOKMARK [1][-]{section.16}{Classes and functions}{}
-\BOOKMARK [2][-]{subsection.16.1}{Time}{section.16}
-\BOOKMARK [2][-]{subsection.16.2}{Pure functions}{section.16}
-\BOOKMARK [2][-]{subsection.16.3}{Modifiers}{section.16}
-\BOOKMARK [2][-]{subsection.16.4}{Prototyping versus planning}{section.16}
-\BOOKMARK [2][-]{subsection.16.5}{Debugging}{section.16}
-\BOOKMARK [1][-]{section.17}{Classes and methods}{}
-\BOOKMARK [1][-]{section.18}{Inheritance}{}
-\BOOKMARK [1][-]{section.19}{Case study: Tkinter}{}
-\BOOKMARK [1][-]{section.20}{Debugging}{}
-\BOOKMARK [1][-]{section.21}{Analysis of Algorithms}{}
-\BOOKMARK [1][-]{section.22}{Lumpy}{}
-\BOOKMARK [1][-]{section.23}{Plotting}{}
-\BOOKMARK [1][-]{section*.2}{Glossary}{}
-\BOOKMARK [1][-]{section.24}{Quick reference}{}
-\BOOKMARK [2][-]{section*.3}{Execution}{section.24}
-\BOOKMARK [2][-]{section*.4}{Debugging}{section.24}
-\BOOKMARK [2][-]{section*.5}{Strings}{section.24}
-\BOOKMARK [2][-]{section*.6}{Mathematical operators}{section.24}
-\BOOKMARK [2][-]{section*.7}{bitwise operators}{section.24}
-\BOOKMARK [2][-]{section*.8}{logical operators}{section.24}
-\BOOKMARK [3][-]{section*.9}{relational}{section*.8}
-\BOOKMARK [3][-]{section*.10}{boolean}{section*.8}
-\BOOKMARK [2][-]{section*.11}{conditionals}{section.24}
-\BOOKMARK [2][-]{section*.12}{Looping}{section.24}
-\BOOKMARK [2][-]{section*.13}{I/O}{section.24}
-\BOOKMARK [2][-]{section*.14}{Type changes}{section.24}
-\BOOKMARK [2][-]{section*.15}{Math}{section.24}
-\BOOKMARK [2][-]{section*.16}{Lists}{section.24}
-\BOOKMARK [2][-]{section*.17}{numpy arrays}{section.24}
-\BOOKMARK [2][-]{section*.18}{Functions}{section.24}
-\BOOKMARK [2][-]{section*.19}{FITS files}{section.24}
-\BOOKMARK [2][-]{section*.20}{Dynamic memory allocation}{section.24}
-\BOOKMARK [2][-]{section*.21}{Classes}{section.24}
-\BOOKMARK [2][-]{section*.22}{Plotting}{section.24}
-\BOOKMARK [3][-]{section*.23}{Adjust space between and around plots}{section*.22}
-\BOOKMARK [3][-]{section*.24}{Individual axes}{section*.22}
-\BOOKMARK [3][-]{section*.25}{Colorbar}{section*.22}
-\BOOKMARK [3][-]{section*.26}{Put two plots on the same axes}{section*.22}
-\BOOKMARK [3][-]{section*.27}{Imaging}{section*.22}
-\BOOKMARK [3][-]{section*.28}{Legend}{section*.22}
-\BOOKMARK [3][-]{section*.29}{Misc}{section*.22}
+\BOOKMARK [1][-]{section.1}{The way of the program}{}% 1
+\BOOKMARK [1][-]{section.2}{Variables, expressions, and statements}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Values and types}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Variables}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Variable names and keywords}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.4}{Operators and operands}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.5}{Expressions and statements}{section.2}% 7
+\BOOKMARK [2][-]{subsection.2.6}{Interactive mode and script mode}{section.2}% 8
+\BOOKMARK [2][-]{subsection.2.7}{Order of operations}{section.2}% 9
+\BOOKMARK [2][-]{subsection.2.8}{String operations}{section.2}% 10
+\BOOKMARK [2][-]{subsection.2.9}{Comments}{section.2}% 11
+\BOOKMARK [2][-]{subsection.2.10}{Debugging}{section.2}% 12
+\BOOKMARK [1][-]{section.3}{Functions}{}% 13
+\BOOKMARK [2][-]{subsection.3.1}{Function calls}{section.3}% 14
+\BOOKMARK [2][-]{subsection.3.2}{Type conversion functions}{section.3}% 15
+\BOOKMARK [2][-]{subsection.3.3}{Math functions}{section.3}% 16
+\BOOKMARK [2][-]{subsection.3.4}{Composition}{section.3}% 17
+\BOOKMARK [2][-]{subsection.3.5}{Adding new functions}{section.3}% 18
+\BOOKMARK [2][-]{subsection.3.6}{Definitions and uses}{section.3}% 19
+\BOOKMARK [2][-]{subsection.3.7}{Flow of execution}{section.3}% 20
+\BOOKMARK [2][-]{subsection.3.8}{Parameters and arguments}{section.3}% 21
+\BOOKMARK [2][-]{subsection.3.9}{Variables and parameters are local}{section.3}% 22
+\BOOKMARK [2][-]{subsection.3.10}{Stack diagrams}{section.3}% 23
+\BOOKMARK [2][-]{subsection.3.11}{Fruitful functions and void functions}{section.3}% 24
+\BOOKMARK [2][-]{subsection.3.12}{Why functions?}{section.3}% 25
+\BOOKMARK [2][-]{subsection.3.13}{Importing with from}{section.3}% 26
+\BOOKMARK [2][-]{subsection.3.14}{Debugging}{section.3}% 27
+\BOOKMARK [1][-]{section.4}{Case study: interface design}{}% 28
+\BOOKMARK [2][-]{subsection.4.1}{TurtleWorld}{section.4}% 29
+\BOOKMARK [2][-]{subsection.4.2}{Simple repetition}{section.4}% 30
+\BOOKMARK [2][-]{subsection.4.3}{Exercises}{section.4}% 31
+\BOOKMARK [2][-]{subsection.4.4}{Encapsulation}{section.4}% 32
+\BOOKMARK [2][-]{subsection.4.5}{Generalization}{section.4}% 33
+\BOOKMARK [2][-]{subsection.4.6}{Interface design}{section.4}% 34
+\BOOKMARK [2][-]{subsection.4.7}{Refactoring}{section.4}% 35
+\BOOKMARK [2][-]{subsection.4.8}{A development plan}{section.4}% 36
+\BOOKMARK [2][-]{subsection.4.9}{docstring}{section.4}% 37
+\BOOKMARK [2][-]{subsection.4.10}{Debugging}{section.4}% 38
+\BOOKMARK [1][-]{section.5}{Conditionals and recursion}{}% 39
+\BOOKMARK [2][-]{subsection.5.1}{Modulus operator}{section.5}% 40
+\BOOKMARK [2][-]{subsection.5.2}{Boolean expressions}{section.5}% 41
+\BOOKMARK [2][-]{subsection.5.3}{Logical operators}{section.5}% 42
+\BOOKMARK [2][-]{subsection.5.4}{Conditional execution}{section.5}% 43
+\BOOKMARK [2][-]{subsection.5.5}{Alternative execution}{section.5}% 44
+\BOOKMARK [2][-]{subsection.5.6}{Chained conditionals}{section.5}% 45
+\BOOKMARK [2][-]{subsection.5.7}{Nested conditionals}{section.5}% 46
+\BOOKMARK [2][-]{subsection.5.8}{Recursion}{section.5}% 47
+\BOOKMARK [2][-]{subsection.5.9}{Stack diagrams}{section.5}% 48
+\BOOKMARK [2][-]{subsection.5.10}{Infinite recursion}{section.5}% 49
+\BOOKMARK [2][-]{subsection.5.11}{Keyboard input}{section.5}% 50
+\BOOKMARK [2][-]{subsection.5.12}{Debugging}{section.5}% 51
+\BOOKMARK [1][-]{section.6}{Fruitful functions}{}% 52
+\BOOKMARK [1][-]{section.7}{Iteration}{}% 53
+\BOOKMARK [2][-]{subsection.7.1}{Multiple assignment}{section.7}% 54
+\BOOKMARK [2][-]{subsection.7.2}{Updating variables}{section.7}% 55
+\BOOKMARK [2][-]{subsection.7.3}{The while statement}{section.7}% 56
+\BOOKMARK [2][-]{subsection.7.4}{break}{section.7}% 57
+\BOOKMARK [2][-]{subsection.7.5}{Square roots}{section.7}% 58
+\BOOKMARK [2][-]{subsection.7.6}{Algorithms}{section.7}% 59
+\BOOKMARK [2][-]{subsection.7.7}{Debugging}{section.7}% 60
+\BOOKMARK [1][-]{section.8}{Strings}{}% 61
+\BOOKMARK [2][-]{subsection.8.1}{A string is a sequence}{section.8}% 62
+\BOOKMARK [2][-]{subsection.8.2}{len}{section.8}% 63
+\BOOKMARK [2][-]{subsection.8.3}{Traversal with a for loop}{section.8}% 64
+\BOOKMARK [2][-]{subsection.8.4}{String slices}{section.8}% 65
+\BOOKMARK [2][-]{subsection.8.5}{Strings are immutable}{section.8}% 66
+\BOOKMARK [2][-]{subsection.8.6}{Searching}{section.8}% 67
+\BOOKMARK [2][-]{subsection.8.7}{Looping and counting}{section.8}% 68
+\BOOKMARK [2][-]{subsection.8.8}{String methods}{section.8}% 69
+\BOOKMARK [2][-]{subsection.8.9}{The in operator}{section.8}% 70
+\BOOKMARK [2][-]{subsection.8.10}{String comparison}{section.8}% 71
+\BOOKMARK [2][-]{subsection.8.11}{Debugging}{section.8}% 72
+\BOOKMARK [1][-]{section.9}{Case study: word play}{}% 73
+\BOOKMARK [1][-]{section.10}{Lists}{}% 74
+\BOOKMARK [2][-]{subsection.10.1}{A list is a sequence}{section.10}% 75
+\BOOKMARK [2][-]{subsection.10.2}{Lists are mutable}{section.10}% 76
+\BOOKMARK [2][-]{subsection.10.3}{Traversing a list}{section.10}% 77
+\BOOKMARK [2][-]{subsection.10.4}{List operations}{section.10}% 78
+\BOOKMARK [2][-]{subsection.10.5}{List slices}{section.10}% 79
+\BOOKMARK [2][-]{subsection.10.6}{List methods}{section.10}% 80
+\BOOKMARK [2][-]{subsection.10.7}{Map, filter, and reduce}{section.10}% 81
+\BOOKMARK [2][-]{subsection.10.8}{Deleting elements}{section.10}% 82
+\BOOKMARK [2][-]{subsection.10.9}{Lists and strings}{section.10}% 83
+\BOOKMARK [2][-]{subsection.10.10}{Objects and values}{section.10}% 84
+\BOOKMARK [2][-]{subsection.10.11}{Aliasing}{section.10}% 85
+\BOOKMARK [2][-]{subsection.10.12}{List arguments}{section.10}% 86
+\BOOKMARK [2][-]{subsection.10.13}{Debugging}{section.10}% 87
+\BOOKMARK [1][-]{section.11}{Dictionaries}{}% 88
+\BOOKMARK [1][-]{section.12}{Tuples}{}% 89
+\BOOKMARK [2][-]{subsection.12.1}{Tuples are immutable}{section.12}% 90
+\BOOKMARK [2][-]{subsection.12.2}{Tuple assignment}{section.12}% 91
+\BOOKMARK [2][-]{subsection.12.3}{Tuples as return values}{section.12}% 92
+\BOOKMARK [2][-]{subsection.12.4}{Variable-length argument tuples}{section.12}% 93
+\BOOKMARK [2][-]{subsection.12.5}{Lists and tuples}{section.12}% 94
+\BOOKMARK [2][-]{subsection.12.6}{Dictionaries and tuples}{section.12}% 95
+\BOOKMARK [2][-]{subsection.12.7}{Comparing tuples}{section.12}% 96
+\BOOKMARK [2][-]{subsection.12.8}{Sequences of sequences}{section.12}% 97
+\BOOKMARK [2][-]{subsection.12.9}{Debugging}{section.12}% 98
+\BOOKMARK [1][-]{section.13}{Case study: data structure selection}{}% 99
+\BOOKMARK [1][-]{section.14}{Files}{}% 100
+\BOOKMARK [2][-]{subsection.14.1}{Persistence}{section.14}% 101
+\BOOKMARK [2][-]{subsection.14.2}{Reading and writing}{section.14}% 102
+\BOOKMARK [2][-]{subsection.14.3}{Format operator}{section.14}% 103
+\BOOKMARK [2][-]{subsection.14.4}{Filenames and paths}{section.14}% 104
+\BOOKMARK [2][-]{subsection.14.5}{Catching exceptions}{section.14}% 105
+\BOOKMARK [2][-]{subsection.14.6}{Databases}{section.14}% 106
+\BOOKMARK [2][-]{subsection.14.7}{Pickling}{section.14}% 107
+\BOOKMARK [2][-]{subsection.14.8}{Pipes}{section.14}% 108
+\BOOKMARK [2][-]{subsection.14.9}{Writing modules}{section.14}% 109
+\BOOKMARK [2][-]{subsection.14.10}{Debugging}{section.14}% 110
+\BOOKMARK [1][-]{section.15}{Classes and objects}{}% 111
+\BOOKMARK [2][-]{subsection.15.1}{User-defined types}{section.15}% 112
+\BOOKMARK [2][-]{subsection.15.2}{Attributes}{section.15}% 113
+\BOOKMARK [2][-]{subsection.15.3}{Rectangles}{section.15}% 114
+\BOOKMARK [2][-]{subsection.15.4}{Instances as return values}{section.15}% 115
+\BOOKMARK [2][-]{subsection.15.5}{Objects are mutable}{section.15}% 116
+\BOOKMARK [2][-]{subsection.15.6}{Copying}{section.15}% 117
+\BOOKMARK [2][-]{subsection.15.7}{Debugging}{section.15}% 118
+\BOOKMARK [1][-]{section.16}{Classes and functions}{}% 119
+\BOOKMARK [2][-]{subsection.16.1}{Time}{section.16}% 120
+\BOOKMARK [2][-]{subsection.16.2}{Pure functions}{section.16}% 121
+\BOOKMARK [2][-]{subsection.16.3}{Modifiers}{section.16}% 122
+\BOOKMARK [2][-]{subsection.16.4}{Prototyping versus planning}{section.16}% 123
+\BOOKMARK [2][-]{subsection.16.5}{Debugging}{section.16}% 124
+\BOOKMARK [1][-]{section.17}{Classes and methods}{}% 125
+\BOOKMARK [1][-]{section.18}{Inheritance}{}% 126
+\BOOKMARK [1][-]{section.19}{Case study: Tkinter}{}% 127
+\BOOKMARK [1][-]{section.20}{Debugging}{}% 128
+\BOOKMARK [1][-]{section.21}{Analysis of Algorithms}{}% 129
+\BOOKMARK [1][-]{section.22}{Lumpy}{}% 130
+\BOOKMARK [1][-]{section.23}{Plotting}{}% 131
+\BOOKMARK [1][-]{section*.2}{Glossary}{}% 132
+\BOOKMARK [1][-]{section.24}{Quick reference}{}% 133
+\BOOKMARK [2][-]{section*.3}{Execution}{section.24}% 134
+\BOOKMARK [2][-]{section*.4}{Debugging}{section.24}% 135
+\BOOKMARK [2][-]{section*.5}{Modules}{section.24}% 136
+\BOOKMARK [2][-]{section*.6}{Strings}{section.24}% 137
+\BOOKMARK [2][-]{section*.7}{Operators}{section.24}% 138
+\BOOKMARK [3][-]{section*.8}{Mathematical}{section*.7}% 139
+\BOOKMARK [3][-]{section*.9}{Relational}{section*.7}% 140
+\BOOKMARK [3][-]{section*.10}{Boolean}{section*.7}% 141
+\BOOKMARK [2][-]{section*.11}{conditionals}{section.24}% 142
+\BOOKMARK [2][-]{section*.12}{Looping}{section.24}% 143
+\BOOKMARK [2][-]{section*.13}{I/O}{section.24}% 144
+\BOOKMARK [2][-]{section*.14}{Type changes}{section.24}% 145
+\BOOKMARK [2][-]{section*.15}{Math}{section.24}% 146
+\BOOKMARK [2][-]{section*.16}{Lists}{section.24}% 147
+\BOOKMARK [2][-]{section*.17}{numpy arrays}{section.24}% 148
+\BOOKMARK [2][-]{section*.18}{Functions}{section.24}% 149
+\BOOKMARK [2][-]{section*.19}{FITS files}{section.24}% 150
+\BOOKMARK [2][-]{section*.20}{Dynamic memory allocation}{section.24}% 151
+\BOOKMARK [2][-]{section*.21}{Classes}{section.24}% 152
+\BOOKMARK [2][-]{section*.22}{Plotting}{section.24}% 153
+\BOOKMARK [3][-]{section*.23}{Adjust space between and around plots}{section*.22}% 154
+\BOOKMARK [3][-]{section*.24}{Individual axes}{section*.22}% 155
+\BOOKMARK [3][-]{section*.25}{Scatter plots}{section*.22}% 156
+\BOOKMARK [3][-]{section*.26}{Colorbar}{section*.22}% 157
+\BOOKMARK [3][-]{section*.27}{Put two plots on the same axes}{section*.22}% 158
+\BOOKMARK [3][-]{section*.28}{Imaging}{section*.22}% 159
+\BOOKMARK [3][-]{section*.29}{Legend}{section*.22}% 160
+\BOOKMARK [3][-]{section*.30}{Misc}{section*.22}% 161
