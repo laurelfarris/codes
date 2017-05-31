@@ -27,7 +27,7 @@
 \contentsline {section}{\numberline {12}Lists}{13}{section.12}
 \contentsline {paragraph}{Horizontal spacing}{13}{paragraph*.1}
 \contentsline {paragraph}{Vertical spacing}{14}{paragraph*.2}
-\contentsline {subsection}{\numberline {12.1}itemize}{15}{subsection.12.1}
+\contentsline {subsection}{\numberline {12.1}itemize}{14}{subsection.12.1}
 \contentsline {subsection}{\numberline {12.2}enumerate}{15}{subsection.12.2}
 \contentsline {subsection}{\numberline {12.3}description}{15}{subsection.12.3}
 \contentsline {subsection}{\numberline {12.4}list}{15}{subsection.12.4}
@@ -54,7 +54,7 @@
 \contentsline {subsection}{\numberline {26.1}Inside text}{21}{subsection.26.1}
 \contentsline {subsection}{\numberline {26.2}Equations}{21}{subsection.26.2}
 \contentsline {subsubsection}{\numberline {26.2.1}Numbered equations}{21}{subsubsection.26.2.1}
-\contentsline {subsubsection}{\numberline {26.2.2}Equations without numbering}{22}{subsubsection.26.2.2}
+\contentsline {subsubsection}{\numberline {26.2.2}Equations without numbering}{21}{subsubsection.26.2.2}
 \contentsline {subsubsection}{\numberline {26.2.3}Aligning equations}{22}{subsubsection.26.2.3}
 \contentsline {subsection}{\numberline {26.3}Size of brackets, parentheses, etc.}{23}{subsection.26.3}
 \contentsline {subsection}{\numberline {26.4}Arrays}{23}{subsection.26.4}
