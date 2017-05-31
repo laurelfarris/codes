@@ -188,7 +188,8 @@
 \setbeamercolor{enumerate item}{fg=color}
 \setbeamercolor{enumerate subitem}{fg=color}
 \end{verbatim}
-\end{frame}%-------------------------------------------------------------%
+\end{frame}
+
 
 \begin{frame}[fragile=singleslide]{Blocks}
     \begin{verbatim}
@@ -196,11 +197,12 @@
     \begin{block}{\centering block_title}
     ...
     \end{block}
-    \begin{block}{} % Need empty braces if no title is desired
+    \begin{block}{}  % Empty braces are required if no title is desired
     ...
     \end{block}
     \end{verbatim}
 \end{frame}
+
 
 \begin{frame}[fragile=singleslide]{Text blocks}
 \begin{verbatim}
@@ -209,7 +211,7 @@
 \setlength{\TPVertModule}{<dimen>}
 \end{verbatim}
 <dimen> is typically 1 cm.
-\end{frame}%-------------------------------------------------------------%
+\end{frame}
 
 \begin{frame}[fragile=singleslide]{Columns}
     \begin{verbatim}
@@ -218,7 +220,8 @@
         \column{0.5\textwidth}
     \end{columns}
     \end{verbatim}
-\end{frame}%-------------------------------------------------------------%
+\end{frame}
+
 
 \begin{frame}[fragile=singleslide]{labelling frame numbers}
     \begin{verbatim}
@@ -229,7 +232,8 @@
 ...
 \begin{document}
     \end{verbatim}
-\end{frame}%-------------------------------------------------------------%
+\end{frame}
+
 
 \begin{frame}[fragile=singleslide]{Graphics}
     \verb|\DeclareGraphicsExtensions{.pdf,.png,.jpg}|\\
@@ -237,19 +241,31 @@
     graphics. Compilers will automatically look for images with these
     extensions.
 
+    Set global path for graphics in preamble:
+    \begin{verbatim}
+    \graphicspath{{$HOME/path/to/figs/}}
+    \end{verbatim}
+
     Image on title slide background:
     \begin{verbatim}
-{\usebackgroundtemplate{\includegraphics[width=\paperwidth]
-    {awesome.jpg}}
-\begin{frame}
-    \titlepage{}
-\end{frame}}
+    {\usebackgroundtemplate{\includegraphics[width=\paperwidth]
+        {awesome.jpg}}
+    \begin{frame}
+        \titlepage{}
+    \end{frame}}
     \end{verbatim}
+
     Put nice little frame around graphic.
     \begin{verbatim}
     \framebox{\includegraphics[width=1.5in]{kink_saus.png}}
     \end{verbatim}
+
+    Speed up processing time by using a simple placeholder for figures
+    \begin{verbatim}
+    \includegraphics[draft=true]{example.png}
+    \end{verbatim}
 \end{frame}
+
 
 \begin{frame}[fragile=singleslide]{}
     Let big graphic take up more of frame.

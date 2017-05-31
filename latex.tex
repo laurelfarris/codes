@@ -2,7 +2,6 @@
 %blah
 \usepackage[margin=1.0in]{geometry}
 %\renewcommand\familydefault{\sfdefault}
-%\usepackage[left=1in, right=1in, top=1in, bottom=1in]{geometry}
 \setlength{\parindent}{0em} % default is 15 pt.
 \setlength{\parskip}{0.75ex}
 % \setlength{\headsep}{0pt}
@@ -72,7 +71,7 @@
 %\titlespacing*{\section}{-0.5in}{0ex}{0ex}
 %\titlespacing*{\subsection}{0pt}{0.5ex}{-10ex}
 
-% Section references
+% Section references/labels
 %\renewcommand{\thesection}{}
 %\renewcommand{\thesubsection}{\arabic{subsection}}
 %\renewcommand{\thesubsubsection}{\arabic{subsubsection}}
@@ -82,7 +81,7 @@
 
 % Lists
 \setlist[itemize]{%
-    itemsep=-1ex}
+    noitemsep}
 \setlist[description]{%
     itemsep=0ex,
     align=right,
@@ -136,6 +135,7 @@
   %title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
     }
 
+% Table of contents
 \usepackage{setspace} % spacing between toc items
 %\usepackage[toc]{multitoc}
 %\renewcommand*{\multicolumntoc}{2}
@@ -145,7 +145,7 @@
 \definecolor{darkpowderblue}{rgb}{0.0, 0.2, 0.6}
 \hypersetup{colorlinks=true,
     urlcolor=darkpowderblue,
-    linkcolor=black % This may be what links the contents in the first place!
+    linkcolor=black
 }
 \urlstyle{same}
 
@@ -170,9 +170,6 @@ Check \texttt{filename.log} for version of packages used. May need to add
 
 \section{unsorted}
 \begin{lstlisting}
-    \usepackage{geometry}
-    \geometry{textwidth=7cm}
-
     \usepackage{amsmath, amsfonts}
     $ a\:\text{and}\:b_\in_\mathbb{N}$
 
@@ -183,10 +180,10 @@ Check \texttt{filename.log} for version of packages used. May need to add
 
 
 \section{Types of documents}
-\begin{verbatim}
+\begin{lstlisting}
 \documentclass{article}
 \documentclass[twoside]{article}  % two-sided document (affects page-numbers)
-\end{verbatim}
+\end{lstlisting}
 
 \section{Units}
 \begin{description}[itemsep=-1ex]
@@ -212,25 +209,35 @@ Check \texttt{filename.log} for version of packages used. May need to add
 \addtolength{\textheight}{1.75in}
 \end{lstlisting}
 \end{enumerate}
-A better way (both do the same thing;
-can customize the second a little more):
-\begin{itemize}
-    \item \verb|\usepackage{fullpage}|
-    \item \verb|\usepackage[margin=1in]{geometry}|
-\end{itemize}
 
 \begin{lstlisting}
-\geometry{paperwidth=140mm, paperheight=105mm}
+\usepackage{fullpage}
 \end{lstlisting}
 
+Best: use the \verb|geometry| package:
+\begin{lstlisting}
+\usepackage[margin=1in]{geometry}
+\usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
+
+\geometry{textwidth=7cm}
+\geometry{paperwidth=140mm, paperheight=105mm}
+
+\newgeometry{left=3cm,bottom=0.1cm}
+\end{lstlisting}
+
+
+Change margins in text:
 \begin{lstlisting}
 \usepackage{changepage}
 \begin{document}
+    ...
 \begin{adjustwidth}{<left>}{<right>}
     ...
 \end{adjustwidth}
 \end{lstlisting}
 
+Custom environment to change margins in only a portion of text;
+it will indent the left and right margins by the values given.
 \begin{lstlisting}
 \newenvironment{changemargin}[2]{%
  \begin{list}{}{%
@@ -243,7 +250,6 @@ can customize the second a little more):
  }%
 \item[]}{\end{list}}
 \end{lstlisting}
-This environment will indent the left and right margins by the values given.
 
 \textcolor{red}{Leave sections and headers alone, and reduce the margins of
 regular text? Increase subsection margins halfway.}
@@ -481,7 +487,7 @@ or
 
 \subsubsection{Textblock}
 \begin{minipage}[t]{0.5\textwidth}
-\begin{verbatim}
+\begin{lstlisting}
 \textbf{bold}
 \textit{italics, for quotes or titles}
 \texttt{computer style}
@@ -490,7 +496,8 @@ or
 \textsc{Small caps}
 \emph{This text is also in italics, for emphasis}
 \underline{This text is underlined}
-\end{verbatim}
+\sout{This text is crossed out}  % with \usepackage{ulem}
+\end{lstlisting}
 \end{minipage}
 \begin{minipage}[t]{0.5\textwidth}
 \textbf{bold}\\
@@ -501,6 +508,7 @@ or
 \textsc{Small caps}\\
 \emph{This text is also in italics, for emphasis}\\
 \underline{This text is underlined}
+\sout{This text is crossed out}
 \end{minipage}
 
 \newpage
@@ -642,6 +650,7 @@ Obviously won't have anything to refer to if the sections aren't numbered.
 
 \verb|\tableofcontents| wherever you want it to go.
 You will have to run \texttt{pdflatex} twice.
+The \verb|hyperref| package is required to make clickable links in toc.
 It appears that creating a toc puts headers on all pages, which may
 not be desired. See \S{}\ref{headfoot} for getting rid of them.
 
@@ -700,7 +709,7 @@ Two columns:
 \end{lstlisting}
 \end{samepage}
 
-%---------------------------------------------------------------------------%
+
 \section{Lists}
 \begin{itemize}
     \item \url{ftp://ftp.nsu.ru/mirrors/ftp.dante.de/tex-archive/macros/latex/contrib/enumitem/enumitem.pdf}
@@ -870,6 +879,7 @@ By default, description labels start a distance equal to
 causes them to line up with the left edge of the text instead.
 
 \begin{lstlisting}
+align=right
 leftmargin=*        % Align with main text... value affects text after the first line
 font=\normalfont    % Not bold, which is the default
 style=nextline      % Description starts on the next line
@@ -993,11 +1003,11 @@ text to go in box}
 \end{lstlisting}
 
 Simpler:
-\begin{verbatim}
+\begin{lstlisting}
 \usepackage{framed}
 ...
 \begin{framed}...\end{framed}
-\end{verbatim}
+\end{lstlisting}
 
 
 
@@ -1048,22 +1058,26 @@ Use minipages:
 
 Use multicol package
 \begin{lstlisting}
+\usepackage{multicol}
+...
+\begin{documnet}
+...
 \begin{multicols}{2}    % Start 2-columns
 \begin{multicols*}{2}   % No forcing cols to equal heights
 \raggedcolumns          % No forcing cols to fill vertical space
 
-    [
-        \section{First section}
-        Text that is not confined to declared columns. Not sure why you wouldn't
-        just put this before starting the columns, but whatev.
-    ]
+[
+    \section{First section}
+    Text that is not confined to declared columns. Not sure why you wouldn't
+    just put this before starting the columns, but whatev.
+]
 
 \vfill                  % No forcing cols to fill vertical space (not working)
 \columnbreak            % Start at top of next column
-\end{lstlisting}
 
-\verb|\addtolength{\columnsep}{5mm}| add space between columns.
-Verbatim text will continue into second column.
+\addtolength{\columnsep}{5mm}  %  add space between columns
+\setlength{\columnseprule}{0.4pt}  % set thickness of line between columns
+\end{lstlisting}
 
 \begin{samepage}
 \section{Symbols}
@@ -1088,8 +1102,15 @@ $\textrm{some\ text}$    %   Roman style (removes italics),
 
 \section{Lines}
 \begin{lstlisting}
-\line(x-slope, y-slope){length}
+
+\hline % forces a break between paragraphs
+\rule{length}{thickness} % Doesn't force break between paragraphs
+\line(x-slope, y-slope){length}  % Syntax
+\line(1,0){450}  % Example of hor. line... can't find anything that explains the units of 'length' :(
+\dotfill
+\hrulefill
 \end{lstlisting}
+
 
 
 \section{Writing code into a Latex document}
@@ -1192,6 +1213,8 @@ placement specifiers: \verb|[htbp!]| `here', `top', `bottom',$\ldots$
 
 \section{Tables}
 \begin{verbatim}
+\renewcommand{\arraystretch}{2}  % Apply doubling spacing between table rows, if desired
+\setlength{\tabcolsep}{12pt}  % Add space between columns
 \begin{table}[h]
 \caption{Values for polytropic index $n$ = 4.5}
 \centering
