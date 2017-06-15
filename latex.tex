@@ -1,7 +1,9 @@
 \documentclass{article}
-
 \usepackage[margin=1.0in]{geometry}
+
 \setlength{\parindent}{0em} % default is 15 pt.
+% \noindent   .... difference?
+
 \setlength{\parskip}{0.75ex}
 % \setlength{\headsep}{0pt}
 % \setlength{\topskip}{0pt}
@@ -9,8 +11,9 @@
 % \setlength{\topsep}{0pt}
 % \setlength{\partopsep}{0pt}
 
+\usepackageframed}
 \usepackage{graphicx}
-\usepackage{tcolorbox}
+%\usepackage{tcolorbox}
 \usepackage{lipsum}
 \usepackage{enumitem}
 \usepackage{amsmath}
@@ -50,7 +53,7 @@
 \usepackage{titlesec}
 %\usepackage{sectsty}
 %\titleformat{<command>}
-%   [<shape>]{<format>}{<label>}{<sep>}{<before-code>}{<after-code>}
+%   [<shape>]{<format>}{<label>}{<sep>}{<before-code>}[<after-code>]
 \titleformat{\section}%
     [hang]
   {\LARGE\bfseries} %\filcenter
@@ -81,16 +84,16 @@
 
 
 % Lists
-\setlist[itemize]{%
-    noitemsep}
-\setlist[description]{%
-    itemsep=0ex,
-    align=right,
+%\setlist[itemize]{noitemsep}
+%\setlist[description]{%
+%    itemsep=0ex,
+%    align=right,
 %    labelindent=,
 %    labelwidth=,
 %    labelsep=,
 %    leftmargin=,
-}
+%}
+\setitemize{noitemsep}
 \renewcommand{\labelitemi}{$\vcenter{\hbox{\tiny$\bullet$}}$}
 %\renewcommand{\labelitemi}{{\tiny$\bullet$}}
 %   could just add this to \setlist[itemize]{label=...}
@@ -170,6 +173,10 @@ Check \texttt{filename.log} for version of packages used. May need to add
 
 
 \section{unsorted}
+
+\verb|\include| and \verb|\input|\ldots something to do with using several
+different files for one big document.
+
 \begin{lstlisting}
     \usepackage{amsmath, amsfonts}
     $ a\:\text{and}\:b_\in_\mathbb{N}$
@@ -179,6 +186,11 @@ Check \texttt{filename.log} for version of packages used. May need to add
     a\:\text{and}\:b_{\in_{\mathbb{N}}}
     \]
 
+
+\section{Drawing grids and diagrams}
+\begin{lstlisting}
+\usepackage[<options>]{tikz}
+\end{lstlisting}
 
 \section{Types of documents}
 \begin{lstlisting}
@@ -219,11 +231,15 @@ Best: use the \verb|geometry| package:
 \begin{lstlisting}
 \usepackage[margin=1in]{geometry}
 \usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
+\usepackage[textwidth=6.0in]{geometry}
+\usepackage[hmargin=1cm,vmargin=1cm]{geometry}
 
 \geometry{textwidth=7cm}
 \geometry{paperwidth=140mm, paperheight=105mm}
 
 \newgeometry{left=3cm,bottom=0.1cm}
+...
+\restoregeometry
 \end{lstlisting}
 
 
@@ -258,14 +274,18 @@ regular text? Increase subsection margins halfway.}
 Add notes to margins: can use marginnote (with package) or marginpar
 (no package needed). Not sure which is better yet.
 \begin{lstlisting}
+\marginpar{Text in margin}
+\end{lstlisting}
+Or for more flexibility:
+\begin{lstlisting}
 \usepackage{marginnote}
 \usepackage{showframe,marginnote}  % box around margins
 \setlength{\marginparwidth}{1in}
 
+% ??
 \renewcommand*{\raggedleftmarginnote}{}
 \renewcommand*{\raggedrightmarginnote}{\centering}
 
-\marginfont{}:  % Don't actually use this
 \renewcommand*{\marginfont}{\color{red}\sffamily}
 
 \begin{document}
@@ -275,7 +295,12 @@ Add notes to margins: can use marginnote (with package) or marginpar
 \marginnote{<left>} % aligned right
 \marginpar{<left>}  % aligned left
 \normalmarginpar  % switch back
+
+
+
+\schema[open|close]{body text}{margin text}
 \end{lstlisting}
+
 
 \section{Horizontal spacing and alignment}
 \begin{itemize}
@@ -332,6 +357,12 @@ Add notes to margins: can use marginnote (with package) or marginpar
 \end{itemize}
 \verb|[ctb]| Options like this will center at top, center, bottom, etc.
 Actually this usually doesn't work.
+
+Vertical space commands won't work if they're part of a horizontal line.
+E.g. \verb|\vfill| and \verb|\vspace| need a line break before, and there needs
+to physically be something on either end between which the space is placed.
+A \verb|\newpage| doesn't count. Use \verb|\null| if there is nothing, e.g.
+\verb| \newpage \null \vfill ... |
 
 \section{Breaking up text (or preventing it)}
 \begin{itemize}
@@ -543,7 +574,7 @@ Note that \verb|\paragraph{}| and \verb|\par| are not the same thing.
 \begin{lstlisting}
 \usepackage{titlesec}
 \titleformat{<command>}
-    [<shape>]{<format>}{<label>}{<sep>}{<before-code>}{<after-code>}
+    [<shape>]{<format>}{<label>}{<sep>}{<before-code>}[<after-code>]
 \end{lstlisting}
 
 Shape:
@@ -588,6 +619,9 @@ Examples:
   {}
   {0.5em}{}
 \end{lstlisting}
+\verb|\par| can't be used to start a new line in \verb|titleformat|, but
+\verb|\\| and
+\verb|\newline| can.
 
 \subsection{Space around section titles}
 \begin{minipage}[t]{\textwidth}
@@ -616,8 +650,8 @@ Examples:
 \end{lstlisting}
 
 \subsection{Color}
-The \verb|sectsty| package overrides the \verb|titlesec| package, which can
-also be used to set section title colors. Probably better to use that one.
+The \verb|sectsty| package can be used to set color, but be aware that it will
+override the \verb|titlesec| package.
 \begin{lstlisting}
 \usepackage{sectsty}
 \sectionfont{\color{blue}}
@@ -835,6 +869,11 @@ Change bullet size/style. Not sure what the difference is between the two.
 \renewcommand{\labelitemi}{$\vcenter{\hbox{\tiny$\bullet$}}$}
 \renewcommand{\labelitemi}{{\tiny$\bullet$}}
 
+
+%  arabic --> numbers
+%  roman  --> roman numerals
+%  alph   --> letters
+
 \begin{itemize}[label={}]  % No label
 \end{lstlisting}
 
@@ -844,7 +883,14 @@ Change bullet size/style. Not sure what the difference is between the two.
 \setlist[enumerate,1]{label={(\arabic*)}}
 \setlist[enumerate,1]{label={(\roman*)}}
 
-\setenumerate[0]{label=(\Alph*)}  % Different package?
+\setenumerate[0]{label=(\Alph*)}
+
+
+\begin{enumerate}
+    \setcounter{enumi}{5} % Start at 5 instead of 1. This must be inside enumerate environment!
+    \item ...
+    \item ...
+\end{enumerate}
 \end{lstlisting}
 
 1.1, 1.2 $\rightarrow$ 1.2.1,1.2.2, etc
@@ -1029,7 +1075,32 @@ colorbox doesn't support line breaks\ldots
 \url{http://mirrors.ibiblio.org/CTAN/macros/latex/contrib/tcolorbox/tcolorbox.pdf}
 \begin{lstlisting}
 \usepackage{tcolorbox}
+\tcbset{
+    colback=color,
+    colbacktitle=color,
+    colframe=color,
+    coltitle=color,
+    fonttitle={\Large\bfseries,nobeforeafter,center title},
+    fontupper|fontupper=\fontsize{14pt}{16pt}\selectfont,
+    width=4cm,
+    height=8cm,
+    boxrule=3mm, % width of all four sides
+    toprule=3mm,
+    bottomrule=3mm,
+    leftrule=3mm,
+    rightrule=3mm,
+    arc=0mm, % Sharp corners
+    boxsep=1.0in, % space between box edges and text
+    sidebyside, % Divide left/right
+    halign=center,
+    valign=center,
+}
+...
+\begin{document}
+...
 \begin{tcolorbox}[<options>]
+    ...
+    \tcblower % divide box into two sections, upper and lower
     ...
 \end{tcolorbox}
 \end{lstlisting}
@@ -1041,14 +1112,12 @@ Example:
     My awesome color box.
 \end{tcolorbox}
 \end{lstlisting}
-\begin{tcolorbox}[colback=red!5!white,colframe=red!75!black,title=My nice heading]
-    My awesome color box.
-\end{tcolorbox}
 
 
-\section{Columns}
-Use minipages:
+\section{Minipage}
 \begin{lstlisting}
+\begin{minipage}[<vertical align>][<height>]{<width>}
+\raisebox{0pt}[<height>][<depth>]{...}
 \begin{minipage}[t]{0.2\textwidth}
     stuff
 \end{minipage}
@@ -1201,7 +1270,8 @@ in vi? E.g. a dark gray, but the enclosed text is lighter.}
 
 \section{Figures}
 \begin{verbatim}
-\usepackage{graphicx}
+\usepackage{graphicx}  % Not needed with Beamer?
+\graphicspath{{/path/to/graphics/}}
 ...
 \begin{figure}[h]
 \centering
@@ -1245,17 +1315,22 @@ lets you set the width of the cell so that long text will wrap nicely,
 plus allows the use of \verb|\newline| in the tabular environment, if needed.
 
 \section{Bibliographies}
-\begin{verbatim}
+Bibtex - entries are stored in a separate file, \verb|reffile.bib|, then
+imported into the main document. This file is formatted like
+\verb|@article{id,...}| (so not a aastex thing). Bibtex is NOT a package
+that needs to be loaded.
+\begin{lstlisting}
 \bibliographystyle{plain}
 \begin{document}
 ... \cite{id} ...
+\bibliographystyle{plain}  % This can go here or in the preamble
 \bibliography{reffile}
 \end{document}
-\end{verbatim}
+\end{lstlisting}
 
 
-
-\begin{verbatim}
+Natbib - this is a package.
+\begin{lstlisting}
 \usepackage{natbib}
 %% In text citations:
 \citet[p.~199]{label} % cite specific page
@@ -1264,7 +1339,10 @@ plus allows the use of \verb|\newline| in the tabular environment, if needed.
 
 \bibliographystyle{te} % te - one of many formatting styles; optional?
 \bibliography{research} % create list from research.bib
-\end{verbatim}
+\end{lstlisting}
+
+
+
 
 
 \section{Labels and cross-references}
@@ -1442,11 +1520,14 @@ $\underbrace{P(X \mid O)}_{p_1} \propto \overbrace{P(X)P(O \mid X)}^{p_2}$\\
 $\underbrace{P(X \mid O)}_{\text{This explains this part}}
 \propto \overbrace{P(X)P(O \mid X)}^{\text{And this explains the other part}}$
 \end{lstlisting}
-\begin{tcolorbox}
+
+%\begin{tcolorbox}  % Desktop doesn't like this
+\begin{framed}
 $\underbrace{P(X \mid O)}_{p_1} \propto \overbrace{P(X)P(O \mid X)}^{p_2}$\\
 $\underbrace{P(X \mid O)}_{\text{This explains this part}}
 \propto \overbrace{P(X)P(O \mid X)}^{\text{And this explains the other part}}$
-\end{tcolorbox}
+\end{framed}
+%\end{tcolorbox}  % Desktop doesn't like this
 
 
 \subsection{Operations}

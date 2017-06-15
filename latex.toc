@@ -7,7 +7,7 @@
 \contentsline {section}{\numberline {6}Vertical spacing and alignment}{6}{section.6}
 \contentsline {section}{\numberline {7}Breaking up text (or preventing it)}{6}{section.7}
 \contentsline {section}{\numberline {8}Headers and footers}{6}{section.8}
-\contentsline {subsection}{\numberline {8.1}Page numbers}{7}{subsection.8.1}
+\contentsline {subsection}{\numberline {8.1}Page numbers}{6}{subsection.8.1}
 \contentsline {subsection}{\numberline {8.2}Footnotes}{7}{subsection.8.2}
 \contentsline {section}{\numberline {9}Fonts}{8}{section.9}
 \contentsline {subsection}{\numberline {9.1}Font size}{8}{subsection.9.1}
@@ -27,17 +27,17 @@
 \contentsline {section}{\numberline {12}Lists}{13}{section.12}
 \contentsline {paragraph}{Horizontal spacing}{13}{paragraph*.1}
 \contentsline {paragraph}{Vertical spacing}{14}{paragraph*.2}
-\contentsline {subsection}{\numberline {12.1}itemize}{14}{subsection.12.1}
+\contentsline {subsection}{\numberline {12.1}itemize}{15}{subsection.12.1}
 \contentsline {subsection}{\numberline {12.2}enumerate}{15}{subsection.12.2}
 \contentsline {subsection}{\numberline {12.3}description}{15}{subsection.12.3}
 \contentsline {subsection}{\numberline {12.4}list}{15}{subsection.12.4}
-\contentsline {subsection}{\numberline {12.5}tasks}{15}{subsection.12.5}
+\contentsline {subsection}{\numberline {12.5}tasks}{16}{subsection.12.5}
 \contentsline {section}{\numberline {13}Color}{16}{section.13}
 \contentsline {subsection}{\numberline {13.1}Color background }{16}{subsection.13.1}
 \contentsline {subsection}{\numberline {13.2}Color text}{16}{subsection.13.2}
 \contentsline {subsection}{\numberline {13.3}Define your own colors}{16}{subsection.13.3}
 \contentsline {section}{\numberline {14}Hyperlinks}{16}{section.14}
-\contentsline {section}{\numberline {15}Putting text in a box}{16}{section.15}
+\contentsline {section}{\numberline {15}Putting text in a box}{17}{section.15}
 \contentsline {section}{\numberline {16}Columns}{17}{section.16}
 \contentsline {section}{\numberline {17}Symbols}{18}{section.17}
 \contentsline {section}{\numberline {18}Lines}{18}{section.18}
@@ -45,16 +45,16 @@
 \contentsline {section}{\numberline {20}New and renewed commands and environments}{19}{section.20}
 \contentsline {subsection}{\numberline {20.1}Commands}{19}{subsection.20.1}
 \contentsline {subsection}{\numberline {20.2}Environments}{19}{subsection.20.2}
-\contentsline {section}{\numberline {21}Verbatim}{19}{section.21}
+\contentsline {section}{\numberline {21}Verbatim}{20}{section.21}
 \contentsline {section}{\numberline {22}Figures}{20}{section.22}
 \contentsline {section}{\numberline {23}Tables}{20}{section.23}
-\contentsline {section}{\numberline {24}Bibliographies}{20}{section.24}
+\contentsline {section}{\numberline {24}Bibliographies}{21}{section.24}
 \contentsline {section}{\numberline {25}Labels and cross-references}{21}{section.25}
 \contentsline {section}{\numberline {26}Maths!}{21}{section.26}
 \contentsline {subsection}{\numberline {26.1}Inside text}{21}{subsection.26.1}
 \contentsline {subsection}{\numberline {26.2}Equations}{21}{subsection.26.2}
 \contentsline {subsubsection}{\numberline {26.2.1}Numbered equations}{21}{subsubsection.26.2.1}
-\contentsline {subsubsection}{\numberline {26.2.2}Equations without numbering}{21}{subsubsection.26.2.2}
+\contentsline {subsubsection}{\numberline {26.2.2}Equations without numbering}{22}{subsubsection.26.2.2}
 \contentsline {subsubsection}{\numberline {26.2.3}Aligning equations}{22}{subsubsection.26.2.3}
 \contentsline {subsection}{\numberline {26.3}Size of brackets, parentheses, etc.}{23}{subsection.26.3}
 \contentsline {subsection}{\numberline {26.4}Arrays}{23}{subsection.26.4}
