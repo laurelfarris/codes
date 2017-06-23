@@ -11,13 +11,20 @@
 % \setlength{\topsep}{0pt}
 % \setlength{\partopsep}{0pt}
 
-\usepackageframed}
+\usepackage{framed}
 \usepackage{graphicx}
+
+
 %\usepackage{tcolorbox}
 \usepackage{lipsum}
 \usepackage{enumitem}
 \usepackage{amsmath}
 \usepackage{xcolor}
+
+% Change color of text inside \verb|text|
+%\usepackage{newverbs}
+%\newverbcommand{\cverb}{\color{red}}{}
+
 \usepackage{ragged2e}
 
 \usepackage{ulem}  % \sout{text to cross out}
@@ -174,6 +181,19 @@ Check \texttt{filename.log} for version of packages used. May need to add
 
 \section{unsorted}
 
+Counters:
+\begin{lstlisting}
+\newcounter{paranum}
+\refstepcounter{paranum}\theparanum
+ % Before adding the 'refstepcounter{paranum} part, the counter started at 0
+ %  and didn't increment. Adding it started at 1, and did increment.
+
+\the<counter>  % In general...
+
+\setcounter{tocdepth}{4} % Levels to show in table of contents
+\setcounter{secnumdepth}{4} % Levels of sections to show numbers (4 --> paragraphs are numbered)
+\end{lstlisting}
+
 \verb|\include| and \verb|\input|\ldots something to do with using several
 different files for one big document.
 
@@ -186,16 +206,54 @@ different files for one big document.
     a\:\text{and}\:b_{\in_{\mathbb{N}}}
     \]
 
+\section{Background}
+
+\begin{lstlisting}
+\usepackage[<options>]{background}
+ % or
+\usepackage{background}
+\backgroundsetup{<options>}  % Can be used in body of document
+
+% Options:
+pages=all|some
+opacity=n  % 0 <= n <= 1
+color=
+contents=
+
+\BgThispage
+\NoBgThispage
+\end{lstlisting}
+
 
 \section{Drawing grids and diagrams}
 \begin{lstlisting}
 \usepackage[<options>]{tikz}
+...
+\begin{document}
+
+% Dimensions to use for entire pic [cm... where tikzpicture options define the units...?]
+\def\w{18}
+\def\h{18}
+
+\begin{tikzpicture}[x=1cm, y=1cm, semitransparent] % x,y units for grid coordinates below
+    \draw[step=1mm, line width=0.1mm, black!30!white] (0,0) grid (\w, \h);
+    % step - width of each box
+    % line width - thickness of lines
+    % (0,0) - relative to... ?
+
+    \node[draw] at (0,0) {text}  % align = left|right, text width=
+
+
+
+
 \end{lstlisting}
 
 \section{Types of documents}
 \begin{lstlisting}
-\documentclass{article}
-\documentclass[twoside]{article}  % two-sided document (affects page-numbers)
+\documentclass[<options>]{article}
+options:
+    12pt     % 12pt font (default is 11pt)
+    twoside  % two-sided document (affects page-numbers)
 \end{lstlisting}
 
 \section{Units}
@@ -367,10 +425,12 @@ A \verb|\newpage| doesn't count. Use \verb|\null| if there is nothing, e.g.
 \section{Breaking up text (or preventing it)}
 \begin{itemize}
     \item \verb|\\| Force line break
-    \item \verb|\newline| ?
+    \item \verb|\newline| Same as \verb|\\|, but more vertical blank space?
     \item \verb|\newpage| Jump to a new page after previous section
-    \item \verb|\clearpage|  ?
-    \item \verb|\begin{samepage}... \end{samepage}| Keep something from
+    \item \verb|\clearpage| Same as newpage, but also restricts floats: useful
+        for placing figures where you want them (had to put this before and after
+        each deluxetable in aastex).
+    \item \verb|\begin{samepage}... \end{samepage}| Prevent something from
         being split by a page break.
 \end{itemize}
 
@@ -568,7 +628,7 @@ or
 \begin{minipage}[t]{0.5\textwidth}
 Paragraphs are not numbered or followed by a line break.
 Note that \verb|\paragraph{}| and \verb|\par| are not the same thing.
-\verb|\par| does the same thing as a blank line.
+\verb|\par| does the same thing as a blank line in the text file (starts a new paragraph).
 \end{minipage}
 
 \begin{lstlisting}
@@ -623,6 +683,14 @@ Examples:
 \verb|\\| and
 \verb|\newline| can.
 
+
+Note that this is only formatting the heading for sections, subsections, etc.
+They're not the start of an environment, so the following text isn't really
+connected to the headings. (Noted this when I was trying to format the section
+heading to make the text in that particular section a different color. You could
+set ``after code'' to change the text color, but you'd have to change it back
+further down the text).
+
 \subsection{Space around section titles}
 \begin{minipage}[t]{\textwidth}
 \begin{lstlisting}
@@ -668,6 +736,16 @@ override the \verb|titlesec| package.
 Setting this to 1 would number sections only, setting it to 2 would
 number sections and subsections, but not subsubsections, etc.
 
+
+
+\begin{lstlisting}
+\titleformat{\section}%
+  vs.
+\renewcommand{\thesection}%
+  ??
+\end{lstlisting}
+First one starts from scratch, second just adds to what's already there?
+
 \subsection{Referring to sections in text using section labels}
 \begin{verbatim}
 See section $\S$\ref{data} for the data description.
@@ -678,73 +756,62 @@ See section $\S$\ref{data} for the data description.
 May need to run \texttt{pdflatex} twice for this to take effect.
 Obviously won't have anything to refer to if the sections aren't numbered.
 
-\begin{samepage}
+%\begin{samepage}
+\newpage
 \section{Table of contents}
 \url{http://texblog.org/2011/09/09/10-ways-to-customize-tocloflot/}
 \url{http://tex.stackexchange.com/questions/37940/table-of-contents-with-roman-arabic-and-no-page-numbers}
 
-\verb|\tableofcontents| wherever you want it to go.
+
+\begin{lstlisting}
+\usepackage{setspace} % Vertical space between toc items
+\setcounter{tocdepth}{n} % n = number of levels deep to go, e.g.\ 1: sections, 2: sections and subsections, etc.
+
+\usepackage[toc]{multitoc} 
+\renewcommand*{\multicolumntoc}{2}  % For 2-column toc
+\setlength{\columnseprule}{0.5pt}   % With of Line (or blank space?) between toc columns
+
+\usepackage{hyperref}  % required to make clickable links in toc.
+
+...
+
+\begin{document}
+\addtocontents{toc}{\protect\setstretch{n}}
+    % ``protect'' has something to do with ``fragile'' things.
+
+\renewcommand{\baselinestretch}{<n>}\normalsize
+    % n=2 for double spacing, 1 for single, 0.75 for compress.
+
+\setlength{\parskip}{0pt}  % Another way to change spacing
+\tableofcontents
+\setlength{\parskip}{10pt}  % Spacing for remainder of document
+\end{lstlisting}
+
 You will have to run \texttt{pdflatex} twice.
-The \verb|hyperref| package is required to make clickable links in toc.
 It appears that creating a toc puts headers on all pages, which may
 not be desired. See \S{}\ref{headfoot} for getting rid of them.
 
-In preamble:
-\verb|\setcounter{tocdepth}{n}| where \verb|n| is the number of levels deep
-to go, e.g.\ 1: sections, 2: sections and subsections, etc.
-
 Some sections, like those with `*' won't be included. To add them:
-Syntax: \verb|\addcontentsline{type}{section_level}{entry}|
-Example: \verb|\addcontentsline{toc}{section}{Preface}|
-
-To change space between items in toc:
 \begin{lstlisting}
-\usepackage{setspace}
-...
-\begin{document}
-\addtocontents{toc}{\protect\setstretch{n}}
-\end{lstlisting}
-\textcolor{red}{where n is between 0 and 1? Set to fraction of default?
-``protect'' has something to do with ``fragile'' things.}
-The value of \verb|parskip| affects the space between items as well.
-\begin{lstlisting}
-\begin{document}
-\setlength{\parskip}{0pt}
-\tableofcontents
-\setlength{\parskip}{10pt}  % Or whatever you want for the document
+% Syntax:
+\addcontentsline{type}{section_level}{entry}
+% Example:
+\addcontentsline{toc}{section}{Preface}
 \end{lstlisting}
 
-\begin{lstlisting}
-\renewcommand{\baselinestretch}{<n>}\normalsize
-\end{lstlisting}
-where n = 2 for double spacing, 1 for single, 0.75 for compress.
 
-\begin{lstlisting}
-\usepackage{setspace}
-...
-\doublespacing
-...
-\singlespacing
-\end{lstlisting}
-For sections only (not sure what I mean by that...)
-
-Include figures and tables:
+Include figures and tables in table of contents:
 \begin{lstlisting}
 \listoffigures
 \listoftables
-\setcounter{lofdepth}{2} %??
+\setcounter{lofdepth}{2} % lof = list of figures
 \end{lstlisting}
 Note that the figure and table environments need to be used.
 
-Two columns:
-\begin{lstlisting}
-\usepackage[toc]{multitoc}
-\renewcommand*{\multicolumntoc}{2} # but 2 is the default...?
-\setlength{\columnseprule}{0.5pt}
-\end{lstlisting}
-\end{samepage}
+%\end{samepage}
 
 
+\newpage
 \section{Lists}
 \begin{itemize}
     \item \url{ftp://ftp.nsu.ru/mirrors/ftp.dante.de/tex-archive/macros/latex/contrib/enumitem/enumitem.pdf}
@@ -952,14 +1019,23 @@ style=multiline     % ???
 These will be listed horizontally, rather than vertically.
 
 
-\section{Color}\label{color}
+\section{Colors}\label{color}
 \begin{minipage}{0.5\textwidth}
 \begin{lstlisting}
 \usepackage{color}
 \usepackage{xcolor}
 
+% Applied to a small bit of text.
+\textcolor[rgb]{0,1,0}{text}  % green
+
+% applied to all following until color is changed again
+%   or inside environment containing the statement
+\color[rgb]{1,0,0} % red
+
 \colorlet{<new color name>}{<old color name>}
-\color{blue!30!green}  % ??? How does this work?
+\color{blue!30!green}  %    30% blue, 70% green
+\color{blue!20!red!30!green}   % 0.20(0,0,1) + (1-0.20)(1,0,0) + 0.3(1,0,0) + (1-0.30)(0,1,0)
+
 \end{lstlisting}
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
@@ -1269,18 +1345,42 @@ environment:
 in vi? E.g. a dark gray, but the enclosed text is lighter.}
 
 \section{Figures}
-\begin{verbatim}
-\usepackage{graphicx}  % Not needed with Beamer?
+\begin{lstlisting}
+\usepackage{graphicx}  % Not needed with Beamer?  Seems to be needed to set graphicspath
 \graphicspath{{/path/to/graphics/}}
+\usepackage{float} % manage floating graphics
 ...
-\begin{figure}[h]
+\begin{figure}[<placement specifier(s)>]
 \centering
 \includegraphics[width=5.0in]{GreekSymbols.jpg}
 \caption{How to insert greek symbols in LaTeX}
 \label{greek}
 \end{figure}
-\end{verbatim}
-placement specifiers: \verb|[htbp!]| `here', `top', `bottom',$\ldots$
+\end{lstlisting}
+
+Note:
+\begin{lstlisting}
+See figure \ref{figlabel}
+  vs.
+See figure~\ref{figlabel} % prevents "figure" and number from being separated at a line break.
+\end{lstlisting}
+
+Placement specifiers:
+\begin{description}
+    \item [t] Top
+    \item [b] Bottom
+    \item [p] Page of floats
+    \item [h] Here, if possible
+    \item [H] Here, definitely
+    \item [!]
+\end{description}
+LaTeX thinks it knows where to put your figures better than you do\ldots
+
+Note that placement specifiers are for floating figures. If you're using, e.g. the
+deluxetable environment with aastex, these options won't work (you'll actually get
+an error).
+
+
 
 \section{Tables}
 \begin{verbatim}
