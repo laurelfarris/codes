@@ -266,7 +266,9 @@ options:
         letter `x' in the relevant font (usually).
 \end{description}
 
-\section{Margins}
+\section{Layout}
+\url{https://tex.stackexchange.com/questions/42371/margins-and-text-position}
+\subsection{Margins}
 \begin{enumerate}
     \item Sides (odd- and even-numbered pages):
 \begin{lstlisting}
@@ -347,20 +349,25 @@ Or for more flexibility:
 \renewcommand*{\marginfont}{\color{red}\sffamily}
 
 \begin{document}
-\marginnote{<right>} % aligned left
-\marginpar{<right>} % aligned left
+\marginnote{<right>} % aligned left (ragged right)
+\marginpar{<right>} % aligned left (ragged right)
 \reversemarginpar  % Switch to left side margins
-\marginnote{<left>} % aligned right
-\marginpar{<left>}  % aligned left
+\marginnote{<left>} % aligned right (ragged left)
+\marginpar{<left>}  % aligned left (ragged right)
 \normalmarginpar  % switch back
 
+% Example:
+\hspace{0pt} % Put note next to section title text, rather than above it,
+% which is done by default for some stupid reason
+\reversemarginpar
+\marginnote{}
 
-
+\usepackage{schemata}
 \schema[open|close]{body text}{margin text}
 \end{lstlisting}
 
 
-\section{Horizontal spacing and alignment}
+\subsection{Horizontal spacing and alignment}
 \begin{itemize}
     \item \verb|\setlength{\parindent}{0m}| Set indent for new paragraphs
     \item \verb|\hspace| horizontal space
@@ -514,6 +521,9 @@ or
 \end{minipage}
 
 \subsection{Font size}
+
+\url{https://en.wikibooks.org/wiki/LaTeX/Fonts}
+
 \begin{minipage}[t]{0.5\textwidth}
 \begin{lstlisting}
 \documentclass[12pt]{article}
@@ -526,16 +536,16 @@ or
 \end{minipage}
 
 \begin{minipage}[t]{0.5\textwidth}
-\begin{verbatim}
-\fontsize{<font size>}{<line size>}
-\end{verbatim}
+\begin{lstlisting}
+\fontsize{<size>}{<baselineskip>}\selectfont
+\end{lstlisting}
 \end{minipage}
 \begin{minipage}[t]{0.5\textwidth}
-    Not entirely sure how this works yet.
+    The baseline-skip should be set to roughly 1.2x the font size.
 \end{minipage}
 
 \begin{minipage}[t]{0.5\textwidth}
-\begin{verbatim}
+\begin{lstlisting}
 \Huge
 \huge
 \Large
@@ -545,22 +555,29 @@ or
 \footnotesize
 \scriptsize
 \tiny
-\end{verbatim}
+\end{lstlisting}
 \end{minipage}
 \begin{minipage}[t]{0.5\textwidth}
     Example:
-\begin{verbatim}
+\begin{lstlisting}
 {\Large I want this text to be big.}
-\end{verbatim}
+\end{lstlisting}
     \vspace{-2ex}{\Large I want this text to be big.}\\
 (enclosing entire thing in \verb|{}|s keeps from having to use
 \verb|\normalsize| at the end).
+
+Can also use environments:
+\begin{lstlisting}
+\begin{Large}
+I want this text to be big.
+\end{Large}
+\end{lstlisting}
 \end{minipage}
 
 \subsection{Font style}
 \subsubsection{Modal}
 \begin{minipage}[t]{0.5\textwidth}
-\begin{verbatim}
+\begin{lstlisting}
 \mdseries
 \bfseries
 \upshape
@@ -570,7 +587,7 @@ or
 \rmfamily
 \sffamily
 \ttfamily
-\end{verbatim}
+\end{lstlisting}
 \end{minipage}
 \begin{minipage}[t]{0.5\textwidth}
     These don't read text as an argument, and can somehow be
@@ -696,18 +713,32 @@ further down the text).
 \begin{lstlisting}
 \usepackage{titlesec}
 \titlespacing*{⟨command⟩}{⟨left⟩}{⟨before-sep⟩}{⟨after-sep⟩}[⟨right-sep⟩]
-\titlespacing*{\section}{-0.50in}{0pt}{0pt}
-\titlespacing*{\subsection}{-0.25in}{0pt}{0pt}
+\titlespacing*{\section}{-0.50in}{0pt}{0pt}[]
+\titlespacing*{\subsection}{-0.25in}{0pt}{0pt}[]
+\titlespacing*{\subsubsection}{-0.25in}{0pt}{0pt}[]
+\titlespacing*{\paragraph}{-0.25in}{0pt}{0pt}[]
+\titlespacing*{\subparagraph}{-0.25in}{0pt}{0pt}[]
 \end{lstlisting}
 \end{minipage}
 \begin{minipage}[t]{\textwidth}
-    Left margin adds or subtracts from what is already there. The ``-sep'' values
-    are absolute, so negative makes no sense (I think). Setting these to 0pt
-    reduces the default spacing a little. The asterisk removes paragraph
+    The asterisk removes paragraph
     indentation following the section title (doesn't do anything if there
     is no indentation anyway). It also appears to allow you to set only a few options
-    in titleformat without creating empty braces for every single argument.
+    in titleformat without creating empty braces for every single argument
+    (adds to existing title format, rather than starting from scratch\ldots?)
+
+    This is where you adjust vertical space. Don't try to do this in titleformat!
 \end{minipage}
+
+Add colon to end of all paragraph headings:
+\begin{lstlisting}
+\newcommand\colonafter[1]{#1:}
+\titleformat{\paragraph}%
+  {\fontsize{12}{13}\selectfont\bfseries\color{myblue}}
+  {}
+  {0.5em}
+  {\colonafter}
+\end{lstlisting}
 
 \subsection{Simpler way to change only size/style}
 \begin{lstlisting}
@@ -719,7 +750,7 @@ further down the text).
 
 \subsection{Color}
 The \verb|sectsty| package can be used to set color, but be aware that it will
-override the \verb|titlesec| package.
+override the \verb|titlesec| package. There's probably no reason to use this.
 \begin{lstlisting}
 \usepackage{sectsty}
 \sectionfont{\color{blue}}
@@ -767,8 +798,8 @@ Obviously won't have anything to refer to if the sections aren't numbered.
 \usepackage{setspace} % Vertical space between toc items
 \setcounter{tocdepth}{n} % n = number of levels deep to go, e.g.\ 1: sections, 2: sections and subsections, etc.
 
-\usepackage[toc]{multitoc} 
-\renewcommand*{\multicolumntoc}{2}  % For 2-column toc
+\usepackage[toc]{multitoc}
+\renewcommand*{\multicolumntoc}{n}  % For n-column toc (default: n=2)
 \setlength{\columnseprule}{0.5pt}   % With of Line (or blank space?) between toc columns
 
 \usepackage{hyperref}  % required to make clickable links in toc.
@@ -790,6 +821,17 @@ Obviously won't have anything to refer to if the sections aren't numbered.
 You will have to run \texttt{pdflatex} twice.
 It appears that creating a toc puts headers on all pages, which may
 not be desired. See \S{}\ref{headfoot} for getting rid of them.
+
+
+\begin{lstlisting}
+\renewcommand\contentsname{}
+\tableofcontents
+\renewcommand\listfigurename{}
+\listoffigures
+\renewcommand\listtablename{}
+\listoftables
+\end{lstlisting}
+
 
 Some sections, like those with `*' won't be included. To add them:
 \begin{lstlisting}
@@ -1352,11 +1394,17 @@ in vi? E.g. a dark gray, but the enclosed text is lighter.}
 ...
 \begin{figure}[<placement specifier(s)>]
 \centering
-\includegraphics[width=5.0in]{GreekSymbols.jpg}
+\includegraphics[<options>]{GreekSymbols.jpg}
 \caption{How to insert greek symbols in LaTeX}
 \label{greek}
 \end{figure}
 \end{lstlisting}
+Options:
+\begin{itemize}
+    \item width=5.0in
+    \item draft=true|false
+    \item angle=90|180|etc\ldots
+\end{itemize}
 
 Note:
 \begin{lstlisting}
@@ -1387,32 +1435,36 @@ an error).
 \renewcommand{\arraystretch}{2}  % Apply doubling spacing between table rows, if desired
 \setlength{\tabcolsep}{12pt}  % Add space between columns
 \begin{table}[h]
-\caption{Values for polytropic index $n$ = 4.5}
-\centering
-\begin{tabular}{ c c c c c c c c c  }
- \hline\hline
-$n$ & $\xi_1$ & $\rho_c/\rho$ & $N_{n}$ & $W_n$ & $\Theta_n$
-& $\rho_c[g\,cm^{-3}]$ & $P_c[dyne\,cm^{-2}]$ & $T_c[K]$ \\
-\hline
-4.5 & 31.841 & 6187.500 & 0.658 & 4917.415 & 3.329 & 8718.704 &
-5.535e19 & 4.742e7 \\
-\hline
-\end{tabular}\\
-\label{table:nonlin}
+    \caption{Values for polytropic index $n$ = 4.5}
+    \centering
+    \begin{tabular}{ c c c c c c c c c  }
+        \hline\hline
+        $n$ & $\xi_1$ & $\rho_c/\rho$ & $N_{n}$ & $W_n$ & $\Theta_n$
+        & $\rho_c[g\,cm^{-3}]$ & $P_c[dyne\,cm^{-2}]$ & $T_c[K]$ \\
+        \hline
+        4.5 & 31.841 & 6187.500 & 0.658 & 4917.415 & 3.329 & 8718.704 &
+        5.535e19 & 4.742e7 \\
+        \hline
+    \end{tabular}\\
+    \label{table:nonlin}
 \end{table}
 \end{verbatim}
 For the \verb|tabular| line, \verb|c| stands for center-justified;
 use \verb|l| and \verb|r| for left and right justified.
 
 
-\begin{verbatim}
+\begin{lstlisting}
 \begin{tabular{r p{6in}}
     one & two \newline more text
 \end{tabular}
-\end{verbatim}
-The \verb|p| option
-lets you set the width of the cell so that long text will wrap nicely,
-plus allows the use of \verb|\newline| in the tabular environment, if needed.
+  % p = top alignment
+  % b = bottom alignment
+  % m = center alignment
+\end{lstlisting}
+The \verb|p/b/m| options are ``paragraph options''. They're left-aligned, let
+you set the width of the cell so that long text will wrap nicely, and allow the
+use of \verb|\newline| in the tabular environment, if needed.
+
 
 \section{Bibliographies}
 Bibtex - entries are stored in a separate file, \verb|reffile.bib|, then
