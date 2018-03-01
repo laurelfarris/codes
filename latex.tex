@@ -1788,4 +1788,90 @@ to latex itself\ldots
 In \texttt{think\_python.tex}, add part for using straight single quotes
 in verbatim environment.
 
+
+Lined background (like notebook paper):
+\begin{lstlisting}
+
+    \documentclass{article}
+    \usepackage[vmargin=3cm]{geometry}
+    \usepackage{tikzpagenodes}
+    \usepackage{lipsum}
+    \usepackage{background}
+
+    \definecolor{notepadrule}{RGB}{217,244,244}
+
+    \backgroundsetup{
+    contents={%
+      \begin{tikzpicture}
+        \foreach \fila in {0,...,52}
+        {
+          \draw [line width=1pt,color=notepadrule]
+          (current page.west|-0,-\fila*12pt) -- ++(\paperwidth,0);
+        }
+        \draw[overlay,red!70!black,line width=1pt]
+          ([xshift=-1pt]current page text area.west|-current page.north) --
+          ([xshift=-1pt]current page text area.west|-current page.south);
+      \end{tikzpicture}%
+    },
+    scale=1,
+    angle=0,
+    opacity=1
+    }
+
+    \begin{document}
+
+    \lipsum[1-14]
+
+
+\end{lstlisting}
+
+
+Grid:
+
+\begin{lstlisting}
+    \documentclass{article}
+    \usepackage{tikz}
+    \usepackage{multido}  % ?
+    \usepackage[margin=0pt]{geometry}  % To cover entire page
+    \unitlength=1mm
+
+    \definecolor{purple}{rgb}{0.44, 0.16, 0.39}
+    \definecolor{green}{rgb}{0.12, 0.3, 0.17}
+    \definecolor{blue}{rgb}{0.03, 0.27, 0.49}
+    \definecolor{cyan}{rgb}{0.0, 0.55, 0.55}
+
+
+    \begin{document}
+
+
+    % Graph paper
+    %\newgeometry{left=1.0pt}
+    \begin{tikzpicture}[x=1.0in, y=1.0in] %, semitransparent]
+        \draw[step=0.25in,line width=0.2mm,blue!20!white]
+        (0,0) grid (8.5,11.0);
+    \end{tikzpicture}
+    \newpage
+    \begin{tikzpicture}[x=1.0in, y=1.0in] %, semitransparent]
+        \draw[step=0.25in,line width=0.2mm,blue!20!white]
+        (0,0) grid (8.5,11.0);
+    \end{tikzpicture}
+
+
+    % Dotted grid
+    \newpage
+    \begin{tikzpicture}[scale=.5]
+        \foreach \x in {0,...,43}
+        \foreach \y in {0,...,55}{\fill[black!20!white] (\x,\y) circle (0.06cm);}
+      \end{tikzpicture}
+    \newpage
+    \begin{tikzpicture}[scale=.5]
+        \foreach \x in {0,...,43}
+        \foreach \y in {0,...,55}{\fill[black!20!white] (\x,\y) circle (0.06cm);}
+      \end{tikzpicture}
+
+    %\restoregeometry
+\end{lstlisting}
+
+
+
 \end{document}

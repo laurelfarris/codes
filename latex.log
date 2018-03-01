@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  27 FEB 2018 19:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  28 FEB 2018 23:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -766,29 +766,35 @@ LaTeX Font Info:    Try loading font information for U+fplmbb on input line 178
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/psnfss/ufplmbb.fd
 File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
-)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1791.
- [28]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1791.
+) [28]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1829.
+ [29]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1829.
 
 (./latex.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1791.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1791.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1829.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1829.
 
-Package rerunfilecheck Info: File `latex.out' has not changed.
-(rerunfilecheck)             Checksum: 365BE6CCF4BAB8BF3D54F56C9F4D6EB5;1282.
 
+
+Package rerunfilecheck Warning: File `latex.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `latex.out':
+(rerunfilecheck)             Before: 365BE6CCF4BAB8BF3D54F56C9F4D6EB5;1282
+(rerunfilecheck)             After:  4A8A0D9C7B4495C0B357D8448A3CDD1B;1290.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1791.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1829.
  ) 
 Here is how much of TeX's memory you used:
- 10970 strings out of 493089
- 160964 string characters out of 6134842
+ 11007 strings out of 493089
+ 161530 string characters out of 6134842
  390633 words of memory out of 5000000
- 13492 multiletter control sequences out of 15000+600000
- 53401 words of font info for 135 fonts, out of 8000000 for 9000
+ 13495 multiletter control sequences out of 15000+600000
+ 53752 words of font info for 138 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  29i,10n,35p,253b,1667s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
@@ -808,10 +814,10 @@ type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/u
 rw/palatino/uplr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/pala
 tino/uplr8a.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/urw/palatino/up
 lri8a.pfb>
-Output written on latex.pdf (28 pages, 259064 bytes).
+Output written on latex.pdf (29 pages, 261905 bytes).
 PDF statistics:
- 1214 PDF objects out of 1440 (max. 8388607)
- 1156 compressed objects within 12 object streams
- 762 named destinations out of 1000 (max. 500000)
+ 1258 PDF objects out of 1440 (max. 8388607)
+ 1199 compressed objects within 12 object streams
+ 796 named destinations out of 1000 (max. 500000)
  201 words of extra memory for PDF output out of 10000 (max. 10000000)
 

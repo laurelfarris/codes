@@ -31,7 +31,7 @@
 \contentsline {subsection}{\numberline {12.3}Define your own colors}{17}{subsection.12.3}
 \contentsline {section}{\numberline {13}Hyperlinks}{17}{section.13}
 \contentsline {section}{\numberline {14}Text boxes}{17}{section.14}
-\contentsline {section}{\numberline {15}Minipage}{18}{section.15}
+\contentsline {section}{\numberline {15}Minipage/columns}{18}{section.15}
 \contentsline {section}{\numberline {16}Symbols}{19}{section.16}
 \contentsline {section}{\numberline {17}Lines}{19}{section.17}
 \contentsline {section}{\numberline {18}Writing code into a Latex document}{20}{section.18}

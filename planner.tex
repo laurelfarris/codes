@@ -1,0 +1,404 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[left=0.4in, right=0.25in, top=0.25in, bottom=0.25in]{geometry}
+%\usepackage[hmargin=0.60in, vmargin=0.50in]{geometry}
+\renewcommand\familydefault{\sfdefault}
+\usepackage{pbsi} % \bsifamily font
+
+\pagenumbering{gobble}
+
+\usepackage[color=white]{background}
+
+\usepackage{comment}
+\includecomment{month}
+%\excludecomment{month}
+\includecomment{week}
+%\excludecomment{week}
+\includecomment{day}
+%\excludecomment{day}
+
+%\usepackage{amsmath}
+\usepackage{amssymb}  % For some math symbols: circ, square, etc.
+%\usepackage{marvosym}
+%\usepackage{graphicx}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{ragged2e}
+%\usepackage{mathptmx}
+%\usepackage{mathpazo}
+\usepackage{multido} % ??
+
+\definecolor{bred}{rgb}{0.8, 0.0, 0.0}
+\definecolor{cadmiumgreen}{rgb}{0.0, 0.42, 0.24}
+\definecolor{mypur}{rgb}{0.4, 0.22, 0.33}
+\definecolor{myblue}{rgb}{0.0, 0.2, 0.6}
+\definecolor{mygray}{rgb}{0.90, 0.90, 0.90}
+\definecolor{mypurple}{rgb}{0.41, 0.16, 0.38}
+\definecolor{mygreen}{rgb}{0.12, 0.3, 0.17}
+\definecolor{pinegreen}{rgb}{0.0, 0.47, 0.44}
+\definecolor{bred}{rgb}{0.8, 0.0, 0.0}
+\definecolor{purple}{rgb}{0.44, 0.16, 0.39}
+\definecolor{blue}{rgb}{0.0, 0.2, 0.6}
+
+\usepackage{tikz}\usetikzlibrary{backgrounds, shapes.misc}
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]
+            \node[draw=black,shape=rounded rectangle,draw,inner sep=10pt] (char) {#1};}
+\newcommand{\mydots}{\textcolor{black!20!white}{\tiny\dotfill}}
+
+\newcommand{\myday}[1]{\textcolor{black!70!white}{\Large #1}}
+\newcommand{\mydate}[1]{\textcolor{black!60!white}{\large #1}}
+\newcommand{\myoffdate}[1]{\textcolor{black!20!white}{\large #1}}
+\newcommand{\myweeklyheading}[3]{{
+    \fontsize{30}{32}\selectfont\bfseries\color{mypur}#1%
+    \hspace{3mm}\fontsize{22}{24}\selectfont\bfseries\color{mypur}#2%
+    \hspace{1mm}\color{black}$\vert$%
+    \hspace{1mm}\fontsize{16}{18}\selectfont\bfseries\color{myblue}#3}
+}
+\newcommand{\mydailyheading}[2]{{
+    \fontsize{30}{32}\selectfont\bfseries\color{mypur}#1%
+    \hspace{1mm}\color{black}$\vert$%
+    \hspace{1mm}\fontsize{16}{18}\selectfont\bfseries\color{myblue}#2}
+}
+
+\usepackage{multicol}
+
+% Add background of dots.
+% Separate files for monthly, weekly, and daily?
+% ABCD method...
+
+\begin{document}%---------------
+
+% Graph and dotted grid pages
+%\unitlength=1mm
+%
+%% Regular grid
+%\newpage
+%\newgeometry{margin=0.0in}
+%\begin{tikzpicture}[x=1.0cm, y=1.0cm] %, semitransparent]
+%    \draw[step=0.5cm,line width=0.2mm,black!20!white]
+%    %(\cut,\cut) grid (7.0*\sz-\cut,5.0*\sz-\cut);
+%    (0,0) grid (1,1);
+%\end{tikzpicture}
+%
+%% Dotted grid
+%\newpage
+%\begin{tikzpicture}[scale=.5]
+%    \foreach \x in {0,...,43}
+%    \foreach \y in {0,...,55}{\fill[black!10!white] (\x,\y) circle (0.06cm);}
+%  \end{tikzpicture}
+%\restoregeometry
+
+%        \backgroundsetup{
+%            %color=black,
+%            %opacity=0.1,
+%            %position={0,-3},
+%            %angle=0,
+%            %scale=4.0,
+%            %hshift=-0.85in,
+%            contents={
+%                \unitlength=1mm
+%        \begin{tikzpicture}[scale=.5]
+%            \foreach \x in {0,...,43}
+%            \foreach \y in {0,...,55}{\fill[black!50!white] (\x,\y) circle (0.06cm);}
+%        \end{tikzpicture}
+%    }
+%}
+
+
+\begin{month}
+
+\newcommand{\mymonthlyheading}{{
+    \fontsize{30}{32}\selectfont\bfseries\color{mypur}July%
+    \hspace{1mm}\color{black}$\vert$%
+    \hspace{1mm}\fontsize{16}{18}\selectfont\bfseries\color{myblue}2017}
+}
+\def\sz{2.8}
+%\def\cut{0.0}
+
+\mymonthlyheading
+
+%\null\vfill
+
+%\hfill
+\begin{tikzpicture}[x=1.0cm, y=1.0cm] %, semitransparent]
+
+    % Days of the week
+    \node[] at (0.5*\sz+0.0*\sz,5.0*\sz+0.5) {\myday{Sunday}};
+    \node[] at (0.5*\sz+1.0*\sz,5.0*\sz+0.5) {\myday{Monday}};
+    \node[] at (0.5*\sz+2.0*\sz,5.0*\sz+0.5) {\myday{Tuesday}};
+    \node[] at (0.5*\sz+3.0*\sz,5.0*\sz+0.5) {\myday{Wednesday}};
+    \node[] at (0.5*\sz+4.0*\sz,5.0*\sz+0.5) {\myday{Thursday}};
+    \node[] at (0.5*\sz+5.0*\sz,5.0*\sz+0.5) {\myday{Friday}};
+    \node[] at (0.5*\sz+6.0*\sz,5.0*\sz+0.5) {\myday{Saturday}};
+
+    % Dates
+
+%    \node[] at (1.0*\sz-0.5,5.0*\sz-0.5) {\myoffdate{25}};
+%    \node[] at (2.0*\sz-0.5,5.0*\sz-0.5) {\myoffdate{26}};
+%    \node[] at (3.0*\sz-0.5,5.0*\sz-0.5) {\myoffdate{27}};
+%    \node[] at (4.0*\sz-0.5,5.0*\sz-0.5) {\myoffdate{28}};
+%    \node[] at (5.0*\sz-0.5,5.0*\sz-0.5) {\myoffdate{29}};
+%    \node[] at (6.0*\sz-0.5,5.0*\sz-0.5) {\myoffdate{30}};
+%    \node[] at (7.0*\sz-0.5,5.0*\sz-0.5) {\mydate{1}};
+
+    \draw[step=\sz,line width=0.2mm,black!20!white]
+    (0.0,5.0*\sz) -- (\sz, 4.0*\sz - 0.0);
+
+    \node[] at (0.0*\sz+0.5,4.0*\sz+0.5) {\mydate{1}};
+    \node[] at (1.0*\sz-0.5,5.0*\sz-0.5) {\mydate{2}};
+    \node[] at (2.0*\sz-0.5,5.0*\sz-0.5) {\mydate{3}};
+    \node[] at (3.0*\sz-0.5,5.0*\sz-0.5) {\mydate{4}};
+    \node[] at (4.0*\sz-0.5,5.0*\sz-0.5) {\mydate{5}};
+    \node[] at (5.0*\sz-0.5,5.0*\sz-0.5) {\mydate{6}};
+    \node[] at (6.0*\sz-0.5,5.0*\sz-0.5) {\mydate{7}};
+    \node[] at (7.0*\sz-0.5,5.0*\sz-0.5) {\mydate{8}};
+
+    \node[] at (1.0*\sz-0.5,4.0*\sz-0.5) {\mydate{9}};
+    \node[] at (2.0*\sz-0.5,4.0*\sz-0.5) {\mydate{10}};
+    \node[] at (3.0*\sz-0.5,4.0*\sz-0.5) {\mydate{11}};
+    \node[] at (4.0*\sz-0.5,4.0*\sz-0.5) {\mydate{12}};
+    \node[] at (5.0*\sz-0.5,4.0*\sz-0.5) {\mydate{13}};
+    \node[] at (6.0*\sz-0.5,4.0*\sz-0.5) {\mydate{14}};
+    \node[] at (7.0*\sz-0.5,4.0*\sz-0.5) {\mydate{15}};
+
+    \node[] at (1.0*\sz-0.5,3.0*\sz-0.5) {\mydate{16}};
+    \node[] at (2.0*\sz-0.5,3.0*\sz-0.5) {\mydate{17}};
+    \node[] at (3.0*\sz-0.5,3.0*\sz-0.5) {\mydate{18}};
+    \node[] at (4.0*\sz-0.5,3.0*\sz-0.5) {\mydate{19}};
+    \node[] at (5.0*\sz-0.5,3.0*\sz-0.5) {\mydate{20}};
+    \node[] at (6.0*\sz-0.5,3.0*\sz-0.5) {\mydate{21}};
+    \node[] at (7.0*\sz-0.5,3.0*\sz-0.5) {\mydate{22}};
+
+    \node[] at (1.0*\sz-0.5,2.0*\sz-0.5) {\mydate{23}};
+    \node[] at (2.0*\sz-0.5,2.0*\sz-0.5) {\mydate{24}};
+    \node[] at (3.0*\sz-0.5,2.0*\sz-0.5) {\mydate{25}};
+    \node[] at (4.0*\sz-0.5,2.0*\sz-0.5) {\mydate{26}};
+    \node[] at (5.0*\sz-0.5,2.0*\sz-0.5) {\mydate{27}};
+    \node[] at (6.0*\sz-0.5,2.0*\sz-0.5) {\mydate{28}};
+    \node[] at (7.0*\sz-0.5,2.0*\sz-0.5) {\mydate{29}};
+
+    \node[] at (1.0*\sz-0.5,1.0*\sz-0.5) {\mydate{30}};
+    \node[] at (2.0*\sz-0.5,1.0*\sz-0.5) {\mydate{31}};
+    \node[] at (3.0*\sz-0.5,1.0*\sz-0.5) {\myoffdate{1}};
+    \node[] at (4.0*\sz-0.5,1.0*\sz-0.5) {\myoffdate{2}};
+    \node[] at (5.0*\sz-0.5,1.0*\sz-0.5) {\myoffdate{3}};
+    \node[] at (6.0*\sz-0.5,1.0*\sz-0.5) {\myoffdate{4}};
+    \node[] at (7.0*\sz-0.5,1.0*\sz-0.5) {\myoffdate{5}};
+
+    % Grid
+    \draw[step=\sz,line width=0.2mm,black!20!white]
+    (0.0,0.0) grid (7.0*\sz - 0.0, 5.0*\sz - 0.0);
+
+\end{tikzpicture}
+
+\end{month}
+
+
+
+% Configurations
+
+\tcbset{
+    %width=\textwidth,
+    %arc=3mm, %boxsep=0cm, enlarge bottom by=5mm,
+    boxrule=0.8pt,
+    %toprule=1pt, leftrule=1pt, bottomrule=1pt, rightrule=1pt,
+    %opacityframe=0.5, opacityback=0.3,
+    %colframe=black,
+    fontupper=\fontsize{10pt}{11pt}\selectfont,
+    fontlower=\fontsize{10pt}{11pt}\selectfont,
+    colback=white, % Background
+    width=0.9\textwidth,
+    colframe=black!20!white, % Frame
+    coltitle=white, % Title fg
+    colbacktitle=black!20!white, % Title bg
+    fonttitle={\centering\Large},
+    %boxsep=1.0in, % space between box edges and text
+    arc=1mm,
+}
+
+\setlist[itemize]{parsep=3pt,topsep=15pt}
+\setlist[enumerate]{parsep=3pt,topsep=15pt,}
+
+\begin{week}
+
+% Weekly plan
+\newpage
+\newcommand{\myrule}{\textcolor{black!50!white}{\rule{\textwidth}{0.2mm}}}
+\newcommand{\mydayweek}[1]{\textcolor{black!70!white}{\large #1}}
+
+
+
+\hfill\myweeklyheading{June}{19-25}{Weekly Plan}
+
+\begin{center}
+
+\begin{tcolorbox}[width=\textwidth,boxrule=0pt]
+    \def\vsz{1.3in} % "vertical size" between each day
+    \begin{description}[
+            font={\fontsize{20}{18}\selectfont\bfseries\sffamily\color{black}},
+            %labelindent=0.5cm,
+            %align=left,
+            %style=nextline,
+            %labelwidth=\textwidth,
+            leftmargin=0cm,
+            ]
+        \item [] \myrule
+        \item [19] \mydayweek{Monday} \vspace{\vsz}\par\myrule
+        \item [20] \mydayweek{Tuesday} \vspace{\vsz}\par\myrule
+        \item [21] \mydayweek{Wednesday} \vspace{\vsz}\par\myrule
+        \item [22] \mydayweek{Thursday} \vspace{\vsz}\par\myrule
+        \item [23] \mydayweek{Friday} \vspace{\vsz}\par\myrule
+    \end{description}
+\end{tcolorbox}
+\end{center}
+
+\newpage
+{\Large Weeks to proposal:}\hfill\myweeklyheading{June}{19-25}{Weekly Plan}
+
+\vfill
+
+\begin{minipage}{0.5\textwidth}
+\vfill
+    \begin{tcolorbox}%[height=4in,valign=top]
+        This week's focus
+        \par\vspace{1in}\null
+        \tcblower
+        Make it happen
+        \par\vspace{4.5in}\null
+    \end{tcolorbox}
+    \begin{tcolorbox}
+        Habits to work on
+        \begin{itemize}[leftmargin=*]
+            \item \mydots \par \mydots \par \mydots
+            \item \mydots \par \mydots \par \mydots
+            \item \mydots \par \mydots \par \mydots
+                \par \mydots
+        \end{itemize}
+%        \null \vspace{15pt}
+    \end{tcolorbox}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\vfill
+    %\begin{itemize}[label=$\vcenter{\hbox{\textcolor{black}{$\circ$}}}$]
+    \setlength{\parindent}{0.5cm}
+        \mydots\par\mydots\par\mydots\par
+        \mydots\par\mydots\par\mydots\par
+        \mydots\par\mydots\par\mydots\par
+        \mydots\par\mydots\par\mydots\par
+        \mydots\par\mydots\par\mydots\par
+        \mydots\par\mydots\par\mydots\par
+        \mydots\par\mydots\par\mydots\par
+        \mydots\par\mydots\par\mydots\par
+        \mydots\par\mydots\par\mydots\par
+        \mydots\par\mydots\par\mydots\par
+        \mydots\par\mydots\par\mydots\par
+        \mydots\par\mydots\par\mydots\par
+        \mydots\par\mydots\par\mydots\par
+        \mydots\par\mydots\par\mydots\par
+        \mydots\par\mydots\par\mydots\par
+        \mydots\par\mydots\par\mydots\par
+        \mydots\par\mydots\par\mydots\par
+        \mydots\par\mydots\par\mydots
+    %\end{itemize}
+\end{minipage}
+
+\end{week}
+
+% Daily plan
+
+\begin{day}
+
+%  \begin{minipage}[t][10cm][t]{\textwidth}
+
+
+\newpage
+\null\par\hfill\mydailyheading{Friday}{June 16}\hspace{4mm}
+\par\vspace{0.5cm}
+
+%\begin{minipage}[b][0.9\textheight]{0.5\textwidth}
+\begin{minipage}{0.5\textwidth}
+    \begin{tcolorbox}[width=0.98\textwidth,height=0.8in]
+        Today's focus
+    \end{tcolorbox}
+    \begin{tcolorbox}[width=0.98\textwidth,height=1.3in]
+        Top priorities
+        \begin{enumerate}[leftmargin=*,topsep=15pt,noitemsep,parsep=5pt]
+            \item \mydots \par
+            \item \mydots \par
+            \item \mydots \par
+        \end{enumerate}
+    \end{tcolorbox}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+    \begin{tcolorbox}[width=0.9\textwidth,height=0.4in]
+        15-minute reading intervals: {\Large \hfill$\square$\hfill$\square$\hfill$\square$\hfill$\square$}
+    \end{tcolorbox}
+    \begin{tcolorbox}[width=0.9\textwidth,height=1.7in]
+        Keep in mind
+    \end{tcolorbox}
+\end{minipage}
+
+\vspace{0.3cm}
+
+\begin{minipage}{1.0\textwidth}
+    \begin{tcolorbox}[boxrule=1pt, width=0.95\textwidth,height=5.0in]
+        Notes
+        \begin{itemize}[label={}, leftmargin=*, parsep=5pt, itemsep=\parsep]
+            \item \par\mydots
+                \par \mydots \par \mydots \par \mydots \par \mydots \par \mydots
+                \par \mydots \par \mydots \par \mydots \par \mydots \par \mydots
+                \par \mydots \par \mydots \par \mydots \par \mydots \par \mydots
+                \par \mydots \par \mydots \par \mydots
+        \end{itemize}
+    \end{tcolorbox}
+\end{minipage}
+
+\vspace{0.3cm}
+
+\begin{minipage}{1.0\textwidth}
+\begin{tcolorbox}[sidebyside, height=2in,width=0.95\textwidth]
+    What went well
+    \tcblower
+    What to improve
+\end{tcolorbox}
+\end{minipage}
+
+\newpage
+\null\par\hfill\mydailyheading{Friday}{June 16}\hspace{4mm}
+\par\vspace{0.5cm}
+
+\begin{minipage}{\textwidth}
+    \begin{tcolorbox}[boxrule=0pt,height=0.9\textheight,width=0.95\textwidth]
+        \begin{enumerate}[
+            label=\arabic{enumi}:00,
+            itemsep=2ex,
+            wide, % convenience style for non-indented lists which are paragraph-like.
+            labelwidth=!, % tells enumitem to calculate appropriate width for label
+            labelindent=0pt, % (overriding the value set by wide) says not to indent the label relative to the left margin.
+            topsep=\itemsep,
+                ]
+            \setcounter{enumi}{6}
+            \item \mydots \par \mydots \par \mydots \par \mydots
+            \item \mydots \par \mydots \par \mydots \par \mydots
+            \item \mydots \par \mydots \par \mydots \par \mydots
+            \item \mydots \par \mydots \par \mydots \par \mydots
+            \item \mydots \par \mydots \par \mydots \par \mydots
+            \item \mydots \par \mydots \par \mydots \par \mydots
+            \item \mydots \par \mydots \par \mydots \par \mydots
+            \item \mydots \par \mydots \par \mydots \par \mydots
+            \item \mydots \par \mydots \par \mydots \par \mydots
+            \item \mydots \par \mydots \par \mydots \par \mydots
+            \item \mydots \par \mydots \par \mydots \par \mydots
+        \end{enumerate}
+    \end{tcolorbox}
+\end{minipage}
+\null
+
+
+\end{day}
+
+
+
+\end{document}
