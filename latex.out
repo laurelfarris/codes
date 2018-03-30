@@ -1,25 +1,23 @@
 \BOOKMARK [1][-]{section.1}{Types of documents}{}% 1
 \BOOKMARK [1][-]{section.2}{Units}{}% 2
-\BOOKMARK [1][-]{section.3}{Margins}{}% 3
-\BOOKMARK [1][-]{section.4}{Horizontal spacing and alignment}{}% 4
-\BOOKMARK [1][-]{section.5}{Vertical spacing and alignment}{}% 5
-\BOOKMARK [1][-]{section.6}{Breaking up text \(or preventing it\)}{}% 6
-\BOOKMARK [1][-]{section.7}{Headers and footers}{}% 7
-\BOOKMARK [1][-]{section.8}{Fonts}{}% 8
-\BOOKMARK [1][-]{section.9}{Sections}{}% 9
-\BOOKMARK [1][-]{section.10}{Table of contents}{}% 10
-\BOOKMARK [1][-]{section.11}{Lists}{}% 11
-\BOOKMARK [1][-]{section.12}{Colors}{}% 12
-\BOOKMARK [1][-]{section.13}{Hyperlinks}{}% 13
-\BOOKMARK [1][-]{section.14}{Text boxes}{}% 14
-\BOOKMARK [1][-]{section.15}{Minipage/columns}{}% 15
-\BOOKMARK [1][-]{section.16}{Symbols}{}% 16
-\BOOKMARK [1][-]{section.17}{Lines}{}% 17
-\BOOKMARK [1][-]{section.18}{Writing code into a Latex document}{}% 18
-\BOOKMARK [1][-]{section.19}{New and renewed commands and environments}{}% 19
-\BOOKMARK [1][-]{section.20}{Verbatim}{}% 20
-\BOOKMARK [1][-]{section.21}{Graphics}{}% 21
-\BOOKMARK [1][-]{section.22}{Bibliographies}{}% 22
-\BOOKMARK [1][-]{section.23}{Labels and cross-references}{}% 23
-\BOOKMARK [1][-]{section.24}{Maths!}{}% 24
-\BOOKMARK [1][-]{section.25}{Unsorted}{}% 25
+\BOOKMARK [1][-]{section.3}{Layout}{}% 3
+\BOOKMARK [1][-]{section.4}{Headers and footers}{}% 4
+\BOOKMARK [1][-]{section.5}{Fonts}{}% 5
+\BOOKMARK [1][-]{section.6}{Sections}{}% 6
+\BOOKMARK [1][-]{section.7}{Table of contents}{}% 7
+\BOOKMARK [1][-]{section.8}{Lists}{}% 8
+\BOOKMARK [1][-]{section.9}{Colors}{}% 9
+\BOOKMARK [1][-]{section.10}{Hyperlinks}{}% 10
+\BOOKMARK [1][-]{section.11}{Textboxes}{}% 11
+\BOOKMARK [1][-]{section.12}{Minipage/columns}{}% 12
+\BOOKMARK [1][-]{section.13}{Symbols}{}% 13
+\BOOKMARK [1][-]{section.14}{Lines}{}% 14
+\BOOKMARK [1][-]{section.15}{verbatim}{}% 15
+\BOOKMARK [1][-]{section.16}{lstlisting}{}% 16
+\BOOKMARK [1][-]{section.17}{Environments and commands}{}% 17
+\BOOKMARK [1][-]{section.18}{Graphics}{}% 18
+\BOOKMARK [1][-]{section.19}{Bibliographies}{}% 19
+\BOOKMARK [1][-]{section.20}{Labels and cross-referencing}{}% 20
+\BOOKMARK [1][-]{section.21}{Maths!}{}% 21
+\BOOKMARK [1][-]{section.22}{Including separate files}{}% 22
+\BOOKMARK [1][-]{section.23}{Unsorted}{}% 23

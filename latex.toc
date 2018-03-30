@@ -1,63 +1,59 @@
 \contentsline {section}{\numberline {1}Types of documents}{2}{section.1}
 \contentsline {section}{\numberline {2}Units}{2}{section.2}
-\contentsline {section}{\numberline {3}Margins}{2}{section.3}
-\contentsline {section}{\numberline {4}Horizontal spacing and alignment}{3}{section.4}
-\contentsline {section}{\numberline {5}Vertical spacing and alignment}{4}{section.5}
-\contentsline {section}{\numberline {6}Breaking up text (or preventing it)}{4}{section.6}
-\contentsline {section}{\numberline {7}Headers and footers}{5}{section.7}
-\contentsline {subsection}{\numberline {7.1}Page numbers}{5}{subsection.7.1}
-\contentsline {subsection}{\numberline {7.2}Footnotes}{5}{subsection.7.2}
-\contentsline {section}{\numberline {8}Fonts}{7}{section.8}
-\contentsline {subsection}{\numberline {8.1}Font size}{7}{subsection.8.1}
-\contentsline {subsection}{\numberline {8.2}Font style}{7}{subsection.8.2}
-\contentsline {subsubsection}{\numberline {8.2.1}Modal}{7}{subsubsection.8.2.1}
-\contentsline {subsubsection}{\numberline {8.2.2}Textblock}{8}{subsubsection.8.2.2}
-\contentsline {section}{\numberline {9}Sections}{9}{section.9}
-\contentsline {subsection}{\numberline {9.1}Customize section headings}{9}{subsection.9.1}
-\contentsline {subsection}{\numberline {9.2}Space around section titles}{10}{subsection.9.2}
-\contentsline {subsection}{\numberline {9.3}Cross-referencing in text}{10}{subsection.9.3}
-\contentsline {section}{\numberline {10}Table of contents}{11}{section.10}
-\contentsline {section}{\numberline {11}Lists}{13}{section.11}
-\contentsline {paragraph}{Horizontal spacing}{13}{paragraph*.1}
-\contentsline {paragraph}{Vertical spacing}{14}{paragraph*.2}
-\contentsline {subsection}{\numberline {11.1}itemize}{14}{subsection.11.1}
-\contentsline {subsection}{\numberline {11.2}enumerate}{15}{subsection.11.2}
-\contentsline {subsection}{\numberline {11.3}description}{15}{subsection.11.3}
-\contentsline {subsection}{\numberline {11.4}list}{15}{subsection.11.4}
-\contentsline {subsection}{\numberline {11.5}tasks}{16}{subsection.11.5}
-\contentsline {section}{\numberline {12}Colors}{16}{section.12}
-\contentsline {subsection}{\numberline {12.1}Color background }{16}{subsection.12.1}
-\contentsline {subsection}{\numberline {12.2}Color text}{16}{subsection.12.2}
-\contentsline {subsection}{\numberline {12.3}Define your own colors}{17}{subsection.12.3}
-\contentsline {section}{\numberline {13}Hyperlinks}{17}{section.13}
-\contentsline {section}{\numberline {14}Text boxes}{17}{section.14}
-\contentsline {section}{\numberline {15}Minipage/columns}{18}{section.15}
-\contentsline {section}{\numberline {16}Symbols}{19}{section.16}
-\contentsline {section}{\numberline {17}Lines}{19}{section.17}
-\contentsline {section}{\numberline {18}Writing code into a Latex document}{20}{section.18}
-\contentsline {section}{\numberline {19}New and renewed commands and environments}{21}{section.19}
-\contentsline {subsection}{\numberline {19.1}Commands}{21}{subsection.19.1}
-\contentsline {subsection}{\numberline {19.2}Environments}{21}{subsection.19.2}
-\contentsline {section}{\numberline {20}Verbatim}{21}{section.20}
-\contentsline {section}{\numberline {21}Graphics}{21}{section.21}
-\contentsline {subsection}{\numberline {21.1}Background}{21}{subsection.21.1}
-\contentsline {subsection}{\numberline {21.2}Grids and diagrams}{22}{subsection.21.2}
-\contentsline {subsection}{\numberline {21.3}Figures}{22}{subsection.21.3}
-\contentsline {subsection}{\numberline {21.4}Tables}{23}{subsection.21.4}
-\contentsline {section}{\numberline {22}Bibliographies}{23}{section.22}
-\contentsline {section}{\numberline {23}Labels and cross-references}{24}{section.23}
-\contentsline {section}{\numberline {24}Maths!}{24}{section.24}
-\contentsline {subsection}{\numberline {24.1}In-text math mode}{24}{subsection.24.1}
-\contentsline {subsection}{\numberline {24.2}Equations}{24}{subsection.24.2}
-\contentsline {subsubsection}{\numberline {24.2.1}Numbered equations}{24}{subsubsection.24.2.1}
-\contentsline {subsubsection}{\numberline {24.2.2}Equations without numbering}{25}{subsubsection.24.2.2}
-\contentsline {subsubsection}{\numberline {24.2.3}Aligning equations}{25}{subsubsection.24.2.3}
-\contentsline {subsection}{\numberline {24.3}Size of brackets, parentheses, etc.}{26}{subsection.24.3}
-\contentsline {subsection}{\numberline {24.4}Arrays}{26}{subsection.24.4}
-\contentsline {subsection}{\numberline {24.5}Superscripts, subscripts, and prescripts}{26}{subsection.24.5}
-\contentsline {subsection}{\numberline {24.6}Referring to parts of equation}{26}{subsection.24.6}
-\contentsline {subsection}{\numberline {24.7}Operations}{27}{subsection.24.7}
-\contentsline {subsubsection}{\numberline {24.7.1}Integrals}{27}{subsubsection.24.7.1}
-\contentsline {subsubsection}{\numberline {24.7.2}Square root}{27}{subsubsection.24.7.2}
-\contentsline {subsubsection}{\numberline {24.7.3}Summation (and the multiplication version)}{27}{subsubsection.24.7.3}
-\contentsline {section}{\numberline {25}Unsorted}{27}{section.25}
+\contentsline {section}{\numberline {3}Layout}{2}{section.3}
+\contentsline {subsection}{\numberline {3.1}Spacing and alignment}{2}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Margins}{3}{subsection.3.2}
+\contentsline {subsubsection}{\numberline {3.2.1}Margin notes}{4}{subsubsection.3.2.1}
+\contentsline {section}{\numberline {4}Headers and footers}{6}{section.4}
+\contentsline {subsection}{\numberline {4.1}Page numbers}{6}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Footnotes}{6}{subsection.4.2}
+\contentsline {section}{\numberline {5}Fonts}{7}{section.5}
+\contentsline {subsection}{\numberline {5.1}Font size}{7}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Font style}{7}{subsection.5.2}
+\contentsline {subsubsection}{\numberline {5.2.1}Modal}{7}{subsubsection.5.2.1}
+\contentsline {subsubsection}{\numberline {5.2.2}Textblock}{8}{subsubsection.5.2.2}
+\contentsline {section}{\numberline {6}Sections}{9}{section.6}
+\contentsline {subsection}{\numberline {6.1}Customize section headings}{9}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Space around section titles}{10}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3}Cross-referencing in text}{10}{subsection.6.3}
+\contentsline {section}{\numberline {7}Table of contents}{11}{section.7}
+\contentsline {section}{\numberline {8}Lists}{13}{section.8}
+\contentsline {subsection}{\numberline {8.1}itemize}{14}{subsection.8.1}
+\contentsline {subsection}{\numberline {8.2}enumerate}{14}{subsection.8.2}
+\contentsline {subsection}{\numberline {8.3}description}{15}{subsection.8.3}
+\contentsline {subsection}{\numberline {8.4}list}{15}{subsection.8.4}
+\contentsline {subsection}{\numberline {8.5}tasks}{15}{subsection.8.5}
+\contentsline {section}{\numberline {9}Colors}{16}{section.9}
+\contentsline {subsection}{\numberline {9.1}Define your own colors}{16}{subsection.9.1}
+\contentsline {section}{\numberline {10}Hyperlinks}{17}{section.10}
+\contentsline {section}{\numberline {11}Textboxes}{18}{section.11}
+\contentsline {subsection}{\numberline {11.1}tcolorbox}{19}{subsection.11.1}
+\contentsline {section}{\numberline {12}Minipage/columns}{20}{section.12}
+\contentsline {section}{\numberline {13}Symbols}{21}{section.13}
+\contentsline {section}{\numberline {14}Lines}{21}{section.14}
+\contentsline {section}{\numberline {15}verbatim}{22}{section.15}
+\contentsline {section}{\numberline {16}lstlisting}{22}{section.16}
+\contentsline {section}{\numberline {17}Environments and commands}{23}{section.17}
+\contentsline {section}{\numberline {18}Graphics}{24}{section.18}
+\contentsline {subsection}{\numberline {18.1}Figures}{24}{subsection.18.1}
+\contentsline {subsection}{\numberline {18.2}Tables}{24}{subsection.18.2}
+\contentsline {subsection}{\numberline {18.3}Background}{25}{subsection.18.3}
+\contentsline {subsection}{\numberline {18.4}Grids and diagrams}{25}{subsection.18.4}
+\contentsline {section}{\numberline {19}Bibliographies}{26}{section.19}
+\contentsline {section}{\numberline {20}Labels and cross-referencing}{26}{section.20}
+\contentsline {section}{\numberline {21}Maths!}{27}{section.21}
+\contentsline {subsection}{\numberline {21.1}In-text math mode}{27}{subsection.21.1}
+\contentsline {subsection}{\numberline {21.2}Equations}{27}{subsection.21.2}
+\contentsline {subsubsection}{\numberline {21.2.1}Numbered equations}{27}{subsubsection.21.2.1}
+\contentsline {subsubsection}{\numberline {21.2.2}Equations without numbering}{27}{subsubsection.21.2.2}
+\contentsline {subsubsection}{\numberline {21.2.3}Aligning equations}{28}{subsubsection.21.2.3}
+\contentsline {subsection}{\numberline {21.3}Size of brackets, parentheses, etc.}{28}{subsection.21.3}
+\contentsline {subsection}{\numberline {21.4}Arrays}{29}{subsection.21.4}
+\contentsline {subsection}{\numberline {21.5}Superscripts, subscripts, and prescripts}{29}{subsection.21.5}
+\contentsline {subsection}{\numberline {21.6}Referring to parts of equation}{29}{subsection.21.6}
+\contentsline {subsection}{\numberline {21.7}Operations}{30}{subsection.21.7}
+\contentsline {subsubsection}{\numberline {21.7.1}Integrals}{30}{subsubsection.21.7.1}
+\contentsline {subsubsection}{\numberline {21.7.2}Square root}{30}{subsubsection.21.7.2}
+\contentsline {subsubsection}{\numberline {21.7.3}Summation (and the multiplication version)}{30}{subsubsection.21.7.3}
+\contentsline {section}{\numberline {22}Including separate files}{31}{section.22}
+\contentsline {section}{\numberline {23}Unsorted}{32}{section.23}
