@@ -1146,10 +1146,13 @@ Text...
 \usepackage{tcolorbox}
 \tcbset{
     nobeforeafter, % place boxes side by side
-    colback=color,
-    colbacktitle=color,
-    colframe=color,
-    coltitle=color,
+    colback=color, % background color of entire box
+    colbacktitle=color,  % background color of title
+    colframe=color, % color of frame around box
+    coltitle=color, % color of title text
+    detach title, % ?
+    before={\vspace{1in}}, % vertical space between boxes
+    before upper={\hfill\tcbtitle\par\vspace{0.5in}}, % right aligned title, upper part of box (if it's divided into upper/lower sections)
     fonttitle={\Large\bfseries,nobeforeafter,center title},
     fontupper|fontupper=\fontsize{14pt}{16pt}\selectfont,
     width=4cm,
@@ -1171,7 +1174,9 @@ Text...
 \begin{tcolorbox}[<options>]
     ...
     \tcblower % divide box into two sections, upper and lower
+    % or left and right if sidebyside option is set.
     ...
+    \tcbsubtitle[<options>]{My subtitle}
 \end{tcolorbox}
 \end{lstlisting}
 
