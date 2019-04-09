@@ -91,32 +91,32 @@
 
 % Found this in ~/Templates. No idea where it came from,
   % but looks interesting!
-\begin{lstlisting}
-
-\documentclass{article}
-\usepackage{pifont,xcolor}% http://ctan.org/pkg/{pifont,xcolor}
-\definecolor{myblue}{RGB}{0,29,119}
-\newcommand{\itemcolor}[1]{% Update list item colour
-                            \renewcommand{\makelabel}[1]{\color{#1}\hfil ##1}}
-\begin{document}
-
-\begin{dinglist}{110}
-\itemcolor{myblue}
-\item Sample text
-    \begin{dinglist}{228}
-    \itemcolor{green!70}
-    \item Sample text
-    \itemcolor{red!50}
-    \item Sample text
-        \begin{dinglist}{227}
-        \item Sample text
-        \end{dinglist}
-    \end{dinglist}
-\end{dinglist}
-
-\end{document}
-
-\end{lstlisting}
+%\begin{lstlisting}
+%
+%\documentclass{article}
+%\usepackage{pifont,xcolor}% http://ctan.org/pkg/{pifont,xcolor}
+%\definecolor{myblue}{RGB}{0,29,119}
+%\newcommand{\itemcolor}[1]{% Update list item colour
+%                            \renewcommand{\makelabel}[1]{\color{#1}\hfil ##1}}
+%\begin{document}
+%
+%\begin{dinglist}{110}
+%\itemcolor{myblue}
+%\item Sample text
+%    \begin{dinglist}{228}
+%    \itemcolor{green!70}
+%    \item Sample text
+%    \itemcolor{red!50}
+%    \item Sample text
+%        \begin{dinglist}{227}
+%        \item Sample text
+%        \end{dinglist}
+%    \end{dinglist}
+%\end{dinglist}
+%
+%\end{document}
+%
+%\end{lstlisting}
 
 
 \setlist{noitemsep}
@@ -186,23 +186,6 @@
 \clearpage
 
 
-\section{Types of documents}
-\begin{lstlisting}
-\documentclass[<options>]{<document_type>}
-\end{lstlisting}
-Document types:
-\begin{itemize}
-    \item article
-        \begin{itemize}
-            \item options:\\
-            12pt     % 12pt font (default is 11pt)
-            twoside  % two-sided document (affects page-numbers)
-        \end{itemize}
-    \item book
-    \item resume
-    \item aastex (see \S\ref{aastex})
-\end{itemize}
-
 \section{Units}
 \begin{description}
     \item [px] pixels, depends on browser, use for electronic media
@@ -214,14 +197,16 @@ Document types:
 \end{description}
 
 
-\section{Layout}
-
-\subsection{Spacing and alignment}
+\section{Line spacing}
 
 \url{http://www.terminally-incoherent.com/blog/2007/09/19/latex-squeezing-the-vertical-white-space/}
 
 \begin{lstlisting}
-\setlength{\parindent}{0pt}
+\usepackage[doublespacing]{setspace} % Double-spaced text
+\renewcommand{\baselinestretch}{1.5} % 1.5 spacing (all text)
+\usepackage{setspace}...\setstretch{1.5} % Apply to part of text?
+
+\setlength{\parindent}{0pt} % 15 pt = default
 \setlength{\parskip}{0pt}
 \setlength{\headsep}{0pt}
 \setlength{\topskip}{0pt}
@@ -229,6 +214,10 @@ Document types:
 \setlength{\topsep}{0pt}
 \setlength{\partopsep}{0pt}
 \vspace{20 mm} % vertical blank space
+    %\[small|med|big]skip
+    %\[small|med|big]break
+        % break same as skip, but also terminates paragraph and removes
+        % preceeding v-space if bigger than would have been added by default
 \hspace{20 mm} % horizontal blank space
 \hfill % Pad with horizontal space to end of line
 \hspace*{\fill}
@@ -244,36 +233,20 @@ Document types:
 \\ % Force line break
 \mbox{text} % Prevent line break
 \newline % Same as \\, but more vertical blank space?
-\newpage % Start a new page, or new column if using multicol environment.
-\clearpage % Starts new page regardless of number of columns.
-  % Also restricts floats: useful for placing figures where you want them
-  % (had to put this before and after each deluxetable in aastex).
-  % "Forces pending floats from the stack to be typeset starting on the page
-  % that follows the page break. Flushes out all floats that have been deferred.
-\begin{samepage}... \end{samepage} % Prevent page break.
-
-% This changes the spacing for everything in the document,
-% including footnotes and tables.
-\renewcommand{\baselinestretch}{1.5}
-
-% Can apply this to only part of text?
-\usepackage{setspace}...\setstretch{1.5}
-
-% Same as previous option?
-\usepackage[doublespacing]{setspace}
-
 \end{lstlisting}
 Also see \S\ref{lists}.
 
 \verb|\usepackage{ragged2e}|
 
+\begin{minipage}{0.5\textwidth}
 Commands:
 \begin{lstlisting}
 \flushleft
 \enter
 \flushright
 \end{lstlisting}
-
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
 Environments:
 \begin{lstlisting}
 \begin{flushright}...\end{flushright}
@@ -281,6 +254,7 @@ Environments:
 \begin{center} ... \end{center}
 \begin{justify} ... \end{justify}
 \end{lstlisting}
+\end{minipage}
 
 NOTE: Vertical space commands won't work if they're part of a horizontal line.
 E.g. \verb|\vfill| and \verb|\vspace| must be preceeded by a line break,
@@ -289,62 +263,70 @@ to be physical content on both sides of the space.
 Use \verb|\null| to create `fake content', e.g.
 \verb| \newpage \null \vfill ... |
 
+\subsection{Page breaks}
+
+\begin{lstlisting}
+
+\newpage{
+    % Technically new COLUMN:
+    %   For single-column documents (probably anything that isn't an apj article),
+    %   a new column IS a new page.
+    %   If using multicol environment, starts new column, possibly on same page.
+    %   EXCEPTION: if using multicol PACKAGE, starts new page every time.
+    %   (NOTE: use \columnbreak for new column with multicol package)
+
+\clearpage
+  % Like \newpage, but also restricts floats.
+  % Useful for placing figures where you want them
+  %   (had to put this before and after each deluxetable in aastex).
+  % "Forces pending floats from the stack to be typeset starting on the page
+  %   that follows the page break. Flushes out all floats that have been deferred."
+
+\begin{samepage}... \end{samepage} % PREVENT page break.
+
+\end{lstlisting}
+
+
 \subsection{Margins}
 \url{https://tex.stackexchange.com/questions/42371/margins-and-text-position}
 
-The \verb|fullpage| package is the simplest way to decrease margins.
-
-The \verb|geometry| package (can set options globally, or separately
-with the \verb|\geometry| command):
 \begin{lstlisting}
-\usepackage[margin=1in]{geometry}
-\usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
-\usepackage[textwidth=6.0in]{geometry}
-\usepackage[paperwidth=140mm, paperheight=105mm]{geometry}
-\usepackage[hmargin=1cm,vmargin=1cm]{geometry}
+\usepackage{fullpage}
 
-% Or:
-\usepackage{geometry}
-\geometry{textwidth=7cm}
-\geometry{paperwidth=140mm, paperheight=105mm}
-
-% Change geometry within document
-\newgeometry{left=3cm,bottom=0.1cm}
-...
-\restoregeometry
-\end{lstlisting}
-
-Hacky way to change margins:
-\begin{enumerate}
-    \item Sides (odd- and even-numbered pages):
-\begin{lstlisting}
 \addtolength{\oddsidemargin}{-0.875in}
 \addtolength{\evensidemargin}{-0.875in}
 \addtolength{\textwidth}{1.75in}
-\end{lstlisting}
-    \item Top/bottom:
-\begin{lstlisting}
 \addtolength{\topmargin}{-0.875in}
 \addtolength{\textheight}{1.75in}
-\end{lstlisting}
-\end{enumerate}
 
+\usepackage[options]{geometry}
+% or set options separately:
+\usepackage{geometry}
+\geometry{options}
 
+\geometry{
+    margin=1in,
+    left=1in, right=1in, top=1in, bottom=1in,
+    textwidth=6.0in,
+    paperwidth=140mm, paperheight=105mm,
+    hmargin=1cm, vmargin=1cm,
+}
 
+% Change geometry within document
+\newgeometry{left=3cm, bottom=0.1cm}
+...
+\restoregeometry
 
-Change margins in text:
-\begin{lstlisting}
+% Change geometry using changepage package and "adjustwidth" environment.
 \usepackage{changepage}
 \begin{document}
     ...
 \begin{adjustwidth}{<left>}{<right>}
     ...
 \end{adjustwidth}
-\end{lstlisting}
 
-Custom environment to change margins in only a portion of text;
-it will indent the left and right margins by the values given.
-\begin{lstlisting}
+% Custom environment to change margins in only a portion of text;
+% it will indent the left and right margins by the values given.
 \newenvironment{changemargin}[2]{%
  \begin{list}{}{%
   \setlength{\topsep}{0pt}%
@@ -357,61 +339,7 @@ it will indent the left and right margins by the values given.
 \item[]}{\end{list}}
 \end{lstlisting}
 
-\textcolor{red}{Leave sections and headers alone, and reduce the margins of
-regular text? Increase subsection margins halfway.}
 
-
-\subsubsection{Margin notes}
-Add notes to margins with \verb|\marginpar{text in margins}|,
-or for more flexibility, use the \verb|marginnote| package:
-\begin{lstlisting}
-\usepackage{marginnote}
-\usepackage{showframe,marginnote}  % box around margins
-\setlength{\marginparwidth}{1in}
-\renewcommand*{\marginfont}{\color{red}\sffamily}
-\renewcommand*{\raggedleftmarginnote}{} % ?
-\renewcommand*{\raggedrightmarginnote}{\centering} % ??
-\renewcommand*{marginnotevadjust}{40pt} % Vertically shift margin notes (?)
-
-\begin{document}
-\marginnote{<right>} % aligned left (ragged right)
-\marginpar{<right>} % aligned left (ragged right)
-\reversemarginpar  % Switch to left side margins
-\marginnote{<left>} % aligned right (ragged left)
-\marginpar{<left>}  % aligned left (ragged right)
-\normalmarginpar  % switch back
-
-% Maybe don't need \reversemarginpar ?!?
-\marginnote[<left>]{<right>}[vertical drop in cm]
-
-% Example:
-\hspace{0pt} % Put note next to section title text, rather than above it,
-% which is done by default for some stupid reason
-\reversemarginpar
-\marginnote{}
-\end{lstlisting}
-
-
-Use curly braces to mark text that margin notes are referring to:
-
-\begin{lstlisting}
-\usepackage{schemata}
-\schema[open|close]{body text}{margin text}
-\end{lstlisting}
-Sized to enclose whatever text it's opening toward (body or margin)
-although same amount of space will be allotted for the other\ldots
-
-Put a vertical bar between document text and notes in margin:
-\begin{lstlisting}
-\usepackage[color,leftbars]{changebar} % On right side by default
-\cbcolor{red}
-\setlength\changebarsep{10pt}
-\setlength\changebarwidth{1pt}
-...
-\cbstart
-...
-\cbend
-\end{lstlisting}
 
 \clearpage
 \section{Headers and footers}\label{headfoot}
@@ -842,8 +770,66 @@ By default this is only done for subsections and below.
 \begin{document}
 \end{lstlisting}
 
-
 minitoc?!?
+
+\clearpage
+\section{Margin notes}
+Add notes to margins with \verb|\marginpar{text in margins}|,
+or for more flexibility, use the \verb|marginnote| package:
+\begin{lstlisting}
+\usepackage{marginnote}
+\usepackage{showframe,marginnote}  % box around margins
+\setlength{\marginparwidth}{1in}
+\renewcommand*{\marginfont}{\color{red}\sffamily}
+\renewcommand*{\raggedleftmarginnote}{} % ?
+\renewcommand*{\raggedrightmarginnote}{\centering} % ??
+\renewcommand*{marginnotevadjust}{40pt} % Vertically shift margin notes (?)
+
+\begin{document}
+\marginnote{<right>} % aligned left (ragged right)
+\marginpar{<right>} % aligned left (ragged right)
+\reversemarginpar  % Switch to left side margins
+\marginnote{<left>} % aligned right (ragged left)
+\marginpar{<left>}  % aligned left (ragged right)
+\normalmarginpar  % switch back
+
+% Maybe don't need \reversemarginpar ?!?
+\marginnote[<left>]{<right>}[vertical drop in cm]
+
+% Example:
+\hspace{0pt} % Put note next to section title text, rather than above it,
+% which is done by default for some stupid reason
+\reversemarginpar
+\marginnote{}
+\end{lstlisting}
+
+
+Use curly braces to mark text that margin notes are referring to:
+
+\begin{lstlisting}
+\usepackage{schemata}
+\schema[open|close]{body text}{margin text}
+\end{lstlisting}
+Sized to enclose whatever text it's opening toward (body or margin)
+although same amount of space will be allotted for the other\ldots
+
+Put a vertical bar between document text and notes in margin:
+\begin{lstlisting}
+\usepackage[color,leftbars]{changebar} % On right side by default
+\cbcolor{red}
+\setlength\changebarsep{10pt}
+\setlength\changebarwidth{1pt}
+...
+\cbstart
+...
+\cbend
+\end{lstlisting}
+
+\clearpage
+\section{Comments}
+
+
+
 
 
 \clearpage
