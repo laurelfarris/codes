@@ -324,6 +324,7 @@ Use \verb|\null| to create `fake content', e.g.
 \begin{adjustwidth}{<left>}{<right>}
     ...
 \end{adjustwidth}
+% NOTE: <left> and <right> values are ADDED to existing margins.
 
 % Custom environment to change margins in only a portion of text;
 % it will indent the left and right margins by the values given.
@@ -433,8 +434,10 @@ Here is some relevant information\footnote{
 \newpage
 \section{Fonts}
 \begin{itemize}
-    \item \href{https://www.tug.org/pracjourn/2006-1/schmidt/schmidt.pdf}{link}
-    \item \href{https://en.wikibooks.org/wiki/LaTeX/Fonts}{Another link}
+    \item \href{https://www.tug.org/pracjourn/2006-1/schmidt/schmidt.pdf}{
+            The \LaTeX{} font catalogue}
+    \item \href{https://en.wikibooks.org/wiki/LaTeX/Fonts}{
+            Wikibooks -- \LaTeX{} fonts}
 \end{itemize}
 
 Font that applies to entire document:
@@ -1404,7 +1407,7 @@ Options:
 \begin{itemize}
     \item width=5.0in
     \item draft=true|false
-    \item angle=90|180|etc\ldots
+    \item angle=90|180|etc\ldots  % rotate graphic counter-clockwise
 \end{itemize}
 
 Note: use a tilde, e.g.
@@ -1806,6 +1809,16 @@ include file extensions here either.
 
 \clearpage
 \section{Unsorted}
+
+Define custom width in preamble if used many times in document, and you
+don't want to manually change every single line if you decide to adjust
+the width.
+\begin{lstlisting}
+\newlength{\mylength}
+\setlength{\mylength}{0.8\textwidth}
+\end{lstlisting}
+
+
 
 Check \texttt{filename.log} for version of packages used. May need to add
 \verb|\listfiles| in the preamble first.
