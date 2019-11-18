@@ -160,8 +160,12 @@
 \makeatother
 
 \usepackage{hyperref}
-\hypersetup{colorlinks=true, urlcolor=darkpowderblue, linkcolor=black}
-\urlstyle{same}
+\hypersetup{
+    colorlinks=true,
+    urlcolor=blue,
+    linkcolor=black,
+}
+%\urlstyle{same}
 
 \title{LaTeX reference}
 \author{Laurel Farris}
@@ -835,6 +839,31 @@ Put a vertical bar between document text and notes in margin:
 \clearpage
 \section{Comments}
 
+\href{http://mirrors.ibiblio.org/CTAN/macros/latex/contrib/comment/comment.pdf}{
+    Comment package}
+
+Section 3.1 explains the \texttt{comment.cut} file created when running
+pdflatex\ldots should contain the text commented in the main \texttt{.tex} file.
+
+\begin{lstlisting}
+
+\usepackage{comment}
+\includecomment{mycomment} % Include content in output pdf
+\excludecomment{mycomment} % Exclude content, i.e. treat as real comment.
+\specialcomment{mycomment}{
+    \begingroup\sffamily\small\color{red!50!black}}{
+    \endgroup}
+
+\begin{document}
+...
+\begin{comment}
+    Text to be commented\ldots
+\end{comment}
+...
+\end{document}
+\end{lstlisting}
+
+
 
 
 
@@ -1097,16 +1126,30 @@ In preamble:
 % break long links over multiple lines.
 \usepackage[breaklinks=true]{hyperref}
 \hypersetup{
-    hidelinks,       % ?
-    linktocpage,     % only page #s are clickable links in toc
-    linktoc=all,     % ?
-    colorlinks=true, % Allow color for various links
-    urlcolor=blue,
-    linkcolor=black,
-    citecolor=magenta,
+    hidelinks,         % ?
+    linktoc=all,       % ?
+    linktocpage=false, % only page #s are clickable links in toc
+    hyperindex=true,   % Makes the page numbers of index entries into hyperlinks
+    breaklinks=false,  % Allows links to be broken into multiple lines.
+    frenchlinks=false, % Use small caps instead of colours for links
+    colorlinks=false,  % Allow color for link and anchor text...
+    urlcolor=magenta   %   linked URLs
+    linkcolor=red      %   normal internal links
+    citecolor=green,   %   bibliographical citations
+    anchorcolor=black, %   anchor (target) text
+    filecolor=cyan,    %   links that open local files
 }
 \urlstyle{same}
+
+
+
+
 \end{lstlisting}
+
+\href{https://www.overleaf.com/learn/latex/Hyperlinks#Reference_guide}{
+    hypersetup options}
+
+
 NOTE: `draft' option (\verb|\documentclass[draft]{...}|) removes toc links.
 
 Insert hyperlink in text:
