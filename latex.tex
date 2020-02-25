@@ -1120,6 +1120,7 @@ and to use color mixtures.
 \end{lstlisting}
 
 \clearpage
+
 \section{Hyperlinks}
 In preamble:
 \begin{lstlisting}
@@ -1139,10 +1140,14 @@ In preamble:
     anchorcolor=black, %   anchor (target) text
     filecolor=cyan,    %   links that open local files
 }
-\urlstyle{same}
 
-
-
+% Change style of urls (same as body text, roman, sans serif, bold, etc.)
+    \urlstyle{same}
+    \urlstyle{rm}
+    \urlstyle{sf}
+    \bfseries\urlstyle{same}
+    \itshape\urlstyle{same}
+    \mdseries\itshape\urlstyle{same}
 
 \end{lstlisting}
 
