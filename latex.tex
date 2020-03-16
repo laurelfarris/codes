@@ -35,6 +35,7 @@
 %\rhead{text} % Top right
 %\cfoot{text} % Top center
 %\rfoot{\thepage} % Page numbers on bottom right corner
+%\lfoot{\today} % current date on bottom left corner
 
 \definecolor{mygray}{rgb}{0.52, 0.52, 0.51}
 \definecolor{cadmiumorange}{rgb}{0.93, 0.53, 0.18}
@@ -367,6 +368,29 @@ Use \verb|\null| to create `fake content', e.g.
 \lfoot{text} % Bottom left
 \rfoot{text} % Bottom right
 \cfoot{text} % Bottom center
+    % text can be \today for current date or \thepage for page #s.
+
+%% ---
+% Headers & Footers (from Dissertation, 3/13/2020)
+%
+%\usepackage{fancyhdr}
+%\setlength{\headheight}{15.0pt}
+%\pagestyle{fancy}
+%\fancyhf{}
+%\renewcommand{\headrulewidth}{0.5pt} % remove the header rule
+%\fancyhead[R]{\footnotesize\today}
+%\renewcommand*{\headrule}{\color{black!50!white}}
+%
+% Change format of date (sorta... still year month day, just changes separator.
+%\usepackage{yyyymmdd]{datetime}
+%\renewcommand{\dateseparator}{−−}
+%\renewcommand{\dateseparator}{−}
+%\renewcommand{\dateseparator}{/}
+%
+%\cfoot{\today}
+%% ---
+
+
 \end{lstlisting}
 \end{minipage}%
 \begin{minipage}{0.5\textwidth}
@@ -1141,7 +1165,13 @@ In preamble:
     filecolor=cyan,    %   links that open local files
 }
 
+
+% Make \href{} link text bold
+\let\oldhref\href
+\renewcommand{\href}[2]{\oldhref{#1}{\bfseries#2}}
+
 % Change style of urls (same as body text, roman, sans serif, bold, etc.)
+%  NOTE: url text is not the same as hyperlink text in \href{}.
     \urlstyle{same}
     \urlstyle{rm}
     \urlstyle{sf}
