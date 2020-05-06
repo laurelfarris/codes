@@ -1,4 +1,5 @@
 \documentclass{article}
+% {---
 \usepackage[margin=1.0in]{geometry}
 
 \setlength{\parindent}{0em} % default is 15 pt.
@@ -172,7 +173,9 @@
 \author{Laurel Farris}
 \date{\today}
 
-%------------------------------------------------------------------------------------
+% ---}
+
+
 \begin{document}
 \maketitle
 \begin{itemize}
@@ -1894,8 +1897,24 @@ Then edit main file (e.g. \texttt{main.tex}):
 \verb|\input{file.tex}| works, but may as well be consistent, and never
 include file extensions here either.
 
-\clearpage
+
+
+
+\clearpage %--------------------------------------------------------------------
 \section{Unsorted}
+
+
+\begin{lstlisting}
+% Print the numerical value of a latex length (in body text):
+\usepackage{printlen}
+% \begin{document}
+% ...
+% \printlength{length}
+%   units specified by \uselengthunit{unit},
+%   'unit' = pt, pc, in, mm, cm, bp, dd, cc
+\end{lstlisting}
+
+
 
 Define custom width in preamble if used many times in document, and you
 don't want to manually change every single line if you decide to adjust
