@@ -10,6 +10,10 @@
 % \setlength{\topsep}{0pt}
 % \setlength{\partopsep}{0pt}
 
+
+% 05 May 2020 -- packge to highlight text: \hl{text}
+\usepackage{soul}
+
 \usepackage{enumitem}
 \usepackage{tasks}
 \usepackage{ragged2e}
@@ -275,7 +279,7 @@ Use \verb|\null| to create `fake content', e.g.
 
 \begin{lstlisting}
 
-\newpage{
+\newpage
     % Technically new COLUMN:
     %   For single-column documents (probably anything that isn't an apj article),
     %   a new column IS a new page.
@@ -360,8 +364,12 @@ Use \verb|\null| to create `fake content', e.g.
 
 
 \clearpage
+
 \section{Headers and footers}\label{headfoot}
 \begin{minipage}{0.5\textwidth}
+    \textbf{NOTE:} If headers/footers don't show up on pdf,
+    may be because top/bottom margins are set to dimensions too low,
+    and header/footer text is pushed off the page.
 \begin{lstlisting}
 \usepackage{fancyhdr}
 
@@ -474,10 +482,12 @@ Here is some relevant information\footnote{
 \newpage
 \section{Fonts}
 \begin{itemize}
-    \item \href{https://www.tug.org/pracjourn/2006-1/schmidt/schmidt.pdf}{
+    \item \href{https://tug.org/FontCatalogue/sansseriffonts.html}{
             The \LaTeX{} font catalogue}
     \item \href{https://en.wikibooks.org/wiki/LaTeX/Fonts}{
             Wikibooks -- \LaTeX{} fonts}
+    \item \href{https://www.tug.org/pracjourn/2006-1/schmidt/schmidt.pdf}{
+            Font selection in \LaTeX{}}
 \end{itemize}
 
 Font that applies to entire document:
@@ -492,12 +502,6 @@ Font that applies to entire document:
 NOTE: bfseries overrides scshape when using lmodern package.
 
 \subsection{Font size}
-
-\begin{lstlisting}
-\documentclass[12pt]{article}
-\documentclass[11pt]{article}
-\documentclass[10pt]{article} % default
-\end{lstlisting}
 
 \begin{lstlisting}
 \fontsize{<size>}{<baselineskip>}\selectfont
@@ -568,6 +572,11 @@ I want this text to be big.
 \emph{emphasis}
 \underline{underlined}
 \sout{strikethrough}
+
+% highlight text
+\usepackage{soul}
+\hl{text to highlight}
+
 \end{lstlisting}
 \end{minipage}%
 \begin{minipage}[t]{0.5\textwidth}
@@ -581,6 +590,7 @@ I want this text to be big.
         \item \emph{emphasis}
         \item \underline{underlined}
         \item \sout{strikethrough}
+        \item \hl{text to highlight}
     \end{list}
 \end{minipage}
 
@@ -588,6 +598,8 @@ Note: the \verb|ulem| package is required to cross out text using
 \verb|sout|, and also causes \verb|\emph| to push emphasis on
 text by underlining it, rather than putting it in italics
 (ulem = \underline{u}nder\underline{l}ine \underline{em}phasis).
+
+
 
 \clearpage
 \section{Sections}
@@ -1897,6 +1909,17 @@ Then edit main file (e.g. \texttt{main.tex}):
 \verb|\input{file.tex}| works, but may as well be consistent, and never
 include file extensions here either.
 
+To set a directory location for input files other than current (see
+\href{https://vi.stackexchange.com/questions/84/how-can-i-copy-text-to-the-system-clipboard-from-vim}%
+{this link}):
+\begin{lstlisting}
+\makeatletter
+\def\input@path{
+    {$HOME/Dropbox/Dissertation/Test/}
+}
+%or: \def\input@path{{/path/to/folder/}{/path/to/other/folder/}}
+\makeatother
+\end{lstlisting}
 
 
 
