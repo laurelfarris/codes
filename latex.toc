@@ -3,8 +3,7 @@
 \contentsline {subsection}{\numberline {2.1}Page breaks}{3}{subsection.2.1}
 \contentsline {subsection}{\numberline {2.2}Margins}{3}{subsection.2.2}
 \contentsline {section}{\numberline {3}Headers and footers}{5}{section.3}
-\contentsline {subsection}{\numberline {3.1}Page numbers}{5}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Footnotes}{6}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.1}Footnotes}{5}{subsection.3.1}
 \contentsline {section}{\numberline {4}Fonts}{7}{section.4}
 \contentsline {subsection}{\numberline {4.1}Font size}{7}{subsection.4.1}
 \contentsline {subsection}{\numberline {4.2}Font style}{7}{subsection.4.2}

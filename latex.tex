@@ -366,69 +366,46 @@ Use \verb|\null| to create `fake content', e.g.
 \clearpage
 
 \section{Headers and footers}\label{headfoot}
+
+\textbf{NOTE:} If headers/footers don't show up on pdf,
+may be because top/bottom margins are set to dimensions too low,
+and header/footer text is pushed off the page.
+
 \begin{minipage}{0.5\textwidth}
-    \textbf{NOTE:} If headers/footers don't show up on pdf,
-    may be because top/bottom margins are set to dimensions too low,
-    and header/footer text is pushed off the page.
 \begin{lstlisting}
 \usepackage{fancyhdr}
+\pagenumbering{gobble} % Remove page numbers (no package required)
+\pagestyle{empty} % ??
+\pagestyle{fancy} % Automatically generates a header with section name
+\setlength{\headheight}{15pt} % space between header and top edge of paper.
+  % If < 13.6, get error message.
+\fancyhf{} % Clear h/f (including default page number).
+\renewcommand{\headrulewidth}{0.5pt} % remove header rule (why not 0pt ?)
 
-% Automatically generates a header
-%   with section name
-\pagestyle{fancy}
+% Change format of date when using \today:
+\usepackage[yyyymmdd]{datetime}
+\renewcommand{\dateseparator}{−−}
+\renewcommand{\dateseparator}{−}
+\renewcommand{\dateseparator}{/}
 
-\setlength{\headheight}{15pt}
+% Add content to h/f:
 \lhead{text} % Top left
 \rhead{text} % Top right
 \chead{text} % Top center
 \lfoot{text} % Bottom left
 \rfoot{text} % Bottom right
 \cfoot{text} % Bottom center
-    % text can be \today for current date or \thepage for page #s.
 
-%% ---
-% Headers & Footers (from Dissertation, 3/13/2020)
-%
-%\usepackage{fancyhdr}
-%\setlength{\headheight}{15.0pt}
-%\pagestyle{fancy}
-%\fancyhf{}
-%\renewcommand{\headrulewidth}{0.5pt} % remove the header rule
-%\fancyhead[R]{\footnotesize\today}
-%\renewcommand*{\headrule}{\color{black!50!white}}
-%
-% Change format of date (sorta... still year month day, just changes separator.
-%\usepackage{yyyymmdd]{datetime}
-%\renewcommand{\dateseparator}{−−}
-%\renewcommand{\dateseparator}{−}
-%\renewcommand{\dateseparator}{/}
-%
-%\cfoot{\today}
-%% ---
-
-
+% Examples:
+\rhead{\today}   % current date in top right corner
+\cfoot{\thepage} % page number in bottom center
+\fancyhead[R]{\footnotesize\today}
+\renewcommand*{\headrule}{\color{black!50!white}}
 \end{lstlisting}
 \end{minipage}%
-\begin{minipage}{0.5\textwidth}
-    \begin{center}
-        The \verb|\headheight| option sets the amount of space between the
-        header and the top edge of the paper. Value has to be greater than
-        13.6, otherwise will get an error message. Document still
-        compiles, but better safe than sorry. Setting the left, center, and/or
-        right headers overwrites the one generated automatically.
-    \end{center}
-\end{minipage}
 
 
-\subsection{Page numbers}
-\begin{lstlisting}
-\pagenumbering{gobble}
-\pagestyle{empty}
-\fancyhf{}  % Clear all headers and footers (including default page number).
-\renewcommand{\headrulewidth}{0pt} % remove the header rule
-\rfoot{\thepage}
-\lfoot{\thepage}
-\end{lstlisting}
+
 
 \subsection{Footnotes}
 \begin{minipage}[t]{0.5\textwidth}
