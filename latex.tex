@@ -467,14 +467,26 @@ Here is some relevant information\footnote{
             Font selection in \LaTeX{}}
 \end{itemize}
 
+\begin{lstlisting}
+\usepackage[T1]{fontenc} %% --> [] Explain this!!!
+\end{lstlisting}
+
 Font that applies to entire document:
 
 \begin{lstlisting}
 \usepackage{lmodern}
-\renewcommand\familydefault{\sfdefault} % base font of the document
-\renewcommand*\familydefault{\sfdefault} % Difference from above??
-\usepackage[T1]{fontenc}
+\renewcommand\familydefault{\sfdefault}  % base font of the document
+\renewcommand*\familydefault{\sfdefault} % ???
 \end{lstlisting}
+
+
+Changing font for \textit{portion} of document:
+
+\href{https://tex.stackexchange.com/questions/25249/how-do-i-use-a-particular-font-for-a-small-section-of-text-in-my-document}{
+    Link}
+
+
+
 
 NOTE: bfseries overrides scshape when using lmodern package.
 
@@ -1637,8 +1649,8 @@ Also requires multiple runs of pdflatex.
 \clearpage
 \section{Maths!}
 \begin{itemize}
-    \item \href{http://www.math.harvard.edu/texman/node17.html}{Link}
-    \item \href{http://www.math.illinois.edu/~ajh/tex/displays.html}{Link}
+    \item \href{http://www.math.illinois.edu/~ajh/tex/displays.html}%
+        {LaTeX tips: Displayed Math}
 \end{itemize}
 
 \subsection{In-text math mode}
